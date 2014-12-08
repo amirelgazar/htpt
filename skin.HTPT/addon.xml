@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='yes'?>
-<addon id="skin.HTPT" version="2.3.7" name="HTPT" provider-name="Gal Kahalani">
+<addon id="skin.HTPT" version="2.3.8" name="HTPT" provider-name="Gal Kahalani">
   <requires>
     <import addon="xbmc.gui" version="5.0.1"/>
     <import addon="script.favourites" version="3.2.5"/>
