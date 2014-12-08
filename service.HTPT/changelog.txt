@@ -1,0 +1,20 @@
+------------------------
+HTPT Service v1.0.0 (27-Oct-14)
+------------------------
+
+- Re-work of caching.
+- Re-work of playback functions.
+- Re-work of resume points.
+- Re-work of movie listings.
+- Re-work of tv show listings.
+- Re-work of season listings.
+- Re-work of episode listings.
+- Added support for getting better movie subtitles.
+- Fixed issues with non ascii characters.
+- Fixed issues with favourites.
+- Tweaked loading of various modules.
+- Tweaked option for clearing cache.
+- Added option for clearing sources.
+- Removed Metahandler settings.
+- Updated translations.
+- Code cosmetics.
