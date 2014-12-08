@@ -8,7 +8,7 @@ createupdate.bat
 excludelist1.txt
 excludelist2.txt
 repo_prep*
-TexturePacker/*
+
 
 *.pydevproject
 .project
