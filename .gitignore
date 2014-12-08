@@ -1,3 +1,10 @@
+# GAL
+addons_xml_generator
+createupdate.bat
+excludelist1.txt
+excludelist2.txt
+repo_prep
+
 # Windows image file caches
 Thumbs.db
 ehthumbs.db
