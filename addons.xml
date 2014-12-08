@@ -13,7 +13,7 @@
 	</extension>
 </addon>
 
-<addon id="skin.HTPT" version="2.3.7" name="HTPT" provider-name="FastColors">
+<addon id="skin.HTPT" version="2.3.7" name="HTPT" provider-name="Gal Kahalani">
   <requires>
     <import addon="xbmc.gui" version="5.0.1"/>
     <import addon="script.favourites" version="3.2.5"/>
@@ -26,8 +26,8 @@
     <platform>all</platform>
     <summary lang="en"></summary>
     <summary lang="he"></summary>
-    <description lang="en">HTPT 0547393531</description>
-    <disclaimer>HTPT</disclaimer>
+    <description lang="en">HTPT - because not all is self-evident</description>
+    <disclaimer>HTPT Support: 0547393531</disclaimer>
   </extension>
 </addon>
 </addons>
