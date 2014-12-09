@@ -13,7 +13,7 @@
 	</extension>
 </addon>
 
-<addon id="service.HTPT" name="HTPT Service" version="2.0.0" provider-name="Gal Kahalani">
+<addon id="service.HTPT" name="HTPT Service" version="0.0.1" provider-name="Gal Kahalani">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
   </requires>
@@ -24,7 +24,7 @@
   </extension>
 </addon>
 
-<addon id="skin.HTPT" version="2.3.8" name="HTPT" provider-name="Gal Kahalani">
+<addon id="skin.HTPT" version="0.0.1" name="HTPT" provider-name="Gal Kahalani">
   <requires>
     <import addon="xbmc.gui" version="5.0.1"/>
     <import addon="script.favourites" version="3.2.5"/>

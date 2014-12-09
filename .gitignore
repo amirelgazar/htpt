@@ -9,6 +9,8 @@ excludelist1.txt
 excludelist2.txt
 repo_prep*
 TexturePacker/*
+BACKUP/
+
 
 *.pydevproject
 .project
