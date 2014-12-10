@@ -24,15 +24,15 @@
   </extension>
 </addon>
 
-<addon id="skin.HTPT" version="0.0.1" name="HTPT" provider-name="Gal Kahalani">
+<addon id="skin.HTPT" version="0.0.1" name="HTPT SYSTEM" provider-name="Gal Kahalani">
   <requires>
     <import addon="xbmc.gui" version="5.0.1"/>
     <import addon="script.favourites" version="3.2.5"/>
     <import addon="service.skin.widgets" version="0.0.29"/>
   </requires>
   <extension point="xbmc.gui.skin" defaultthemename="Textures.xbt" effectslowdown="1" debugging="false">
-        <res width="1920" height="1080" aspect="16:9" default="true" folder="1080i"/>
-    </extension>
+    <res width="1920" height="1080" aspect="16:9" default="true" folder="1080i"/>
+  </extension>
   <extension point="xbmc.addon.metadata">
     <platform>all</platform>
     <summary lang="en"></summary>
