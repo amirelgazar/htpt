@@ -1,9 +1,12 @@
 <?xml version='1.0' encoding='UTF-8' standalone='yes'?>
-<addon id="skin.HTPT" version="0.0.1" name="HTPT SYSTEM" provider-name="Gal Kahalani">
+<addon id="skin.HTPT" version="0.0.2" name="HTPT SYSTEM" provider-name="Gal Kahalani">
   <requires>
     <import addon="xbmc.gui" version="5.0.1"/>
+	<import addon="xbmc.python" version="2.1.0"/>
+	<import addon="script.module.simplejson" version="2.0.10" />
     <import addon="script.favourites" version="3.2.5"/>
-    <import addon="service.skin.widgets" version="0.0.29"/>
+	<import addon="service.skin.widgets" version="0.0.29"/>
+	<import addon="service.HTPT" version="0.0.2"/>
   </requires>
   <extension point="xbmc.gui.skin" defaultthemename="Textures.xbt" effectslowdown="1" debugging="false">
     <res width="1920" height="1080" aspect="16:9" default="true" folder="1080i"/>
@@ -12,7 +15,7 @@
     <platform>all</platform>
     <summary lang="en"></summary>
     <summary lang="he"></summary>
-    <description lang="en">HTPT - because not all is self-evident</description>
-    <disclaimer>HTPT Support: 0547393531</disclaimer>
+    <description lang="en">[COLOR=Blue][B]HTPT[/B] -   because[CR]not all is self-evident[/COLOR][CR][CR][B]HTPT Support:[/B][CR][COLOR=White]0547393531[CR]infohtpt@gmail.com[/COLOR]</description>
+    <disclaimer>[COLOR=Red][B]YOUR ADVISE TO NOT INSTALL THIS ADDON UNLESS YOU OWN AN ORIGINAL HTPT SYSTEM![CR]THE OWNER DO NOT TAKE ANY RESPONSIBILITY FOR ANY DAMAGE CAUSED BY THIS ADDON[/COLOR][/B]</disclaimer>
   </extension>
 </addon>
