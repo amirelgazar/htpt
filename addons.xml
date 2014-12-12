@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <addons>
-<addon id="repository.HTPT" name="HTPT repository" version="1.0.0" provider-name="Gal Kahalani">
+<addon id="repository.htpt" name="HTPT repository" version="1.0.1" provider-name="Gal Kahalani">
 	<extension point="xbmc.addon.repository" name="HTPT repository">
 		<info compressed="false">https://raw.githubusercontent.com/htpthtpt/htpt/master/addons.xml</info>
 		<checksum>https://raw.githubusercontent.com/htpthtpt/htpt/master/addons.xml.md5</checksum>
-		<datadir zip="true">https://raw.githubusercontent.com/htpthtpt/htpt/master/repository.HTPT/</datadir>
+		<datadir zip="true">https://raw.githubusercontent.com/htpthtpt/htpt/master/</datadir>
     </extension>
 	<extension point="xbmc.addon.metadata">
 		<summary lang="en">HTPT</summary>
@@ -13,10 +13,10 @@
 	</extension>
 </addon>
 
-<addon id="service.HTPT" name="HTPT Service" version="0.0.2" provider-name="Gal Kahalani">
+<addon id="service.htpt" name="HTPT Service" version="0.0.3" provider-name="Gal Kahalani">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
-	<import addon="skin.HTPT" version="0.0.2"/>
+	<import addon="skin.htpt" version="0.0.3"/>
   </requires>
   <extension point="xbmc.service" library="default.py" start="startup">
   </extension>
@@ -27,14 +27,14 @@
   </extension>
 </addon>
 
-<addon id="skin.HTPT" version="0.0.2" name="HTPT SYSTEM" provider-name="Gal Kahalani">
+<addon id="skin.htpt" version="0.0.3" name="HTPT SYSTEM" provider-name="Gal Kahalani">
   <requires>
     <import addon="xbmc.gui" version="5.0.1"/>
 	<import addon="xbmc.python" version="2.1.0"/>
 	<import addon="script.module.simplejson" version="2.0.10" />
     <import addon="script.favourites" version="3.2.5"/>
 	<import addon="service.skin.widgets" version="0.0.29"/>
-	<import addon="service.HTPT" version="0.0.2"/>
+	<import addon="service.htpt" version="0.0.3"/>
   </requires>
   <extension point="xbmc.gui.skin" defaultthemename="Textures.xbt" effectslowdown="1" debugging="false">
     <res width="1920" height="1080" aspect="16:9" default="true" folder="1080i"/>
