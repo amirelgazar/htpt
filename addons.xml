@@ -13,7 +13,50 @@
 	</extension>
 </addon>
 
-<addon id="service.htpt" name="HTPT Service" version="0.0.3" provider-name="Gal Kahalani">
+<addon id="script.extendedinfo" name="ExtendedInfo Script" version="1.6.0" provider-name="phil65">
+	<requires>
+		<import addon="xbmc.python" version="2.1.0"/>
+		<import addon="script.module.simplejson" version="2.0.10"/>
+		<import addon="script.module.youtube.dl" version="14.519.1"/>
+	</requires>
+	<extension point="xbmc.python.library"          library="default.py" />
+	<extension point="xbmc.python.pluginsource"     library="default.py" />
+	<extension point="xbmc.addon.metadata">
+		<language/>
+		<summary lang="en">Extended Info Script</summary>
+		<description lang="en">This script offers various possibilities to display online content inside skins. Used services are themoviedb.org, theaudiodb.org, rottentomatoes.com, Trakt.TV and a lot more. Can also be used for importing / exporting skin settings, adding additional fanart stuff to library and cooking eggs. Needs skin support for most functions.</description>
+		<platform>all</platform>
+		<license>GNU GENERAL PUBLIC LICENSE Version 2, June 1991</license>
+		<forum>-</forum>
+		<source>-</source>
+		<email>-</email>
+	</extension>
+</addon>
+
+<addon id="script.toolbox" name="Skin Toolbox" version="1.0.0" provider-name="phil65">
+	<requires>
+		<import addon="xbmc.python" version="2.1.0"/>
+		<import addon="script.module.simplejson" version="2.0.10"/>
+		<import addon="script.module.pil" version="1.1.7"/>
+	</requires>
+	<extension point="xbmc.python.library"          library="default.py" />
+	<extension point="xbmc.python.pluginsource"     library="default.py" />
+    <extension point="xbmc.python.script"           library="default.py">
+        <provides>executable</provides>
+    </extension>
+	<extension point="xbmc.addon.metadata">
+		<language/>
+		<summary lang="en">Skin Toolbox</summary>
+		<description lang="en">This script makes several python functions accessible for skinners.</description>
+		<platform>all</platform>
+		<license>GNU GENERAL PUBLIC LICENSE Version 2, June 1991</license>
+		<forum>-</forum>
+		<source>-</source>
+		<email>-</email>
+	</extension>
+</addon>
+
+<addon id="service.htpt" name="HTPT Service" version="0.0.4" provider-name="Gal Kahalani">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
 	<!--<import addon="skin.htpt" version="0.0.3"/>-->
@@ -27,13 +70,15 @@
   </extension>
 </addon>
 
-<addon id="skin.htpt" version="0.0.3" name="HTPT SYSTEM" provider-name="Gal Kahalani">
+<addon id="skin.htpt" version="0.0.4" name="HTPT SYSTEM" provider-name="Gal Kahalani">
   <requires>
     <import addon="xbmc.gui" version="5.0.1"/>
 	<import addon="xbmc.python" version="2.1.0"/>
 	<!--<import addon="script.module.simplejson" version="2.0.10" />-->
     <import addon="script.favourites" version="3.2.5"/>
 	<import addon="service.skin.widgets" version="0.0.29"/>
+	<import addon="script.extendedinfo" version="1.6.0"/>
+	<import addon="script.toolbox" version="1.0.0"/>
 	<!--<import addon="service.htpt" version="0.0.3"/>-->
   </requires>
   <extension point="xbmc.gui.skin" defaultthemename="Textures.xbt" effectslowdown="1" debugging="false">
