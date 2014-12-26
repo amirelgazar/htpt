@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <addons>
-<addon id="repository.htpt" name="HTPT repository" version="1.0.2" provider-name="Gal Kahalani">
+<addon id="repository.htpt" name="HTPT repository" version="1.0.3" provider-name="Gal Kahalani">
 	<extension point="xbmc.addon.repository" name="HTPT repository">
 		<info compressed="false">https://raw.githubusercontent.com/htpthtpt/htpt/master/addons.xml</info>
 		<checksum>https://raw.githubusercontent.com/htpthtpt/htpt/master/addons.xml.md5</checksum>
@@ -33,6 +33,32 @@
 	</extension>
 </addon>
 
+<addon id="script.htpt.homebuttons" name="HTPT homebuttons Script" version="0.1.0" provider-name="Gal Kahalani">
+  <requires>
+    <import addon="xbmc.python" version="2.1.0"/>
+	<import addon="skin.htpt" version="0.0.4"/>
+  </requires>
+  <extension point="xbmc.python.script" library="default.py"/>
+  <extension point="xbmc.addon.metadata">
+    <platform>all</platform>
+	<description lang="en">[COLOR=Blue][B]HTPT[/B] -   because[CR]not all is self-evident[/COLOR][CR][CR][B]HTPT Support:[/B][CR][COLOR=White]0547393531[CR]infohtpt@gmail.com[/COLOR]</description>
+	<disclaimer>[COLOR=Red][B]YOUR ADVISE TO NOT INSTALL THIS ADDON UNLESS YOU OWN AN ORIGINAL HTPT SYSTEM![CR]THE OWNER DO NOT TAKE ANY RESPONSIBILITY FOR ANY DAMAGE CAUSED BY THIS ADDON[/COLOR][/B]</disclaimer>
+  </extension>
+</addon>
+
+<addon id="script.htpt.refresh" name="HTPT Refresh Script" version="0.1.0" provider-name="Gal Kahalani">
+  <requires>
+    <import addon="xbmc.python" version="2.1.0"/>
+	<import addon="skin.htpt" version="0.0.4"/>
+  </requires>
+  <extension point="xbmc.python.script" library="default.py"/>
+  <extension point="xbmc.addon.metadata">
+    <platform>all</platform>
+	<description lang="en">[COLOR=Blue][B]HTPT[/B] -   because[CR]not all is self-evident[/COLOR][CR][CR][B]HTPT Support:[/B][CR][COLOR=White]0547393531[CR]infohtpt@gmail.com[/COLOR]</description>
+	<disclaimer>[COLOR=Red][B]YOUR ADVISE TO NOT INSTALL THIS ADDON UNLESS YOU OWN AN ORIGINAL HTPT SYSTEM![CR]THE OWNER DO NOT TAKE ANY RESPONSIBILITY FOR ANY DAMAGE CAUSED BY THIS ADDON[/COLOR][/B]</disclaimer>
+  </extension>
+</addon>
+
 <addon id="script.toolbox" name="Skin Toolbox" version="1.0.0" provider-name="phil65">
 	<requires>
 		<import addon="xbmc.python" version="2.1.0"/>
@@ -56,9 +82,10 @@
 	</extension>
 </addon>
 
-<addon id="service.htpt" name="HTPT Service" version="0.0.4" provider-name="Gal Kahalani">
+<addon id="service.htpt" name="HTPT Service" version="0.1.0" provider-name="Gal Kahalani">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
+	<import addon="skin.htpt" version="0.0.4"/>
 	<!--<import addon="skin.htpt" version="0.0.3"/>-->
   </requires>
   <extension point="xbmc.service" library="default.py" start="startup">
@@ -70,18 +97,21 @@
   </extension>
 </addon>
 
-<addon id="skin.htpt" version="0.0.4" name="HTPT SYSTEM" provider-name="Gal Kahalani">
+<addon id="skin.htpt" version="0.1.0" name="HTPT SYSTEM" provider-name="Gal Kahalani">
   <requires>
-    <import addon="xbmc.gui" version="5.0.1"/>
+    <import addon="xbmc.gui" version="5.4.0"/>
 	<import addon="xbmc.python" version="2.1.0"/>
 	<!--<import addon="script.module.simplejson" version="2.0.10" />-->
     <import addon="script.favourites" version="3.2.5"/>
-	<import addon="service.skin.widgets" version="0.0.29"/>
-	<import addon="script.extendedinfo" version="1.6.0"/>
 	<import addon="script.toolbox" version="1.0.0"/>
-	<!--<import addon="service.htpt" version="0.0.3"/>-->
+	<import addon="service.openelec.settings" version="7000.0.3.18"/>
+	<import addon="service.skin.widgets" version="0.0.29"/>
+	<!--<import addon="script.extendedinfo" version="1.6.0"/>-->
+	<import addon="service.htpt" version="0.1.0"/>
+	<import addon="script.htpt.homebuttons" version="0.1.0"/>
+	<import addon="script.htpt.refresh" version="0.1.0"/>
   </requires>
-  <extension point="xbmc.gui.skin" defaultthemename="Textures.xbt" effectslowdown="1" debugging="false">
+  <extension point="xbmc.gui.skin" effectslowdown="1" debugging="false">
     <res width="1920" height="1080" aspect="16:9" default="true" folder="1080i"/>
   </extension>
   <extension point="xbmc.addon.metadata">
