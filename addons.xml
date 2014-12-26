@@ -36,7 +36,7 @@
 <addon id="script.htpt.homebuttons" name="HTPT homebuttons Script" version="0.1.0" provider-name="Gal Kahalani">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
-	<import addon="skin.htpt" version="0.0.4"/>
+	<!--<import addon="skin.htpt" version="0.0.4"/>-->
   </requires>
   <extension point="xbmc.python.script" library="default.py"/>
   <extension point="xbmc.addon.metadata">
@@ -49,7 +49,7 @@
 <addon id="script.htpt.refresh" name="HTPT Refresh Script" version="0.1.0" provider-name="Gal Kahalani">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
-	<import addon="skin.htpt" version="0.0.4"/>
+	<!--<import addon="skin.htpt" version="0.0.4"/>-->
   </requires>
   <extension point="xbmc.python.script" library="default.py"/>
   <extension point="xbmc.addon.metadata">
@@ -85,8 +85,7 @@
 <addon id="service.htpt" name="HTPT Service" version="0.1.0" provider-name="Gal Kahalani">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
-	<import addon="skin.htpt" version="0.0.4"/>
-	<!--<import addon="skin.htpt" version="0.0.3"/>-->
+	<!--<import addon="skin.htpt" version="0.0.4"/>-->
   </requires>
   <extension point="xbmc.service" library="default.py" start="startup">
   </extension>
