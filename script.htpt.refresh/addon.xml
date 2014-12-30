@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<addon id="script.htpt.refresh" name="HTPT Refresh Script" version="0.1.0" provider-name="Gal Kahalani">
+<addon id="script.htpt.refresh" name="HTPT Refresh Script" version="0.1.1" provider-name="Gal Kahalani">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
-	<!--<import addon="skin.htpt" version="0.0.4"/>-->
+	<import addon="skin.htpt" version="0.1.0"/>
   </requires>
   <extension point="xbmc.python.script" library="default.py"/>
   <extension point="xbmc.addon.metadata">
