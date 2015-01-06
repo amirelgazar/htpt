@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<addon id="script.htpt.debug"
+       name="HTPT Debug"
+       version="0.0.1"
+       provider-name="HTPT">
+  <requires>
+    <import addon="xbmc.python" version="2.0"/>
+	<import addon="script.htpt.homebuttons" version="0.1.4"/>
+  </requires>
+  <extension point="xbmc.python.script" library="default.py"/>
+  <extension point="xbmc.addon.metadata">
+    <summary lang="en">Receive support from HTPT team</summary>
+    <description lang="en">Without this script there will be no remote assistance...</description>
+<platform>all</platform>
+  </extension>
+</addon>
