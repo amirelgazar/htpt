@@ -33,22 +33,7 @@
 	</extension>
 </addon>
 
-<addon id="script.htpt.debug"
-       name="HTPT Debug"
-       version="0.0.2"
-       provider-name="HTPT">
-  <requires>
-    <import addon="xbmc.python" version="2.0"/>
-  </requires>
-  <extension point="xbmc.python.script" library="default.py"/>
-  <extension point="xbmc.addon.metadata">
-    <summary lang="en">Receive support from HTPT team</summary>
-    <description lang="en">Without this script there will be no remote assistance...</description>
-<platform>all</platform>
-  </extension>
-</addon>
-
-<addon id="script.htpt.homebuttons" name="HTPT homebuttons Script" version="0.1.5" provider-name="Gal Kahalani">
+<addon id="script.htpt.homebuttons" name="HTPT homebuttons Script" version="0.1.4" provider-name="Gal Kahalani">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
 	<!--<import addon="skin.htpt" version="0.1.0"/>-->
@@ -61,7 +46,7 @@
   </extension>
 </addon>
 
-<addon id="script.htpt.refresh" name="HTPT Refresh Script" version="0.1.5" provider-name="Gal Kahalani">
+<addon id="script.htpt.refresh" name="HTPT Refresh Script" version="0.1.4" provider-name="Gal Kahalani">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
 	<!--<import addon="skin.htpt" version="0.1.0"/>-->
@@ -97,7 +82,7 @@
 	</extension>
 </addon>
 
-<addon id="service.htpt" name="HTPT Service" version="0.1.5" provider-name="Gal Kahalani">
+<addon id="service.htpt" name="HTPT Service" version="0.1.4" provider-name="Gal Kahalani">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
 	<!--<import addon="skin.htpt" version="0.1.0"/>-->
@@ -111,7 +96,7 @@
   </extension>
 </addon>
 
-<addon id="skin.htpt" version="0.1.5" name="HTPT SYSTEM" provider-name="Gal Kahalani">
+<addon id="skin.htpt" version="0.1.4" name="HTPT SYSTEM" provider-name="Gal Kahalani">
   <requires>
     <import addon="xbmc.gui" version="5.3.0"/>
 	<!--<import addon="xbmc.python" version="2.1.0"/>-->
@@ -122,9 +107,8 @@
 	<import addon="service.skin.widgets" version="0.0.29"/>
 	<!--<import addon="script.extendedinfo" version="1.6.0"/>-->
 	<import addon="service.htpt" version="0.1.0"/>
-	<import addon="script.htpt.refresh" version="0.1.0"/>
 	<import addon="script.htpt.homebuttons" version="0.1.0"/>
-	<import addon="script.htpt.debug" version="0.0.2"/>
+	<import addon="script.htpt.refresh" version="0.1.0"/>
   </requires>
   <extension point="xbmc.gui.skin" effectslowdown="1" debugging="false">
     <res width="1920" height="1080" aspect="16:9" default="true" folder="1080i"/>

@@ -1,5 +1,0 @@
-------------------------
-HTPT homebuttons Script v0.1.0 (26-Dec-14)
-------------------------
-
-- Refer to skin.htpt
