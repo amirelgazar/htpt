@@ -1,0 +1,158 @@
+msgid ""
+msgstr ""
+
+msgctxt "#1
+msgid ""
+msgstr "הגדרות קריאת שירות (אוטומטי)."
+
+msgctxt "#2
+msgid ""
+msgstr "אנא המתן"
+
+msgctxt "#3
+msgid ""
+msgstr "נסה שנית"
+
+msgctxt "#4
+msgid ""
+msgstr "..."
+
+msgctxt "#10
+msgid "Service Call"
+msgstr "קריאת שירות"
+
+msgctxt "#11
+msgid ""
+msgstr "התקבלה קריאת שירות מלקוח"
+
+msgctxt "#12
+msgid ""
+msgstr "הודעה: מכשיר הופעל"
+
+msgctxt "#13
+msgid ""
+msgstr "התראה: לא מורשה!"
+
+msgctxt "#14
+msgid ""
+msgstr "התראה: המכשיר במסך פתיחה (12)"
+
+msgctxt "#15
+msgid ""
+msgstr "הודעה: מצב מכשיר (120)"
+
+msgctxt "#16
+msgid ""
+msgstr "התראה: שגיאה במכשיר!!!"
+
+msgctxt "#17
+msgid ""
+msgstr "הודעה מצב מכשיר (היום,12)"
+
+msgctxt "#18
+msgid ""
+msgstr ""
+
+msgctxt "#20
+msgid ""
+msgstr "כמות קריאות שירות"
+
+msgctxt "#21
+msgid ""
+msgstr "כמות הפעלת מכשיר"
+
+msgctxt "#22
+msgid ""
+msgstr "כמות לא מורשה"
+
+msgctxt "#23
+msgid ""
+msgstr "כמות שגיאה"
+
+msgctxt "#27
+msgid ""
+msgstr "תאריך אחרון"
+
+msgctxt "#28
+msgid ""
+msgstr "הפנייה אחרונה"
+
+msgctxt "#30
+msgid ""
+msgstr "המספר טלפון שהקשת אינו תקין!"
+
+msgctxt "#31
+msgid ""
+msgstr "מתחיל לשלוח דוח..."
+
+msgctxt "#32
+msgid ""
+msgstr "שולח דוח (1/5)."
+
+msgctxt "#33
+msgid ""
+msgstr "שולח דוח (2/5)."
+
+msgctxt "#34
+msgid ""
+msgstr "שולח דוח (3/5)."
+
+msgctxt "#35
+msgid ""
+msgstr "שולח דוח (4/5)."
+
+msgctxt "#36
+msgid ""
+msgstr "הדוח נשלח בהצלחה!"
+
+msgctxt "#37
+msgid ""
+msgstr "שליחת הדוח נכשלה!"
+
+msgctxt "#38
+msgid ""
+msgstr ""
+
+msgctxt "#40
+msgid "Last Service Call"
+msgstr "קריאת שירות אחרונה בתאריך"
+
+msgctxt "#41
+msgid ""
+msgstr "שם משתמש"
+
+msgctxt "#42
+msgid ""
+msgstr "כתובת"
+
+msgctxt "#43
+msgid ""
+msgstr "טלפון"
+
+msgctxt "#44
+msgid ""
+msgstr "פרט בקצרה את מהות הפנייה"
+
+msgctxt "#45
+msgid ""
+msgstr ""
+
+msgctxt "#46
+msgid ""
+msgstr ""
+
+msgctxt "#47
+msgid ""
+msgstr ""
+
+msgctxt "#50
+msgid ""
+msgstr ""
+
+msgctxt "#100
+msgid ""
+msgstr "כללי"
+
+msgctxt "#101
+msgid ""
+msgstr "DEBUG"
