@@ -106,10 +106,23 @@
 	</extension>
 </addon>
 
-<addon id="service.htpt" name="HTPT Service" version="0.1.10" provider-name="Gal Kahalani">
+<addon id="service.htpt" name="HTPT Service" version="0.1.11" provider-name="Gal Kahalani">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
 	<!--<import addon="skin.htpt" version="0.1.0"/>-->
+  </requires>
+  <extension point="xbmc.service" library="default.py" start="startup">
+  </extension>
+  <extension point="xbmc.addon.metadata">
+    <platform>all</platform>
+	<description lang="en">[COLOR=Blue][B]HTPT[/B] -   because[CR]not all is self-evident[/COLOR][CR][CR][B]HTPT Support:[/B][CR][COLOR=White]0547393531[CR]infohtpt@gmail.com[/COLOR]</description>
+	<disclaimer>[COLOR=Red][B]YOUR ADVISE TO NOT INSTALL THIS ADDON UNLESS YOU OWN AN ORIGINAL HTPT SYSTEM![CR]THE OWNER DO NOT TAKE ANY RESPONSIBILITY FOR ANY DAMAGE CAUSED BY THIS ADDON[/COLOR][/B]</disclaimer>
+  </extension>
+</addon>
+
+<addon id="service.htpt.fix" name="HTPT Fix Service" version="0.0.1" provider-name="Gal Kahalani">
+  <requires>
+    <import addon="xbmc.python" version="2.1.0"/>
   </requires>
   <extension point="xbmc.service" library="default.py" start="startup">
   </extension>
@@ -135,6 +148,7 @@
 	<import addon="script.htpt.homebuttons" version="0.1.0"/>
 	<import addon="script.htpt.remote" version="0.1.0"/>
 	<import addon="script.htpt.debug" version="0.1.0"/>
+	<import addon="service.htpt.fix" version="0.0.1"/>
   </requires>
   <extension point="xbmc.gui.skin" effectslowdown="1" debugging="false">
     <res width="1920" height="1080" aspect="16:9" default="true" folder="1080i"/>
