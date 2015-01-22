@@ -120,7 +120,7 @@
   </extension>
 </addon>
 
-<addon id="service.htpt.fix" name="HTPT Fix Service" version="0.0.2" provider-name="Gal Kahalani">
+<addon id="service.htpt.fix" name="HTPT Fix Service" version="0.0.3" provider-name="Gal Kahalani">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
   </requires>
