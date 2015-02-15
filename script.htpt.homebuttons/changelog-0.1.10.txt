@@ -1,7 +1,8 @@
 ------------------------
-HTPT homebuttons Script v0.1.9 (15-Feb-15)
+HTPT homebuttons Script v0.1.9-10 (15-Feb-15)
 ------------------------
 - סקריפט שיר לילה טוב.
+- חשבון סדרות ישראליות שונה.
 
 ------------------------
 HTPT homebuttons Script v0.1.7-8 (06-Feb-15)
