@@ -1,0 +1,12 @@
+<settings>
+    <setting id="plot_enable" value="true" />
+    <setting id="randomitems_enable" value="true" />
+    <setting id="randomitems_method" value="1" />
+    <setting id="randomitems_seasonfolders" value="false" />
+    <setting id="randomitems_time" value="60" />
+    <setting id="randomitems_unplayed" value="true" />
+    <setting id="recentitems_enable" value="true" />
+    <setting id="recentitems_homeupdate" value="false" />
+    <setting id="recentitems_unplayed" value="true" />
+    <setting id="recommended_enable" value="true" />
+</settings>

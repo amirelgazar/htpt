@@ -1,0 +1,44 @@
+<settings>
+    <setting id="TrailerQ" value="1080p" />
+    <setting id="allcritics" value="All Critics" />
+    <setting id="certificationssource" value="IMDb" />
+    <setting id="certprefix" value="Rated " />
+    <setting id="countrysource" value="IMDb" />
+    <setting id="creditssource" value="IMDb" />
+    <setting id="fanart" value="true" />
+    <setting id="fanarttvfanart" value="true" />
+    <setting id="fanarttvposter" value="false" />
+    <setting id="fullimdbsearch" value="false" />
+    <setting id="genressource" value="IMDb" />
+    <setting id="imdbakatitles" value="Israel" />
+    <setting id="imdbcertcountry" value="USA" />
+    <setting id="imdbsearch" value="true" />
+    <setting id="imdbsearchlanguage" value="he-il" />
+    <setting id="imdbthumbs" value="true" />
+    <setting id="imdbtop250" value="true" />
+    <setting id="impawards" value="false" />
+    <setting id="movieposterdb" value="false" />
+    <setting id="mratingsource" value="IMDb" />
+    <setting id="outlinesource" value="None" />
+    <setting id="plotsource" value="themoviedb.org" />
+    <setting id="studiosource" value="IMDb" />
+    <setting id="taglinesource" value="themoviedb.org" />
+    <setting id="titlesource" value="themoviedb.org" />
+    <setting id="tmdbcertcountry" value="us" />
+    <setting id="tmdbgenreslanguage" value="he" />
+    <setting id="tmdbplotlanguage" value="he" />
+    <setting id="tmdbsearch" value="false" />
+    <setting id="tmdbset" value="true" />
+    <setting id="tmdbsetlanguage" value="he" />
+    <setting id="tmdbtaglinelanguage" value="he" />
+    <setting id="tmdbtags" value="themoviedb.org" />
+    <setting id="tmdbthumblanguage" value="he" />
+    <setting id="tmdbthumbs" value="true" />
+    <setting id="tmdbtitlelanguage" value="he" />
+    <setting id="tmdbtrailer" value="true" />
+    <setting id="tmdbtrailerlanguage" value="en" />
+    <setting id="tomato" value="TomatoMeter" />
+    <setting id="trakttvfanart" value="false" />
+    <setting id="trakttvposter" value="false" />
+    <setting id="trakttvtrailer" value="true" />
+</settings>

@@ -1,0 +1,8 @@
+<settings>
+    <setting id="RatingS" value="IMDb" />
+    <setting id="absolutenumber" value="false" />
+    <setting id="dvdorder" value="false" />
+    <setting id="fallback" value="true" />
+    <setting id="fanart" value="true" />
+    <setting id="language" value="he" />
+</settings>
