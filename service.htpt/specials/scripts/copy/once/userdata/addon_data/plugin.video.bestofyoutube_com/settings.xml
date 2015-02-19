@@ -1,7 +1,0 @@
-<settings>
-    <setting id="filter" value="true" />
-    <setting id="filterRating" value="90" />
-    <setting id="filterThreshold" value="40" />
-    <setting id="forceViewMode" value="true" />
-    <setting id="viewMode" value="58" />
-</settings>
