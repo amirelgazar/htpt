@@ -33,7 +33,7 @@
 	</extension>
 </addon>
 
-<addon id="script.htpt.debug" name="HTPT Debug" version="0.1.8" provider-name="Gal Kahalani">
+<addon id="script.htpt.debug" name="HTPT Debug" version="0.1.9" provider-name="Gal Kahalani">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
   </requires>
@@ -46,7 +46,20 @@
   </extension>
 </addon>
 
-<addon id="script.htpt.homebuttons" name="HTPT homebuttons Script" version="0.1.10" provider-name="Gal Kahalani">
+<addon id="script.htpt.emu" name="HTPT Emulator" version="0.0.1" provider-name="Gal Kahalani">
+  <requires>
+    <import addon="xbmc.python" version="2.1.0"/>
+  </requires>
+  <extension point="xbmc.python.script" library="default.py"/>
+  <extension point="xbmc.service" library="service.py" start="startup"/>
+  <extension point="xbmc.addon.metadata">
+    <platform>all</platform>
+	<description lang="en">[COLOR=Blue][B]HTPT[/B] -   because[CR]not all is self-evident[/COLOR][CR][CR][B]HTPT Support:[/B][CR][COLOR=White]0547393531[CR]infohtpt@gmail.com[/COLOR]</description>
+	<disclaimer>[COLOR=Red][B]YOUR ADVISE TO NOT INSTALL THIS ADDON UNLESS YOU OWN AN ORIGINAL HTPT SYSTEM![CR]THE OWNER DO NOT TAKE ANY RESPONSIBILITY FOR ANY DAMAGE CAUSED BY THIS ADDON[/COLOR][/B]</disclaimer>
+  </extension>
+</addon>
+
+<addon id="script.htpt.homebuttons" name="HTPT homebuttons Script" version="0.1.11" provider-name="Gal Kahalani">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
 	<!--<import addon="skin.htpt" version="0.1.0"/>-->
@@ -59,7 +72,7 @@
   </extension>
 </addon>
 
-<addon id="script.htpt.refresh" name="HTPT Refresh Script" version="0.1.11" provider-name="Gal Kahalani">
+<addon id="script.htpt.refresh" name="HTPT Refresh Script" version="0.1.12" provider-name="Gal Kahalani">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
   </requires>
@@ -107,7 +120,7 @@
 	</extension>
 </addon>
 
-<addon id="service.htpt" name="HTPT Service" version="0.1.15" provider-name="Gal Kahalani">
+<addon id="service.htpt" name="HTPT Service" version="0.1.16" provider-name="Gal Kahalani">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
 	<!--<import addon="skin.htpt" version="0.1.0"/>-->
@@ -133,7 +146,7 @@
   </extension>
 </addon>
 
-<addon id="skin.htpt" version="0.1.10" name="HTPT SYSTEM" provider-name="Gal Kahalani">
+<addon id="skin.htpt" version="0.1.11" name="HTPT SYSTEM" provider-name="Gal Kahalani">
   <requires>
     <import addon="xbmc.gui" version="5.3.0"/>
 	<!--<import addon="xbmc.python" version="2.1.0"/>-->
@@ -144,10 +157,11 @@
 	<!--<import addon="script.extendedinfo" version="1.6.0"/>-->
 	<!--<import addon="service.autosubs" version="1.0.0"/>-->
 	<import addon="service.htpt" version="0.1.10"/>
-	<import addon="script.htpt.refresh" version="0.1.5"/>
-	<import addon="script.htpt.homebuttons" version="0.1.5"/>
-	<import addon="script.htpt.remote" version="0.1.0"/>
-	<import addon="script.htpt.debug" version="0.1.0"/>
+	<import addon="script.htpt.refresh" version="0.1.10"/>
+	<import addon="script.htpt.homebuttons" version="0.1.10"/>
+	<import addon="script.htpt.remote" version="0.1.1"/>
+	<!--<import addon="script.htpt.emu" version="0.0.1"/>-->
+	<import addon="script.htpt.debug" version="0.1.8"/>
 	<import addon="service.htpt.fix" version="0.0.1"/>
   </requires>
   <extension point="xbmc.gui.skin" effectslowdown="1" debugging="false">
