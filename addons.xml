@@ -155,13 +155,13 @@
 	<import addon="service.skin.widgets" version="0.0.29"/>
 	<!--<import addon="script.extendedinfo" version="1.6.0"/>-->
 	<!--<import addon="service.autosubs" version="1.0.0"/>-->
-	<import addon="service.htpt" version="0.1.10"/>
-	<import addon="script.htpt.refresh" version="0.1.14"/>
-	<import addon="script.htpt.homebuttons" version="0.1.12"/>
+	<import addon="service.htpt" version="0.1.9"/>
+	<import addon="script.htpt.refresh" version="0.1.13"/>
+	<import addon="script.htpt.homebuttons" version="0.1.11"/>
 	<import addon="script.htpt.remote" version="0.1.1"/>
-	<import addon="script.htpt.emu" version="0.0.1"/>
-	<import addon="script.htpt.debug" version="0.1.10"/>
-	<import addon="service.htpt.fix" version="0.0.8"/>
+	<!--<import addon="script.htpt.emu" version="0.0.1"/>-->
+	<import addon="script.htpt.debug" version="0.1.9"/>
+	<import addon="service.htpt.fix" version="0.0.7"/>
   </requires>
   <extension point="xbmc.gui.skin" effectslowdown="1" debugging="false">
     <res width="1920" height="1080" aspect="16:9" default="true" folder="1080i"/>
