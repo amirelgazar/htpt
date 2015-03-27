@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<addon id="script.htpt.emu" name="HTPT Emulator" version="0.0.1" provider-name="Gal Kahalani">
+<addon id="script.htpt.emu" name="HTPT Emulator" version="0.0.2" provider-name="Gal Kahalani">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
   </requires>
