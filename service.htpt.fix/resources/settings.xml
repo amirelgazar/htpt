@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<settings>
+	<category label="100">
+		<setting type="lsep" label=""/>
+		<setting id="Addon_ServiceON" type="bool" default="true" label="Addon_ServiceON"/>
+		<setting id="Addon_Update" type="bool" default="false" label="Addon_Update"/>
+		<setting id="Addon_UpdateLog" type="bool" default="false" label="Addon_UpdateLog"/>
+		<setting id="Addon_UpdateDate" type="text" default="" label="Addon_UpdateDate"/>
+		<setting id="Addon_Version" type="text" default="" label="Addon_Version"/>
+		<setting type="lsep" label=""/>
+	</category>
+	<category label="102" description="רשימת תיקוני באגים" visible="true">
+		<setting type="lsep" label=""/>
+		<setting id="Fix_LastDate" type="text" default="" label="Fix_LastDate"/>
+		<setting id="Fix_1" type="bool" default="false" label="Fix_1"/>
+		<setting id="Fix_2" type="bool" default="false" label="Fix_2"/>
+		<setting id="Fix_3" type="bool" default="false" label="Fix_3"/>
+		<setting id="Fix_4" type="bool" default="false" label="Fix_4"/>
+		<setting id="Fix_5" type="bool" default="false" label="Fix_5"/>
+		<setting type="lsep" label=""/>
+		<setting id="Fix_10" type="bool" default="false" label="Fix_10"/>
+		<setting id="Fix_11" type="bool" default="false" label="Fix_11"/>
+		<setting id="Fix_12" type="bool" default="false" label="Fix_12"/>
+		<setting id="Fix_13" type="bool" default="false" label="Fix_13"/>
+		<setting id="Fix_14" type="bool" default="false" label="Fix_14"/>
+		<setting type="lsep" label=""/>
+		<setting id="Fix_100" type="bool" default="false" label="Fix_100"/>
+		<setting id="Fix_101" type="bool" default="false" label="Fix_101"/>
+		<setting id="Fix_102" type="bool" default="false" label="Fix_102"/>
+		<setting id="Fix_103" type="bool" default="false" label="Fix_103"/>
+		<setting id="Fix_104" type="bool" default="false" label="Fix_104"/>
+		<setting type="lsep" label=""/>
+	</category>
+	<category label="103" description="קוד אדום" visible="false">
+		<setting type="lsep" label=""/>
+		<setting id="Red_LastDate" type="text" default="" label="Red_LastDate"/>
+		<setting id="Red_Done" type="text" default="" label="Red_Done"/>
+		<setting id="Red_Alert" type="bool" default="false" label="Red_Alert"/>
+		<setting id="Red_LV1" type="bool" default="false" label="Red_LV1"/>
+		<setting id="Red_LV2" type="bool" default="false" label="Red_LV2"/>
+		<setting id="Red_LV3" type="bool" default="false" label="Red_LV3"/>
+		<setting id="Red_LV4" type="bool" default="false" label="Red_LV4"/>
+		<setting id="Red_LV5" type="bool" default="false" label="Red_LV5"/>
+		<setting type="lsep" label=""/>
+	</category>
+</settings>
