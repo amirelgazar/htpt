@@ -33,7 +33,7 @@
 	</extension>
 </addon>
 
-<addon id="script.htpt.debug" name="HTPT Debug" version="0.1.11" provider-name="Gal Kahalani">
+<addon id="script.htpt.debug" name="HTPT Debug" version="0.1.12" provider-name="Gal Kahalani">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
   </requires>
@@ -119,7 +119,7 @@
 	</extension>
 </addon>
 
-<addon id="service.htpt" name="HTPT Service" version="0.1.18" provider-name="Gal Kahalani">
+<addon id="service.htpt" name="HTPT Service" version="0.1.19" provider-name="Gal Kahalani">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
   </requires>
@@ -131,7 +131,7 @@
   </extension>
 </addon>
 
-<addon id="service.htpt.fix" name="HTPT Fix" version="0.1.0" provider-name="Gal Kahalani">
+<addon id="service.htpt.fix" name="HTPT Fix" version="0.1.1" provider-name="Gal Kahalani">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
 	<import addon="xbmc.addon" version="12.0.0"/>
