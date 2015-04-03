@@ -1,5 +1,26 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <addons>
+<addon id="plugin.video.htpt.kids"
+       name="HTPT KIDS"
+       version="0.0.2"
+       provider-name="o2ri-Gal Kahalani">
+    <requires>
+        <import addon="xbmc.python" version="2.1.0"/>
+		<import addon="plugin.video.youtube" version="2.1.3"/>
+    </requires>
+    <extension point="xbmc.python.pluginsource"
+               library="default.py">
+        <provides>video</provides>
+    </extension>
+    <extension point="xbmc.addon.metadata">
+    <summary lang="en"></summary>
+    <summary lang="he"></summary>
+    <description lang="en">[COLOR=Blue][B]HTPT[/B] -   because[CR]not all is self-evident[/COLOR][CR][CR][B]HTPT Support:[/B][CR][COLOR=White]0547393531[CR]infohtpt@gmail.com[/COLOR]</description>
+    <disclaimer>[COLOR=Red][B]YOUR ADVISE TO NOT INSTALL THIS ADDON UNLESS YOU OWN AN ORIGINAL HTPT SYSTEM![CR]THE OWNER DO NOT TAKE ANY RESPONSIBILITY FOR ANY DAMAGE CAUSED BY THIS ADDON[/COLOR][/B]</disclaimer>
+    <platform>all</platform>
+  </extension>
+</addon>
+
 <addon id="repository.htpt" name="HTPT repository" version="1.1.0" provider-name="Gal Kahalani">
 	<extension point="xbmc.addon.repository" name="HTPT repository">
 		<info compressed="false">https://raw.githubusercontent.com/htpthtpt/htpt/master/addons.xml</info>
@@ -10,26 +31,6 @@
 		<summary lang="en">HTPT</summary>
 		<description lang="en">Get frequently updates from HTPT team</description>
 		<platform>all</platform>
-	</extension>
-</addon>
-
-<addon id="script.extendedinfo" name="ExtendedInfo Script" version="1.6.0" provider-name="phil65">
-	<requires>
-		<import addon="xbmc.python" version="2.1.0"/>
-		<import addon="script.module.simplejson" version="2.0.10"/>
-		<import addon="script.module.youtube.dl" version="14.519.1"/>
-	</requires>
-	<extension point="xbmc.python.library"          library="default.py" />
-	<extension point="xbmc.python.pluginsource"     library="default.py" />
-	<extension point="xbmc.addon.metadata">
-		<language/>
-		<summary lang="en">Extended Info Script</summary>
-		<description lang="en">This script offers various possibilities to display online content inside skins. Used services are themoviedb.org, theaudiodb.org, rottentomatoes.com, Trakt.TV and a lot more. Can also be used for importing / exporting skin settings, adding additional fanart stuff to library and cooking eggs. Needs skin support for most functions.</description>
-		<platform>all</platform>
-		<license>GNU GENERAL PUBLIC LICENSE Version 2, June 1991</license>
-		<forum>-</forum>
-		<source>-</source>
-		<email>-</email>
 	</extension>
 </addon>
 
@@ -59,7 +60,7 @@
   </extension>
 </addon>
 
-<addon id="script.htpt.homebuttons" name="HTPT homebuttons Script" version="0.1.13" provider-name="Gal Kahalani">
+<addon id="script.htpt.homebuttons" name="HTPT homebuttons Script" version="0.1.14" provider-name="Gal Kahalani">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
   </requires>
@@ -96,30 +97,7 @@
   </extension>
 </addon>
 
-<addon id="script.toolbox" name="Skin Toolbox" version="1.0.0" provider-name="phil65">
-	<requires>
-		<import addon="xbmc.python" version="2.1.0"/>
-		<import addon="script.module.simplejson" version="2.0.10"/>
-		<import addon="script.module.pil" version="1.1.7"/>
-	</requires>
-	<extension point="xbmc.python.library"          library="default.py" />
-	<extension point="xbmc.python.pluginsource"     library="default.py" />
-    <extension point="xbmc.python.script"           library="default.py">
-        <provides>executable</provides>
-    </extension>
-	<extension point="xbmc.addon.metadata">
-		<language/>
-		<summary lang="en">Skin Toolbox</summary>
-		<description lang="en">This script makes several python functions accessible for skinners.</description>
-		<platform>all</platform>
-		<license>GNU GENERAL PUBLIC LICENSE Version 2, June 1991</license>
-		<forum>-</forum>
-		<source>-</source>
-		<email>-</email>
-	</extension>
-</addon>
-
-<addon id="service.htpt" name="HTPT Service" version="0.1.19" provider-name="Gal Kahalani">
+<addon id="service.htpt" name="HTPT Service" version="0.1.20" provider-name="Gal Kahalani">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
   </requires>
@@ -131,7 +109,7 @@
   </extension>
 </addon>
 
-<addon id="service.htpt.fix" name="HTPT Fix" version="0.1.2" provider-name="Gal Kahalani">
+<addon id="service.htpt.fix" name="HTPT Fix" version="0.1.3" provider-name="Gal Kahalani">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
 	<import addon="xbmc.addon" version="12.0.0"/>
@@ -145,7 +123,7 @@
   </extension>
 </addon>
 
-<addon id="skin.htpt" version="0.1.13" name="HTPT SYSTEM" provider-name="Gal Kahalani">
+<addon id="skin.htpt" version="0.1.14" name="HTPT SYSTEM" provider-name="Gal Kahalani">
   <requires>
     <import addon="xbmc.gui" version="5.3.0"/>
 	<!--<import addon="xbmc.python" version="2.1.0"/>-->
