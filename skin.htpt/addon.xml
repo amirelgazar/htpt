@@ -5,9 +5,7 @@
 	<!--<import addon="xbmc.python" version="2.1.0"/>-->
 	<!--<import addon="script.module.simplejson" version="2.0.10" />-->
     <import addon="script.favourites" version="3.2.5"/>
-	<import addon="script.toolbox" version="1.0.0"/>
 	<import addon="service.skin.widgets" version="0.0.29"/>
-	<!--<import addon="script.extendedinfo" version="1.6.0"/>-->
 	<!--<import addon="service.autosubs" version="1.0.0"/>-->
 	<import addon="service.htpt" version="0.1.9"/>
 	<import addon="script.htpt.refresh" version="0.1.13"/>
