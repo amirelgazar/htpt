@@ -1,5 +1,5 @@
 ------------------------
-HTPT Fix v0.1.8 (17-Apr-15)
+HTPT Fix v0.1.8-9 (17-Apr-15)
 ------------------------
 - ID_Rewrite User18.
 - setMessagesCustom_All added.
