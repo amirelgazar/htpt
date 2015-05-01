@@ -1,0 +1,41 @@
+------------------------
+HTPT Debug v0.1.13 (01-May-15)
+------------------------
+- shared_modules added.
+- shared_variables added.
+- מניעת באגים עם משתנים ללא הרחבות.
+
+------------------------
+HTPT Debug v0.1.11-12 (27-Mar-15)
+------------------------
+- עדכון פרטים בצור קשר - WIP!
+- reddone_no and fixdone_no added.
+
+------------------------
+HTPT Debug v0.1.10 (08-Mar-15)
+------------------------
+- issue_description auto removed.
+- sendMail module "try" removed.
+- curtrigger fixed.
+- shutdown notification fixed.
+
+------------------------
+HTPT Debug v0.1.9 (26-Feb-15)
+------------------------
+- Accounts info changed.
+
+------------------------
+HTPT Debug v0.1.8 (15-Feb-15)
+------------------------
+- versions info.
+
+------------------------
+HTPT Debug v0.1.6-7 (07-Feb-15)
+------------------------
+- פרסום שני.
+- שכתוב לקבצים: service, variables, modules.
+
+------------------------
+HTPT Debug v0.0.1 (07-Jan-15)
+------------------------
+- פרסום ראשוני.
