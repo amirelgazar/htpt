@@ -136,7 +136,7 @@
 	</extension>
 </addon>
 
-<addon id="service.htpt" name="HTPT Service" version="0.1.24" provider-name="Gal Kahalani">
+<addon id="service.htpt" name="HTPT Service" version="0.1.25" provider-name="Gal Kahalani">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
   </requires>
