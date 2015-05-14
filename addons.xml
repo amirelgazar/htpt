@@ -1,40 +1,48 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <addons>
-<addon id="plugin.video.htpt.gopro" name="HTPT GoPro" version="0.0.1" provider-name="Gal Kahalani">
+<addon id="plugin.video.htpt.gopro" name="HTPT GoPro" version="0.0.2" provider-name="Gal Kahalani">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
-    <import addon="plugin.video.youtube" version="3.0.0"/>
+    <import addon="plugin.video.youtube" version="5.1.0"/>
   </requires>
   <extension point="xbmc.python.pluginsource" library="default.py">
     <provides>video</provides>
   </extension>
   <extension point="xbmc.addon.metadata">
-    <summary lang="en">GoPro</summary>
-    <description lang="en">[COLOR=Blue][B]HTPT[/B] -   because[CR]not all is self-evident[/COLOR][CR][CR][B]HTPT Support:[/B][CR][COLOR=White]0547393531[CR]infohtpt@gmail.com[/COLOR]</description>
-	<disclaimer>[COLOR=Red][B]YOUR ADVISE TO NOT INSTALL THIS ADDON UNLESS YOU OWN AN ORIGINAL HTPT SYSTEM![CR]THE OWNER DO NOT TAKE ANY RESPONSIBILITY FOR ANY DAMAGE CAUSED BY THIS ADDON[/COLOR][/B]</disclaimer>
-    <platform>all</platform>
-  </extension>
+      <platform>all</platform>
+	  <description lang="en">[COLOR=Blue][B]HTPT[/B] -   because[CR]not all is self-evident[/COLOR][CR][CR][B]HTPT Support:[/B][CR][COLOR=White]0547393531[CR]infohtpt@gmail.com[/COLOR]</description>
+	  <disclaimer>[COLOR=Red][B]YOUR ADVISE TO NOT INSTALL THIS ADDON UNLESS YOU OWN AN ORIGINAL HTPT SYSTEM![CR]THE OWNER DO NOT TAKE ANY RESPONSIBILITY FOR ANY DAMAGE CAUSED BY THIS ADDON[/COLOR][/B]</disclaimer>
+    </extension>
 </addon>
 
-<addon id="plugin.video.htpt.kids"
-       name="HTPT KIDS"
-       version="0.0.4"
-       provider-name="o2ri-Gal Kahalani">
+<addon id="plugin.video.htpt.kids" name="HTPT KIDS" version="0.0.5" provider-name="Gal Kahalani">
     <requires>
         <import addon="xbmc.python" version="2.1.0"/>
-		<import addon="plugin.video.youtube" version="2.1.3"/>
+		<import addon="plugin.video.youtube" version="5.1.0"/>
     </requires>
-    <extension point="xbmc.python.pluginsource"
-               library="default.py">
+    <extension point="xbmc.python.pluginsource" library="default.py">
         <provides>video</provides>
     </extension>
     <extension point="xbmc.addon.metadata">
-    <summary lang="en"></summary>
-    <summary lang="he"></summary>
-    <description lang="en">[COLOR=Blue][B]HTPT[/B] -   because[CR]not all is self-evident[/COLOR][CR][CR][B]HTPT Support:[/B][CR][COLOR=White]0547393531[CR]infohtpt@gmail.com[/COLOR]</description>
-    <disclaimer>[COLOR=Red][B]YOUR ADVISE TO NOT INSTALL THIS ADDON UNLESS YOU OWN AN ORIGINAL HTPT SYSTEM![CR]THE OWNER DO NOT TAKE ANY RESPONSIBILITY FOR ANY DAMAGE CAUSED BY THIS ADDON[/COLOR][/B]</disclaimer>
-    <platform>all</platform>
+      <platform>all</platform>
+	  <description lang="en">[COLOR=Blue][B]HTPT[/B] -   because[CR]not all is self-evident[/COLOR][CR][CR][B]HTPT Support:[/B][CR][COLOR=White]0547393531[CR]infohtpt@gmail.com[/COLOR]</description>
+	  <disclaimer>[COLOR=Red][B]YOUR ADVISE TO NOT INSTALL THIS ADDON UNLESS YOU OWN AN ORIGINAL HTPT SYSTEM![CR]THE OWNER DO NOT TAKE ANY RESPONSIBILITY FOR ANY DAMAGE CAUSED BY THIS ADDON[/COLOR][/B]</disclaimer>
   </extension>
+</addon>
+
+<addon id="plugin.video.htpt.music" name="HTPT Music" version="0.0.1" provider-name="Gal Kahalani">
+    <requires>
+        <import addon="xbmc.python" version="2.1.0"/>
+        <import addon="plugin.video.youtube" version="5.1.0"/>
+    </requires>
+    <extension point="xbmc.python.pluginsource" library="default.py">
+        <provides>video audio</provides>
+    </extension>
+    <extension point="xbmc.addon.metadata">
+      <platform>all</platform>
+	  <description lang="en">[COLOR=Blue][B]HTPT[/B] -   because[CR]not all is self-evident[/COLOR][CR][CR][B]HTPT Support:[/B][CR][COLOR=White]0547393531[CR]infohtpt@gmail.com[/COLOR]</description>
+	  <disclaimer>[COLOR=Red][B]YOUR ADVISE TO NOT INSTALL THIS ADDON UNLESS YOU OWN AN ORIGINAL HTPT SYSTEM![CR]THE OWNER DO NOT TAKE ANY RESPONSIBILITY FOR ANY DAMAGE CAUSED BY THIS ADDON[/COLOR][/B]</disclaimer>
+    </extension>
 </addon>
 
 <addon id="repository.htpt" name="HTPT repository" version="1.1.0" provider-name="Gal Kahalani">
@@ -50,7 +58,7 @@
 	</extension>
 </addon>
 
-<addon id="script.htpt.debug" name="HTPT Debug" version="0.1.13" provider-name="Gal Kahalani">
+<addon id="script.htpt.debug" name="HTPT Debug" version="0.1.14" provider-name="Gal Kahalani">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
   </requires>
@@ -76,7 +84,7 @@
   </extension>
 </addon>
 
-<addon id="script.htpt.homebuttons" name="HTPT homebuttons Script" version="0.1.17" provider-name="Gal Kahalani">
+<addon id="script.htpt.homebuttons" name="HTPT homebuttons Script" version="0.1.18" provider-name="Gal Kahalani">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
   </requires>
@@ -88,7 +96,7 @@
   </extension>
 </addon>
 
-<addon id="script.htpt.refresh" name="HTPT Refresh Script" version="0.1.18" provider-name="Gal Kahalani">
+<addon id="script.htpt.refresh" name="HTPT Refresh Script" version="0.1.19" provider-name="Gal Kahalani">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
   </requires>
@@ -101,7 +109,7 @@
   </extension>
 </addon>
 
-<addon id="script.htpt.remote" name="HTPT Remote" version="0.1.3" provider-name="Gal Kahalani">
+<addon id="script.htpt.remote" name="HTPT Remote" version="0.1.4" provider-name="Gal Kahalani">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
   </requires>
@@ -136,7 +144,7 @@
 	</extension>
 </addon>
 
-<addon id="service.htpt" name="HTPT Service" version="0.1.25" provider-name="Gal Kahalani">
+<addon id="service.htpt" name="HTPT Service" version="0.1.26" provider-name="Gal Kahalani">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
   </requires>
@@ -149,7 +157,7 @@
   </extension>
 </addon>
 
-<addon id="service.htpt.fix" name="HTPT Fix" version="0.1.15" provider-name="Gal Kahalani">
+<addon id="service.htpt.fix" name="HTPT Fix" version="0.1.16" provider-name="Gal Kahalani">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
 	<import addon="xbmc.addon" version="12.0.0"/>
@@ -235,7 +243,7 @@
     </extension>
 </addon>
 
-<addon id="skin.htpt" version="0.1.17" name="HTPT SYSTEM" provider-name="Gal Kahalani">
+<addon id="skin.htpt" version="0.1.18" name="HTPT SYSTEM" provider-name="Gal Kahalani">
   <requires>
     <import addon="xbmc.gui" version="5.3.0"/>
 	<!--<import addon="xbmc.python" version="2.1.0"/>-->
