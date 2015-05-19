@@ -1,3 +1,15 @@
+------------------------
+HTPT Fix v0.1.17 (21-May-15)
+------------------------
+- params added.
+- checkDialog support.
+- mode10 added (automatic actions on dialogs).
+- mode10 (bluetooth, p2p streams, pvr addon enable).
+- modifyaddons added.
+- renew(3)
+- Tutorial Widget ads added(100).
+- Trial_Renew updated.
+- setMessagesCustom updated.
 
 ------------------------
 HTPT Fix v0.1.16 (15-May-15)
