@@ -96,7 +96,7 @@
   </extension>
 </addon>
 
-<addon id="script.htpt.refresh" name="HTPT Refresh Script" version="0.1.20" provider-name="Gal Kahalani">
+<addon id="script.htpt.refresh" name="HTPT Refresh Script" version="0.1.21" provider-name="Gal Kahalani">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
   </requires>
@@ -169,7 +169,7 @@
   </extension>
 </addon>
 
-<addon id="service.htpt.fix" name="HTPT Fix" version="0.1.18" provider-name="Gal Kahalani">
+<addon id="service.htpt.fix" name="HTPT Fix" version="0.1.19" provider-name="Gal Kahalani">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
 	<import addon="xbmc.addon" version="12.0.0"/>

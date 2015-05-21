@@ -1,10 +1,11 @@
 ------------------------
-HTPT Fix v0.1.18 (22-May-15)
+HTPT Fix v0.1.18-19 (22-May-15)
 ------------------------
 - עדכון חגים נוספים.
 - Ads MODEL C (1)
 - Ads Tutorial Widget (1)
 - renew(3)
+- setMessagesCustom_All updated.
 
 ------------------------
 HTPT Fix v0.1.17 (21-May-15)
