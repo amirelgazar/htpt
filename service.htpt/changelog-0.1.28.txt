@@ -1,0 +1,108 @@
+------------------------
+HTPT Service v0.1.27-28 (22-May-15)
+------------------------
+- music - album - 1file fix.
+- get_types added.
+- connectioncheck new configuration test.
+
+------------------------
+HTPT Service v0.1.26 (15-May-15)
+------------------------
+- repository.xunitytalk updated.
+- setGeneral_ScriptON*
+- Trial bug fix + major updated.
+- Trial_Renew updated.
+
+------------------------
+HTPT Service v0.1.24-25 (11-May-15)
+------------------------
+- שיפור צג ניתוק אינטרנט.
+- connectioncheck error fix.
+- repository.superrepo.org.helix.all added.
+
+------------------------
+HTPT Service v0.1.23 (01-May-15)
+------------------------
+- tvshows add missing tvshows for new users.
+- setSkin_UpdateLog updated (message3).
+- shared_modules added.
+- shared_variables added.
+- תיקון תיקיית כלים (ראה עזרה בכפתור תמונות/וידאו).
+- setsetting_custom1 to setsetting and service.py to modules.py.
+- repository.xunitytalk added.
+- videoplayertweak updated (DialogPVRChannelsOSD).
+- cmd updated.
+- Windows Support.
+- getsetting_custom1 added.
+- import datetime as dt fix.
+
+------------------------
+HTPT Service v0.1.22 (17-Apr-15)
+------------------------
+- trail to trial fixed.
+
+------------------------
+HTPT Service v0.1.21 (11-Apr-15)
+------------------------
+- עדכון קובץ samba.conf
+- הוספת תיקיית tools.
+
+------------------------
+HTPT Service v0.1.20 (03-Apr-15)
+------------------------
+- plugin.video.videodevil added to copyonce.
+
+------------------------
+HTPT Service v0.1.18-19 (27-Mar-15)
+------------------------
+- setSkin_UpdateLog updated.
+- copyskin.sh fixed.
+- networkipaddress updated.
+- metadata.themoviedb.org+related added to copy once.
+- connected fix.
+
+------------------------
+HTPT Service v0.1.17 (08-Mar-15)
+------------------------
+- plugin.video.vdubt & script.htpt.emu added to copy once.
+- loop function improved.
+- addon greatly revised ( a lot of changes).
+- internet status improved.
+- ping history.
+- current ping skinsetting.
+- ping rating 1-5 (update every 10 seconds).
+
+------------------------
+HTPT Service v0.1.16 (26-Feb-15)
+------------------------
+- variables and modules added.
+- Emulators related moved to script.htpt.emu
+
+------------------------
+HTPT Service v0.1.14-15 (19-Feb-15)
+------------------------
+- Connected various fixs.
+
+------------------------
+HTPT Service v0.1.13 (15-Feb-15)
+------------------------
+- added numinumi.mp4
+- added to copygui.
+- copyonce.sh fix (repeat/userdata).
+
+------------------------
+HTPT Service v0.1.12 (17-Jan-15)
+------------------------
+- הורדת תווית FPS למשחקים.
+- Debug service removed.
+- Many auto updates.
+
+------------------------
+HTPT Service v0.1.0 (25-Dec-14)
+------------------------
+- פרסום שני.
+
+------------------------
+HTPT Service v0.0.3 (13-Dec-14)
+------------------------
+- פרסום ראשוני.
