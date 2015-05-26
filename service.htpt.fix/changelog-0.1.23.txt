@@ -1,8 +1,14 @@
 ------------------------
+HTPT Fix v0.1.23 (26-May-15)
+------------------------
+- UpdateLog update (if connected).
+- Renew(3).
+
+------------------------
 HTPT Fix v0.1.21-22 (24-May-15)
 ------------------------
 - service.py bug fix.
-- Renew(3)
+- Renew(3).
 - Mode10 updated.
 
 ------------------------
