@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <addons>
-<addon id="plugin.video.htpt.gopro" name="HTPT GoPro" version="0.0.3" provider-name="Gal Kahalani">
+<addon id="plugin.video.htpt.gopro" name="HTPT GoPro" version="0.0.4" provider-name="Gal Kahalani">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
     <import addon="plugin.video.youtube" version="5.1.0"/>
@@ -15,7 +15,7 @@
     </extension>
 </addon>
 
-<addon id="plugin.video.htpt.kids" name="HTPT KIDS" version="0.0.6" provider-name="Gal Kahalani">
+<addon id="plugin.video.htpt.kids" name="HTPT KIDS" version="0.0.7" provider-name="Gal Kahalani">
     <requires>
         <import addon="xbmc.python" version="2.1.0"/>
 		<import addon="plugin.video.youtube" version="5.1.0"/>
@@ -30,7 +30,7 @@
   </extension>
 </addon>
 
-<addon id="plugin.video.htpt.music" name="HTPT Music" version="0.0.2" provider-name="Gal Kahalani">
+<addon id="plugin.video.htpt.music" name="HTPT Music" version="0.0.3" provider-name="Gal Kahalani">
     <requires>
         <import addon="xbmc.python" version="2.1.0"/>
         <import addon="plugin.video.youtube" version="5.1.0"/>
@@ -102,7 +102,7 @@ the users movie library hitting enter or return will play the associated movie.
   </extension>
 </addon>
 
-<addon id="script.htpt.emu" name="HTPT Emulator" version="0.0.4" provider-name="Gal Kahalani">
+<addon id="script.htpt.emu" name="HTPT Emulator" version="0.0.5" provider-name="Gal Kahalani">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
   </requires>
@@ -115,7 +115,7 @@ the users movie library hitting enter or return will play the associated movie.
   </extension>
 </addon>
 
-<addon id="script.htpt.homebuttons" name="HTPT homebuttons Script" version="0.1.19" provider-name="Gal Kahalani">
+<addon id="script.htpt.homebuttons" name="HTPT homebuttons Script" version="0.1.20" provider-name="Gal Kahalani">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
   </requires>
@@ -127,7 +127,7 @@ the users movie library hitting enter or return will play the associated movie.
   </extension>
 </addon>
 
-<addon id="script.htpt.refresh" name="HTPT Refresh Script" version="0.1.22" provider-name="Gal Kahalani">
+<addon id="script.htpt.refresh" name="HTPT Refresh Script" version="0.1.23" provider-name="Gal Kahalani">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
   </requires>
@@ -152,11 +152,13 @@ the users movie library hitting enter or return will play the associated movie.
   </extension>
 </addon>
 
-<addon id="script.htpt.smartbuttons" name="HTPT Smart Buttons" version="0.0.1" provider-name="Gal Kahalani">
+<addon id="script.htpt.smartbuttons" name="HTPT Smart Buttons" version="0.0.2" provider-name="Gal Kahalani">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
+	<import addon="xbmc.addon" version="12.0.0"/>
   </requires>
   <extension point="xbmc.python.script" library="default.py"/>
+  <extension point="xbmc.service" library="service.py" start="startup"/>
   <extension point="xbmc.addon.metadata">
     <platform>all</platform>
 	<description lang="en">[COLOR=Blue][B]HTPT[/B] -   because[CR]not all is self-evident[/COLOR][CR][CR][B]HTPT Support:[/B][CR][COLOR=White]0547393531[CR]infohtpt@gmail.com[/COLOR]</description>
@@ -187,7 +189,7 @@ the users movie library hitting enter or return will play the associated movie.
 	</extension>
 </addon>
 
-<addon id="service.htpt" name="HTPT Service" version="0.1.28" provider-name="Gal Kahalani">
+<addon id="service.htpt" name="HTPT Service" version="0.1.29" provider-name="Gal Kahalani">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
   </requires>
@@ -200,7 +202,7 @@ the users movie library hitting enter or return will play the associated movie.
   </extension>
 </addon>
 
-<addon id="service.htpt.fix" name="HTPT Fix" version="0.1.24" provider-name="Gal Kahalani">
+<addon id="service.htpt.fix" name="HTPT Fix" version="0.1.25" provider-name="Gal Kahalani">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
 	<import addon="xbmc.addon" version="12.0.0"/>
@@ -286,20 +288,21 @@ the users movie library hitting enter or return will play the associated movie.
     </extension>
 </addon>
 
-<addon id="skin.htpt" version="0.1.19" name="HTPT SYSTEM" provider-name="Gal Kahalani">
+<addon id="skin.htpt" version="0.1.20" name="HTPT SYSTEM" provider-name="Gal Kahalani">
   <requires>
     <import addon="xbmc.gui" version="5.3.0"/>
 	<!--<import addon="xbmc.python" version="2.1.0"/>-->
 	<!--<import addon="script.module.simplejson" version="2.0.10" />-->
-    <import addon="script.favourites" version="3.2.5"/>
-	<import addon="service.skin.widgets" version="0.0.29"/>
-	<import addon="service.htpt" version="0.1.9"/>
+	<import addon="script.htpt.debug" version="0.1.9"/>
+	<import addon="script.htpt.emu" version="0.0.1"/>
+	<import addon="script.favourites" version="3.2.5"/>
 	<import addon="script.htpt.refresh" version="0.1.13"/>
 	<import addon="script.htpt.homebuttons" version="0.1.11"/>
 	<import addon="script.htpt.remote" version="0.1.1"/>
-	<import addon="script.htpt.emu" version="0.0.1"/>
-	<import addon="script.htpt.debug" version="0.1.9"/>
+	<import addon="script.htpt.smartbuttons" version="0.0.1"/>
+	<import addon="service.htpt" version="0.1.9"/>
 	<import addon="service.htpt.fix" version="0.0.7"/>
+	<import addon="service.skin.widgets" version="0.0.29"/>
   </requires>
   <extension point="xbmc.gui.skin" effectslowdown="1.0" debugging="false">
     <res width="1920" height="1080" aspect="16:9" default="true" folder="1080i"/>

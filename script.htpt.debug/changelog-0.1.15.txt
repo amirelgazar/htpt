@@ -1,4 +1,10 @@
 ------------------------
+HTPT Debug v0.1.16 (12-June-15)
+------------------------
+- Exception, TypeError added.
+- Major changes.
+
+------------------------
 HTPT Debug v0.1.15 (22-May-15)
 ------------------------
 - content7/8 applied.
