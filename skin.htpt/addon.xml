@@ -19,11 +19,12 @@
     <res width="1920" height="1080" aspect="16:9" default="true" folder="1080i"/>
   </extension>
   <extension point="xbmc.addon.metadata">
-    <platform>linux</platform>
-    <summary lang="en">12</summary>
-    <summary lang="he">אזהרה: התקנה זו אינה מעטפת אלה מערכת שלמה המחליפה את הקודי ב-OpenELEC בלבד![CR][CR]בסיום התקנה זו יתווספו עוד עשרות הרחבות בלעדיות.[CR]כתלות בחומרה שלך ובשימוש בתוכנה, יותקנו הרחבות נוספות.[CR] במקרה הצורך ניתן להסיר או להשהות את ה-HTPT ולחזור למצב הקודם.</summary>
-    <description lang="en">[COLOR=Blue][B]HTPT[/B] -   because[CR]not all is self-evident[/COLOR][CR][CR][B]HTPT Support:[/B][CR][COLOR=White]0547393531[CR]infohtpt@gmail.com[/COLOR]</description>
-	<description lang="he">[COLOR=Blue][B]HTPT[/B] -   להתקנה לחץ כאן![CR]not all is self-evident[/COLOR][CR][CR][B]HTPT Support:[/B][CR][COLOR=White]0547393531[CR]infohtpt@gmail.com[/COLOR]</description>
-    <disclaimer>[COLOR=Red][B]YOUR ADVISE TO NOT INSTALL THIS ADDON UNLESS YOU OWN AN ORIGINAL HTPT SYSTEM![CR]THE OWNER DO NOT TAKE ANY RESPONSIBILITY FOR ANY DAMAGE CAUSED BY THIS ADDON[/COLOR][/B]</disclaimer>
+    <language>he</language>
+	<platform>linux</platform>
+    <summary>INSTALL YOUR HTPT SYSTEM IN ONE CLICK!</summary>
+    <description>[COLOR=Blue][B]INSTALL YOUR HTPT SYSTEM IN ONE CLICK![/B][/COLOR][CR][CR][B]REQUIREMENT:[/B][CR][COLOR=White]- OpenELEC System.[CR]- 400MB Free Space.[/COLOR]</description>
+    <disclaimer>HTPT IS FREE FOR ALL</disclaimer>
+	<email>infohtpt@gmail.com</email>
+	<website>https://www.facebook.com/pages/HTPT/934744346549707</website>
   </extension>
 </addon>
