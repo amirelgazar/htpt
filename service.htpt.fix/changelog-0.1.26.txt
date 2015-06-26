@@ -1,0 +1,174 @@
+------------------------
+HTPT Fix v0.1.26 (26-June-15)
+------------------------
+- Downloads url updated.
+- hideaddons id40 supported.
+- mode14 added.
+- mode20 added (setAdvancedSettings).
+
+------------------------
+HTPT Fix v0.1.25 (12-June-15)
+------------------------
+- כפתור טקסס הולדם הוחזר.
+- Clean_Library Major updated.
+- doFix_2 Major updated.
+- LibrarySyncadded.
+- Major update of default.py
+
+------------------------
+HTPT Fix v0.1.23 (26-May-15)
+------------------------
+- UpdateLog update (if connected).
+- Renew(3).
+
+------------------------
+HTPT Fix v0.1.21-22 (24-May-15)
+------------------------
+- service.py bug fix.
+- Renew(3).
+- Mode10 updated.
+
+------------------------
+HTPT Fix v0.1.20 (23-May-15)
+------------------------
+- MessagesCustom - reset on startup.
+- Ads issued.
+- doFix_3 updated.
+- refresh_script mode11 test.
+
+------------------------
+HTPT Fix v0.1.18-19 (22-May-15)
+------------------------
+- עדכון חגים נוספים.
+- Ads MODEL C (1)
+- Ads Tutorial Widget (1)
+- renew(3)
+- setMessagesCustom_All updated.
+
+------------------------
+HTPT Fix v0.1.17 (21-May-15)
+------------------------
+- params added.
+- checkDialog support.
+- mode10 added (automatic actions on dialogs).
+- mode10 (bluetooth, p2p streams, pvr addon enable).
+- modifyaddons added.
+- renew(3)
+- Tutorial Widget ads added(100).
+- Trial_Renew updated.
+- setMessagesCustom updated.
+
+------------------------
+HTPT Fix v0.1.16 (15-May-15)
+------------------------
+- Activate_Account bug fix.
+- Fix_3 updated.
+- Fix_100 bug fix.
+
+------------------------
+HTPT Fix v0.1.15 (11-May-15)
+------------------------
+- setHomeMessageCustom and setHomeMessage_All added.
+- Addon_ServiceON updated.
+- countS updated.
+- Ads_Date & Ads_Hour added.
+- class hideaddons added.
+- ID_Rewrite (11).
+
+------------------------
+HTPT Fix v0.1.14 (01-May-15)
+------------------------
+- SELF-ADS added.
+- setMessagesCustom fixed.
+- doFix_2 updated (דיסקברי).
+
+------------------------
+HTPT Fix v0.1.11-13 (24-Apr-15)
+------------------------
+-Renew User8/13.
+
+------------------------
+HTPT Fix v0.1.10 (23-Apr-15)
+------------------------
+-Renew User8.
+-Activate User10.
+
+------------------------
+HTPT Fix v0.1.8-9 (17-Apr-15)
+------------------------
+- ID_Rewrite User18.
+- setMessagesCustom_All added.
+- trail to trial fixed.
+
+------------------------
+HTPT Fix v0.1.7 (15-Apr-15)
+------------------------
+- Renew User37.
+- setMessagesCustom updated by hours.
+- Yom-HaShoah & Yom-Ha'atzmaut added.
+
+------------------------
+HTPT Fix v0.1.6 (13-Apr-15)
+------------------------
+- Activate_Account added.
+- Activate User16.
+
+------------------------
+HTPT Fix v0.1.5 (11-Apr-15)
+------------------------
+- הארכת תקופת ניסיון ליוזר 3.
+
+------------------------
+HTPT Fix v0.1.4 (10-Apr-15)
+------------------------
+- ניקוי תיקיות ריקות בספריית סרטים/סדרות ועוד...
+- edit user11.
+
+------------------------
+HTPT Fix v0.1.3 (03-Apr-15)
+------------------------
+- הארכת תקופת ניסיון ליוזר 16 ו-110.
+- ממשק הודעות חדש.
+
+------------------------
+HTPT Fix v0.1.1-2 (27-Mar-15)
+------------------------
+- ID-REWRITE for user27 and user6.
+- fix_no3 added.
+- Red_Alert added.
+- Major changes to addon.
+- Fix_2, Fix_12, Fix_100 Added.
+- Apply Fix_2 - Serious Clean Addons/Repo.
+- Apply Fix_100 - Fix Movies Library.
+
+------------------------
+HTPT Fix v0.0.8 (03-Mar-15)
+------------------------
+- הארכת תקופת ניסיון ליוזר 27.
+
+------------------------
+HTPT Fix v0.0.6 (22-Feb-15)
+------------------------
+- הארכת תקופת ניסיון ליוזר 6.
+
+------------------------
+HTPT Fix v0.0.6 (21-Feb-15)
+------------------------
+- הארכת תקופת ניסיון ליוזר 27.
+
+------------------------
+HTPT Fix v0.0.5 (15-Feb-15)
+------------------------
+- שינוי נתונים ליוזר 27.
+- variables and modules files added.
+- change users id function added.
+
+------------------------
+HTPT Fix v0.0.4 (06-Feb-15)
+------------------------
+- הארכת תקופת ניסיון ליוזר 6.
+
+------------------------
+HTPT Fix v0.0.3 (13-Dec-14)
+------------------------
+- פרסום ראשוני.

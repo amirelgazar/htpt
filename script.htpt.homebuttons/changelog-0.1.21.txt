@@ -1,0 +1,123 @@
+------------------------
+HTPT homebuttons Script v0.1.21 (26-June-15)
+------------------------
+- ...
+
+------------------------
+HTPT homebuttons Script v0.1.20 (12-June-15)
+------------------------
+- setAutoSettings updated.
+- livetvbuttons moved to smartbuttons.
+- internetbutton updated.
+- set_accountdate updated.
+
+------------------------
+HTPT homebuttons Script v0.1.19 (22-May-15)
+------------------------
+- SDAROT-TV-BUTTON updated (cookie).
+- כפתור עזרה בספריית מוזיקה.
+- autoinstall script.htpt.smartbuttons
+- סדרות ישראליות שיפור קוד פתיחה ובדיקת שרת.
+
+------------------------
+HTPT homebuttons Script v0.1.18 (15-May-15)
+------------------------
+- userdataresetbutton updated.
+- setGeneral_ScriptON added.
+
+------------------------
+HTPT homebuttons Script v0.1.17 (01-May-15)
+------------------------
+- externalusb support model C.
+- gamesbutton support model C.
+- pic/vid support model C.
+- setAutoSettings updated.
+- תמיכה בטלוויזיה חיה (alpha)
+- livetvbutton2 added.
+- moviese/tvshowse updated.
+- airplaybutton bug fix.
+
+------------------------
+HTPT homebuttons Script v0.1.16 (17-Apr-15)
+------------------------
+- עיצוב חלון בית - חפש/הוסף תומך בפולסר.
+- סדרות ישראליות, בדיקת שרת לפני ניסיון חיבור.
+- שיפור ביצועי ממשק בכל החלונות.
+- כפתור אייר-פליי שודרג (בכפתור עזרה).
+- חלון פתיחה בסרטים/סדרות - לפי פופולרי.
+- תמיכה באפשרות בבחירת חלון פתיחה בסרטים/סדרות לפי משתמש.
+- default to modules2.
+- code cosmetic.
+- trail to trial fixed.
+
+------------------------
+HTPT homebuttons Script v0.1.15 (11-Apr-15)
+------------------------
+- דיאלוג עזרה למשתמש בכפתורים תמונות ווידאו.
+- diaogtextviewer added.
+- כפתור חדש - סרטים ישראלים (אייקון זמני).
+- כפתור חדש - עזרה (בתוך כפתור תמונות ווידאו).
+
+------------------------
+HTPT homebuttons Script v0.1.14 (03-Apr-15)
+------------------------
+- kidsbutton changed.
+- paymentmethodbutton added.
+- תמיכה במצב ללא אינטרנט (5 דק' השהייה).
+- תיקון באג - כניסה לחלון נעילה בחזרה מחלון הבית.
+- מסך נעילה בכניסה לשרת (אם אין חיבור רשת).
+
+------------------------
+HTPT homebuttons Script v0.1.13 (25-Mar-15)
+------------------------
+- שיפור שיר לילה טוב בכפתור ילדים.
+- תיקון באג במשחקים למבוגרים.
+- TRAKT.TV-חשבון פעיל ב.
+- הכנה לחשבונות נוספים.
+- כפתור הגדרות מתקדמות במשחקים.
+- עדכון סרטים למבוגרים.
+- שדרוג כפתור מבוגרים.
+- תיקון באג בכפתור רשת.
+
+------------------------
+HTPT homebuttons Script v0.1.12 (08-Mar-15)
+------------------------
+- mypicsW variable fixed.
+- smartsearchbutton edited.
+- userdataresetbutton: rm service.htpt added.
+- Try+except added to addons that may be uninstalled.
+- realdebrid button add information to urlresolver.
+- adultbutton updated.
+- code estehtic.
+ 
+------------------------
+HTPT homebuttons Script v0.1.11 (26-Feb-15)
+------------------------
+- variables and modules added.
+- הגדרות סינון לכפתור ילדים - Alpha.
+- שיפור הגדרות חשבון.
+- modules2 added.
+- שינויים בסקריפט משחקים.
+
+------------------------
+HTPT homebuttons Script v0.1.9-10 (15-Feb-15)
+------------------------
+- סקריפט שיר לילה טוב.
+- חשבון סדרות ישראליות שונה.
+
+------------------------
+HTPT homebuttons Script v0.1.7-8 (06-Feb-15)
+------------------------
+- שיפורים רבים.
+
+------------------------
+HTPT homebuttons Script v0.1.6 (17-Jan-15)
+------------------------
+-שיפור מראה ערוצי טלוויזיה.
+-הגדרות מיטביות עבור ערוצי טלוויזיה.
+
+------------------------
+HTPT homebuttons Script v0.1.0 (26-Dec-14)
+------------------------
+
+- Refer to skin.htpt
