@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<addon id="script.htpt.install" name="HTPT Install" version="0.0.2" provider-name="HTPT Team">
+  <requires>
+    <import addon="xbmc.python" version="2.1.0"/>
+    <import addon="service.htpt" version="0.1.29"/>
+  </requires>
+  <extension point="xbmc.python.pluginsource" library="default.py">
+    <provides>video executable</provides>
+  </extension>
+  <extension point="xbmc.addon.metadata">
+    <language>he</language>
+	<platform>all</platform>
+    <summary lang="en">HTPT Full installation</summary>
+    <description>[B]INSTALL YOUR HTPT SYSTEM IN ONE CLICK![/B][CR][CR][B]REQUIREMENT:[/B][CR]- OpenELEC System.[CR]- 400MB Free Space.</description>
+    <disclaimer>OFFICIAL HTPT INSTALLATION</disclaimer>
+	<email>infohtpt@gmail.com</email>
+	<website>https://www.facebook.com/pages/HTPT/934744346549707</website>
+  </extension>
+</addon>
