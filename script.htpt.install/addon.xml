@@ -2,7 +2,6 @@
 <addon id="script.htpt.install" name="HTPT Install" version="0.0.2" provider-name="HTPT Team">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
-    <import addon="service.htpt" version="0.1.29"/>
   </requires>
   <extension point="xbmc.python.pluginsource" library="default.py">
     <provides>video executable</provides>
