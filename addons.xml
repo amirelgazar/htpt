@@ -101,7 +101,7 @@ the users movie library hitting enter or return will play the associated movie.
   </extension>
 </addon>
 
-<addon id="script.htpt.debug" name="HTPT Debug" version="0.1.19" provider-name="HTPT Team">
+<addon id="script.htpt.debug" name="HTPT Debug" version="0.1.20" provider-name="HTPT Team">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
   </requires>
@@ -135,7 +135,7 @@ the users movie library hitting enter or return will play the associated movie.
   </extension>
 </addon>
 
-<addon id="script.htpt.homebuttons" name="HTPT homebuttons Script" version="0.1.25" provider-name="HTPT Team">
+<addon id="script.htpt.homebuttons" name="HTPT homebuttons Script" version="0.1.26" provider-name="HTPT Team">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
   </requires>
@@ -151,7 +151,7 @@ the users movie library hitting enter or return will play the associated movie.
   </extension>
 </addon>
 
-<addon id="script.htpt.install" name="HTPT Install" version="0.0.4" provider-name="HTPT Team">
+<addon id="script.htpt.install" name="HTPT Install" version="0.0.5" provider-name="HTPT Team">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
   </requires>
@@ -203,7 +203,7 @@ the users movie library hitting enter or return will play the associated movie.
   </extension>
 </addon>
 
-<addon id="script.htpt.smartbuttons" name="HTPT Smart Buttons" version="0.0.6" provider-name="HTPT Team">
+<addon id="script.htpt.smartbuttons" name="HTPT Smart Buttons" version="0.0.7" provider-name="HTPT Team">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
 	<import addon="xbmc.addon" version="12.0.0"/>
@@ -241,6 +241,28 @@ the users movie library hitting enter or return will play the associated movie.
   </extension>
 </addon>
 
+<addon id="script.openelec.rpi.config"
+       name="OpenELEC RPi Config"
+       version="0.20.1"
+       provider-name="Leopold">
+  <requires>
+    <import addon="xbmc.python" version="2.1.0"/>
+    <import addon="os.openelec.tv" version="2.0" optional="false"/>
+  </requires>
+  <extension point="xbmc.service" library="service.py" start="startup"/>
+  <extension point="xbmc.python.script" library="default.py"/>
+  <extension point="xbmc.addon.metadata">
+    <platform>all</platform>
+    <summary>Unofficial Raspberry Pi configuration add-on for OpenELEC</summary>
+    <description>This XBMC add-on for OpenELEC allows Raspberry Pi settings such as overclocking to be configured without having to manually edit /flash/config.txt.</description>
+    <disclaimer>This add-on has the potential to void the warranty of your Raspberry Pi. Use at your own risk!</disclaimer>
+    <forum>http://openelec.tv/forum/124-raspberry-pi/68533</forum>
+    <website>http://ls80.github.io/script.openelec.rpi.config</website>
+    <source>http://github.com/LS80/script.openelec.rpi.config</source>
+    <license>GNU GENERAL PUBLIC LICENSE. Version 3, 29 June 2007</license>
+  </extension>
+</addon>
+
 <addon id="script.toolbox" name="Skin Toolbox" version="1.0.0" provider-name="phil65">
 	<requires>
 		<import addon="xbmc.python" version="2.1.0"/>
@@ -264,7 +286,7 @@ the users movie library hitting enter or return will play the associated movie.
 	</extension>
 </addon>
 
-<addon id="service.htpt" name="HTPT Service" version="0.1.36" provider-name="HTPT Team">
+<addon id="service.htpt" name="HTPT Service" version="0.1.37" provider-name="HTPT Team">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
   </requires>
@@ -280,7 +302,7 @@ the users movie library hitting enter or return will play the associated movie.
   </extension>
 </addon>
 
-<addon id="service.htpt.fix" name="HTPT Fix" version="0.1.33" provider-name="HTPT Team">
+<addon id="service.htpt.fix" name="HTPT Fix" version="0.1.34" provider-name="HTPT Team">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
 	<import addon="xbmc.addon" version="12.0.0"/>
@@ -298,7 +320,7 @@ the users movie library hitting enter or return will play the associated movie.
   </extension>
 </addon>
 
-<addon id="skin.htpt" version="0.1.25" name="HTPT SYSTEM" provider-name="HTPT Team">
+<addon id="skin.htpt" version="0.1.26" name="HTPT SYSTEM" provider-name="HTPT Team">
   <requires>
     <import addon="xbmc.gui" version="5.3.0"/>
 	<!--<import addon="xbmc.python" version="2.1.0"/>-->
@@ -312,7 +334,7 @@ the users movie library hitting enter or return will play the associated movie.
 	<import addon="script.htpt.smartbuttons" version="0.0.1"/>
 	<import addon="service.htpt" version="0.1.9"/>
 	<import addon="service.htpt.fix" version="0.0.7"/>
-	<import addon="service.skin.widgets" version="0.0.29"/>
+	<!--<import addon="script.htpt.widgets" version="0.1.0"/>-->
   </requires>
   <extension point="xbmc.gui.skin" effectslowdown="1.0" debugging="false">
     <res width="1920" height="1080" aspect="16:9" default="true" folder="1080i"/>
