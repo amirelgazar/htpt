@@ -419,7 +419,7 @@ the users movie library hitting enter or return will play the associated movie.
   </extension>
 </addon>
 
-<addon id="script.htpt.homebuttons" name="HTPT homebuttons Script" version="0.1.29" provider-name="HTPT Team">
+<addon id="script.htpt.homebuttons" name="HTPT homebuttons Script" version="0.1.30" provider-name="HTPT Team">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
   </requires>
