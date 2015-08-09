@@ -7,7 +7,7 @@
   <extension point="xbmc.python.script" library="default.py"/>
   <extension point="xbmc.service" library="service.py" start="startup"/>
   <extension point="xbmc.addon.metadata">
-    <language>he</language>
+    <language>he en</language>
 	<platform>all</platform>
     <summary>HTPT System Component</summary>
     <description></description>

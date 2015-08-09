@@ -476,10 +476,10 @@ the users movie library hitting enter or return will play the associated movie.
     <provides>video executable</provides>
   </extension>
   <extension point="xbmc.addon.metadata">
-    <language>he</language>
+    <language>he en</language>
 	<platform>all</platform>
     <summary lang="en">HTPT Full installation</summary>
-    <description>[B]INSTALL YOUR HTPT SYSTEM IN ONE CLICK![/B][CR][CR][B]REQUIREMENT:[/B][CR]- OpenELEC System.[CR]- 400MB Free Space.[CR]- 384MB Free Memory.</description>
+    <description>[B]INSTALL YOUR HTPT SYSTEM IN ONE CLICK![/B][CR][CR][B]REQUIREMENT:[/B][CR]- OpenELEC or Windows OS.[CR]- 400MB Free Space.[CR]- 384MB Free Memory.</description>
     <disclaimer>OFFICIAL HTPT INSTALLATION</disclaimer>
 	<email>infohtpt@gmail.com</email>
 	<website>https://www.facebook.com/pages/HTPT/934744346549707</website>
@@ -604,7 +604,7 @@ the users movie library hitting enter or return will play the associated movie.
   <extension point="xbmc.python.script" library="default.py"/>
   <extension point="xbmc.service" library="service.py" start="startup"/>
   <extension point="xbmc.addon.metadata">
-    <language>he</language>
+    <language>he en</language>
 	<platform>all</platform>
     <summary>HTPT System Component</summary>
     <description></description>
@@ -622,6 +622,7 @@ the users movie library hitting enter or return will play the associated movie.
 	<import addon="script.htpt.debug" version="0.1.9"/>
 	<import addon="script.htpt.emu" version="0.0.1"/>
 	<import addon="script.favourites" version="3.2.5"/>
+	<import addon="script.htpt.install" version="0.0.9"/>
 	<import addon="script.htpt.refresh" version="0.1.13"/>
 	<import addon="script.htpt.homebuttons" version="0.1.11"/>
 	<import addon="script.htpt.remote" version="0.1.1"/>
@@ -634,11 +635,11 @@ the users movie library hitting enter or return will play the associated movie.
     <res width="1920" height="1080" aspect="16:9" default="true" folder="1080i"/>
   </extension>
   <extension point="xbmc.addon.metadata">
-    <language>he</language>
+    <language>he en</language>
 	<platform>all</platform>
     <summary>HTPT System Component</summary>
-    <description></description>
-    <disclaimer>PLEASE REFER TO HTPT INSTALLER ADDON</disclaimer>
+    <description>[B]INSTALL YOUR HTPT SYSTEM IN ONE CLICK![/B][CR][CR][B]REQUIREMENT:[/B][CR]- OpenELEC or Windows OS.[CR]- 400MB Free Space.[CR]- 384MB Free Memory.</description>
+    <disclaimer>YOU MAY ALSO REFER TO HTPT INSTALLER ADDON</disclaimer>
 	<email>infohtpt@gmail.com</email>
 	<website>https://www.facebook.com/pages/HTPT/934744346549707</website>
   </extension>
