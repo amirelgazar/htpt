@@ -631,7 +631,7 @@ the users movie library hitting enter or return will play the associated movie.
 	<!--<import addon="script.htpt.emu" version="0.0.1"/>-->
 
 	<import addon="script.favourites" version="3.2.5"/>
-	<import addon="metadata.universal" version="2.6.3"/>
+	<!--<import addon="metadata.universal" version="2.6.3"/>-->
 
 
   </requires>
