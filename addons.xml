@@ -479,7 +479,7 @@ the users movie library hitting enter or return will play the associated movie.
     <language>he en</language>
 	<platform>all</platform>
     <summary lang="en">HTPT Full installation</summary>
-    <description>[B]INSTALL YOUR HTPT SYSTEM IN ONE CLICK![/B][CR][CR][B]REQUIREMENT:[/B][CR]- OpenELEC or Windows OS.[CR]- 400MB Free Space.[CR]- 384MB Free Memory.</description>
+    <description>[B]INSTALL YOUR HTPT SYSTEM IN ONE CLICK![/B][CR][CR][B]REQUIREMENT:[/B][CR]- OpenELEC or Windows OS.[CR]- 400MB Free Space.[CR]- 1GB Memory RAM.</description>
     <disclaimer>OFFICIAL HTPT INSTALLATION</disclaimer>
 	<email>infohtpt@gmail.com</email>
 	<website>https://www.facebook.com/pages/HTPT/934744346549707</website>
@@ -642,7 +642,7 @@ the users movie library hitting enter or return will play the associated movie.
     <language>he en</language>
 	<platform>all</platform>
     <summary>HTPT System Component</summary>
-    <description>[B]INSTALL YOUR HTPT SYSTEM IN ONE CLICK![/B][CR][CR][B]REQUIREMENT:[/B][CR]- OpenELEC or Windows OS.[CR]- 400MB Free Space.[CR]- 384MB Free Memory.</description>
+    <description>[B]INSTALL YOUR HTPT SYSTEM IN ONE CLICK![/B][CR][CR][B]REQUIREMENT:[/B][CR]- OpenELEC or Windows OS.[CR]- 400MB Free Space.[CR]- 1GB Memory RAM.</description>
     <disclaimer>YOU MAY ALSO REFER TO HTPT INSTALLER ADDON</disclaimer>
 	<email>infohtpt@gmail.com</email>
 	<website>https://www.facebook.com/pages/HTPT/934744346549707</website>
