@@ -580,7 +580,7 @@ the users movie library hitting enter or return will play the associated movie.
   </extension>
 </addon>
 
-<addon id="service.htpt" name="HTPT Service" version="0.1.45" provider-name="HTPT Team">
+<addon id="service.htpt" name="HTPT Service" version="0.1.46" provider-name="HTPT Team">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
   </requires>
