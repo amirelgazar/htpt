@@ -472,22 +472,6 @@ the users movie library hitting enter or return will play the associated movie.
   </extension>
 </addon>
 
-<addon id="script.htpt.homebuttons" name="HTPT homebuttons Script" version="0.1.35" provider-name="HTPT Team">
-  <requires>
-    <import addon="xbmc.python" version="2.1.0"/>
-  </requires>
-  <extension point="xbmc.python.script" library="default.py"/>
-  <extension point="xbmc.addon.metadata">
-    <language>he</language>
-	<platform>all</platform>
-    <summary>HTPT System Component</summary>
-    <description></description>
-    <disclaimer>PLEASE REFER TO HTPT INSTALLER ADDON</disclaimer>
-	<email>infohtpt@gmail.com</email>
-	<website>https://www.facebook.com/pages/HTPT/934744346549707</website>
-  </extension>
-</addon>
-
 <addon id="script.htpt.install" name="HTPT Install" version="0.0.14" provider-name="HTPT Team">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
@@ -644,7 +628,6 @@ the users movie library hitting enter or return will play the associated movie.
 	<import addon="script.htpt.debug" version="0.1.9"/>
 	<import addon="service.htpt.fix" version="0.0.7"/>
 	<import addon="script.htpt.smartbuttons" version="0.0.4"/>
-	<import addon="script.htpt.homebuttons" version="0.1.11"/>
 	<import addon="script.htpt.refresh" version="0.1.13"/>
 	<import addon="script.htpt.remote" version="0.1.1"/>
 	<import addon="script.htpt.widgets" version="0.1.0"/>

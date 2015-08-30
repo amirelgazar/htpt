@@ -11,6 +11,7 @@ repo_prep*
 TexturePacker/*
 BACKUP/
 /#/*
+variablesp.py
 
 
 *.pydevproject

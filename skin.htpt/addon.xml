@@ -9,7 +9,6 @@
 	<import addon="script.htpt.debug" version="0.1.9"/>
 	<import addon="service.htpt.fix" version="0.0.7"/>
 	<import addon="script.htpt.smartbuttons" version="0.0.4"/>
-	<import addon="script.htpt.homebuttons" version="0.1.11"/>
 	<import addon="script.htpt.refresh" version="0.1.13"/>
 	<import addon="script.htpt.remote" version="0.1.1"/>
 	<import addon="script.htpt.widgets" version="0.1.0"/>
