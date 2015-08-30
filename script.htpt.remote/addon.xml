@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<addon id="script.htpt.remote" name="HTPT Remote" version="0.1.8" provider-name="HTPT Team">
+<addon id="script.htpt.remote" name="HTPT Remote" version="0.1.9" provider-name="HTPT Team">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
   </requires>
