@@ -5,6 +5,7 @@
 # GAL
 addons_xml_generator*
 createupdate.bat
+createupdate_TEST.bat
 excludelist1.txt
 excludelist2.txt
 repo_prep*
@@ -12,7 +13,7 @@ TexturePacker/*
 BACKUP/
 /#/*
 /*/variablesp.py
-
+.gitignore
 
 *.pydevproject
 .project
