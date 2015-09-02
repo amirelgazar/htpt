@@ -336,7 +336,7 @@
   </extension>
 </addon>
 
-<addon id="plugin.video.htpt.kids" name="HTPT KIDS" version="0.0.11" provider-name="HTPT Team">
+<addon id="plugin.video.htpt.kids" name="HTPT KIDS" version="0.0.12" provider-name="HTPT Team">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
 	<import addon="plugin.video.youtube" version="5.1.0"/>
@@ -347,9 +347,11 @@
   <extension point="xbmc.addon.metadata">
     <language>he</language>
 	<platform>all</platform>
-    <summary>HTPT System Component</summary>
-    <description></description>
-    <disclaimer>PLEASE REFER TO HTPT INSTALLER ADDON</disclaimer>
+    <summary lang="en">My kids are loving it!</summary>
+    <description lang="en">Visit HTPT Facebook Page for support</description>
+    <disclaimer lang="en">The author does not host or distribute any of the content displayed by this addon. The author does not have any affiliation with the content provider.</disclaimer>
+	<forum></forum>
+	<source>https://github.com/htpthtpt/htpt/tree/master/plugin.video.htpt.kids</source>
 	<email>infohtpt@gmail.com</email>
 	<website>https://www.facebook.com/pages/HTPT/934744346549707</website>
   </extension>
@@ -438,7 +440,7 @@ the users movie library hitting enter or return will play the associated movie.
   </extension>
 </addon>
 
-<addon id="script.htpt.debug" name="HTPT Debug" version="0.1.29" provider-name="HTPT Team">
+<addon id="script.htpt.debug" name="HTPT Debug" version="0.1.30" provider-name="HTPT Team">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
   </requires>
@@ -584,7 +586,7 @@ the users movie library hitting enter or return will play the associated movie.
   </extension>
 </addon>
 
-<addon id="service.htpt" name="HTPT Service" version="0.1.50" provider-name="HTPT Team">
+<addon id="service.htpt" name="HTPT Service" version="0.1.51" provider-name="HTPT Team">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
   </requires>
