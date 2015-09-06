@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<addon id="script.htpt.widgets" name="HTPT Widgets" version="0.1.1" provider-name="Martijn, phil65-Edited by HTPT Team">
+<addon id="script.htpt.widgets" name="HTPT Widgets" version="0.1.1" provider-name="Martijn, phil65, Edited by finalmakerr">
   <requires>
 	<import addon="xbmc.addon" version="12.0.0"/>
 	<import addon="xbmc.json" version="6.0.0"/>
