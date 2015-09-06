@@ -336,7 +336,7 @@
   </extension>
 </addon>
 
-<addon id="plugin.video.htpt.kids" name="HTPT KIDS" version="0.0.12" provider-name="HTPT Team">
+<addon id="plugin.video.htpt.kids" name="HTPT KIDS" version="0.0.13" provider-name="HTPT Team">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
 	<import addon="plugin.video.youtube" version="5.1.0"/>
@@ -348,7 +348,9 @@
     <language>he</language>
 	<platform>all</platform>
     <summary lang="en">My kids are loving it!</summary>
+	<summary lang="he">הילדים שלי אוהבים את זה!</summary>
     <description lang="en">Visit HTPT Facebook Page for support</description>
+	<description lang="he">בקר אותנו בפייסבוק לתמיכה!</description>
     <disclaimer lang="en">The author does not host or distribute any of the content displayed by this addon. The author does not have any affiliation with the content provider.</disclaimer>
 	<forum></forum>
 	<source>https://github.com/htpthtpt/htpt/tree/master/plugin.video.htpt.kids</source>
@@ -586,7 +588,7 @@ the users movie library hitting enter or return will play the associated movie.
   </extension>
 </addon>
 
-<addon id="service.htpt" name="HTPT Service" version="0.1.52" provider-name="HTPT Team">
+<addon id="service.htpt" name="HTPT Service" version="0.1.53" provider-name="HTPT Team">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
   </requires>
