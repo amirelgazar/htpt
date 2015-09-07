@@ -352,7 +352,7 @@
     <description lang="en">Visit HTPT Facebook Page for support</description>
 	<description lang="he">בקר אותנו בפייסבוק לתמיכה!</description>
     <disclaimer lang="en">The author does not host or distribute any of the content displayed by this addon. The author does not have any affiliation with the content provider.</disclaimer>
-	<forum></forum>
+	<forum>http://www.hometheater.co.il/vp2330471#2330471</forum>
 	<source>https://github.com/htpthtpt/htpt/tree/master/plugin.video.htpt.kids</source>
 	<email>infohtpt@gmail.com</email>
 	<website>https://www.facebook.com/pages/HTPT/934744346549707</website>
@@ -442,7 +442,7 @@ the users movie library hitting enter or return will play the associated movie.
   </extension>
 </addon>
 
-<addon id="script.htpt.debug" name="HTPT Debug" version="0.1.32" provider-name="HTPT Team">
+<addon id="script.htpt.debug" name="HTPT Debug" version="0.1.33" provider-name="HTPT Team">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
   </requires>
@@ -490,6 +490,8 @@ the users movie library hitting enter or return will play the associated movie.
     <description>[B]INSTALL YOUR HTPT SYSTEM IN ONE CLICK![/B][CR][CR][B]REQUIREMENT:[/B][CR]- OpenELEC or Windows OS.[CR]- 400MB Free Space.[CR]- 1GB Memory RAM.</description>
     <disclaimer>OFFICIAL HTPT INSTALLATION</disclaimer>
 	<email>infohtpt@gmail.com</email>
+	<forum>http://www.hometheater.co.il/vp2318721#2318721</forum>
+	<source>https://github.com/htpthtpt/htpt/tree/master/script.htpt.install</source>
 	<website>https://www.facebook.com/pages/HTPT/934744346549707</website>
   </extension>
 </addon>
@@ -531,7 +533,7 @@ the users movie library hitting enter or return will play the associated movie.
   </extension>
 </addon>
 
-<addon id="script.htpt.smartbuttons" name="HTPT Smart Buttons" version="0.0.20" provider-name="HTPT Team">
+<addon id="script.htpt.smartbuttons" name="HTPT Smart Buttons" version="0.0.21" provider-name="HTPT Team">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
 	<import addon="xbmc.addon" version="12.0.0"/>

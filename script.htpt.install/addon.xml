@@ -13,6 +13,8 @@
     <description>[B]INSTALL YOUR HTPT SYSTEM IN ONE CLICK![/B][CR][CR][B]REQUIREMENT:[/B][CR]- OpenELEC or Windows OS.[CR]- 400MB Free Space.[CR]- 1GB Memory RAM.</description>
     <disclaimer>OFFICIAL HTPT INSTALLATION</disclaimer>
 	<email>infohtpt@gmail.com</email>
+	<forum>http://www.hometheater.co.il/vp2318721#2318721</forum>
+	<source>https://github.com/htpthtpt/htpt/tree/master/script.htpt.install</source>
 	<website>https://www.facebook.com/pages/HTPT/934744346549707</website>
   </extension>
 </addon>
