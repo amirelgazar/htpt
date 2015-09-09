@@ -445,23 +445,6 @@ the users movie library hitting enter or return will play the associated movie.
   </extension>
 </addon>
 
-<addon id="script.htpt.debug" name="HTPT Debug" version="0.1.34" provider-name="HTPT Team">
-  <requires>
-    <import addon="xbmc.python" version="2.1.0"/>
-  </requires>
-  <extension point="xbmc.python.script" library="default.py"/>
-  <extension point="xbmc.service" library="service.py" start="startup"/>
-  <extension point="xbmc.addon.metadata">
-    <language>he</language>
-	<platform>all</platform>
-    <summary>HTPT System Component</summary>
-    <description></description>
-    <disclaimer>PLEASE REFER TO HTPT INSTALLER ADDON</disclaimer>
-	<email>infohtpt@gmail.com</email>
-	<website>https://www.facebook.com/pages/HTPT/934744346549707</website>
-  </extension>
-</addon>
-
 <addon id="script.htpt.emu" name="HTPT Emulator" version="0.0.10" provider-name="finalmakerr">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
@@ -613,6 +596,23 @@ the users movie library hitting enter or return will play the associated movie.
   </extension>
 </addon>
 
+<addon id="service.htpt.debug" name="HTPT Debug" version="0.1.34" provider-name="HTPT Team">
+  <requires>
+    <import addon="xbmc.python" version="2.1.0"/>
+  </requires>
+  <extension point="xbmc.python.script" library="default.py"/>
+  <extension point="xbmc.service" library="service.py" start="startup"/>
+  <extension point="xbmc.addon.metadata">
+    <language>he</language>
+	<platform>all</platform>
+    <summary>HTPT System Component</summary>
+    <description></description>
+    <disclaimer>PLEASE REFER TO HTPT INSTALLER ADDON</disclaimer>
+	<email>infohtpt@gmail.com</email>
+	<website>https://www.facebook.com/pages/HTPT/934744346549707</website>
+  </extension>
+</addon>
+
 <addon id="service.htpt.fix" name="HTPT Fix" version="0.1.52" provider-name="HTPT Team">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
@@ -638,7 +638,7 @@ the users movie library hitting enter or return will play the associated movie.
 	<!--<import addon="script.module.simplejson" version="2.0.10" />-->
 	<import addon="script.htpt.install" version="0.0.9"/>
 	<import addon="service.htpt" version="0.1.9"/>
-	<import addon="script.htpt.debug" version="0.1.9"/>
+	<import addon="service.htpt.debug" version="0.1.9"/>
 	<import addon="service.htpt.fix" version="0.0.7"/>
 	<import addon="script.htpt.smartbuttons" version="0.0.4"/>
 	<import addon="script.htpt.refresh" version="0.1.13"/>

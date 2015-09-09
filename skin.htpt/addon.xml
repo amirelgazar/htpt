@@ -6,7 +6,7 @@
 	<!--<import addon="script.module.simplejson" version="2.0.10" />-->
 	<import addon="script.htpt.install" version="0.0.9"/>
 	<import addon="service.htpt" version="0.1.9"/>
-	<import addon="script.htpt.debug" version="0.1.9"/>
+	<import addon="service.htpt.debug" version="0.1.9"/>
 	<import addon="service.htpt.fix" version="0.0.7"/>
 	<import addon="script.htpt.smartbuttons" version="0.0.4"/>
 	<import addon="script.htpt.refresh" version="0.1.13"/>
