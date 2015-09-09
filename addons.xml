@@ -375,7 +375,7 @@
     <description lang="en">Visit HTPT Facebook Page for support</description>
 	<description lang="he">בקר אותנו בפייסבוק לתמיכה!</description>
     <disclaimer lang="en">The author does not host or distribute any of the content displayed by this addon. The author does not have any affiliation with the content provider.</disclaimer>
-	<source>https://github.com/htpthtpt/htpt/tree/master/plugin.video.htpt.kids</source>
+	<source>http://www.hometheater.co.il/vt239763.html</source>
 	<email>infohtpt@gmail.com</email>
 	<website>https://www.facebook.com/pages/HTPT/934744346549707</website>
   </extension>
@@ -513,7 +513,7 @@ the users movie library hitting enter or return will play the associated movie.
 	<description lang="he">בקר אותנו בפייסבוק לתמיכה!</description>
     <disclaimer></disclaimer>
 	<email>infohtpt@gmail.com</email>
-	<forum></forum>
+	<forum>http://www.hometheater.co.il/vp2331950#2331950</forum>
 	<source>https://github.com/htpthtpt/htpt/tree/master/script.htpt.remote</source>
 	<website>https://www.facebook.com/pages/HTPT/934744346549707</website>
   </extension>
@@ -659,8 +659,8 @@ the users movie library hitting enter or return will play the associated movie.
 	<platform>all</platform>
 	<summary lang="en">Skin with a brain</summary>
 	<summary lang="he">מעטפת חכמה</summary>
-    <description lang="en">HTPT Skin include support unique addons which make it smarter. HTPT use dynamic AI which is effected by the user actions and hardware.</description>
-	<description lang="he">מעטפת HTPT תומכת בהרחבות ייחודיות אשר הופכות אותה לחכמה במיוחד.[CR]ה-HTPT מכיל בינה מלאכותית המושפעת מפעולת המשתמש וסוג החומרה.</description>
+    <description lang="en">HTPT Skin include support unique addons which make it smarter. HTPT use dynamic AI which is effected by the user actions and hardware. HTPT Design specialy for ease of use.</description>
+	<description lang="he">מעטפת HTPT תומכת בהרחבות ייחודיות אשר הופכות אותה לחכמה במיוחד.[CR]ה-HTPT מכיל בינה מלאכותית המושפעת מפעולת המשתמש וסוג החומרה.[CR]המעטפת מאופיינת בקלות שימוש.</description>
     <disclaimer>YOU MAY ALSO REFER TO HTPT INSTALLER ADDON</disclaimer>
 	<email>infohtpt@gmail.com</email>
 	<forum>http://www.hometheater.co.il/vp2318721#2318721</forum>
