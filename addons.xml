@@ -336,7 +336,7 @@
   </extension>
 </addon>
 
-<addon id="plugin.video.htpt.kids" name="HTPT KIDS" version="0.0.14" provider-name="finalmakerr">
+<addon id="plugin.video.htpt.kids" name="HTPT KIDS" version="0.0.15" provider-name="finalmakerr">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
 	<import addon="plugin.video.youtube" version="5.1.0"/>
