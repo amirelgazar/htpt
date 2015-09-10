@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<settings>
+	<category label="100" description="כללי">
+		<setting type="lsep" label="1"/>
+		<setting id="General_AutoView" type="bool" default="true" label="$ADDON[service.htpt 20]" visible="true"/>
+		<setting id="General_PageSize" type="text" default="18" label="General_PageSize" visible="false"/>
+		<setting id="General_TVModeDialog" type="bool" default="true" label="$ADDON[service.htpt 16]" visible="true"/>
+		<setting id="General_TVModeShuffle" type="bool" default="true" label="$ADDON[service.htpt 17]" visible="eq(-1,true)"/>
+		<setting type="lsep" label=""/>
+		
+		<setting type="lsep" label=""/>
+		<setting id="Addon_Update" type="text" default="false" label="Addon_Update" visible="false"/>
+		<setting id="Addon_Version" type="text" default="" label="Addon_Version" visible="false"/>
+		<setting id="Addon_UpdateDate" type="text" default="" label="Addon_UpdateDate" visible="false"/>
+		<setting id="Addon_UpdateLog" type="bool" default="false" label="Addon_UpdateLog" visible="false"/>
+		<setting type="lsep" label=""/>
+	</category>
+</settings>

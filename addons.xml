@@ -336,7 +336,7 @@
   </extension>
 </addon>
 
-<addon id="plugin.video.htpt.kids" name="HTPT KIDS" version="0.0.15" provider-name="finalmakerr">
+<addon id="plugin.video.htpt.kids" name="HTPT KIDS" version="0.0.16" provider-name="finalmakerr">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
 	<import addon="plugin.video.youtube" version="5.1.0"/>
@@ -359,7 +359,7 @@
   </extension>
 </addon>
 
-<addon id="plugin.video.htpt.music" name="HTPT Music" version="0.0.9" provider-name="HTPT Team">
+<addon id="plugin.video.htpt.music" name="HTPT Music" version="0.0.10" provider-name="HTPT Team">
   <requires>
 	<import addon="xbmc.python" version="2.1.0"/>
 	<import addon="plugin.video.youtube" version="5.1.0"/>
@@ -579,7 +579,7 @@ the users movie library hitting enter or return will play the associated movie.
   </extension>
 </addon>
 
-<addon id="service.htpt" name="HTPT Service" version="0.1.55" provider-name="HTPT Team">
+<addon id="service.htpt" name="HTPT Service" version="0.1.56" provider-name="HTPT Team">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
   </requires>

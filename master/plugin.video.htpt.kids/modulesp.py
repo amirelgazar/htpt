@@ -8,7 +8,7 @@ if "plugin." in addonID: from shared_modules3 import *
 
 def CATEGORIES():
 	'''------------------------------
-	---MAIN-------------------------
+	---MAIN--------------------------
 	------------------------------'''
 	addDir(addonString(41).encode('utf-8'),'',101,addonMediaPath + "41.png",addonString(141).encode('utf-8'),'1',58)
 	addDir(addonString(42).encode('utf-8'),'',102,addonMediaPath + "42.jpg",addonString(142).encode('utf-8'),'1',58) #SHOWS
@@ -207,7 +207,7 @@ def CATEGORIES104(admin):
 	list.append('&youtube_ch=UCDfoEu-jaKsjNL6Fl0h5PUQ')
 	list.append('&wallaNew=genre%3dkids%26genreId%3d7447')
 	if General_TrustedOnly == "false" or admin: list.append('&youtube_ch=UC9DU2y9iXnrI0Y5NFoBQ4RQ/playlists')
-	addDir(localize(22082),list,6,addonMediaPath + 'buttonadd.png',addonString(194).encode('utf-8'),'1',50) ; list = []
+	addDir(localize(22082),list,6,addonMediaPath + 'buttonadd.png',addonString(110).encode('utf-8'),'1',50) ; list = []
 	'''---------------------------'''
 	
 	'''אגדות המלך שלמה'''
