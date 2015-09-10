@@ -8,7 +8,7 @@ if "plugin." in addonID: from shared_modules3 import *
 
 def CATEGORIES():
 	'''------------------------------
-	---MAIN--------------------------
+	---MAIN-------------------------
 	------------------------------'''
 	addDir(addonString(41).encode('utf-8'),'',101,addonMediaPath + "41.png",addonString(141).encode('utf-8'),'1',58)
 	addDir(addonString(42).encode('utf-8'),'',102,addonMediaPath + "42.jpg",addonString(142).encode('utf-8'),'1',58) #SHOWS
