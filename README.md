@@ -6,6 +6,7 @@ Available Addons for typical users:
 - HTPT KIDS
 - HTPT GOPRO
 - HTPT MUSIC
+- HTPT REMOTE
 - HTPT SKIN
 
 
