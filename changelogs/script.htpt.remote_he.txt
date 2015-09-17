@@ -1,4 +1,10 @@
 ------------------------
+HTPT Remote v0.1.12 (xx-Sep-15)
+------------------------
+- Minor bug fix.
+- Update Translation.
+
+------------------------
 HTPT Remote v0.1.11 (09-Sep-15)
 ------------------------
 - Beta Stage.
