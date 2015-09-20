@@ -317,7 +317,7 @@
   </extension>
 </addon>
 
-<addon id="plugin.video.htpt.gopro" name="HTPT GoPro" version="0.0.7" provider-name="HTPT Team">
+<addon id="plugin.video.htpt.gopro" name="HTPT GoPro" version="0.0.8" provider-name="HTPT Team">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
     <import addon="plugin.video.youtube" version="5.1.0"/>
@@ -326,11 +326,13 @@
     <provides>video</provides>
   </extension>
   <extension point="xbmc.addon.metadata">
-    <language>he</language>
+    <language>he, en</language>
 	<platform>all</platform>
-    <summary>HTPT System Component</summary>
-    <description></description>
-    <disclaimer>PLEASE REFER TO HTPT INSTALLER ADDON</disclaimer>
+	<summary lang="en">Watch sport extreme videos.</summary>
+	<summary lang="he">צפה בסרטוני ספורט אקסטרים.</summary>
+    <description lang="en">Visit HTPT Facebook Page for support</description>
+	<description lang="he">בקר אותנו בפייסבוק לתמיכה!</description>
+    <disclaimer>The author does not host or distribute any of the content displayed by this addon. The author does not have any affiliation with the content provider.</disclaimer>
 	<email>infohtpt@gmail.com</email>
 	<website>https://www.facebook.com/pages/HTPT/934744346549707</website>
   </extension>
@@ -359,7 +361,7 @@
   </extension>
 </addon>
 
-<addon id="plugin.video.htpt.music" name="HTPT Music" version="0.0.10" provider-name="HTPT Team">
+<addon id="plugin.video.htpt.music" name="HTPT Music" version="0.0.11" provider-name="HTPT Team">
   <requires>
 	<import addon="xbmc.python" version="2.1.0"/>
 	<import addon="plugin.video.youtube" version="5.1.0"/>
@@ -445,7 +447,7 @@ the users movie library hitting enter or return will play the associated movie.
   </extension>
 </addon>
 
-<addon id="script.htpt.emu" name="HTPT Emulator" version="0.0.10" provider-name="finalmakerr">
+<addon id="script.htpt.emu" name="HTPT Emulator" version="0.0.11" provider-name="finalmakerr">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
   </requires>
@@ -455,14 +457,14 @@ the users movie library hitting enter or return will play the associated movie.
     <language>he</language>
 	<platform>all</platform>
     <summary>HTPT System Component</summary>
-    <description></description>
+    <description>This addon will be installed on demand from within HTPT SYSTEM (If your hardware support it).</description>
     <disclaimer>PLEASE REFER TO HTPT INSTALLER ADDON</disclaimer>
 	<email>infohtpt@gmail.com</email>
 	<website>https://www.facebook.com/pages/HTPT/934744346549707</website>
   </extension>
 </addon>
 
-<addon id="script.htpt.install" name="HTPT Install" version="0.0.19" provider-name="finalmakerr">
+<addon id="script.htpt.install" name="HTPT Install" version="0.0.20" provider-name="finalmakerr">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
   </requires>
@@ -519,7 +521,7 @@ the users movie library hitting enter or return will play the associated movie.
   </extension>
 </addon>
 
-<addon id="script.htpt.smartbuttons" name="HTPT Smart Buttons" version="0.0.24" provider-name="HTPT Team">
+<addon id="script.htpt.smartbuttons" name="HTPT Smart Buttons" version="0.0.25" provider-name="HTPT Team">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
 	<import addon="xbmc.addon" version="12.0.0"/>
@@ -579,7 +581,7 @@ the users movie library hitting enter or return will play the associated movie.
   </extension>
 </addon>
 
-<addon id="service.htpt" name="HTPT Service" version="0.1.58" provider-name="HTPT Team">
+<addon id="service.htpt" name="HTPT Service" version="0.1.59" provider-name="HTPT Team">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
   </requires>
@@ -589,25 +591,27 @@ the users movie library hitting enter or return will play the associated movie.
     <language>he</language>
 	<platform>all</platform>
     <summary>HTPT System Component</summary>
-    <description></description>
+    <description>This addon will be auto installed if needed.</description>
     <disclaimer>PLEASE REFER TO HTPT INSTALLER ADDON</disclaimer>
 	<email>infohtpt@gmail.com</email>
 	<website>https://www.facebook.com/pages/HTPT/934744346549707</website>
   </extension>
 </addon>
 
-<addon id="service.htpt.debug" name="HTPT Debug" version="0.1.36" provider-name="HTPT Team">
+<addon id="service.htpt.debug" name="HTPT Debug" version="0.1.37" provider-name="HTPT Team">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
   </requires>
   <extension point="xbmc.python.script" library="default.py"/>
   <extension point="xbmc.service" library="service.py" start="startup"/>
   <extension point="xbmc.addon.metadata">
-    <language>he</language>
+    <language>he, en</language>
 	<platform>all</platform>
-    <summary>HTPT System Component</summary>
-    <description></description>
-    <disclaimer>PLEASE REFER TO HTPT INSTALLER ADDON</disclaimer>
+	<summary lang="en">Send Kodi's log to HTPT.</summary>
+	<summary lang="he">שלח יומן רישום של קודי ל-HTPT.</summary>
+    <description lang="en">Support and Requests only.[CR]You may also visit HTPT Facebook Page for support.</description>
+	<description lang="he">לצורך קבלת תמיכה ובקשות לפיתוח.[CR]ניתן גם ליצור קשר בעזרת דף הפייסבוק.</description>
+    <disclaimer>This addon is used in order to provide support for Kodi. Use it with care, do not spam!</disclaimer>
 	<email>infohtpt@gmail.com</email>
 	<website>https://www.facebook.com/pages/HTPT/934744346549707</website>
   </extension>
@@ -631,7 +635,7 @@ the users movie library hitting enter or return will play the associated movie.
   </extension>
 </addon>
 
-<addon id="skin.htpt" version="0.1.35" name="HTPT SYSTEM" provider-name="finalmakerr">
+<addon id="skin.htpt" version="0.1.36" name="HTPT SYSTEM" provider-name="finalmakerr">
   <requires>
     <import addon="xbmc.gui" version="5.3.0"/>
 	<!--<import addon="xbmc.python" version="2.1.0"/>-->

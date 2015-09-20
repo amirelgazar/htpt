@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<addon id="script.htpt.emu" name="HTPT Emulator" version="0.0.10" provider-name="finalmakerr">
+<addon id="script.htpt.emu" name="HTPT Emulator" version="0.0.11" provider-name="finalmakerr">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
   </requires>
@@ -9,7 +9,7 @@
     <language>he</language>
 	<platform>all</platform>
     <summary>HTPT System Component</summary>
-    <description></description>
+    <description>This addon will be installed on demand from within HTPT SYSTEM (If your hardware support it).</description>
     <disclaimer>PLEASE REFER TO HTPT INSTALLER ADDON</disclaimer>
 	<email>infohtpt@gmail.com</email>
 	<website>https://www.facebook.com/pages/HTPT/934744346549707</website>

@@ -1,16 +1,18 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<addon id="service.htpt.debug" name="HTPT Debug" version="0.1.36" provider-name="HTPT Team">
+<addon id="service.htpt.debug" name="HTPT Debug" version="0.1.37" provider-name="HTPT Team">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
   </requires>
   <extension point="xbmc.python.script" library="default.py"/>
   <extension point="xbmc.service" library="service.py" start="startup"/>
   <extension point="xbmc.addon.metadata">
-    <language>he</language>
+    <language>he, en</language>
 	<platform>all</platform>
-    <summary>HTPT System Component</summary>
-    <description></description>
-    <disclaimer>PLEASE REFER TO HTPT INSTALLER ADDON</disclaimer>
+	<summary lang="en">Send Kodi's log to HTPT.</summary>
+	<summary lang="he">שלח יומן רישום של קודי ל-HTPT.</summary>
+    <description lang="en">Support and Requests only.[CR]You may also visit HTPT Facebook Page for support.</description>
+	<description lang="he">לצורך קבלת תמיכה ובקשות לפיתוח.[CR]ניתן גם ליצור קשר בעזרת דף הפייסבוק.</description>
+    <disclaimer>This addon is used in order to provide support for Kodi. Use it with care, do not spam!</disclaimer>
 	<email>infohtpt@gmail.com</email>
 	<website>https://www.facebook.com/pages/HTPT/934744346549707</website>
   </extension>
