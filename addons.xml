@@ -464,7 +464,7 @@ the users movie library hitting enter or return will play the associated movie.
   </extension>
 </addon>
 
-<addon id="script.htpt.install" name="HTPT Install" version="0.0.20" provider-name="finalmakerr">
+<addon id="script.htpt.install" name="HTPT Install" version="0.0.21" provider-name="finalmakerr">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
   </requires>
@@ -648,10 +648,8 @@ the users movie library hitting enter or return will play the associated movie.
 	<import addon="script.htpt.refresh" version="0.1.13"/>
 	<import addon="script.htpt.remote" version="0.1.1"/>
 	<import addon="script.htpt.widgets" version="0.1.0"/>
-	<!--<import addon="script.htpt.emu" version="0.0.1"/>-->
 
 	<import addon="script.favourites" version="3.2.5"/>
-	<!--<import addon="metadata.universal" version="2.6.3"/>-->
 
 
   </requires>

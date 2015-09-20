@@ -12,10 +12,8 @@
 	<import addon="script.htpt.refresh" version="0.1.13"/>
 	<import addon="script.htpt.remote" version="0.1.1"/>
 	<import addon="script.htpt.widgets" version="0.1.0"/>
-	<!--<import addon="script.htpt.emu" version="0.0.1"/>-->
 	
 	<import addon="script.favourites" version="3.2.5"/>
-	<!--<import addon="metadata.universal" version="2.6.3"/>-->
 	
 	
   </requires>
