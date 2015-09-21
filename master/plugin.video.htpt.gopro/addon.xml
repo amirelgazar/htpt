@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<addon id="plugin.video.htpt.gopro" name="HTPT GoPro" version="0.0.8" provider-name="HTPT Team">
+  <requires>
+    <import addon="xbmc.python" version="2.1.0"/>
+    <import addon="plugin.video.youtube" version="5.1.0"/>
+  </requires>
+  <extension point="xbmc.python.pluginsource" library="default.py">
+    <provides>video</provides>
+  </extension>
+  <extension point="xbmc.addon.metadata">
+    <language>he, en</language>
+	<platform>all</platform>
+	<summary lang="en">Watch sport extreme videos.</summary>
+	<summary lang="he">צפה בסרטוני ספורט אקסטרים.</summary>
+    <description lang="en">Visit HTPT Facebook Page for support</description>
+	<description lang="he">בקר אותנו בפייסבוק לתמיכה!</description>
+    <disclaimer>The author does not host or distribute any of the content displayed by this addon. The author does not have any affiliation with the content provider.</disclaimer>
+	<email>infohtpt@gmail.com</email>
+	<website>https://www.facebook.com/pages/HTPT/934744346549707</website>
+  </extension>
+</addon>

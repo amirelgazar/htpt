@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<settings>
+	<category label="100" description="כללי">
+		<setting type="lsep" label=""/>
+		<setting type="lsep" label="Please note: AutoView is currently support only HTPT Skin!"/>
+		<setting id="General_AutoView" type="bool" default="true" label="$ADDON[service.htpt 20]" visible="true"/>
+		<setting id="General_AutoView_A" type="text" default="" label="General_AutoView_A" visible="false"/>
+		<setting id="General_AutoView_B" type="text" default="" label="General_AutoView_B" visible="false"/>
+		<setting id="General_AutoView_C" type="text" default="" label="General_AutoView_C" visible="false"/>
+		<setting id="General_TrustedOnly" type="bool" default="true" label="$ADDON[service.htpt 15]" visible="true"/>
+		<setting id="General_TVModeDialog" type="bool" default="true" label="$ADDON[service.htpt 16]" visible="true"/>
+		<setting id="General_TVModeShuffle" type="bool" default="true" label="$ADDON[service.htpt 17]" enable="eq(-1,true)"/>
+		<setting type="lsep" label=""/>
+		
+		<setting type="lsep" label=""/>
+		<setting id="Addon_Update" type="text" default="false" label="Addon_Update" visible="false"/>
+		<setting id="Addon_Version" type="text" default="" label="Addon_Version" visible="false"/>
+		<setting id="Addon_UpdateDate" type="text" default="" label="Addon_UpdateDate" visible="false"/>
+		<setting id="Addon_UpdateLog" type="bool" default="false" label="Addon_UpdateLog" visible="false"/>
+		<setting type="lsep" label=""/>
+	
+	</category>
+	
+	<setting type="lsep" label=""/>
+	<!--<setting id="OFF_1" type="bool" default="false" label="OFF_1" visible="false"/>
+	<setting id="OFF_2" type="bool" default="false" label="OFF_2" visible="false"/>
+	<setting id="OFF_3" type="bool" default="false" label="OFF_3" visible="false"/>
+	<setting id="OFF_4" type="bool" default="false" label="OFF_4" visible="false"/>
+	<setting id="OFF_5" type="bool" default="false" label="OFF_5" visible="false"/>
+	<setting id="OFF_6" type="bool" default="false" label="OFF_6" visible="false"/>
+	<setting id="OFF_7" type="bool" default="false" label="OFF_7" visible="false"/>
+	<setting id="OFF_8" type="bool" default="false" label="OFF_8" visible="false"/>
+	<setting id="OFF_9" type="bool" default="false" label="OFF_9" visible="false"/>
+	<setting id="OFF_10" type="bool" default="false" label="OFF_10" visible="false"/>
+	<setting id="OFF_11" type="bool" default="false" label="OFF_11" visible="false"/>
+	<setting id="OFF_12" type="bool" default="false" label="OFF_12" visible="false"/>
+	<setting id="OFF_13" type="bool" default="false" label="OFF_13" visible="false"/>
+	<setting id="OFF_14" type="bool" default="false" label="OFF_14" visible="false"/>
+	<setting id="OFF_15" type="bool" default="false" label="OFF_15" visible="false"/>
+	<setting id="OFF_16" type="bool" default="false" label="OFF_16" visible="false"/>
+	<setting id="OFF_17" type="bool" default="false" label="OFF_17" visible="false"/>
+	<setting id="OFF_18" type="bool" default="false" label="OFF_18" visible="false"/>
+	<setting id="OFF_19" type="bool" default="false" label="OFF_19" visible="false"/>
+	<setting id="OFF_20" type="bool" default="false" label="OFF_20" visible="false"/>
+	<setting id="OFF_21" type="bool" default="false" label="OFF_21" visible="false"/>-->
+	<setting type="lsep" label=""/>
+	
+</settings>

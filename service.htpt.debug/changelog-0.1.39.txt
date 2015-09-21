@@ -1,77 +1,59 @@
 ------------------------
 HTPT Debug v0.1.18 (10-July-15)
 ------------------------
-- Mode1 fix.
+- Beta Stage (100%).
 
 ------------------------
 HTPT Debug v0.1.17 (26-June-15)
 ------------------------
-- Mode1 fixed.
-- allowdebug support.
-- Mode21 added.
-- Mode18-20 fixed.
+- Beta Stage (90%).
 
 ------------------------
 HTPT Debug v0.1.16 (12-June-15)
 ------------------------
-- Exception, TypeError added.
-- Major changes.
+- Beta Stage (80%).
 
 ------------------------
 HTPT Debug v0.1.15 (22-May-15)
 ------------------------
-- content7/8 applied.
-- content2 only if trial.
+- Beta Stage (70%).
 
 ------------------------
 HTPT Debug v0.1.14 (15-May-15)
 ------------------------
-- content6 added.
-- content3 updated.
-- setTime_Start updated.
-- sendMail updated.
-- hasinternet removed.
-- contents visual updated.
-- content7-11 added.
+- Beta Stage (60%).
 
 ------------------------
 HTPT Debug v0.1.13 (01-May-15)
 ------------------------
-- shared_modules added.
-- shared_variables added.
-- מניעת באגים עם משתנים ללא הרחבות.
+- Beta Stage (40%).
 
 ------------------------
 HTPT Debug v0.1.11-12 (27-Mar-15)
 ------------------------
-- עדכון פרטים בצור קשר - WIP!
-- reddone_no and fixdone_no added.
+- Beta Stage (10%).
 
 ------------------------
 HTPT Debug v0.1.10 (08-Mar-15)
 ------------------------
-- issue_description auto removed.
-- sendMail module "try" removed.
-- curtrigger fixed.
-- shutdown notification fixed.
+- Alpha Stage (90%).
 
 ------------------------
 HTPT Debug v0.1.9 (26-Feb-15)
 ------------------------
-- Accounts info changed.
+- Alpha Stage (70%).
 
 ------------------------
 HTPT Debug v0.1.8 (15-Feb-15)
 ------------------------
-- versions info.
+- Alpha Stage (40%).
 
 ------------------------
 HTPT Debug v0.1.6-7 (07-Feb-15)
 ------------------------
-- פרסום שני.
-- שכתוב לקבצים: service, variables, modules.
+- Alpha Stage (20%).
 
 ------------------------
 HTPT Debug v0.0.1 (07-Jan-15)
 ------------------------
-- פרסום ראשוני.
+- Alpha Stage.
