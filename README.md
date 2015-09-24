@@ -8,7 +8,7 @@ Available Addons for typical users:
 - HTPT GOPRO: For sport lovers!
 - HTPT MUSIC: Pure music!
 - HTPT REMOTE: Control your Kodi with any standard IR Remote.
-- HTPT SKIN: (Same as Installer - for now).
+- HTPT SKIN: (Same as Installer - for now). http://imgur.com/a/POljT
 
 
 For support and requests:
