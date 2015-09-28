@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<settings>
+
+	<category label="INFO" description="מוצר">		
+		<setting type="lsep" label=""/>
+		<setting id="General_ScriptON" type="bool" default="false" label="General_ScriptON" visible="false"/>
+		<setting id="General_DownloadON" type="bool" default="false" label="General_DownloadON" visible="false"/>
+		<setting id="Addon_ServiceON" type="bool" default="true" label="Addon_ServiceON" visible="false"/>
+		<setting id="Addon_Update" type="bool" default="false" label="Addon_Update" visible="false"/>
+		<setting id="Addon_UpdateLog" type="bool" default="false" label="Addon_UpdateLog" visible="false"/>
+		<setting id="Addon_UpdateDate" type="text" default="" label="Addon_UpdateDate" visible="false"/>
+		<setting id="Addon_Version" type="text" default="" label="Addon_Version" visible="false"/>
+		<setting type="lsep" label="" visible="false"/>
+
+		<setting type="lsep" label="" visible="false"/>
+		<setting id="Fix_ScriptON" type="bool" default="false" label="Fix_ScriptON" visible="false"/>
+		<setting id="Fix_LastDate" type="text" default="" label="Fix_LastDate" visible="false"/>
+		<setting id="Fix_1" type="bool" default="false" label="Fix_1" visible="false"/>
+		<setting id="Fix_2" type="bool" default="false" label="Fix_2" visible="false"/>
+		<setting id="Fix_3" type="bool" default="false" label="Fix_3" visible="false"/>
+		<setting id="Fix_4" type="bool" default="false" label="Fix_4" visible="false"/>
+		<setting id="Fix_5" type="bool" default="false" label="Fix_5" description="RESET-GUI" visible="false"/>
+		<setting id="Fix_6" type="bool" default="false" label="Fix_6" description="Skin-Theme" visible="false"/>
+		<setting id="Fix_7" type="bool" default="false" label="Fix_7" description="" visible="false"/>
+		<setting id="Fix_8" type="bool" default="false" label="Fix_8" description="" visible="false"/>
+		<setting id="Fix_9" type="bool" default="false" label="Fix_9" description="" visible="false"/>
+		<setting type="lsep" label="" visible="false"/>
+		<setting id="Fix_10" type="bool" default="false" label="Fix_10" description="" visible="false"/>
+		<setting id="Fix_11" type="bool" default="false" label="Fix_11" visible="false"/>
+		<setting id="Fix_12" type="bool" default="false" label="Fix_12" visible="false"/>
+		<setting id="Fix_13" type="bool" default="false" label="Fix_13" visible="false"/>
+		<setting id="Fix_14" type="bool" default="false" label="Fix_14" visible="false"/>
+		<setting type="lsep" label="" visible="false"/>
+		<setting id="Fix_100" type="bool" default="false" label="$LOCALIZE[74550] ($LOCALIZE[342])" description="ספריית סרטים" visible="true"/>
+		<setting id="Fix_101" type="bool" default="false" label="$LOCALIZE[74550] ($LOCALIZE[20343])" description="ספריית סדרות" visible="true"/>
+		<setting id="Fix_102" type="bool" default="false" label="Fix_102" visible="false"/>
+		<setting id="Fix_103" type="bool" default="false" label="Fix_103" visible="false"/>
+		<setting id="Fix_104" type="bool" default="false" label="Fix_104" visible="false"/>
+		<setting type="lsep" label="" visible="false"/>
+
+		<setting type="lsep" label="" visible="false"/>
+		<setting id="Red_ScriptON" type="bool" default="false" label="Red_ScriptON" visible="false"/>
+		<setting id="Red_LastDate" type="text" default="" label="Red_LastDate" visible="false"/>
+		<setting id="Red_Done" type="text" default="" label="Red_Done" visible="false"/>
+		<setting id="Red_Alert" type="bool" default="false" label="Red_Alert" visible="false"/>
+		<setting id="Red_LV1" type="bool" default="false" label="Red_LV1" visible="false"/>
+		<setting id="Red_LV2" type="bool" default="false" label="Red_LV2" visible="false"/>
+		<setting id="Red_LV3" type="bool" default="false" label="Red_LV3" visible="false"/>
+		<setting id="Red_LV4" type="bool" default="false" label="Red_LV4" visible="false"/>
+		<setting id="Red_LV5" type="bool" default="false" label="Red_LV5" visible="false"/>
+		<setting type="lsep" label="" visible="false"/>
+					
+		<setting type="lsep" label="" visible="false"/>
+		<setting id="Ads_Date" type="text" default="" label="Ads_Date" visible="false"/>
+		<setting id="Ads_Timezone" type="text" default="" label="Ads_Timezone" visible="false"/>
+		<setting type="lsep" label="" visible="false"/>
+		
+	</category>
+
+
+</settings>

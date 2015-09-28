@@ -48,14 +48,24 @@ addonName          = xbmcaddon.Addon().getAddonInfo("name")
 addonString        = xbmcaddon.Addon().getLocalizedString
 addonID          = xbmcaddon.Addon().getAddonInfo("id")
 addonPath          = xbmcaddon.Addon().getAddonInfo("path")
+addonFanart = os.path.join(addonPath, "fanart.jpg")
 addonVersion          = xbmcaddon.Addon().getAddonInfo("version")
 
 printfirst = addonName + ": !@# "
 '''---------------------------'''
-Addon_UpdateLog = getsetting('Addon_UpdateLog')
 General_PageSize = getsetting('General_PageSize')
 General_TVModeDialog = getsetting('General_TVModeDialog')
 General_TVModeShuffle = getsetting('General_TVModeShuffle')
 General_AutoView = getsetting('General_AutoView')
+'''---------------------------'''
+Addon_ShowLog = getsetting('Addon_ShowLog')
+Addon_ShowLog2 = getsetting('Addon_ShowLog2')
+Addon_Update = getsetting('Addon_Update')
+Addon_UpdateDate = getsetting('Addon_UpdateDate')
+Addon_UpdateLog = getsetting('Addon_UpdateLog')
+Addon_Version = getsetting('Addon_Version')
+'''---------------------------'''
+Fanart_Enable = getsetting('Fanart_Enable')
+Fanart_EnableCustom = getsetting('Fanart_EnableCustom')
 '''---------------------------'''
 YOUTUBE_CHANNEL_ID = "GoProCamera"

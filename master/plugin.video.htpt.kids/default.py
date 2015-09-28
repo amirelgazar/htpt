@@ -6,6 +6,6 @@ import json
 from variables import *
 from modulesp import *
 
-url, name, mode, iconimage, desc, num, viewtype = pluginend(admin)
+url, name, mode, iconimage, desc, num, viewtype, fanart = pluginend(admin)
 
 pluginend2(admin, url, containerfolderpath, viewtype)

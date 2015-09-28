@@ -1,0 +1,7 @@
+<settings>
+    <setting id="ASK_FILENAME" value="false" />
+    <setting id="ASK_FOLDER" value="false" />
+    <setting id="DOWNLOAD_FOLDER" value="specials://userdata/library/downloads" />
+    <setting id="SEARCH" value="10" />
+    <setting id="VERSION" value="1.0.5" />
+</settings>

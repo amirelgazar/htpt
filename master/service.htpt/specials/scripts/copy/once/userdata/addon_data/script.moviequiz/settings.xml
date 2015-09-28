@@ -1,0 +1,30 @@
+<settings>
+    <setting id="movie.rating.limit" value="R" />
+    <setting id="movie.rating.limit.enabled" value="false" />
+    <setting id="only.watched.movies" value="false" />
+    <setting id="question.actornotinmovie.enabled" value="true" />
+    <setting id="question.whatactorisinmoviebesidesotheractor.enabled" value="true" />
+    <setting id="question.whatactorisinthesemovies.enabled" value="true" />
+    <setting id="question.whatactoristhis.enabled" value="true" />
+    <setting id="question.whatepisodeisthis.enabled" value="true" />
+    <setting id="question.whatmoviehaslongestruntime.enabled" value="true" />
+    <setting id="question.whatmovieisnewest.enabled" value="true" />
+    <setting id="question.whatmovieisnotdirectedby.enabled" value="true" />
+    <setting id="question.whatmovieisthis.enabled" value="false" />
+    <setting id="question.whatmovieisthisquotefrom.enabled" value="true" />
+    <setting id="question.whatseasonisthis.enabled" value="true" />
+    <setting id="question.whatstudioreleasedmovie.enabled" value="true" />
+    <setting id="question.whattaglinebelongstomovie.enabled" value="true" />
+    <setting id="question.whattvshowisthis.enabled" value="false" />
+    <setting id="question.whattvshowisthisquotefrom.enabled" value="true" />
+    <setting id="question.whattvshowisthisthemefrom.enabled" value="true" />
+    <setting id="question.whatyearwasmoviereleased.enabled" value="true" />
+    <setting id="question.whenwastvshowfirstaired.enabled" value="true" />
+    <setting id="question.whodirectedthismovie.enabled" value="true" />
+    <setting id="question.whoplayedroleinmovie.enabled" value="true" />
+    <setting id="question.whoplayedroleintvshow.enabled" value="true" />
+    <setting id="show.correct.answer" value="true" />
+    <setting id="submit.highscores" value="true" />
+    <setting id="tvshow.rating.limit" value="TV-MA" />
+    <setting id="tvshow.rating.limit.enabled" value="false" />
+</settings>

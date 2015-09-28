@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <settings>
-	<category label="100" description="כללי">
+	<category label="$LOCALIZE[128]" description="כללי">
 		<setting type="lsep" label=""/>
 		<setting type="lsep" label="Please note: AutoView is currently support only HTPT Skin!"/>
 		<setting id="General_AutoView" type="bool" default="true" label="$ADDON[service.htpt 20]" visible="true"/>
@@ -9,20 +9,38 @@
 		<setting id="General_AutoView_C" type="text" default="" label="General_AutoView_C" visible="false"/>
 		<setting id="General_TrustedOnly" type="bool" default="true" label="$ADDON[service.htpt 15]" visible="true"/>
 		<setting id="General_TVModeDialog" type="bool" default="true" label="$ADDON[service.htpt 16]" visible="true"/>
-		<setting id="General_TVModeShuffle" type="bool" default="true" label="$ADDON[service.htpt 17]" enable="eq(-1,true)"/>
-		<setting type="lsep" label=""/>
+		<setting id="General_TVModeShuffle" type="bool" default="true" label="$ADDON[service.htpt 17]" enable="eq(-1,true)" subsetting="true"/>
 		
 		<setting type="lsep" label=""/>
+		<setting id="Addon_ShowLog" type="bool" default="true" label="$ADDON[service.htpt 24]" visible="true"/>
+		<setting type="lsep" label="$ADDON[service.htpt 25]" visible="eq(-1,true)"/>
+		<setting id="Addon_ShowLog2" type="slider" default="1" label="$ADDON[service.htpt 26]" range="0,1,7" option="int" subsetting="true" visible="eq(-2,true)"/>
 		<setting id="Addon_Update" type="text" default="false" label="Addon_Update" visible="false"/>
-		<setting id="Addon_Version" type="text" default="" label="Addon_Version" visible="false"/>
 		<setting id="Addon_UpdateDate" type="text" default="" label="Addon_UpdateDate" visible="false"/>
 		<setting id="Addon_UpdateLog" type="bool" default="false" label="Addon_UpdateLog" visible="false"/>
+		<setting id="Addon_Version" type="text" default="" label="Addon_Version" visible="false"/>
 		<setting type="lsep" label=""/>
 	
 	</category>
-	
-	<setting type="lsep" label=""/>
-	<!--<setting id="OFF_1" type="bool" default="false" label="OFF_1" visible="false"/>
+		
+	<category label="$LOCALIZE[33071]" description="רקעים מותאמים אישית">
+		<setting id="Fanart_Enable" type="bool" default="true" label="$ADDON[service.htpt 28]" description="אפשר רקעים" visible="true"/>
+		<setting id="Fanart_EnableCustom" type="bool" default="false" label="$LOCALIZE[21389]" subsetting="true" description="אפשר רקע מותאם אישית" visible="eq(-1,true)"/>
+		<setting type="lsep" label="$ADDON[service.htpt 27]" description="בחר רקע משלך עבור כל קטגוריה." visible="eq(-1,true)"/>
+		<setting id="Fanart_Custom101" type="image" source="pictures" default="" label="101" subsetting="true" description="" visible="eq(-2,true) + eq(-3,true)"/>
+		<setting id="Fanart_Custom102" type="image" source="pictures" default="" label="102" subsetting="true" description="" visible="eq(-3,true) + eq(-4,true)"/>
+		<setting id="Fanart_Custom103" type="image" source="pictures" default="" label="103" subsetting="true" description="" visible="false"/>
+		<setting id="Fanart_Custom104" type="image" source="pictures" default="" label="104" subsetting="true" description="" visible="eq(-5,true) + eq(-6,true)"/>
+		<setting id="Fanart_Custom105" type="image" source="pictures" default="" label="105" subsetting="true" description="" visible="eq(-6,true) + eq(-7,true)"/>
+		<setting id="Fanart_Custom106" type="image" source="pictures" default="" label="106" subsetting="true" description="" visible="eq(-7,true) + eq(-8,true)"/>
+		<setting id="Fanart_Custom107" type="image" source="pictures" default="" label="107" subsetting="true" description="" visible="eq(-8,true) + eq(-9,true)"/>
+		<setting id="Fanart_Custom108" type="image" source="pictures" default="" label="108" subsetting="true" description="" visible="eq(-9,true) + eq(-10,true)"/>
+		<setting id="Fanart_Custom109" type="image" source="pictures" default="" label="109" subsetting="true" description="" visible="eq(-10,true) + eq(-11,true)"/>
+		<setting id="Fanart_Custom110" type="image" source="pictures" default="" label="110" subsetting="true" description="" visible="false"/>
+		
+	</category>
+	<!--<setting type="lsep" label=""/>
+	<setting id="OFF_1" type="bool" default="false" label="OFF_1" visible="false"/>
 	<setting id="OFF_2" type="bool" default="false" label="OFF_2" visible="false"/>
 	<setting id="OFF_3" type="bool" default="false" label="OFF_3" visible="false"/>
 	<setting id="OFF_4" type="bool" default="false" label="OFF_4" visible="false"/>
@@ -42,7 +60,7 @@
 	<setting id="OFF_18" type="bool" default="false" label="OFF_18" visible="false"/>
 	<setting id="OFF_19" type="bool" default="false" label="OFF_19" visible="false"/>
 	<setting id="OFF_20" type="bool" default="false" label="OFF_20" visible="false"/>
-	<setting id="OFF_21" type="bool" default="false" label="OFF_21" visible="false"/>-->
-	<setting type="lsep" label=""/>
+	<setting id="OFF_21" type="bool" default="false" label="OFF_21" visible="false"/>
+	<setting type="lsep" label=""/>-->
 	
 </settings>

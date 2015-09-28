@@ -1,0 +1,351 @@
+msgid ""
+msgstr ""
+
+msgctxt "#100
+msgid ""
+msgstr ""
+
+msgctxt "#104
+msgid ""
+msgstr ""
+
+msgctxt "#105
+msgid ""
+msgstr ""
+
+msgctxt "#106
+msgid ""
+msgstr ""
+
+msgctxt "#107
+msgid ""
+msgstr ""
+
+msgctxt "#108
+msgid ""
+msgstr ""
+
+msgctxt "#109
+msgid ""
+msgstr ""
+
+msgctxt "#110
+msgid ""
+msgstr ""
+
+msgctxt "#111
+msgid ""
+msgstr ""
+
+msgctxt "#112
+msgid ""
+msgstr ""
+
+msgctxt "#113
+msgid ""
+msgstr ""
+
+msgctxt "#114
+msgid ""
+msgstr ""
+
+msgctxt "#115
+msgid ""
+msgstr ""
+
+msgctxt "#116
+msgid ""
+msgstr ""
+
+msgctxt "#117
+msgid ""
+msgstr ""
+
+msgctxt "#118
+msgid ""
+msgstr ""
+
+msgctxt "#119
+msgid ""
+msgstr ""
+
+msgctxt "#120
+msgid ""
+msgstr ""
+
+msgctxt "#121
+msgid ""
+msgstr ""
+
+msgctxt "#122
+msgid ""
+msgstr ""
+
+msgctxt "#123
+msgid ""
+msgstr ""
+
+msgctxt "#124
+msgid ""
+msgstr ""
+
+msgctxt "#125
+msgid ""
+msgstr ""
+
+msgctxt "#126
+msgid ""
+msgstr "יום הולדת שמח ל-%s!"
+
+msgctxt "#127
+msgid ""
+msgstr "(כפתור ערוצי טלוויזיה) [COLOR=Yellow]חדש! ערוץ האח הגדול[/COLOR][CR][CR][CR]תפרגנו בלייק בפייסבוק ובערוץ שלנו ביו-טיוב :)"
+
+msgctxt "#128
+msgid ""
+msgstr "[COLOR=Yellow]סרטים חדשים באיכות HD עם תרגום בעברית:[/COLOR][CR][CR]%s[CR][CR][COLOR=Blue]*כחול - איכות 1080p[/COLOR][CR][CR]צפייה מהנה :)"
+
+msgctxt "#129
+msgid ""
+msgstr "[COLOR=Blue]התחדשנו במעטפת כחול לבן! - ניתן לשנות את גוון הממשק בהגדרות מעטפת.[/COLOR]"
+
+###HOLIDAYS
+#PESAH-HOLIDAY
+msgctxt "#130
+msgid ""
+msgstr "[COLOR=Yellow]חג פסח כשר ושמח לכל עם ישראל![/COLOR][CR][CR][CR]"
+
+#Yom-Hazikaron
+msgctxt "#131
+msgid ""
+msgstr "[COLOR=Yellow]יום הזיכרון לחללי מערכות ישראל[/COLOR][CR][CR]יום העצמאות הוא חג לאומי של מדינת ישראל, המציין את ההכרזה על הקמת המדינה בתום המנדט הבריטי.[CR]"
+
+#Yom-Ha'atzmaut
+msgctxt "#132
+msgid ""
+msgstr "[COLOR=Yellow]יום העצמאות שמח לכל עם ישראל![/COLOR][CR][CR]יום העצמאות הוא חג לאומי של מדינת ישראל, המציין את ההכרזה על הקמת המדינה בתום המנדט הבריטי.[CR]"
+
+#Lag_BaOmer
+msgctxt "#133
+msgid ""
+msgstr "[COLOR=Yellow]הדליקו מדורה! ל"ג בעומר :)[/COLOR][CR][CR]ל"ג בעומר הוא ממועדי ישראל. זהו היום השלושים ושלושה לספירת העומר שסופרים מפסח לשבועות, וחל בי"ח באייר.[CR]"
+
+#Shavuot
+msgctxt "#134
+msgid ""
+msgstr "[COLOR=Yellow]חג שבועות שמח לכל עם ישראל![/COLOR][CR][CR]חג השבועות (המכונה במקרא חג הקציר או יום הביכורים) הוא חג ביהדות, השני מבין שלוש הרגלים.[CR]"
+
+msgctxt "#135
+msgid ""
+msgstr ""
+
+msgctxt "#136
+msgid ""
+msgstr ""
+
+msgctxt "#137
+msgid ""
+msgstr "[COLOR=Yellow]חג ראש השנה שמח לכל עם ישראל![/COLOR][CR][CR]ראש השנה נחשב במסורת היהודית ליום המלכת האלוהים על האנושות, וכן נחשב ליום הדין, בו נידון האדם על השנה שעברה, ונקבע מה יארע לו בשנה הבאה.[CR]"
+
+msgctxt "#138
+msgid ""
+msgstr ""
+
+msgctxt "#139
+msgid ""
+msgstr "[COLOR=Yellow]סליחה, מחילה ושלום לכל עם ישראל - יום הכיפורים![/COLOR][CR][CR]יום הכיפורים הוא אחד ממועדי ישראל כבר מתקופת המקרא. יום זה נחשב ביהדות לאחד הימים המקודשים ביותר בלוח השנה העברי, ובאופן פופולרי נחשב ליום "המקודש ביותר".[CR][CR]יום הכיפורים חל בעשרה בתשרי ובמוקדו עומדות התשובה והסליחה, ועל פי ציווי התורה נדרש להתענות בו עינוי הנפש. חז"ל מפרשים במשנה את מהות העינוי הכולל חמישה איסורים: אכילה ושתייה, סיכה (סיכת הגוף בשמן), רחיצה, נעילת הסנדל (נעילת נעל עור) ותשמיש המיטה (קיום יחסי אישות).[CR]מצוות הצום, התפילה וההימנעות ממלאכה, זוכות לאחוזי שמירה מהגבוהים ביותר בקרב היהודים, מבין מצוות היהדות. על אף שיום הכיפורים הוא יום צום ותענית, אין אלו מפני אבלות או צרה כבתעניות ציבור אלא בשל קדושתו הרבה של היום. למעשה הוא זכור ונחשב ליום שמח מכיוון שעל פי המקרא וחז"ל, לאחר שמשה רבנו חזר פעם נוספת ושהה בהר סיני 40 יום, שהחלו מראש חודש אלול, נמחל ונסלח לישראל על חטא העגל, ומשה ירד מההר ביום כיפור עם לוחות הברית השניים.[CR]בעקבות לכך למדו ישראל ממשה את דרכי הסליחה והכפרה הציבוריים באמצעות התפילה ועבודת המקדש ונקבע יום זה כיום המסוגל במיוחד לסליחה וכפרה. מאז שימש מדי שנה כאחד המועדים הבולטים באירועי עבודת המקדש והיווה מעמד לאומי מרכזי בימים בו היה קיים בית המקדש.[CR]יום הכיפורים מכונה במקרא "שבת שבתון", ומקרא קודש, ובמשנה מוזכר כאחד מהימים הטובים שהיו לישראל."
+
+msgctxt "#140
+msgid ""
+msgstr ""
+
+msgctxt "#141
+msgid ""
+msgstr "[COLOR=Yellow]חג סוכות שמח לכל עם ישראל![/COLOR][CR][CR]סכות הוא חג מקראי הנחוג במשך שבעה ימים, בין ט"ו לכ"א בתשרי, ובו מצווה כל יהודי לשבת בסוכה.[CR]יום החג הראשון הוא יום טוב, ואחריו שישה ימי חול המועד. סוכות הוא החג השלישי מבין שלוש הרגלים המופיעים בתנ"ך, וכאשר בית המקדש היה קיים, היו בני העם עולים לירושלים בחג הסוכות.[CR]"
+
+msgctxt "#142
+msgid ""
+msgstr ""
+
+msgctxt "#143
+msgid ""
+msgstr "[COLOR=Yellow]חג חנוכה שמח לכל עם ישראל![/COLOR][CR][CR]חג החנוכה הוא חג יהודי של שמונה ימי הודאה, אותם תיקנו חכמי ישראל בזמן בית המקדש השני לזכר הניצחון במרד החשמונאים, חנוכתו מחדש של בית המקדש ונס פך השמן. החג מצוין באמירת הלל והודאה וכן בהדלקת נרות חנוכהץ[CR]"
+
+msgctxt "#144
+msgid ""
+msgstr ""
+
+msgctxt "#145
+msgid ""
+msgstr ""
+
+msgctxt "#146
+msgid ""
+msgstr "[COLOR=Yellow]חג פורים שמח לכל עם ישראל![/COLOR][CR][CR]חג הפורים מבוסס על סיפור מגילת אסתר, בו ניצלו היהודים באימפריה הפרסית מרצח עם שזמם לבצע בהם המן בהסכמת המלך אחשוורוש, והחג הוא יום הודאה לה' על הצלה זו.[CR]על פי המגילה, החג נקרא על שום ה"פור" (גורל) שהטיל המן במטרה לקבוע את היום שבו יבוצע הטבח ביהודים - אותו יום שבעקבות רצף אירועים המתוארים במגילת אסתר התהפך הגלגל, והיהודים הם שהרגו באויביהם.[CR]"
+
+msgctxt "#147
+msgid ""
+msgstr ""
+
+msgctxt "#148
+msgid ""
+msgstr ""
+
+msgctxt "#149
+msgid ""
+msgstr ""
+
+#SPECIALS DAYS
+msgctxt "#150
+msgid ""
+msgstr "[COLOR=Yellow]יום הזיכרון לשואה ולגבורה[/COLOR][CR][CR]מוקדש להתייחדות עם זכר השואה שהמיטו הנאצים ועוזריהם על העם היהודי, ועם זכר מעשי הגבורה ומעשי המרד בימים ההם.[CR][CR][COLOR=Yellow2]עם ישראל חי!!![/COLOR]"
+
+msgctxt "#151
+msgid ""
+msgstr ""
+
+msgctxt "#152
+msgid ""
+msgstr ""
+
+msgctxt "#153
+msgid ""
+msgstr ""
+
+msgctxt "#154
+msgid ""
+msgstr ""
+
+msgctxt "#155
+msgid ""
+msgstr ""
+
+msgctxt "#156
+msgid ""
+msgstr ""
+
+msgctxt "#157
+msgid ""
+msgstr ""
+
+msgctxt "#158
+msgid ""
+msgstr ""
+
+msgctxt "#159
+msgid ""
+msgstr ""
+
+msgctxt "#160
+msgid ""
+msgstr ""
+
+msgctxt "#161
+msgid ""
+msgstr ""
+
+msgctxt "#162
+msgid ""
+msgstr ""
+
+msgctxt "#163
+msgid ""
+msgstr ""
+
+msgctxt "#164
+msgid ""
+msgstr ""
+
+msgctxt "#165
+msgid ""
+msgstr ""
+
+msgctxt "#166
+msgid ""
+msgstr ""
+
+msgctxt "#167
+msgid ""
+msgstr ""
+
+msgctxt "#168
+msgid ""
+msgstr ""
+
+msgctxt "#169
+msgid ""
+msgstr ""
+
+msgctxt "#170
+msgid ""
+msgstr ""
+
+msgctxt "#171
+msgid ""
+msgstr ""
+
+msgctxt "#172
+msgid ""
+msgstr ""
+
+msgctxt "#173
+msgid ""
+msgstr ""
+
+msgctxt "#174
+msgid ""
+msgstr ""
+
+msgctxt "#175
+msgid ""
+msgstr ""
+
+msgctxt "#176
+msgid ""
+msgstr ""
+
+msgctxt "#177
+msgid ""
+msgstr ""
+
+msgctxt "#178
+msgid ""
+msgstr ""
+
+msgctxt "#179
+msgid ""
+msgstr ""
+
+#ID1 (USERNAME HE)
+msgctxt "#1001
+msgid ""
+msgstr "שלומי"
+
+#ID2
+msgctxt "#1002
+msgid ""
+msgstr ""
+
+#ID3
+msgctxt "#1003
+msgid ""
+msgstr ""
+
+#ID4 (ADDRESS)
+msgctxt "#1004
+msgid ""
+msgstr "מעגל השלום 31/2, ראשל"צ"
+
+#ID5 (TELEPHONE NUMBER)
+msgctxt "#1005
+msgid ""
+msgstr ""
+
+#ID6
+msgctxt "#1006
+msgid ""
+msgstr ""
+
+msgctxt "#1100
+msgid ""
+msgstr "test"

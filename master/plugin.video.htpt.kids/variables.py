@@ -48,6 +48,7 @@ addonName          = xbmcaddon.Addon().getAddonInfo("name")
 addonString        = xbmcaddon.Addon().getLocalizedString
 addonID          = xbmcaddon.Addon().getAddonInfo("id")
 addonPath          = xbmcaddon.Addon().getAddonInfo("path")
+addonFanart = os.path.join(addonPath, "fanart.jpg")
 addonVersion          = xbmcaddon.Addon().getAddonInfo("version")
 
 addonName2 = addonString_servicehtpt(9).encode('utf-8')
@@ -65,11 +66,27 @@ General_AutoView_C = getsetting('General_AutoView_C')
 General_TrustedOnly = getsetting('General_TrustedOnly')
 General_TVModeDialog = getsetting('General_TVModeDialog')
 General_TVModeShuffle = getsetting('General_TVModeShuffle')
-
+'''---------------------------'''
+Addon_ShowLog = getsetting('Addon_ShowLog')
+Addon_ShowLog2 = getsetting('Addon_ShowLog2')
 Addon_Update = getsetting('Addon_Update')
-Addon_Version = getsetting('Addon_Version')
 Addon_UpdateDate = getsetting('Addon_UpdateDate')
 Addon_UpdateLog = getsetting('Addon_UpdateLog')
+Addon_Version = getsetting('Addon_Version')
+'''---------------------------'''
+Fanart_Enable = getsetting('Fanart_Enable').lower
+Fanart_EnableCustom = getsetting('Fanart_EnableCustom').lower
+Fanart_Custom101 = getsetting('Fanart_Custom101')
+Fanart_Custom102 = getsetting('Fanart_Custom102')
+Fanart_Custom103 = getsetting('Fanart_Custom103')
+Fanart_Custom104 = getsetting('Fanart_Custom104')
+Fanart_Custom105 = getsetting('Fanart_Custom105')
+Fanart_Custom106 = getsetting('Fanart_Custom106')
+Fanart_Custom107 = getsetting('Fanart_Custom107')
+Fanart_Custom108 = getsetting('Fanart_Custom108')
+Fanart_Custom109 = getsetting('Fanart_Custom109')
+Fanart_Custom110 = getsetting('Fanart_Custom110')
+'''---------------------------'''
 
 '''------------------------------
 ---ON/OFF------------------------

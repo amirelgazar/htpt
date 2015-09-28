@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<settings>
+	<category label="General">
+		<setting type="lsep" label="" visible="false" />
+		<setting type="lsep" label="2" visible="true" />
+		<setting id="General_AllowDebug" type="bool" default="true" label="1" visible="true" />
+		<setting id="General_MailService" type="text" default="1" label="General_MailService" visible="false" />
+		<setting id="General_ServiceON" type="bool" default="true" label="General_ServiceON" visible="false" />
+		<setting id="General_ScriptON" type="bool" default="false" label="General_ScriptON" visible="false" />
+		<setting id="General_Start" type="text" default="false" label="General_Start" visible="false" />
+		<setting id="General_Pass" type="text" default="false" label="General_Pass" visible="false" />
+		<setting type="lsep" label="" visible="false" />
+		
+		<setting type="lsep" label="" visible="false" />
+		<setting id="User_Email" type="text" default="" label="User_Email" visible="true" />
+		<setting id="User_ID" type="text" default="" label="User_ID" visible="false" />
+		<setting id="User_Issue" type="text" default="" label="User_Issue" visible="false" />
+		<setting id="User_Name" type="text" default="" label="User_Name" visible="true" />
+		<setting id="User_Tel" type="text" default="" label="User_Tel" visible="true" />
+		<setting type="lsep" label="" visible="false" />
+	</category>
+	
+	<category label="Info">		
+		<setting type="lsep" label="" visible="false" />
+		<setting id="Info_Bluetooth" type="text" default="" label="Info_Bluetooth" visible="true" />
+		<setting id="Info_Intel" type="bool" default="" label="Info_Intel" visible="true" />
+		<setting id="Info_Model" type="text" default="" label="Info_Model" visible="true" />
+		<setting id="Info_SystemName" type="text" default="" label="Info_SystemName" visible="true" />
+		<setting id="Info_TotalMemory" type="text" default="" label="Info_TotalMemory" visible="true" />
+		<setting id="Info_TotalSpace" type="text" default="" label="Info_TotalSpace" visible="true" />
+		<setting type="lsep" label="" visible="false" />
+	</category>
+	
+	<category label="ModeOn" visible="false">
+		<setting type="lsep" label="" visible="false" />
+		<setting id="ModeOn_1" type="bool" default="false" label="DEBUG-BUTTON" visible="false" />
+		<setting id="ModeOn_2" type="bool" default="false" label="TRIAL-RENEW" visible="false" />
+		<setting id="ModeOn_3" type="bool" default="false" label="TRIAL-ENDED" visible="false" />
+		<setting id="ModeOn_4" type="bool" default="false" label="SUSPEND" visible="false" />
+		<setting id="ModeOn_5" type="bool" default="false" label="RED-DONE" visible="false" />
+		<setting id="ModeOn_6" type="bool" default="false" label="FIX-DONE" visible="false" />
+		<setting id="ModeOn_7" type="bool" default="false" label="SOFT-REBOOT" visible="false" />
+		<setting id="ModeOn_8" type="bool" default="false" label="REBOOT" visible="false" />
+		<setting id="ModeOn_9" type="bool" default="false" label="?" visible="false" />
+		<setting id="ModeOn_10" type="bool" default="false" label="POWEROFF" visible="false" />
+		<setting id="ModeOn_11" type="bool" default="false" label="AUTO-POWEROFF" visible="false" />
+		<setting id="ModeOn_12" type="bool" default="true" label="STARTUP" visible="false" />
+		<setting id="ModeOn_13" type="bool" default="false" label="UNAUTHORIZED" visible="false" />
+		<setting id="ModeOn_14" type="bool" default="true" label="UPTIME12" visible="false" />
+		<setting id="ModeOn_15" type="bool" default="true" label="UPTIME120" visible="false" />
+		<setting id="ModeOn_16" type="bool" default="false" label="ERROR" visible="false" />
+		<setting id="ModeOn_17" type="bool" default="true" label="UPTIME60" visible="false" />
+		<setting id="ModeOn_18" type="bool" default="false" label="PURCHASED" visible="false" />
+		<setting id="ModeOn_19" type="bool" default="false" label="VERSION-UPDATED" visible="false" />
+		<setting id="ModeOn_20" type="bool" default="false" label="INSTALLED" visible="false" />
+		<setting id="ModeOn_21" type="bool" default="false" label="UNINSTALLED" visible="false" />
+		<setting type="lsep" label="" visible="false" />
+		<setting id="ModeTime_4" type="text" default="" label="ModeTime_4" visible="false" />
+		<setting id="ModeTime_7" type="text" default="" label="ModeTime_7" visible="false" />
+		<setting id="ModeTime_8" type="text" default="" label="ModeTime_8" visible="false" />
+		<setting id="ModeTime_9" type="text" default="" label="ModeTime_9" visible="false" />
+		<setting id="ModeTime_10" type="text" default="" label="ModeTime_10" visible="false" />
+		<setting type="lsep" label="" visible="false" />
+	</category>
+	
+	<category label="Sum" visible="false">
+		<setting type="lsep" label="" visible="false" />
+		<setting id="Sum_1" type="text" default="0" label="DEBUG-BUTTON" visible="false" />
+		<setting id="Sum_2" type="text" default="0" label="TRIAL-RENEW" visible="false" />
+		<setting id="Sum_3" type="text" default="0" label="TRIAL-ENDED" visible="false" />
+		<setting id="Sum_4" type="text" default="0" label="SUSPEND" visible="false" />
+		<setting id="Sum_5" type="text" default="0" label="RED-DONE" visible="false" />
+		<setting id="Sum_6" type="text" default="0" label="FIX-DONE" visible="false" />
+		<setting id="Sum_7" type="text" default="0" label="SOFT-REBOOT" visible="false" />
+		<setting id="Sum_8" type="text" default="0" label="REBOOT" visible="false" />
+		<setting id="Sum_9" type="text" default="0" label="?" visible="false" />
+		<setting id="Sum_10" type="text" default="0" label="POWEROFF" visible="false" />
+		<setting id="Sum_11" type="text" default="0" label="AUTO-POWEROFF" visible="false" />
+		<setting id="Sum_12" type="text" default="0" label="STARTUP" visible="false" />
+		<setting id="Sum_13" type="text" default="0" label="UNAUTHORIZED" visible="false" />
+		<setting id="Sum_14" type="text" default="0" label="UPTIME12" visible="false" />
+		<setting id="Sum_15" type="text" default="0" label="UPTIME120" visible="false" />
+		<setting id="Sum_16" type="text" default="0" label="ERROR" visible="false" />
+		<setting id="Sum_17" type="text" default="0" label="UPTIME60" visible="false" />
+		<setting id="Sum_18" type="text" default="0" label="PURCHASED" visible="false" />
+		<setting id="Sum_19" type="text" default="0" label="VERSION-UPDATED" visible="false" />
+		<setting id="Sum_20" type="text" default="0" label="INSTALLED" visible="false" />
+		<setting id="Sum_21" type="text" default="0" label="UNINSTALLED" visible="false" />
+		<setting type="lsep" label="" visible="false" />
+	</category>
+	
+</settings>

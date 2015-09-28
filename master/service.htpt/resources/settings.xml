@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<settings>
+	
+	<category label="System" description="">
+		<setting type="lsep" label=""/>
+		<setting id="Skin_UpdateCount" type="text" default="0" label="Skin_UpdateCount" visible="true"/>
+		<setting id="Skin_UpdateCount2" type="text" default="0" label="Skin_UpdateCount2" visible="true"/>
+		<setting id="Skin_UpdateTimer" type="text" default="0" label="Skin_UpdateTimer" visible="true"/>
+		<setting id="Skin_Update" type="bool" default="false" label="Skin_Update" visible="true"/>
+		<setting id="Skin_UpdateDate" type="text" default="" label="Skin_UpdateDate" visible="true"/>
+		<setting id="Skin_UpdateLog" type="bool" default="true" label="Skin_UpdateLog" visible="true"/>
+		<setting id="Skin_Version" type="text" default="" label="Skin_Version" visible="true"/>
+		<setting id="Skin_Name" type="text" default="" label="Skin_Name" visible="true"/>
+		
+		<setting type="lsep" label=""/>
+		<setting id="General_ScriptON" type="bool" default="false" label="General_ScriptON" visible="false"/>
+		<setting id="General_Timer" type="text" default="" label="Timer" visible="false"/>
+		<setting id="Time_Delay" type="text" default="0" label="Time_Delay" visible="false"/>
+		<setting id="Time_Start" type="text" default="0" label="Time_Start" visible="false"/>
+		<setting id="Time_Pass" type="text" default="0" label="Time_Pass" visible="false"/>
+		<setting id="Time_Shutdown" type="text" default="" label="Time_Shutdown" visible="false"/>
+		<setting type="lsep" label=""/>
+	</category>
+	
+	<category label="Ping" description="">
+		<setting type="lsep" label="3"/>
+		<setting id="Ping_Connected" type="text" default="true" label="Ping_Connected" visible="true"/>
+		<setting id="Ping_Now" type="text" default="" label="Ping_Now" visible="eq(-1,true)"/>
+		<setting id="Ping_Rate" type="text" default="" label="Ping_Rate" visible="eq(-2,true)"/>
+		<setting id="Ping_1" type="text" default="100" label="Ping_1" visible="eq(-3,true)"/>
+		<setting id="Ping_2" type="text" default="100" label="Ping_2" visible="eq(-4,true)"/>
+		<setting id="Ping_3" type="text" default="100" label="Ping_3" visible="eq(-5,true)"/>
+		<setting id="Ping_4" type="text" default="100" label="Ping_4" visible="eq(-6,true)"/>
+		<setting id="Ping_5" type="text" default="100" label="Ping_5" visible="eq(-7,true)"/>
+		<setting id="Ping_6" type="text" default="100" label="Ping_6" visible="eq(-8,true)"/>
+		<setting id="Ping_7" type="text" default="100" label="Ping_7" visible="eq(-9,true)"/>
+		<setting id="Ping_8" type="text" default="100" label="Ping_8" visible="eq(-10,true)"/>
+		<setting id="Ping_9" type="text" default="100" label="Ping_9" visible="eq(-11,true)"/>
+		<setting id="Ping_10" type="text" default="100" label="Ping_10" visible="eq(-12,true)"/>
+	</category>
+	
+	<category label="Library" description="">
+		<setting type="lsep" label="3"/>
+		<setting id="Library_UpdateDate" type="text" default="" label="Library_UpdateDate" visible="true"/>
+		<setting id="Library_CleanDate" type="text" default="" label="Library_CleanDate" visible="true"/>
+	</category>
+</settings>

@@ -1,0 +1,7 @@
+<settings>
+    <setting id="CUST_AUTIODEVICE_STR" value="" />
+    <setting id="PAUSE_XBMC" value="false" />
+    <setting id="START_MAXIMIZED" value="true" />
+    <setting id="USE_CUST_AUTIODEVICE" value="false" />
+    <setting id="firstrun" value="1" />
+</settings>

@@ -3748,8 +3748,8 @@ msgid "Bulli the Snow Man"
 msgstr "בולי איש השלג"
 
 msgctxt "#10709
-msgid ""
-msgstr ""
+msgid "Barboskiny"
+msgstr "ברבונסקי"
 
 msgctxt "#10710
 msgid ""

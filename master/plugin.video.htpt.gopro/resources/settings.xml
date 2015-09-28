@@ -1,13 +1,22 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <settings>
-	<category label="100" description="כללי">
-		<setting type="lsep" label="1"/>
+	<category label="$LOCALIZE[128]" description="כללי">
+		<setting type="lsep" label=""/>
+		<setting id="Addon_ShowLog" type="bool" default="true" label="$ADDON[service.htpt 24]" visible="true"/>
+		<setting type="lsep" label="$ADDON[service.htpt 25]" visible="eq(-1,true)"/>
+		<setting id="Addon_ShowLog2" type="slider" default="1" label="$ADDON[service.htpt 26]" range="0,1,7" visible="eq(-2,true)" option="int" subsetting="true"/>
+		<setting id="Addon_Update" type="text" default="false" label="Addon_Update" visible="false"/>
+		<setting id="Addon_UpdateDate" type="text" default="" label="Addon_UpdateDate" visible="false"/>
 		<setting id="Addon_UpdateLog" type="bool" default="false" label="Addon_UpdateLog" visible="false"/>
-		<setting id="General_AutoView" type="bool" default="true" label="$ADDON[service.htpt 1]" visible="true"/>
-		<setting id="General_PageSize" type="text" default="18" label="General_PageSize" visible="true"/>
-		<setting id="General_TVModeDialog" type="bool" default="true" label="$ADDON[service.htpt 16]" visible="true"/>
-		<setting id="General_TVModeShuffle" type="bool" default="true" label="$ADDON[service.htpt 17]" enable="eq(-1,true)"/>
+		<setting id="Addon_Version" type="text" default="" label="Addon_Version" visible="false"/>
 		<setting type="lsep" label=""/>
 	</category>
-
+	
+	<category label="$LOCALIZE[33071]" description="רקעים מותאמים אישית">
+		<setting id="Fanart_Enable" type="bool" default="true" label="$ADDON[service.htpt 28]" description="אפשר רקעים" visible="true"/>
+		<setting id="Fanart_EnableCustom" type="bool" default="false" label="$LOCALIZE[21389]" subsetting="true" description="אפשר רקע מותאם אישית" visible="false"/>
+		<!--<setting type="lsep" label="$ADDON[service.htpt 27]" description="בחר רקע משלך עבור כל קטגוריה." visible="eq(-1,true)"/>
+		<setting id="Backgrounds_Custom101" type="image" source="pictures" default="" label="101" subsetting="true" description="" visible="eq(-2,true)"/>-->
+		
+	</category>
 </settings>

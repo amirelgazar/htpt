@@ -12,10 +12,11 @@
 	<platform>all</platform>
     <summary lang="en">For people who love Music!</summary>
 	<summary lang="he">לאנשים שאוהבים מוזיקה!</summary>
-    <description lang="en">Visit HTPT Facebook Page for support</description>
-	<description lang="he">בקר אותנו בפייסבוק לתמיכה!</description>
+    <description lang="en">This addon is updated by Kodi's users (See sources in addon.xml file).[CR]Visit HTPT Facebook Page for support</description>
+	<description lang="he">הרחבה זו מתוחזקת ע"י משתמשי קודי (ראה מקור בקובץ addon.xml).[CR]בקר אותנו בפייסבוק לתמיכה!</description>
     <disclaimer lang="en">The author does not host or distribute any of the content displayed by this addon. The author does not have any affiliation with the content provider.</disclaimer>
-	<source>http://www.hometheater.co.il/vt239763.html</source>
+	<forum>http://www.hometheater.co.il/vt239763.html</forum>
+	<source>https://github.com/htpthtpt/htpt/tree/master/master/plugin.video.htpt.music</source>
 	<email>infohtpt@gmail.com</email>
 	<website>https://www.facebook.com/pages/HTPT/934744346549707</website>
   </extension>

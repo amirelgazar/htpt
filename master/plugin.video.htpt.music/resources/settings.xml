@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <settings>
-	<category label="100" description="כללי">
+	<category label="$LOCALIZE[128]" description="כללי">
 		<setting type="lsep" label=""/>
 		<setting type="lsep" label="Please note: AutoView is currently support only HTPT Skin!"/>
 		<setting id="General_AutoView" type="bool" default="true" label="$ADDON[service.htpt 20]" visible="true"/>
@@ -9,11 +9,97 @@
 		<setting id="General_TVModeShuffle" type="bool" default="true" label="$ADDON[service.htpt 17]" visible="eq(-1,true)"/>
 		<setting type="lsep" label=""/>
 		
-		<setting type="lsep" label=""/>
+		<setting id="Addon_ShowLog" type="bool" default="true" label="$ADDON[service.htpt 24]" visible="true"/>
+		<setting type="lsep" label="$ADDON[service.htpt 25]" visible="eq(-1,true)"/>
+		<setting id="Addon_ShowLog2" type="slider" default="1" label="$ADDON[service.htpt 26]" range="0,1,7" visible="eq(-2,true)" option="int" subsetting="true"/>
 		<setting id="Addon_Update" type="text" default="false" label="Addon_Update" visible="false"/>
-		<setting id="Addon_Version" type="text" default="" label="Addon_Version" visible="false"/>
 		<setting id="Addon_UpdateDate" type="text" default="" label="Addon_UpdateDate" visible="false"/>
 		<setting id="Addon_UpdateLog" type="bool" default="false" label="Addon_UpdateLog" visible="false"/>
+		<setting id="Addon_Version" type="text" default="" label="Addon_Version" visible="false"/>
 		<setting type="lsep" label=""/>
+	</category>
+	
+	<category label="$LOCALIZE[33071]" description="רקעים מותאמים אישית">
+		<setting id="Fanart_Enable" type="bool" default="true" label="$ADDON[service.htpt 28]" description="אפשר רקעים" visible="true"/>
+		<setting id="Fanart_EnableCustom" type="bool" default="false" label="$LOCALIZE[21389]" subsetting="true" description="אפשר רקע מותאם אישית" visible="eq(-1,true)"/>
+		<setting type="lsep" label="$ADDON[service.htpt 27]" description="בחר רקע משלך עבור כל קטגוריה." visible="eq(-1,true)"/>
+		<setting id="Fanart_Custom100" type="image" source="pictures" default="" label="100" subsetting="true" description="My Music" visible="eq(-2,true) + eq(-3,true)"/>
+		<setting id="Fanart_Custom101" type="image" source="pictures" default="" label="101" subsetting="true" description="" visible="eq(-3,true) + eq(-4,true)"/>
+		<setting id="Fanart_Custom102" type="image" source="pictures" default="" label="102" subsetting="true" description="" visible="eq(-4,true) + eq(-5,true)"/>
+		<setting id="Fanart_Custom103" type="image" source="pictures" default="" label="103" subsetting="true" description="" visible="false"/>
+		<setting id="Fanart_Custom104" type="image" source="pictures" default="" label="104" subsetting="true" description="" visible="eq(-6,true) + eq(-7,true)"/>
+		<setting id="Fanart_Custom105" type="image" source="pictures" default="" label="105" subsetting="true" description="" visible="false"/>
+		<setting id="Fanart_Custom106" type="image" source="pictures" default="" label="106" subsetting="true" description="" visible="false"/>
+		<setting id="Fanart_Custom107" type="image" source="pictures" default="" label="107" subsetting="true" description="" visible="false"/>
+		<setting id="Fanart_Custom108" type="image" source="pictures" default="" label="108" subsetting="true" description="" visible="false"/>
+		<setting id="Fanart_Custom109" type="image" source="pictures" default="" label="109" subsetting="true" description="" visible="false"/>
+		<setting id="Fanart_Custom110" type="image" source="pictures" default="" label="110" subsetting="true" description="" visible="false"/>
+		
+		<setting id="Fanart_Custom111" type="image" source="pictures" default="" label="111" subsetting="true" description="Foreign Music" visible="eq(-13,true) + eq(-14,true)"/>
+		<setting id="Fanart_Custom112" type="image" source="pictures" default="" label="112" subsetting="true" description="Foreign Karaoke" visible="eq(-14,true) + eq(-15,true)"/>
+		<setting id="Fanart_Custom113" type="image" source="pictures" default="" label="113" subsetting="true" description="" visible="false"/>
+		<setting id="Fanart_Custom114" type="image" source="pictures" default="" label="114" subsetting="true" description="Foreign Liveshows" visible="eq(-16,true) + eq(-17,true)"/>
+		<setting id="Fanart_Custom115" type="image" source="pictures" default="" label="115" subsetting="true" description="Foreign Djs" visible="eq(-17,true) + eq(-18,true)"/>
+		<!--<setting id="Fanart_Custom116" type="image" source="pictures" default="" label="116" subsetting="true" description="" visible="eq(-12,true)"/>
+		<setting id="Fanart_Custom117" type="image" source="pictures" default="" label="117" subsetting="true" description="" visible="eq(-12,true)"/>
+		<setting id="Fanart_Custom118" type="image" source="pictures" default="" label="118" subsetting="true" description="" visible="eq(-12,true)"/>
+		<setting id="Fanart_Custom119" type="image" source="pictures" default="" label="119" subsetting="true" description="" visible="eq(-12,true)"/>
+		<setting id="Fanart_Custom120" type="image" source="pictures" default="" label="120" subsetting="true" description="" visible="eq(-12,true)"/>
+		<setting id="Fanart_Custom121" type="image" source="pictures" default="" label="121" subsetting="true" description="Classical Music" visible="eq(-12,true)"/>-->
+		
+	</category>
+	
+	<category label="$LOCALIZE[559] $LOCALIZE[20190]" description="רשימת ניגון מותאם אישית">
+		<setting id="Custom_Playlist1_ID" type="text" default="" label="$LOCALIZE[559] 1 (URL)" description="רשימת ניגון 1 (לינק)" visible="false"/>
+		<setting id="Custom_Playlist1_Name" type="text" default="" label="$LOCALIZE[559] 1 (NAME)" description="רשימת ניגון 1 (שם)" visible="false"/>
+		<setting id="Custom_Playlist1_Thumb" type="text" default="" label="$LOCALIZE[559] 1 (Thumb)" description="רשימת ניגון 1 (תמונה)" visible="false"/>
+		<setting id="Custom_Playlist1_Description" type="text" default="" label="$LOCALIZE[559] 1 (NAME)" description="רשימת ניגון 1 (תאור)" visible="false"/>
+		<setting id="Custom_Playlist1_Fanart" type="text" default="" label="$LOCALIZE[559] 1 (NAME)" description="רשימת ניגון 1 (רקע)" visible="false"/>
+		<setting id="Custom_Playlist2_ID" type="text" default="" label="$LOCALIZE[559] 2 (URL)" description="רשימת ניגון 2 (לינק)" visible="false"/>
+		<setting id="Custom_Playlist2_Name" type="text" default="" label="$LOCALIZE[559] 2 (NAME)" description="רשימת ניגון 2 (שם)" visible="false"/>
+		<setting id="Custom_Playlist2_Thumb" type="text" default="" label="$LOCALIZE[559] 2 (Thumb)" description="רשימת ניגון 2 (תמונה)" visible="false"/>
+		<setting id="Custom_Playlist2_Description" type="text" default="" label="$LOCALIZE[559] 2 (Description)" description="רשימת ניגון 2 (תאור)" visible="false"/>
+		<setting id="Custom_Playlist2_Fanart" type="text" default="" label="$LOCALIZE[559] 2 (Fanart)" description="רשימת ניגון 2 (רקע)" visible="false"/>
+		<setting id="Custom_Playlist3_ID" type="text" default="" label="$LOCALIZE[559] 3 (URL)" description="רשימת ניגון 3 (לינק)" visible="false"/>
+		<setting id="Custom_Playlist3_Name" type="text" default="" label="$LOCALIZE[559] 3 (NAME)" description="רשימת ניגון 3 (שם)" visible="false"/>
+		<setting id="Custom_Playlist3_Thumb" type="text" default="" label="$LOCALIZE[559] 3 (Thumb)" description="רשימת ניגון 3 (תמונה)" visible="false"/>
+		<setting id="Custom_Playlist3_Description" type="text" default="" label="$LOCALIZE[559] 3 (Description)" description="רשימת ניגון 3 (תאור)" visible="false"/>
+		<setting id="Custom_Playlist3_Fanart" type="text" default="" label="$LOCALIZE[559] 3 (Fanart)" description="רשימת ניגון 3 (רקע)" visible="false"/>
+		<setting id="Custom_Playlist4_ID" type="text" default="" label="$LOCALIZE[559] 4 (URL)" description="רשימת ניגון 4 (לינק)" visible="false"/>
+		<setting id="Custom_Playlist4_Name" type="text" default="" label="$LOCALIZE[559] 4 (NAME)" description="רשימת ניגון 4 (שם)" visible="false"/>
+		<setting id="Custom_Playlist4_Thumb" type="text" default="" label="$LOCALIZE[559] 4 (Thumb)" description="רשימת ניגון 4 (תמונה)" visible="false"/>
+		<setting id="Custom_Playlist4_Description" type="text" default="" label="$LOCALIZE[559] 4 (Description)" description="רשימת ניגון 4 (תאור)" visible="false"/>
+		<setting id="Custom_Playlist4_Fanart" type="text" default="" label="$LOCALIZE[559] 4 (Fanart)" description="רשימת ניגון 4 (רקע)" visible="false"/>
+		<setting id="Custom_Playlist5_ID" type="text" default="" label="$LOCALIZE[559] 5 (URL)" description="רשימת ניגון 5 (לינק)" visible="false"/>
+		<setting id="Custom_Playlist5_Name" type="text" default="" label="$LOCALIZE[559] 5 (NAME)" description="רשימת ניגון 5 (שם)" visible="false"/>
+		<setting id="Custom_Playlist5_Thumb" type="text" default="" label="$LOCALIZE[559] 5 (Thumb)" description="רשימת ניגון 5 (תמונה)" visible="false"/>
+		<setting id="Custom_Playlist5_Description" type="text" default="" label="$LOCALIZE[559] 5 (Description)" description="רשימת ניגון 5 (תאור)" visible="false"/>
+		<setting id="Custom_Playlist5_Fanart" type="text" default="" label="$LOCALIZE[559] 5 (Fanart)" description="רשימת ניגון 5 (רקע)" visible="false"/>
+		<setting id="Custom_Playlist6_ID" type="text" default="" label="$LOCALIZE[559] 6 (URL)" description="רשימת ניגון 6 (לינק)" visible="false"/>
+		<setting id="Custom_Playlist6_Name" type="text" default="" label="$LOCALIZE[559] 6 (NAME)" description="רשימת ניגון 6 (שם)" visible="false"/>
+		<setting id="Custom_Playlist6_Thumb" type="text" default="" label="$LOCALIZE[559] 6 (Thumb)" description="רשימת ניגון 6 (תמונה)" visible="false"/>
+		<setting id="Custom_Playlist6_Description" type="text" default="" label="$LOCALIZE[559] 6 (Description)" description="רשימת ניגון 6 (תאור)" visible="false"/>
+		<setting id="Custom_Playlist6_Fanart" type="text" default="" label="$LOCALIZE[559] 6 (Fanart)" description="רשימת ניגון 6 (רקע)" visible="false"/>
+		<setting id="Custom_Playlist7_ID" type="text" default="" label="$LOCALIZE[559] 7 (URL)" description="רשימת ניגון 7 (לינק)" visible="false"/>
+		<setting id="Custom_Playlist7_Name" type="text" default="" label="$LOCALIZE[559] 7 (NAME)" description="רשימת ניגון 7 (שם)" visible="false"/>
+		<setting id="Custom_Playlist7_Thumb" type="text" default="" label="$LOCALIZE[559] 7 (Thumb)" description="רשימת ניגון 7 (תמונה)" visible="false"/>
+		<setting id="Custom_Playlist7_Description" type="text" default="" label="$LOCALIZE[559] 7 (Description)" description="רשימת ניגון 7 (תאור)" visible="false"/>
+		<setting id="Custom_Playlist7_Fanart" type="text" default="" label="$LOCALIZE[559] 7 (Fanart)" description="רשימת ניגון 7 (רקע)" visible="false"/>
+		<setting id="Custom_Playlist8_ID" type="text" default="" label="$LOCALIZE[559] 8 (URL)" description="רשימת ניגון 8 (לינק)" visible="false"/>
+		<setting id="Custom_Playlist8_Name" type="text" default="" label="$LOCALIZE[559] 8 (NAME)" description="רשימת ניגון 8 (שם)" visible="false"/>
+		<setting id="Custom_Playlist8_Thumb" type="text" default="" label="$LOCALIZE[559] 8 (Thumb)" description="רשימת ניגון 8 (תמונה)" visible="false"/>
+		<setting id="Custom_Playlist8_Description" type="text" default="" label="$LOCALIZE[559] 8 (Description)" description="רשימת ניגון 8 (תאור)" visible="false"/>
+		<setting id="Custom_Playlist8_Fanart" type="text" default="" label="$LOCALIZE[559] 8 (Fanart)" description="רשימת ניגון 8 (רקע)" visible="false"/>
+		<setting id="Custom_Playlist9_ID" type="text" default="" label="$LOCALIZE[559] 9 (URL)" description="רשימת ניגון 9 (לינק)" visible="false"/>
+		<setting id="Custom_Playlist9_Name" type="text" default="" label="$LOCALIZE[559] 9 (NAME)" description="רשימת ניגון 9 (שם)" visible="false"/>
+		<setting id="Custom_Playlist9_Thumb" type="text" default="" label="$LOCALIZE[559] 9 (Thumb)" description="רשימת ניגון 9 (תמונה)" visible="false"/>
+		<setting id="Custom_Playlist9_Description" type="text" default="" label="$LOCALIZE[559] 9 (Description)" description="רשימת ניגון 9 (תאור)" visible="false"/>
+		<setting id="Custom_Playlist9_Fanart" type="text" default="" label="$LOCALIZE[559] 9 (Fanart)" description="רשימת ניגון 9 (רקע)" visible="false"/>
+		<setting id="Custom_Playlist10_ID" type="text" default="" label="$LOCALIZE[559] 10 (URL)" description="רשימת ניגון 10 (לינק)" visible="false"/>
+		<setting id="Custom_Playlist10_Name" type="text" default="" label="$LOCALIZE[559] 10 (NAME)" description="רשימת ניגון 10 (שם)" visible="false"/>
+		<setting id="Custom_Playlist10_Thumb" type="text" default="" label="$LOCALIZE[559] 10 (Thumb)" description="רשימת ניגון 10 (תמונה)" visible="false"/>
+		<setting id="Custom_Playlist10_Description" type="text" default="" label="$LOCALIZE[559] 10 (Description)" description="רשימת ניגון 10 (תאור)" visible="false"/>
+		<setting id="Custom_Playlist10_Fanart" type="text" default="" label="$LOCALIZE[559] 10 (Fanart)" description="רשימת ניגון 10 (רקע)" visible="false"/>
+		
 	</category>
 </settings>
