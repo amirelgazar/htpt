@@ -137,46 +137,6 @@ msgctxt "#39
 msgid ""
 msgstr "חינוכית"
 
-msgctxt "#40
-msgid ""
-msgstr "sloktv"
-
-msgctxt "#41
-msgid "Songs and stories for children"
-msgstr "שירים וסיפורים לילדים"
-
-msgctxt "#42
-msgid "Childrens Live Shows"
-msgstr "הצגות לילדים"
-
-msgctxt "#43
-msgid "Varied - Test"
-msgstr "מכל מיני - ניסוי"
-
-msgctxt "#44
-msgid "Kids TVshows"
-msgstr "סדרות לילדים"
-
-msgctxt "#45
-msgid "Kids Movies"
-msgstr "סרטים לילדים"
-
-msgctxt "#46
-msgid "For Toddlers"
-msgstr "לפעוטות"
-
-msgctxt "#47
-msgid "For Tiny"
-msgstr "לקטנטנים"
-
-msgctxt "#48
-msgid "For Kids and Young"
-msgstr "לילדים ונוער"
-
-msgctxt "#49
-msgid "Foreign Languages"
-msgstr "שפות זרות"
-
 msgctxt "#50
 msgid ""
 msgstr ""
@@ -379,48 +339,47 @@ msgstr ""
 
 msgctxt "#100
 msgid ""
-msgstr "כללי"
+msgstr ""
 
 msgctxt "#101
-msgid ""
-msgstr ""
+msgid "Songs and stories for children"
+msgstr "שירים וסיפורים לילדים"
 
 msgctxt "#102
-msgid ""
-msgstr ""
+msgid "Childrens Live Shows"
+msgstr "הצגות לילדים"
 
 msgctxt "#103
 msgid ""
 msgstr ""
 
 msgctxt "#104
-msgid ""
-msgstr ""
+msgid "Kids TVshows"
+msgstr "סדרות לילדים"
 
 msgctxt "#105
-msgid ""
-msgstr ""
+msgid "Kids Movies"
+msgstr "סרטים לילדים"
 
 msgctxt "#106
-msgid ""
-msgstr ""
+msgid "For Toddlers"
+msgstr "לפעוטות"
 
 msgctxt "#107
-msgid ""
-msgstr ""
+msgid "For Tiny"
+msgstr "לקטנטנים"
 
 msgctxt "#108
-msgid ""
-msgstr ""
+msgid "For Kids and Young"
+msgstr "לילדים ונוער"
 
 msgctxt "#109
-msgid ""
-msgstr ""
+msgid "Foreign Languages"
+msgstr "שפות זרות"
 
-###VIDEO INFO###
-msgctxt "#110
-msgid ""
-msgstr ""
+msgctxt "#111
+msgid "Varied - Test"
+msgstr "מכל מיני - ניסוי"
 
 msgctxt "#112
 msgid ""

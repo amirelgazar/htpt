@@ -50,44 +50,44 @@ msgid "Duplicated URL found!"
 msgstr "נמצאה כפילות בקישור זה!"
 
 msgctxt "#13
-msgid ""
-msgstr ""
+msgid "Check My Music button"
+msgstr "ראה כפתור המוזיקה שלי"
 
 msgctxt "#14
-msgid ""
-msgstr ""
+msgid "Use the %s button."
+msgstr "השתמש בכפתור %s."
 
 msgctxt "#15
-msgid ""
-msgstr ""
+msgid "Share My Music buttons"
+msgstr "שיתוף כפתורי המוזיקה שלי"
 
 msgctxt "#16
-msgid ""
-msgstr ""
+msgid "To proceed choose NO"
+msgstr "בחר לא בכדי להמשיך בפעולה"
 
 msgctxt "#17
-msgid ""
-msgstr ""
+msgid "Use the %s button"
+msgstr "השתמש בכפתור %s"
 
 msgctxt "#18
-msgid ""
-msgstr ""
+msgid "Locate the saved file at the following path:"
+msgstr "אתר את קובץ השמירה בנתיב הבא:"
 
 msgctxt "#19
-msgid ""
-msgstr ""
+msgid "Name your file in that pattern: Addon_SavedButton1.txt (The number should set +1 then the current)"
+msgstr "בשם הקובץ רשום: Addon_SavedButton1.txt[CR] (המספר צריך להיות גדול באחד מהקיים ברשימה)"
 
 msgctxt "#20
-msgid ""
-msgstr ""
+msgid "Your Music buttons"
+msgstr "כפתורי המוזיקה שלך"
 
 msgctxt "#21
-msgid ""
-msgstr ""
+msgid "Your Music button"
+msgstr "כפתור המוזיקה שלך"
 
 msgctxt "#22
-msgid ""
-msgstr ""
+msgid "Choose YES to learn how to share Your Music button"
+msgstr "בחר כן אם ברצונך ללמוד איך לשתף את כפתור המוזיקה שלך"
 
 msgctxt "#27
 msgid ""

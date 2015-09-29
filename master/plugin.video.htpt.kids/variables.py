@@ -86,6 +86,7 @@ Fanart_Custom107 = getsetting('Fanart_Custom107')
 Fanart_Custom108 = getsetting('Fanart_Custom108')
 Fanart_Custom109 = getsetting('Fanart_Custom109')
 Fanart_Custom110 = getsetting('Fanart_Custom110')
+Fanart_Custom111 = getsetting('Fanart_Custom111')
 '''---------------------------'''
 
 '''------------------------------
