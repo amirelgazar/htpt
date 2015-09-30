@@ -49,6 +49,7 @@ addonString        = xbmcaddon.Addon().getLocalizedString
 addonID          = xbmcaddon.Addon().getAddonInfo("id")
 addonPath          = xbmcaddon.Addon().getAddonInfo("path")
 addonFanart = os.path.join(addonPath, "fanart.jpg")
+addonFanart2 = os.path.join(addonPath, "resources", "media", "fanart.jpg")
 addonVersion          = xbmcaddon.Addon().getAddonInfo("version")
 
 addonName2 = addonString_servicehtpt(9).encode('utf-8')
