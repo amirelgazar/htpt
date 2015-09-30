@@ -1,0 +1,268 @@
+msgid ""
+msgstr ""
+
+msgctxt "#56
+msgid "Active account at %s"
+msgstr "%s חשבון פעיל ב-"
+
+msgctxt "#57
+msgid "Account at %s"
+msgstr "חשבון ב- %s"
+
+msgctxt "#58
+msgid ""
+msgstr ""
+
+msgctxt "#59
+msgid ""
+msgstr ""
+
+msgctxt "#60
+msgid ""
+msgstr ""
+
+msgctxt "#61
+msgid "password: %s"
+msgstr "סיסמא: %s"
+
+msgctxt "#62
+msgid "username: %s"
+msgstr "שם החשבון: %s"
+
+msgctxt "#63
+msgid ""
+msgstr ""
+
+msgctxt "#64
+msgid ""
+msgstr ""
+
+msgctxt "#65
+msgid ""
+msgstr ""
+
+msgctxt "#66
+msgid ""
+msgstr ""
+
+msgctxt "#67
+msgid ""
+msgstr ""
+
+msgctxt "#68
+msgid ""
+msgstr ""
+
+msgctxt "#69
+msgid ""
+msgstr ""
+
+msgctxt "#70
+msgid ""
+msgstr ""
+
+msgctxt "#71
+msgid "Current period: %s days"
+msgstr "תקופה נוכחית: %s ימים"
+
+msgctxt "#72
+msgid ""
+msgstr ""
+
+msgctxt "#73
+msgid "User name: %s"
+msgstr "שם משתמש: %s"
+
+msgctxt "#87
+msgid ""
+msgstr "שים לב האם לא מתקבלת הודעה בדבר עומס בשרת בעת ניסיון ניגון סדרה כלשהי בכפתור סדרות ישראליות"
+
+msgctxt "#88
+msgid ""
+msgstr "מומלץ לבדוק בשעות העומס (ערב וסופ"ש)."
+
+msgctxt "#114
+msgid ""
+msgstr "הפעלת שירות אייר-פליי"
+
+msgctxt "#120
+msgid "You didn't added %s to library yet"
+msgstr "טרם הוספת %s לספרייה"
+
+msgctxt "#121
+msgid "Please wait few seconds"
+msgstr "אנא המתן מספר שניות"
+
+msgctxt "#122
+msgid ""
+msgstr ""
+
+msgctxt "#123
+msgid "There is an option to watch %s on your TV screen!"
+msgstr "ישנה אפשרות לצפות ב-%s על גבי מסך הטלוויזיה שלך!"
+
+msgctxt "#124
+msgid "Your hardware class is: %s"
+msgstr "סיווג החומרה שלך: %s"
+
+msgctxt "#125
+msgid "Support internal storage (%s)."
+msgstr "תומך באחסון מדיה פנימי (%s)."
+
+msgctxt "#126
+msgid "Plug and view any External Device by Choosing the %s at Local Device button (Left Menu)."
+msgstr "במקרה הצורך ניתן לחבר כל התקן חיצוני ולגשת אליו באמצעות לחיצה על הכפתור "%s ב-דיסק פנימי" בתפריט בצד שמאל."
+
+msgctxt "#127
+msgid ""
+msgstr ""
+
+msgctxt "#129
+msgid "Add %s to library by external device."
+msgstr "הוספת %s לספרייה ע"י התקן חיצוני."
+
+msgctxt "#130
+msgid ""
+msgstr ""
+
+msgctxt "#131
+msgid ""
+msgstr ""
+
+msgctxt "#132
+msgid "1. Connect External Device to your HTPT.[CR]2. Exit then Enter this button again (Note the USB icon on top right of your screen).[CR]3. For viewing the External Device, Choose the %s in External Device button.[CR]4. Locate the files you want to copy and Choose the File Manager button (Left Menu).[CR]5. The file manager window is split to half, the left half refer to your music library.[CR]6. At the right half, Choose the Library folder follow by %s folder.[CR]7. Stand on the half window you want to copy from, click the Menu Button on your remote and Choose the COPY button.[CR]8. The files will be copied according to the arrow shown.[CR]7. After you done copying files, you may view them by Choosing the %s button on your home screen."
+msgstr "1. חבר התקן USB כלשהו למכשיר.[CR]2. צא וכנס לכפתור זה. (שים לב לאייקון של דיסק למעלה בצד ימין).[CR]3. בחר בכפתור "%s ב-דיסק פנימי" בתפריט בצד שמאל, בכדי לעבור להתקן החיצוני.[CR]4. אתר את התוכן אותו ברצונך להעתיק ובחר בכפתור "מנהל קבצים" בתפריט בצד שמאל.[CR]5. החלון מנהל קבצים יחולק ל-2 כאשר הצד הנוכחי (שמאל) משקף את התוכן שאיתרת בסעיף הקודם.[CR]6. בחלון השני (צד ימין) יש לבחור באפשרות "ספרייה" -> %s.[CR]7. כעת יש לעמוד על החלון שממנו ברצונך להעתיק, ללחוץ כפתור תפריט ולבחור בכפתור "העתק".[CR]8. הכיוון אליו פונה החץ באמצע המסך זהו החלון שאליו יועתקו הקבצים.[CR]9. לאחר סיום העתקת הקבצים תוכל לצפות בהם בקלות ובכל עת דרך הכפתור %s.[CR]"
+
+msgctxt "#133
+msgid ""
+msgstr ""
+
+msgctxt "#134
+msgid "Add %s to library"
+msgstr "הוספת %s לספרייה"
+
+msgctxt "#135
+msgid "Choose YES if you want to learn how to add %s to-%s?"
+msgstr "בחר באפשרות "כן" אם ברצונך ללמוד כיצד להוסיף %s ל-%s?"
+
+msgctxt "#136
+msgid "Add %s to library with PC"
+msgstr "הוספת %s לספרייה ע"י מחשב ביתי"
+
+msgctxt "#137
+msgid "1. Turn on your PC and your HTPT.[CR]2. Make sure both devies are connected to the same network.[CR]3. Open My Computer window and at the path line write:[CR] [COLOR=Yellow]%s[/COLOR][CR][COLOR=Red]If the window isn't shown, turn off or force sleep to either of the devices.[/COLOR][CR]4. At the window shown, choose %s folder. This folder store your %s.[CR]You may delete, copy or sort the files and that's how they will appear at %s button.[CR]7. TIP: You may use the script at the tools -> smb folder in order to make a shortcut to your HTPT."
+msgstr "1. הפעל את המחשב שלך ואת ה-HTPT.[CR]2. וודא ששני המכשירים מחוברים לאינטרנט באותה הרשת.[CR]3. במחשב פתח חלון המחשב שלי, בנתיב למעלה יש לכתוב:[CR] [COLOR=Yellow]%s[/COLOR][CR][COLOR=Red]אם לא נפתח חלון יש לנסות להפעיל את ה-HTPT, המחשב והראוטר מחדש.[/COLOR][CR]4. בחלון שנפתח יש לבחור בתיקייה %s. בתיקייה זו נמצאים כל ה-%s שלך ב-HTPT.[CR]באפשרותך למחוק, להעתיק ולמיין מחדש את הקבצים וכך הם יופיעו תחת הכפתור %s.[CR]5. לידיעתך: ניתן ליצור קיצור דרך לספרייה על שולחן העבודה ע"י הפעלת הסקריפט שבתיקייה "tools"->"smb"."
+
+msgctxt "#146
+msgid ""
+msgstr ""
+
+msgctxt "#147
+msgid "Locate your -%s folder"
+msgstr "אתר את תיקיית ה-%s שלך"
+
+msgctxt "#148
+msgid ""
+msgstr ""
+
+msgctxt "#149
+msgid ""
+msgstr ""
+
+msgctxt "#150
+msgid ""
+msgstr ""
+
+msgctxt "#151
+msgid ""
+msgstr ""
+
+msgctxt "#152
+msgid ""
+msgstr ""
+
+msgctxt "#153
+msgid ""
+msgstr ""
+
+msgctxt "#154
+msgid ""
+msgstr ""
+
+#PICTURES/VIDEOS2
+msgctxt "#155
+msgid "Device connected now %s"
+msgstr "התקן מחובר כעת %s"
+
+msgctxt "#156
+msgid "New folder created %s"
+msgstr "המערכת יצרה עבורך תיקייה בשם %s"
+
+msgctxt "#157
+msgid "1. Browse the contents in your external device by choosing the back arrow button.[CR]2. Locate your required contents then choose the FILE MANAGER button (left menu).[CR]3. The file manager window is split to half, the left half refer to the content you located at the previous step.[CR]4. At the other half window (the right one), Choose External Devices -> %s.[CR]5. Stand on the half window part which you want to copy from, click the Menu button on your remote and choose COPY.[CR]6. The files will be copied according to the arrow shown.[CR]7. Now the files you copied can be viewed easily at any time y using the %s button."
+msgstr "1. עיין בתוכן ההתקן החיצוני ע"י לחיצה על החץ. [CR]2. אתר את התוכן אותו ברצונך להעתיק ובחר בכפתור "מנהל קבצים" בתפריט בצד שמאל.[CR]3. החלון מנהל קבצים יחולק ל-2 כאשר הצד הנוכחי (שמאל) משקף את התוכן שאיתרת בסעיף הקודם.[CR]4. בחלון השני (צד ימין) יש לבחור באפשרות "התקנים חיצוניים" -> %s.[CR]5. כעת יש לעמוד על החלון שממנו ברצונך להעתיק, ללחוץ כפתור תפריט ולבחור בכפתור "העתק".[CR]6. הכיוון אליו פונה החץ באמצע המסך זהו החלון שאליו יועתקו הקבצים.[CR]7. לאחר סיום העתקת הקבצים תוכל לצפות בהם בקלות ובכל עת דרך הכפתור %s.[CR]"
+
+msgctxt "#158
+msgid ""
+msgstr ""
+
+msgctxt "#159
+msgid ""
+msgstr ""
+
+#LIVETV
+msgctxt "#160
+msgid ""
+msgstr ""
+
+msgctxt "#161
+msgid ""
+msgstr ""
+
+msgctxt "#162
+msgid ""
+msgstr ""
+
+msgctxt "#163
+msgid ""
+msgstr ""
+
+msgctxt "#164
+msgid ""
+msgstr ""
+
+msgctxt "#165
+msgid ""
+msgstr ""
+
+msgctxt "#166
+msgid ""
+msgstr ""
+
+msgctxt "#167
+msgid ""
+msgstr ""
+
+msgctxt "#168
+msgid ""
+msgstr ""
+
+msgctxt "#170
+msgid ""
+msgstr ""
+
+msgctxt "#171
+msgid ""
+msgstr ""
+
+msgctxt "#172
+msgid "1. Connect External Device to your HTPT.[CR]2. Choose FILE MANAGER (left menu).[CR]3. The file manager window is split to half, the left half refer to your music library.[CR]4. At the right half, Choose the external device.[CR]5. Stand on the half window you want to copy from, click the Menu Button on your remote and Choose the COPY button.[CR]6. The files will be copied according to the arrow shown.[CR]7. After you done copying files, go back to your Local Music button, locate your copied location and choose Scan items to library button.[CR]8. Notice the notification window shown while scanning, upon the end the files will be added to your %s library."
+msgstr "1. חבר התקן USB כלשהו למכשיר.[CR]2. בחר בכפתור "מנהל קבצים" בתפריט בצד שמאל.[CR]3. החלון מנהל קבצים יחולק ל-2 כאשר הצד הנוכחי (שמאל) משקף את ספריית המוזיקה שלך.[CR]4. בחלון השני (צד ימין) יש לבחור בהתקן החיצוני שחיברת בסעיף הקודם.[CR]5. כעת יש לעמוד על החלון שממנו ברצונך להעתיק, ללחוץ כפתור תפריט ולבחור בכפתור "העתק".[CR]6. הכיוון אליו פונה החץ באמצע המסך זהו החלון שאליו יועתקו הקבצים.[CR]7. לאחר סיום העתקת הקבצים, לך בחזרה לכפתור מוזיקה מקומית, אתר את הנתיב אליו העתקת את הקבצים - לחץ על כפתור תפריט בשלט ובחר באפשרות סריקה לספרייה.[CR]8. במהלך העדכון יופיע חלון מידע למטה אשר בסיומו הקבצים יתווספו לספריית ה-%s שלך.[CR]
+
+msgctxt "#173
+msgid "1. Turn on your PC and your HTPT.[CR]2. Make sure both devies are connected to the same network.[CR]3. Open My Computer window and at the path line write:[CR] [COLOR=Yellow]%s[/COLOR][CR][COLOR=Red]If the window isn't shown, turn off or force sleep to either of the devices.[/COLOR][CR]4. At the window shown, choose %s folder. This folder store your %s.[CR]You may delete, copy or sort the files and that's how they will appear at %s button.[CR]5. After you done copying files, go back to your Local Music button, locate your copied location and choose Scan items to library button.[CR]6. Notice the notification window shown while scanning, upon the end the files will be added to your %s library.[CR]7. TIP: You may use the script at the tools -> smb folder in order to make a shortcut to your HTPT."
+msgstr "1. הפעל את המחשב שלך ואת ה-HTPT.[CR]2. וודא ששני המכשירים מחוברים לאינטרנט באותה הרשת.[CR]3. במחשב פתח חלון המחשב שלי, בנתיב למעלה יש לכתוב:[CR] [COLOR=Yellow]%s[/COLOR][CR][COLOR=Red]אם לא נפתח חלון יש לנסות להפעיל את ה-HTPT, המחשב והראוטר מחדש.[/COLOR][CR]4. בחלון שנפתח יש לבחור בתיקייה %s. בתיקייה זו נמצאים כל ה-%s שלך ב-HTPT.[CR]באפשרותך למחוק, להעתיק ולמיין מחדש את הקבצים וכך הם יופיעו תחת הכפתור %s.[CR]5. לאחר סיום העתקת הקבצים, לך בחזרה לכפתור מוזיקה מקומית, אתר את הנתיב אליו העתקת את הקבצים - לחץ על כפתור תפריט בשלט ובחר באפשרות סריקה לספרייה.[CR]6. במהלך העדכון יופיע חלון מידע למטה אשר בסיומו הקבצים יתווספו לספריית ה-%s שלך.[CR][CR]7. לידיעתך: ניתן ליצור קיצור דרך לספרייה על שולחן העבודה ע"י הפעלת הסקריפט שבתיקייה "tools"->"smb".
+
+msgctxt "#174
+msgid ""
+msgstr ""

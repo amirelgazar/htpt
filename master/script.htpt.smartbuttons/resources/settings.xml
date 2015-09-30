@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<settings>
+	<category label="General" description="כללי">
+		<setting type="lsep" label=""/>
+		<setting id="Addon_ServiceON" type="bool" default="true" label="Addon_ServiceON" visible="false"/>
+		<setting id="General_ScriptON" type="bool" default="false" label="General_ScriptON" visible="false"/>
+		<setting id="Current_Input" type="text" default="" label="Current_Input" visible="false"/>
+		<setting id="Current_Input2" type="text" default="" label="Current_Input2" visible="false"/>
+		<setting id="Current_Option" type="text" default=0 label="Current_Option" visible="false"/>
+		<setting type="lsep" label=""/>
+	</category>
+	
+	<category label="LibraryData" description="" visible="true">
+		<setting type="lsep" label=""/>
+		<setting id="LibraryData_RemoteMoviesFiles" type="text" default="0" label="LibraryData_RemoteMoviesFiles" visible="false"/>
+		<setting id="LibraryData_RemoteTvshowsFiles" type="text" default="0" label="LibraryData_RemoteTvshowsFiles" visible="false"/>
+		<setting type="lsep" label=""/>
+		<setting id="LibraryData_LocalMoviesFiles" type="text" default="0" label="LibraryData_LocalMoviesFiles" visible="false"/>
+		<setting id="LibraryData_LocalTvshowsFiles" type="text" default="0" label="LibraryData_LocalTvshowsFiles" visible="false"/>
+		<setting type="lsep" label=""/>
+		<setting type="lsep" label=""/>
+		<setting id="Skin_SaveDesign1" type="text" default="" label="Skin_SaveDesign1" visible="false"/>
+		<setting id="Skin_SaveDesign2" type="text" default="" label="Skin_SaveDesign2" visible="false"/>
+		<setting id="Skin_SaveDesign3" type="text" default="" label="Skin_SaveDesign3" visible="false"/>
+		<setting type="lsep" label=""/>
+	</category>
+	
+	<category label="Subtitle" description="" visible="true">
+		<setting type="lsep" label=""/>
+		<setting id="Subtitle_Service" type="text" default="" label="Subtitle_Service" visible="false"/>
+		<setting id="Subtitle_Search" type="text" default="" label="Subtitle_Search" visible="false"/>
+		<setting type="lsep" label=""/>
+	</category>
+</settings>
