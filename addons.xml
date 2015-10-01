@@ -128,7 +128,7 @@ the users movie library hitting enter or return will play the associated movie.
   </extension>
 </addon>
 
-<addon id="script.htpt.install" name="HTPT Install" version="0.0.23" provider-name="finalmakerr">
+<addon id="script.htpt.install" name="HTPT Install" version="0.0.24" provider-name="finalmakerr">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
   </requires>
@@ -279,7 +279,8 @@ the users movie library hitting enter or return will play the associated movie.
 
 <addon id="skin.htpt" version="0.1.38" name="HTPT SYSTEM" provider-name="finalmakerr">
   <requires>
-    <import addon="xbmc.gui" version="5.3.0"/>
+    <!--<import addon="xbmc.gui" version="5.3.0"/>-->
+	<import addon="xbmc.gui" version="5.9.0"/>
 	<!--<import addon="xbmc.python" version="2.1.0"/>-->
 	<!--<import addon="script.module.simplejson" version="2.0.10" />-->
 	<import addon="script.htpt.install" version="0.0.9"/>
