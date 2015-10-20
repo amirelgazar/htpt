@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <addons>
-<addon id="plugin.video.htpt.gopro" name="HTPT GoPro" version="0.0.9" provider-name="HTPT Team">
+<addon id="plugin.video.htpt.gopro" name="HTPT GoPro" version="0.0.10" provider-name="HTPT Team">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
     <import addon="plugin.video.youtube" version="5.1.0"/>
@@ -21,7 +21,7 @@
   </extension>
 </addon>
 
-<addon id="plugin.video.htpt.kids" name="HTPT KIDS" version="0.0.17" provider-name="finalmakerr">
+<addon id="plugin.video.htpt.kids" name="HTPT KIDS" version="0.0.18" provider-name="finalmakerr">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
 	<import addon="plugin.video.youtube" version="5.1.0"/>
@@ -44,7 +44,7 @@
   </extension>
 </addon>
 
-<addon id="plugin.video.htpt.music" name="HTPT Music" version="0.0.13" provider-name="HTPT Team">
+<addon id="plugin.video.htpt.music" name="HTPT Music" version="0.0.14" provider-name="HTPT Team">
   <requires>
 	<import addon="xbmc.python" version="2.1.0"/>
 	<import addon="plugin.video.youtube" version="5.1.0"/>
@@ -111,7 +111,7 @@ the users movie library hitting enter or return will play the associated movie.
   </extension>
 </addon>
 
-<addon id="script.htpt.emu" name="HTPT Emulator" version="0.0.11" provider-name="finalmakerr">
+<addon id="script.htpt.emu" name="HTPT Emulator" version="0.0.12" provider-name="finalmakerr">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
   </requires>
@@ -127,7 +127,7 @@ the users movie library hitting enter or return will play the associated movie.
   </extension>
 </addon>
 
-<addon id="script.htpt.install" name="HTPT Install" version="0.0.24" provider-name="finalmakerr">
+<addon id="script.htpt.install" name="HTPT Install" version="0.0.25" provider-name="finalmakerr">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
   </requires>
@@ -147,7 +147,7 @@ the users movie library hitting enter or return will play the associated movie.
   </extension>
 </addon>
 
-<addon id="script.htpt.refresh" name="HTPT Refresh Script" version="0.1.36" provider-name="finalmakerr">
+<addon id="script.htpt.refresh" name="HTPT Refresh Script" version="0.1.37" provider-name="finalmakerr">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
   </requires>
@@ -164,7 +164,7 @@ the users movie library hitting enter or return will play the associated movie.
   </extension>
 </addon>
 
-<addon id="script.htpt.remote" name="HTPT Remote" version="0.1.11" provider-name="HTPT Team">
+<addon id="script.htpt.remote" name="HTPT Remote" version="0.1.12" provider-name="HTPT Team">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
   </requires>
@@ -184,7 +184,7 @@ the users movie library hitting enter or return will play the associated movie.
   </extension>
 </addon>
 
-<addon id="script.htpt.smartbuttons" name="HTPT Smart Buttons" version="0.0.28" provider-name="HTPT Team">
+<addon id="script.htpt.smartbuttons" name="HTPT Smart Buttons" version="0.0.29" provider-name="HTPT Team">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
 	<import addon="xbmc.addon" version="12.0.0"/>
@@ -202,7 +202,7 @@ the users movie library hitting enter or return will play the associated movie.
   </extension>
 </addon>
 
-<addon id="script.htpt.widgets" name="HTPT Widgets" version="0.1.2" provider-name="Martijn, phil65, Edited by finalmakerr">
+<addon id="script.htpt.widgets" name="HTPT Widgets" version="0.1.3" provider-name="Martijn, phil65, Edited by finalmakerr">
   <requires>
 	<import addon="xbmc.addon" version="12.0.0"/>
 	<import addon="xbmc.json" version="6.0.0"/>
@@ -222,7 +222,7 @@ the users movie library hitting enter or return will play the associated movie.
   </extension>
 </addon>
 
-<addon id="service.htpt" name="HTPT Service" version="0.1.65" provider-name="HTPT Team">
+<addon id="service.htpt" name="HTPT Service" version="0.1.66" provider-name="HTPT Team">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
   </requires>
@@ -239,7 +239,7 @@ the users movie library hitting enter or return will play the associated movie.
   </extension>
 </addon>
 
-<addon id="service.htpt.debug" name="HTPT Debug" version="0.1.40" provider-name="HTPT Team">
+<addon id="service.htpt.debug" name="HTPT Debug" version="0.1.41" provider-name="HTPT Team">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
   </requires>
@@ -258,7 +258,7 @@ the users movie library hitting enter or return will play the associated movie.
   </extension>
 </addon>
 
-<addon id="service.htpt.fix" name="HTPT Fix" version="0.1.59" provider-name="HTPT Team">
+<addon id="service.htpt.fix" name="HTPT Fix" version="0.1.60" provider-name="HTPT Team">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
 	<import addon="xbmc.addon" version="12.0.0"/>
@@ -276,7 +276,7 @@ the users movie library hitting enter or return will play the associated movie.
   </extension>
 </addon>
 
-<addon id="skin.htpt" version="0.1.38" name="HTPT SYSTEM" provider-name="finalmakerr">
+<addon id="skin.htpt" version="0.1.39" name="HTPT SYSTEM" provider-name="finalmakerr">
   <requires>
     <import addon="xbmc.gui" version="5.3.0"/>
 	<!--<import addon="xbmc.gui" version="5.9.0"/>-->

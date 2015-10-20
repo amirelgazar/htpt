@@ -435,7 +435,7 @@ def CATEGORIES106(admin):
 	'''גילגולון'''
 	
 	'''דובים ונהנים'''
-	addDir('דובים ונהנים',['&youtube_pl=P5xdsj7ImrA&list=PLTleo-h9TFqIaAW5pDJO8ThJ_rrohsRLE'],17,'http://luli.tv/Img/Albums/556/medium/%D7%93%D7%95%D7%91%D7%99%D7%9D-%D7%95%D7%A0%D7%94%D7%A0%D7%99%D7%9D3.jpg',addonString(110).encode('utf-8'),'1',50, getAddonFanart(background))
+	addDir('דובים ונהנים',['&youtube_pl=PLTleo-h9TFqIaAW5pDJO8ThJ_rrohsRLE'],17,'http://luli.tv/Img/Albums/556/medium/%D7%93%D7%95%D7%91%D7%99%D7%9D-%D7%95%D7%A0%D7%94%D7%A0%D7%99%D7%9D3.jpg',addonString(110).encode('utf-8'),'1',50, getAddonFanart(background))
 	
 	'''דרקו'''
 	
@@ -476,9 +476,6 @@ def CATEGORIES106(admin):
 	
 	'''לולי'''
 	addDir('לולי',['&youtube_ch=UCcYc90JDakyeXGeZgPL1ejA/playlists', '&youtube_pl=PLwimDnICcPKNQy5TSz2s5XKWsE6kKV5C1'],17,'http://yt3.ggpht.com/-n8_yk3MKYEk/AAAAAAAAAAI/AAAAAAAAAAA/0lOK__EwCtg/s88-c-k-no/photo.jpg',addonString(133).encode('utf-8'),'1',50, getAddonFanart(background))
-	
-	'''מאשה והדוב'''
-	addDir('מאשה והדוב',['&youtube_pl=PL4-zn_348odBKcfUeZznqhkc_-UYtWnep', '&youtube_pl=PLdAdTJgxziWAXNLIR5oeHbUT8HDnXOjAt', '&youtube_pl=PLXnIohISHNIvsnUNe8RwvhksUSFzdQsiT'],17,'http://assets3.mi-web.org/foto_miniaturas/0012/5812/Masha_Oso028_mediano.jpg?1368008744',addonString(110).encode('utf-8'),'1',50, getAddonFanart(background))
 	
 	'''מוסטי'''
 	
@@ -597,6 +594,9 @@ def CATEGORIES107(admin):
 	'''יצירה בקצרה'''
 	addDir(addonString(10734).encode('utf-8'),['&youtube_pl=PLPWc8VdaIIsC0SPM0_dgOVIDn5vcCH8Ti', '&youtube_pl=PLPWc8VdaIIsD85fRihIJFTzwt9v_JX2t6'],6,'http://msc.wcdn.co.il/archive/1475513-5.jpg',addonString(107340).encode('utf-8'),'1',50, getAddonFanart(background))
 	
+	'''מאשה והדוב'''
+	addDir('מאשה והדוב',['&youtube_pl=PL4-zn_348odBKcfUeZznqhkc_-UYtWnep', '&youtube_pl=PLdAdTJgxziWAXNLIR5oeHbUT8HDnXOjAt', '&youtube_pl=PLXnIohISHNIvsnUNe8RwvhksUSFzdQsiT'],17,'http://assets3.mi-web.org/foto_miniaturas/0012/5812/Masha_Oso028_mediano.jpg?1368008744',addonString(110).encode('utf-8'),'1',50, getAddonFanart(background))
+	
 	'''מולי וצומי'''
 	addDir(addonString(10742).encode('utf-8'),['&youtube_pl=PLfcYs4SRZfuJHmb8y_BpUpzAsm1guoAlK'],17,'http://www.yap.co.il/prdPics/4309_desc3_2_1_1390393153.jpg',addonString(107420).encode('utf-8'),'1',50, getAddonFanart(background))
 
@@ -613,7 +613,7 @@ def CATEGORIES107(admin):
 	addDir(addonString(10747).encode('utf-8'),['&youtube_pl=PL663sDNTault52-VzCCu4w0CfnoAtrmRg', '&youtube_pl=PL663sDNTaulu5KpP6eyz9Xr3caOQUDEl_', '&sdarot=series_id=861&series_name=%d7%9e%d7%99%d7%a7%d7%9e%d7%a7%20%3a%20%d7%94%d7%a1%d7%93%d7%a8%d7%94%20%2a%d7%9e%d7%93%d7%95%d7%91%d7%91%2a&url=http%3a%2f%2fwww.sdarot.wf%2fwatch%2f861%2fmikmak-hasidra-%d7%9e%d7%99%d7%a7%d7%9e%d7%a7-%d7%94%d7%a1%d7%93%d7%a8%d7%94-%d7%9e%d7%93%d7%95%d7%91%d7%91', '&youtube_pl=PL663sDNTault52-VzCCu4w0CfnoAtrmRg', '&youtube_id=1CshWmAFinY', '&youtube_id=a5WNY-FMMyQ'],17,'http://www.sdarot.wf/media/series/861.jpg',addonString(107470).encode('utf-8'),'1',50, getAddonFanart(background))
 	
 	'''מר עגבניה'''
-	addDir(addonString(10798).encode('utf-8'),['&youtube_pl=PLwimDnICcPKMSeyub1DLM_2jG4aPjqI7n'],17,'http://www.sdarot.wf/media/series/861.jpg',addonString(107980).encode('utf-8'),'1',50, getAddonFanart(background))
+	addDir(addonString(10798).encode('utf-8'),['&youtube_pl=PLwimDnICcPKMSeyub1DLM_2jG4aPjqI7n'],17,'http://media.israel-music.com/images/7290014394605.jpg',addonString(107980).encode('utf-8'),'1',50, getAddonFanart(background))
 
 	'''מרתה מדברת'''
 	addDir(addonString(10799).encode('utf-8'),['&youtube_pl=PL_8KXLhQVQMLtfN5bkh11lSA6Awg5rt9y'],17,'https://i.ytimg.com/vi/6kSynpNXMBs/default.jpg',addonString(107990).encode('utf-8'),'1',50, getAddonFanart(background))

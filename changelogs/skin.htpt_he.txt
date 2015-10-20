@@ -11,7 +11,7 @@ WIP - WORK IN PROGRESS
 - ך במקלדת (Setiven).
 
 ------------------------
-HTPT SYSTEM v0.1.39 (xx-Oct-15)
+HTPT SYSTEM v0.1.39 (20-Oct-15)
 ------------------------
 - אפשרות שינוי גוון הסקין לכל צבע (Tom, Liron, Shir...)
 - אפשרות לשינוי גוון הכפתורים לכל צבע (Ori, Avital, Kobi...)
