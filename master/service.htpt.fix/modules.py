@@ -61,7 +61,8 @@ def Mode_20(admin, name, printpoint, scripthtptdebug_Info_TotalSpace, scripthtpt
 			'''---------------------------'''
 			x = 'enablerssfeeds' 
 			old_word = regex_from_to(infile_, '<'+x+'>', '</'+x+'>', excluding=False)
-			new_word = '<'+x+'>false</'+x+'>'
+			if xbmc.getSkinDir() != 'skin.htpt': new_word = '<'+x+'>true</'+x+'>'
+			else: new_word = '<'+x+'>false</'+x+'>'
 			replace_word(infile,old_word,new_word)
 			'''---------------------------'''
 			
@@ -272,6 +273,9 @@ def downloads(admin, printpoint, name, connected):
 		printpoint2 = printpoint2 + installaddon2(admin, 'script.htpt.remote', update=False)
 		printpoint2 = printpoint2 + installaddon2(admin, 'service.htpt.debug', update=False)
 		printpoint2 = printpoint2 + installaddon2(admin, 'script.htpt.widgets', update=False)
+		
+		printpoint2 = printpoint2 + installaddon2(admin, 'repository.xbmc-israel')
+		printpoint2 = printpoint2 + installaddonP(admin, 'repository.lambda')
 		
 		#printpoint2 = printpoint2 + installaddon2(admin, 'metadata.common.imdb.com', update=False)
 		printpoint2 = printpoint2 + installaddonP(admin, 'metadata.universal')
@@ -696,6 +700,7 @@ def doFix_2(printpoint):
 	addonsL.append('repository.tknorris.release')
 	addonsL.append('repository.addonscriptorde-beta')
 	addonsL.append('repository.superrepo.org.helix.others.adult')
+	addonsL.append('repository.superrepo.org.helix.all')
 	addonsL.append('repository.ninbora')
 	'''---------------------------'''
 	

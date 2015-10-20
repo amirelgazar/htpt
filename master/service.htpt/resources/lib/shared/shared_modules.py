@@ -176,13 +176,18 @@ def ExtractAll(source, output):
 	else: return False
 
 def getFileAttribute(custom, file):
+	name = 'getFileAttribute' ; printpoint = "" ; extra = ""
 	import time
 	returned = ""
 	if custom == 1: #last modified
 		returned = time.ctime(os.path.getmtime(file))
-	elif custom == 2: #last modified
+		extra = extra + newline + "timenow5" + space2 + str(timenow5)
+		
+	elif custom == 2: #size
 		returned = os.path.getsize(file)
 	
+	if admin and not admin2 and admin3: print printfirst + name + "_LV" + printpoint + space + "custom" + space2 + str(custom) + space + "file" + space2 + str(file) + newline + \
+	"returned" + space2 + str(returned) + extra
 	return returned
 
 def localize(value, s=None):
@@ -448,7 +453,7 @@ def setAddon_UpdateLog(admin, Addon_Version, Addon_UpdateDate, Addon_ShowLog, Ad
 			'''---------------------------'''
 			if number2N <= int(Addon_ShowLog2):
 				printpoint = printpoint + "7"
-				log = open(addonPath + "/" + 'changelog.txt', 'r')
+				log = open(addonPath + "/" + 'changelog.txt', 'rb')
 				message2 = log.read()
 				log.close()
 				message2S = str(message2)
@@ -487,10 +492,10 @@ def terminal(command,desc):
 	---PRINT-END---------------------
 	------------------------------'''
 	if admin and admin2 and admin3 or extra != "":
-		try: print printfirst + desc + space2 + str(output) + extra
+		try: print printfirst + "terminal" + space + desc + space2 + str(output) + extra
 		except Exception, TypeError:
 			extra = extra + newline + "TypeError" + space2 + str(TypeError)
-			print printfirst + "desc" + space2 + str(desc) + extra
+			print printfirst + "terminal" + space + "desc" + space2 + str(desc) + extra
 		'''---------------------------'''
 	return output
 
@@ -1404,7 +1409,7 @@ def installaddon(admin, addonid2, name, update=True):
 	'''---------------------------'''
 	return returned
 
-def installaddonP(admin, addon):
+def installaddonP(admin, addon, update=True):
 	printpoint = "" ; name = 'installaddonP'
 	if addon == 'metadata.universal':
 		
@@ -1490,6 +1495,33 @@ def installaddonP(admin, addon):
 			else: printpoint = printpoint + "9"
 		elif "9" in printpoint: pass
 		else: printpoint = printpoint + "7"
+	
+	elif addon == 'plugin.program.advanced.launcher':
+		
+		if not xbmc.getCondVisibility('System.HasAddon('+ addon +')') or not os.path.exists(addons_path + addon) and not "9" in printpoint:
+			fileID = getfileID(addon+".zip")
+			DownloadFile("https://www.dropbox.com/s/"+fileID+"/"+addon+".zip?dl=1", addon + ".zip", packages_path, addons_path, silent=True)
+			if os.path.exists(addons_path + addon): printpoint = printpoint + "5"
+			else: printpoint = printpoint + "9"
+		elif "9" in printpoint: pass
+		else: printpoint = printpoint + "7"
+	
+	elif addon == 'repository.lambda':
+		
+		if not xbmc.getCondVisibility('System.HasAddon('+ addon +')') or not os.path.exists(addons_path + addon) and not "9" in printpoint:
+			fileID = getfileID(addon+".zip")
+			DownloadFile("https://www.dropbox.com/s/"+fileID+"/"+addon+".zip?dl=1", addon + ".zip", packages_path, addons_path, silent=True)
+			if os.path.exists(addons_path + addon): printpoint = printpoint + "5"
+			else: printpoint = printpoint + "9"
+		elif "9" in printpoint: pass
+		else: printpoint = printpoint + "7"
+	
+	if "5" in printpoint:
+		if update == True:
+			xbmc.executebuiltin("UpdateLocalAddons")
+			xbmc.sleep(1000)
+		if "repository" in addon: xbmc.executebuiltin("UpdateAddonRepos")
+		'''---------------------------'''
 		
 	print printfirst + name + "_LV" + printpoint
 	return printpoint
@@ -1818,6 +1850,7 @@ def removeaddons(addons, custom):
 
 def removefiles(path):
 	name = 'removefiles' ; printpoint = "" ; path1 = path[-1:]
+	if not os.path.exists(path) and not systemplatformwindows and "*" in path: path = path.replace("*","")
 	if os.path.exists(path):
 		printpoint = printpoint + "0"
 		if (systemplatformlinux or systemplatformlinuxraspberrypi): terminal('rm -rf '+path+'',name + space2 + path) ; printpoint = printpoint + "1"
@@ -1830,7 +1863,8 @@ def removefiles(path):
 	
 	else: printpoint = printpoint + "8"
 	
-	print printfirst + name + "_LV" + printpoint + space + "path" + space2 + str(path)
+	if "0" in printpoint or admin3: print printfirst + name + "_LV" + printpoint + space + "path" + space2 + str(path)
+
 	
 def copyfiles(source, target, chmod="", mount=False):
 	name = 'copyfiles' ; printpoint = "" ; source1 = source[-1:]
@@ -1852,8 +1886,19 @@ def copyfiles(source, target, chmod="", mount=False):
 		shutil.copyfile(source, target)
 	
 	if not systemplatformwindows and chmod != "": terminal('chmod '+chmod+' '+target+'','chmod' + space2 + target) ; printpoint = printpoint + "C" #GAL TEST THIS! 
-	
+	#sourcefile_date = getFileAttribute(1, source)
+	sourcefile_size = getFileAttribute(2, source)
+	#targetfile_date = getFileAttribute(1, target)
+	targetfile_size = getFileAttribute(2, target)
+	if sourcefile_size == targetfile_size:
+		#if targetfile_date == str(timenow5)
+		printpoint = printpoint + "7"
+		returned = "ok"
+	else:
+		returned = "skip"
 	print printfirst + name + "_LV" + printpoint + space + "source" + space2 + str(source) + space + "target" + space2 + str(target) + space + "source1" + space2 + str(source1)
+	
+	return returned
 	
 def catfile(path):
 	name = 'catfile'
@@ -1920,11 +1965,11 @@ def write_to_file(path, content, append=False, silent=True , utf8=False): #UNUSE
 	if utf8 == True: import codecs
 	try:
 		if append == True:
-			if utf8 == True: f = codecs.open(path, 'a', encoding='utf-8')
-			else: f = open(path, 'a')
+			if utf8 == True: f = codecs.open(path, 'ab', encoding='utf-8')
+			else: f = open(path, 'ab')
 		else:
-			if utf8 == True: f = codecs.open(path, 'w', 'utf-8')
-			else: f = open(path, 'w')
+			if utf8 == True: f = codecs.open(path, 'wb', 'utf-8')
+			else: f = open(path, 'wb')
 
 		f.write(content)
 		f.close()
@@ -1934,16 +1979,26 @@ def write_to_file(path, content, append=False, silent=True , utf8=False): #UNUSE
 			print("Could not write to " + path)
 		return False
 
-def read_from_file(path, silent=False):
-    try:
-        f = open(path, 'r')
-        r = f.read()
-        f.close()
-        return str(r)
-    except:
-        if silent == False:
-            print("Could not read from " + path)
-        return None
+def read_from_file(infile, silent=True, lines=False):
+	name = 'read_from_file' ; printpoint = "" ; returned = "" ; TypeError = "" ; extra = "" ; l = []
+	try:
+		infile_ = open(infile, 'rb')
+		if lines == True:
+			for line in infile_.readlines():
+				l.append(line)
+			returned = l
+		else:
+			r = infile_.read()
+			returned = str(r)
+		infile_.close()
+		
+	except Exception, TypeError: extra = extra + newline + "TypeError" + space2 + str(TypeError)
+	
+	if admin and not admin2 and admin3:
+		print printfirst + name + "_LV" + printpoint + space + "infile" + space2 + str(infile) + space + "lines" + space2 + str(lines) + newline + \
+		"returned" + space2 + str(returned) + extra
+	
+	return returned
 		
 def regex_from_to(text, from_string, to_string, excluding=True):
     import re
@@ -1982,24 +2037,63 @@ def regex_get_all(text, start_with, end_with): #UNUSED
     r = re.findall("(?i)" + start_with + "([\S\s]+?)" + end_with, text)
     return r
 	
-def replace_word(infile,old_word,new_word, LineR=False):
-	if not os.path.isfile(infile):
-		print ("Error on replace_word, not a regular file: "+infile)
-	else:
-		f1=open(infile,'r').read()
-		f2=open(infile,'w')
-		if LineR == True:
-			import fileinput 
-			for line in fileinput.input(infile, inplace=1):
-				if old_word in line:
-					line = line.replace(old_word,new_word)
-				sys.stdout.write(line)
-				
-			#f2.write(l)
-		else:
-			m=f1.replace(old_word,new_word)
-			f2.write(m)
+def replace_word(infile,old_word,new_word, infile_="", LineR=False , LineClean=False):
+	printpoint = "" ; extra = "" ; TypeError = "" ; value = ""
 
+	if not os.path.isfile(infile): printpoint = printpoint + "8" #(infile_ == "" or LineR == True) and
+	else:
+		if LineR == False:
+			'''replace all'''
+			printpoint = printpoint + "2"
+			if infile_ == "": infile_ = read_from_file(infile, lines=False)
+			value=infile_.replace(old_word,new_word)
+			'''---------------------------'''
+		else:
+			'''replace each line'''
+			printpoint = printpoint + "3"
+			import fileinput, re
+			infile_ = read_from_file(infile, lines=True)
+			print infile_
+			for line in infile_:
+				print line
+				if LineClean == True and re.match(r'^\s*$', line): line = "" #line.replace('\n\n','\n') #re.match(r'^\s*$', line)
+				elif old_word != "" and new_word != "":
+					if old_word in line:
+						value = value + newline + line.replace(old_word,new_word)
+						#line = '\n' + line
+						#sys.stdout.write(line)
+						'''---------------------------'''
+					else: value = value + newline + line
+				else:
+					value = value + line
+				#if value != "": value = value + newline
+				'''---------------------------'''
+					#line = '\n' + line
+					#sys.stdout.write(line)
+				
+				
+				#if line != "": sys.stdout.write(line) #infile__.write(line)
+				#infile__.write(value)
+				#infile__.close()
+		
+		infile__=open(infile,'wb')
+		infile__.write(value)
+		infile__.close()
+		'''---------------------------'''
+		
+	if admin and not admin2 and admin3:
+		print printfirst + "replace_word_LV" + printpoint + space + "infile" + space2 + str(infile) + space + newline + \
+		"old_word" + space2 + str(old_word) + newline + \
+		"new_word" + space2 + str(new_word) + newline + \
+		"value" + space2 + str(value) + extra
+
+def ReloadSkin(admin):
+	if playerhasmedia: xbmc.executebuiltin('Action(Stop)') ; notification('Video Stop',"","",1000) ; xbmc.sleep(1000)
+	notification("..","","",1000)
+	xbmc.executebuiltin('SetProperty(ReloadSkin,true,home)') ; xbmc.sleep(200)
+	xbmc.executebuiltin('ReloadSkin()') ; xbmc.sleep(2000)
+	xbmc.executebuiltin('ClearProperty(ReloadSkin,home)')
+	
 def settingschange(window,systemgetbool,falsetrue,force,string1,string2):
 	'''systemgetbool'''
 	systemgetbool2 = xbmc.getCondVisibility('System.GetBool('+ systemgetbool +')')
@@ -2065,84 +2159,52 @@ def setGeneral_ScriptON(custom, General_ScriptON, mode):
 	name = 'setGeneral_ScriptON' ; printpoint = ""
 	admin = xbmc.getInfoLabel('Skin.HasSetting(Admin)')
 	containerfolderpath = xbmc.getInfoLabel('Container.FolderPath')
+	property_addonisrunning = xbmc.getInfoLabel('Window(home).Property('+addonID+'_RUNNING)')
 	
 	if mode == None: mode = ""
 	
-	notificationoffL = ["service.htpt.debug","service.htpt.fix"]
-	scriptsL = ["script.htpt.install"]
 	if custom == "0":
 		'''------------------------------
 		---SCRIPT-START------------------
 		------------------------------'''
-		if General_ScriptON == "true":
-			'''------------------------------
-			---General_ScriptON-TRUE->FALSE--
-			------------------------------'''
-			if not addonID in containerfolderpath and addonID in scriptsL: printpoint = printpoint + "8"
-			elif addonID == 'service.htpt.debug' and (mode == 1 or mode == None): printpoint = printpoint + "4"
-			else:
-				count = 0 ; printpoint = printpoint + "1"
-				while (General_ScriptON == "true" and count <= 3) and not xbmc.abortRequested:
-					if count > 0 and not startup_aW:
-						if not addonID in notificationoffL:
-							if count == 1: notification(addonString(119) + ".", "", "", 1000)
-							elif count == 2: notification(addonString(119) + "..", "", "", 1000)
-							#elif count == 3: notification(addonString(119) + "...", "", "", 1000)
-							'''---------------------------'''
-					xbmc.sleep(500)
-					if count == 0: printpoint = printpoint + "2"
-					count += 1
-					countS = str(count)
-					General_ScriptON = getsetting('General_ScriptON')
-					systemidle1 = xbmc.getCondVisibility('System.IdleTime(1)')
-					if General_ScriptON != "true" and systemidle1:
-						setsetting_custom1(addonID,'General_ScriptON',"true")
-						count = 5 ; printpoint = printpoint + "3"
-					else:
-						printpoint = printpoint + "4"
-						if count == 3 and systemidle1 and mode == "":
-							printpoint = printpoint + "5"
-							setsetting_custom1(addonID,'General_ScriptON',"false")
-							if not addonID in notificationoffL and admin: xbmc.executebuiltin('Notification(Admin,count == 3 and systemidle1 '+ countS +',1000)')
-						if count > 1 and not systemidle1:
-							printpoint = printpoint + "6"
-							if not addonID in notificationoffL and admin: xbmc.executebuiltin('Notification(Admin,count > 1 and not systemidle1 '+ countS +',1000)')
-							if not admin and not addonID in notificationoffL: notification_common("11")
-							sys.exit()
-		else:
-			'''------------------------------
-			---General_ScriptON-FALSE->-TRUE-
-			------------------------------'''
-			printpoint = printpoint + "7"
-			setsetting_custom1(addonID,'General_ScriptON',"true")
-			if not addonID in notificationoffL and admin: xbmc.executebuiltin('Notification(General_ScriptON == true,start,1000)')
-			'''---------------------------'''
+		if property_addonisrunning == "true":
+			count = 0 ; printpoint = printpoint + "1"
+			while count < 10 and property_addonisrunning and not xbmc.abortRequested:
+				if count == 0:
+					printpoint = printpoint + "2"
+					if admin3: notification(addonID, "Start", "", 1000)
+					elif addonID != "service.htpt.fix" and addonID != "service.htpt.debug": notification("...", "", "", 1000)
+				xbmc.sleep(100)
+				count += 1
+				property_addonisrunning = xbmc.getInfoLabel('Window(home).Property('+addonID+'_RUNNING)')
+				#property_addonisrunning = xbmc.getCondVisibility('!IsEmpty(Window(home).Property('+addonID+'_RUNNING))')
+		xbmc.executebuiltin('SetProperty('+addonID+'_RUNNING, true, home)')
 			
 	elif custom == "1":
 		'''------------------------------
 		---SCRIPT-END--------------------
 		------------------------------'''
 		count = 0 ; printpoint = printpoint + "1"
-		while General_ScriptON != "true" and count < 3 and not xbmc.abortRequested:
-			if count == 1: printpoint = printpoint + "2"
-			xbmc.sleep(500)
+		while count < 10 and property_addonisrunning != "true" and not xbmc.abortRequested:
+			if count == 1:
+				printpoint = printpoint + "2"
+				if admin3: notification(addonID, "End", "", 1000)
+				elif addonID != "service.htpt.fix" and addonID != "service.htpt.debug": notification("...", "", "", 1000)
+			xbmc.sleep(100)
 			count += 1
-			countS = str(count)
-			General_ScriptON = getsetting('General_ScriptON')
-			'''---------------------------'''
-			
-		printpoint = printpoint + "3"
-		setsetting_custom1(addonID,'General_ScriptON',"false")
-		if not addonID in notificationoffL and (admin and not admin2): xbmc.executebuiltin('Notification(General_ScriptON == false,end,1000)')
-		#sys.exit()
-		'''---------------------------'''
+			property_addonisrunning = xbmc.getInfoLabel('Window(home).Property('+addonID+'_RUNNING)')
+			#property_addonisrunning = xbmc.getCondVisibility('!IsEmpty(Window(home).Property('+addonID+'_RUNNING))')
+		xbmc.executebuiltin('ClearProperty('+addonID+'_RUNNING, home)')
 
 	'''------------------------------
 	---PRINT-END---------------------
 	------------------------------'''
-	if admin: print printfirst + "setGeneral_ScriptON_LV" + printpoint + space + "custom" + space2 + custom + space + "General_ScriptON" + space2 + General_ScriptON + space + "mode" + space2 + mode + \
-	space + "addonID" + space2 + str(addonID)
-	'''---------------------------'''
+	#property_addonisrunning = xbmc.getInfoLabel('Window(home).Property('+addonID+'_RUNNING)')
+	#property_addonisrunning = xbmc.getCondVisibility('!IsEmpty(Window(home).Property('+addonID+'_RUNNING))')
+	if admin and admin2 and admin3:
+		print printfirst + "setGeneral_ScriptON_LV" + printpoint + space + "custom" + space2 + custom + space + "General_ScriptON" + space2 + General_ScriptON + space + "mode" + space2 + mode + newline + \
+		space + "addonID" + space2 + str(addonID) + space + "property_addonisrunning" + space2 + str(property_addonisrunning)
+		'''---------------------------'''
 	
 def setSkinSetting(custom,set1,set1v):
 	if xbmc.getSkinDir() == 'skin.htpt':
@@ -2373,6 +2435,9 @@ def getfileID(file):
 	elif file == "metadata.common.trakt.tv.zip": fileID = "ttat1kqmcgnj8eb" #htpthtpt
 	elif file == "metadata.universal.zip": fileID = "c199vd68mhknyyp" #htpthtpt
 	elif file == "script.openelec.rpi.config.zip": fileID = "r98gcue3e3p3pr4" #htpthtpt
+	elif file == "plugin.program.advanced.launcher.zip": fileID = "hnclp7yn4ea5433" #htpthtpt
+	elif file == "repository.lambda.zip": fileID = "bnn0fua0tganq6a" #htpthtpt
+	
 	elif file == "AceEngine.zip": fileID = "drh8nac0awpmxc4" #htpthtpt
 	elif file == "emu_htpt.zip": fileID = "x1802zw4fhgcp44" #htpthtpt
 	elif file == "Media.zip": fileID = "w55o5fp4cng3m7d" #htpthtpt
@@ -2528,7 +2593,7 @@ def ActivateWindow(custom, addon, url, return0, wait=True):
 		containerfolderpath = xbmc.getInfoLabel('Container.FolderPath')
 		containernumitems = xbmc.getInfoLabel('Container.NumItems')
 		count = 0
-		while count < 10 and (not addon in containerfolderpath or containernumitems == "0") and not xbmc.abortRequested:
+		while count < 10 and not addon in containerfolderpath and not xbmc.abortRequested: #or containernumitems == "0"
 			count += 1
 			xbmc.sleep(300)
 			containerfolderpath = xbmc.getInfoLabel('Container.FolderPath')
@@ -2649,6 +2714,9 @@ def killall(admin, custom=""):
 		except: pass
 
 def CloseSession():
+	libraryisscanningvideo = xbmc.getCondVisibility('Library.IsScanningVideo')
+	libraryisscanningmusic = xbmc.getCondVisibility('Library.IsScanningMusic')
+	playerhasvideo = xbmc.getCondVisibility('Player.HasVideo')
 	if libraryisscanningvideo:
 		xbmc.executebuiltin('UpdateLibrary(video)')
 		notification("Library Update Stop","...","",3000)

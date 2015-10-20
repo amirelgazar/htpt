@@ -120,7 +120,7 @@ def sendMail(mode, subject, text, *attachmentFilePaths):
         elif General_MailService == "2":
 			mailServer = smtplib.SMTP('smtp.gmail.com', 587) #, timeout=20
 			gmailUser = sendtostr2
-			gmailPassword = mystr2
+			gmailPassword = mystr
         elif General_MailService == "3":
             mailServer = smtplib.SMTP('smtp.gmail.com', 587) #, timeout=20
             gmailUser = sendtostr3
@@ -133,6 +133,7 @@ def sendMail(mode, subject, text, *attachmentFilePaths):
 			mailServer = smtplib.SMTP('smtp.gmail.com', 587)
 			gmailUser = sendtostr
 			gmailPassword = mystr
+			
         recipient = recipientstr
         msg = MIMEMultipart()
         msg['From'] = gmailUser

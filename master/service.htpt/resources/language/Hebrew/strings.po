@@ -183,7 +183,7 @@ msgstr "שם כפתור"
 
 msgctxt "#46
 msgid "New %s"
-msgstr "%s חדש הוסף"
+msgstr "%s חדש"
 
 msgctxt "#47
 msgid "New %s"

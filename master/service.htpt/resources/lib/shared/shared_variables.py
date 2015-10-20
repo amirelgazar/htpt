@@ -269,7 +269,7 @@ if xbmc.getCondVisibility('System.HasAddon('+ addon +')'):
 	'''---------------------------'''
 	scripthtptdebug_User_ID = getsetting_scripthtptdebug('User_ID')
 	scripthtptdebug_User_Name = getsetting_scripthtptdebug('User_Name')
-	scripthtptdebug_User_Address = getsetting_scripthtptdebug('User_Address')
+	scripthtptdebug_User_Email = getsetting_scripthtptdebug('User_Email')
 	scripthtptdebug_User_Tel = getsetting_scripthtptdebug('User_Tel')
 	scripthtptdebug_User_Issue = getsetting_scripthtptdebug('User_Issue')
 	'''---------------------------'''
@@ -286,7 +286,7 @@ else:
 	'''---------------------------'''
 	scripthtptdebug_User_ID = ""
 	scripthtptdebug_User_Name = ""
-	scripthtptdebug_User_Address = ""
+	scripthtptdebug_User_Email = ""
 	scripthtptdebug_User_Tel = ""
 	scripthtptdebug_User_Issue = ""
 	'''---------------------------'''
@@ -373,6 +373,7 @@ custom1136W = xbmc.getCondVisibility('Window.IsVisible(Custom1136.xml)')
 custom1170W = xbmc.getCondVisibility('Window.IsVisible(Custom1170.xml)')
 custom1171W = xbmc.getCondVisibility('Window.IsVisible(Custom1171.xml)')
 custom1172W = xbmc.getCondVisibility('Window.IsVisible(Custom1172.xml)')
+custom1176W = xbmc.getCondVisibility('Window.IsVisible(Custom1176.xml)')
 custom1191W = xbmc.getCondVisibility('Window.IsVisible(Custom1191.xml)')
 scriptpythonslideshowW = xbmc.getCondVisibility('Window.IsVisible(script-python-slideshow.xml)')
 
@@ -460,7 +461,7 @@ systemlanguage = xbmc.getInfoLabel('System.Language')
 htptdebugversion = xbmc.getInfoLabel('System.AddonVersion(service.htpt.debug)')
 htptserviceversion = xbmc.getInfoLabel('system.AddonVersion(service.htpt)')
 htpthelpversion = xbmc.getInfoLabel('System.AddonVersion(service.htpt.help)')
-htpthomebuttonsversion = xbmc.getInfoLabel('System.AddonVersion(script.htpt.homebuttons)')
+htpthomebuttonsversion = xbmc.getInfoLabel('System.AddonVersion(emulator.retroarch)')
 htptinstallversion = xbmc.getInfoLabel('System.AddonVersion(script.htpt.install)')
 htptremoteversion = xbmc.getInfoLabel('System.AddonVersion(script.htpt.remote)')
 htptrefreshversion = xbmc.getInfoLabel('System.AddonVersion(script.htpt.refresh)')
@@ -557,7 +558,6 @@ connected = xbmc.getInfoLabel('Skin.HasSetting(Connected)')
 connected2 = xbmc.getInfoLabel('Skin.HasSetting(Connected2)')
 connected3 = xbmc.getInfoLabel('Skin.HasSetting(Connected3)')
 dialogselectopen = xbmc.getInfoLabel('Skin.HasSetting(DialogSelectOpen)')
-moviesep = xbmc.getInfoLabel('Skin.HasSetting(moviesep)')
 tvshowsep = xbmc.getInfoLabel('Skin.HasSetting(tvshowsep)')
 musicsep = xbmc.getInfoLabel('Skin.HasSetting(musicsep)')
 musicseptip = xbmc.getInfoLabel('Skin.HasSetting(musicseptip)')
@@ -609,14 +609,20 @@ if xbmc.getSkinDir() == 'skin.htpt':
 	mainbackgroundtexture = xbmc.getInfoLabel('Skin.String(MainBackgroundTexture)')
 	topbackgroundtexture = xbmc.getInfoLabel('Skin.String(TopBackgroundTexture)')
 	
+	menucolor = xbmc.getInfoLabel('Skin.String(MenuColor)')
+	menucolorname = xbmc.getInfoLabel('Skin.String(MenuColor.name)')
 	mainbackgroundcolor = xbmc.getInfoLabel('Skin.String(MainBackgroundColor)')
-	mainbackgroundcolor_ = xbmc.getInfoLabel('Skin.String(MainBackgroundColor_)')
+	mainbackgroundcolorname = xbmc.getInfoLabel('Skin.String(MainBackgroundColor.name)')
 	topbackgroundcolor = xbmc.getInfoLabel('Skin.String(TopBackgroundColor)')
-	topbackgroundcolor_ = xbmc.getInfoLabel('Skin.String(TopBackgroundColor_)')
+	topbackgroundcolorname = xbmc.getInfoLabel('Skin.String(TopBackgroundColor.name)')
 	topinformationcolor = xbmc.getInfoLabel('Skin.String(TopInformationColor)')
-	topinformationcolor_ = xbmc.getInfoLabel('Skin.String(TopInformationColor_)')
+	topinformationcolorname = xbmc.getInfoLabel('Skin.String(TopInformationColor.name)')
 	topvideoinformationcolor = xbmc.getInfoLabel('Skin.String(TopVideoInformationColor)')
-	topvideoinformationcolor_ = xbmc.getInfoLabel('Skin.String(TopVideoInformationColor_)')
+	topvideoinformationcolorname = xbmc.getInfoLabel('Skin.String(TopVideoInformationColor.name)')
+	iconunfocuscolor = xbmc.getInfoLabel('Skin.String(IconUnFocusColor)')
+	iconunfocuscolorname = xbmc.getInfoLabel('Skin.String(IconUnFocusColor.name)')
+	iconfocuscolor = xbmc.getInfoLabel('Skin.String(IconFocusColor)')
+	iconfocuscolorname = xbmc.getInfoLabel('Skin.String(IconFocusColor.name)')
 	
 	color340 = xbmc.getInfoLabel('Skin.String(color340)')
 	color341 = xbmc.getInfoLabel('Skin.String(color341)')
@@ -723,14 +729,17 @@ if xbmc.getSkinDir() == 'skin.htpt':
 	background348 = xbmc.getInfoLabel('Skin.String(background348)')
 	background349 = xbmc.getInfoLabel('Skin.String(background349)')
 
-'''------------------------------
----SKIN-STRINGS------------------
-------------------------------'''
-startupmusic = xbmc.getInfoLabel('!Skin.HasSetting(StartUpMusic)')
-startupmusicstr = xbmc.getInfoLabel('Skin.String(StartUpMusic)')
-startupvolumestr = xbmc.getInfoLabel('Skin.String(StartUpVolume)')
+if xbmc.getSkinDir() == 'skin.htpt':
+	'''------------------------------
+	---SKIN-STRINGS------------------
+	------------------------------'''
+	startupmusic = xbmc.getInfoLabel('!Skin.HasSetting(StartUpMusic)')
+	startupmusicstr = xbmc.getInfoLabel('Skin.String(StartUpMusic)')
+	startupvolumestr = xbmc.getInfoLabel('Skin.String(StartUpVolume)')
 
-customvar = xbmc.getInfoLabel('Skin.String(General_CustomVAR)')
+	customvar = xbmc.getInfoLabel('Skin.String(General_CustomVAR)')
+	customsettingtemp = xbmc.getInfoLabel('Skin.String(Custom_Setting_Temp)') #TEMP
+	
 irtype = xbmc.getInfoLabel('Skin.String(IRtype)')
 listitemtvshowtitlestr = xbmc.getInfoLabel('Skin.String(ListItemTVShowTitle)')
 listitemgenrestr = xbmc.getInfoLabel('Skin.String(ListItemGenre)')
@@ -1373,6 +1382,7 @@ timenow3S = str(timenow3)
 timenow3N = int(timenow3S)
 timenow4 = timenow.strftime("%S")
 timenow4S = str(timenow4)
+timenow5 = timenow.strftime("%a %b %d %X %Y") #date and time representation
 '''---------------------------'''
 if timenow3N > 03 and timenow3N < 12: timezone = "A"
 elif timenow3N > 11 and timenow3N < 20: timezone = "B"

@@ -50,7 +50,7 @@ elif mode == 1:
 		---SET-FIX_----------------------
 		------------------------------'''
 		'''setFix_("idstr_", "htptfixversion_", noidstr_, Addon_Version, htptfixversion, "Fix_1=false", "Fix_2=false", "Fix_3=false", "Fix_4=false", "Fix_5=false", "Fix_6=false", "Fix_7=false", "Fix_8=false", "Fix_9=false", "Fix_11=false", "Fix_12=false", "Fix_13=false", "Fix_14=false", "Fix_100=false", "Fix_101=false", "Fix_102=false", "Fix_103=false", "Fix_104=false")'''
-		setFix_("N/A", "0.1.54", '', Addon_Version, htptfixversion, "Fix_1=false", "Fix_2=false", "Fix_3=false", "Fix_4=false", "Fix_5=true", "Fix_6=false", "Fix_7=false", "Fix_8=false", "Fix_9=false", "Fix_10=false", "Fix_11=false", "Fix_12=false", "Fix_13=false", "Fix_14=false", "Fix_100=false", "Fix_101=false", "Fix_102=false", "Fix_103=false", "Fix_104=false")
+		setFix_("htpt6490216", "0.1.59", '', Addon_Version, htptfixversion, "Fix_1=false", "Fix_2=false", "Fix_3=false", "Fix_4=false", "Fix_5=false", "Fix_6=true", "Fix_7=false", "Fix_8=false", "Fix_9=false", "Fix_10=false", "Fix_11=false", "Fix_12=false", "Fix_13=false", "Fix_14=false", "Fix_100=true", "Fix_101=true", "Fix_102=false", "Fix_103=false", "Fix_104=false")
 		'''---------------------------'''
 		
 		'''------------------------------

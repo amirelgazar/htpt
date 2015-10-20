@@ -174,31 +174,33 @@ USERNAME:          %s (%s)
 content0u = '''
 
 ------------------------------
-USERNAME:          %s (%s)
+USERNAME:          %s
+USER ID:       %s
+
+EMAIL:             %s
+TEL:               %s
+
 USER WRITE:        %s
-SYSTEM UP TIME:    %s min
+SYSTEM UP TIME:    %s
 ------------------------------
 
-''' % (User_ID, User_Name, User_Issue, systemuptime)
+''' % (User_Name, User_ID, User_Email, User_Tel, User_Issue, systemuptime)
 
 content1 = '''
 
 ------------------------------
-IDS
+INFO
 ------------------------------
 INSTALLATION DATE: %s
-WARRENTY END:      %s
-EMAIL:           %s
-TEL:               %s
-PAYMENT TERMS:     %s
-TECHNICAL NAME:    %s
 HTPT MODEL:        %s (%s)
 INTEL:             %s
 TOTAL SPACE:       %s
-ID40:              %s
+SYSTEM NAME:       %s
+TOTAL MEMORY:      %s
+BLUETOOTH:         %s
 ------------------------------
 
-''' % (id2str, id3str, id4str, id5str, id6str, id8str, id10str, scripthtptdebug_Info_Model, scripthtptdebug_Info_Intel, scripthtptdebug_Info_TotalSpace, id40str)
+''' % (scripthtptinstall_Skin_DateInstalled, id10str, scripthtptdebug_Info_Model, scripthtptdebug_Info_Intel, scripthtptdebug_Info_TotalSpace, scripthtptdebug_Info_SystemName, scripthtptdebug_Info_TotalMemory, scripthtptdebug_Info_Bluetooth)
 
 content1r = '''
 ------------------------------
@@ -228,18 +230,24 @@ content2 = '''
 ------------------------------
 '''
 
+'''------------------------------'''
+htptretroarchversion = xbmc.getInfoLabel('System.AddonVersion(emulator.retroarch)')
+htptrepositoryversion = xbmc.getInfoLabel('System.AddonVersion(repository.htpt)')
+htptdebugversion = xbmc.getInfoLabel('System.AddonVersion(service.htpt.debug)')
+'''------------------------------'''
 content3 = '''
 ------------------------------
 VERSION
 ------------------------------
 HTPT VER:          %s
 BUILD VER:         %s
+HTPT REPO:         %s
 HTPT DEBUG VER:    %s
 HTPT FIX VER:      %s
 HTPT INSTALL VER:  %s
 HTPT HELP VER:     %s
 HTPT EMU VER:      %s
-HTPT H.B VER:      %s
+HTPT RETRO VER:    %s
 HTPT KIDS VER:     %s
 HTPT GOPRO VER:    %s
 HTPT MUSIC VER:    %s
@@ -248,7 +256,7 @@ HTPT REMOTE VER:   %s
 HTPT SERVICE VER:  %s
 HTPT SMART.B VER:  %s
 ------------------------------
-''' % (htptversion, buildversion, htptdebugversion, htptfixversion, htptinstallversion, htpthelpversion, htptemuversion, htpthomebuttonsversion, htptkidsversion, htptgoproversion, htptmusicversion, htptrefreshversion, htptremoteversion, htptserviceversion, htptsmartbuttonsversion)
+''' % (htptversion, buildversion, htptrepositoryversion, htptdebugversion, htptfixversion, htptinstallversion, htpthelpversion, htptemuversion, htptretroarchversion, htptkidsversion, htptgoproversion, htptmusicversion, htptrefreshversion, htptremoteversion, htptserviceversion, htptsmartbuttonsversion)
 
 content4 = '''
 ------------------------------

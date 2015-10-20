@@ -145,7 +145,7 @@ class main:
 			'''---------------------------'''
 			if scriptcount2 > 0: scriptcount2 += -1
 			'''---------------------------'''
-			if scriptcount == 10:
+			if scriptcount >= 10:
 				if admin and not admin2:
 					pass
 					#notification(printfirst,"Clean Exit = NO","scriptcount = 0",2000)
@@ -153,11 +153,10 @@ class main:
 					#setsetting_custom1("service.htpt.fix",'Addon_ServiceON',"true")
 				else:
 					pass
-					#setsetting_custom1("service.htpt.fix",'Addon_ServiceON',"false")
-					#Addon_ServiceON2 = getsetting('Addon_ServiceON')
-					#print printfirst + "Clean Exit" + space + "Addon_ServiceON" + space2 + Addon_ServiceON + space4 + Addon_ServiceON2
-				#sys.exit()
-				'''---------------------------'''
+					setsetting_custom1("service.htpt.fix",'Addon_ServiceON',"false")
+					print printfirst + "Clean Exit" + space + "Addon_ServiceON" + space2 + Addon_ServiceON
+					sys.exit()
+					'''---------------------------'''
 
 			'''---------------------------'''
 			
@@ -165,15 +164,15 @@ class main:
 			---SLEEP-------------------------
 			------------------------------'''
 			if admin and not systemidle7: xbmc.sleep(5000)
-			elif playerhasvideo: xbmc.sleep(10000)
-			else: xbmc.sleep(5000)
+			elif playerhasvideo: xbmc.sleep(60000)
+			else: xbmc.sleep(10000)
 			if performance: xbmc.sleep(10000)
 			'''---------------------------'''
 			
 			'''------------------------------
 			---PRINT-END---------------------
 			------------------------------'''
-			if admin and not admin2 and not systemidle7: print printfirst + "service.py" + space + "scriptcount" + space2 + str(scriptcount) + " (" + str(scriptcount2) + ") " + space + "General_ScriptON" + space2 + General_ScriptON + space + "Addon_ServiceON" + space2 + Addon_ServiceON
+			if admin and not admin2 and admin3 and not systemidle7: print printfirst + "service.py" + space + "scriptcount" + space2 + str(scriptcount) + " (" + str(scriptcount2) + ") " + space + "General_ScriptON" + space2 + General_ScriptON + space + "Addon_ServiceON" + space2 + Addon_ServiceON
 			'''---------------------------'''
 		
 		if xbmc.abortRequested:

@@ -159,7 +159,8 @@ def addDir(name, url, mode, iconimage, desc, num, viewtype, fanart=""):
 		menu.append((localize(16106), "XBMC.RunPlugin(plugin://%s/?url=%s&mode=21&name=%s&iconimage=%s&desc=%s&num=%s&viewtype=%s&fanart=%s)"% (addonID, urllib.quote_plus(url), urllib.quote_plus(name), iconimage, urllib.quote_plus(desc), num, viewtype, fanart))) #Manage....
 		menu.append((localize(33063), "XBMC.RunPlugin(plugin://%s/?url=%s&mode=22&name=%s&iconimage=%s&desc=%s&num=%s&viewtype=%s&fanart=%s)"% (addonID, urllib.quote_plus(url), urllib.quote_plus(name), iconimage, urllib.quote_plus(desc), num, viewtype, fanart))) #Options....
 		liz.addContextMenuItems(items=menu, replaceItems=True)
-		ok=xbmcplugin.addDirectoryItem(handle=int(sys.argv[1]),url=u,listitem=liz,isFolder=True)
+		if url == "None": ok=xbmcplugin.addDirectoryItem(handle=int(sys.argv[1]),url=u,listitem=liz,isFolder=False)
+		else: ok=xbmcplugin.addDirectoryItem(handle=int(sys.argv[1]),url=u,listitem=liz,isFolder=True)
 		returned = ok
 		'''---------------------------'''
 	elif mode == 20:
@@ -796,7 +797,12 @@ def setCustom_Playlist_ID(Custom_Playlist_ID, New_ID, mode, url, name, viewtype)
 		New_ID = New_ID.replace("watch?v=", "&youtube_id=")
 		New_ID_ = New_ID.replace("&youtube_id=","")
 		'''---------------------------'''
-
+	
+	elif New_ID == "None":
+		New_Type = localize(2080) #Empty list
+		extra = addonString_servicehtpt(47).encode('utf-8') % (New_Type) + space + addonString_servicehtpt(49).encode('utf-8') #New %s, Update Succesfully!
+		New_ID_ = ""
+		
 	if New_Type != "":
 		if New_ID in url:
 			check = dialogyesno(addonString(12).encode('utf-8'), localize(19194)) # Duplicated URL found!, Continue?
@@ -809,15 +815,11 @@ def setCustom_Playlist_ID(Custom_Playlist_ID, New_ID, mode, url, name, viewtype)
 			elif mode == 21:
 				setsetting(Custom_Playlist_ID, str(url) + "," + New_ID)
 				#extra = "Previous ID: " + str(url)		
-			
+			#extra = addonString_servicehtpt(46).encode('utf-8') % (New_Type) + space + addonString_servicehtpt(48).encode('utf-8')
 			dialogok(extra, "ID: " + str(New_ID_), str(name), "") ; xbmc.sleep(100)
 			update_view(url, viewtype)
 			'''---------------------------'''
-	elif New_ID == "None":
-		if mode == 20:
-			setsetting(Custom_Playlist_ID, New_ID)
-		elif mode == 21:
-			setsetting(Custom_Playlist_ID, str(url) + "," + New_ID)
+
 	else: notification_common("17")
 	
 	if admin and not admin2 and admin3:
@@ -1070,8 +1072,10 @@ def AdvancedCustom(mode, name, url, thumb, desc, num, viewtype, fanart):
 								x1 = find_string(x, "", "=")
 								x2 = find_string(x, "=", "")
 								x1 = x1.replace("=","")
-								x2 = x2.replace("=","")
-								x2 = x2.replace("\n","")
+								if not "_ID" in x:
+									'''Clean values for none ID lines'''
+									x2 = x2.replace("=","")
+									x2 = x2.replace("\n","")
 								
 								if y == "":
 									count = 0
@@ -1941,15 +1945,19 @@ def TVMode_check(admin, url, playlists):
 
 def TvMode2(mode, name, url, iconimage, desc, num, viewtype):
 	returned = ""
-	if General_TVModeDialog == "true":
-		returned = dialogyesno(addonString_servicehtpt(7).encode('utf-8'), addonString_servicehtpt(8).encode('utf-8'))
-	
-	if returned == "ok": mode = 5
-	else: mode = 6
-	
-	MultiVideos(mode, name, url, iconimage, desc, num, viewtype)
-	
-	return mode
+	if url == "None":
+		'''Empty button'''
+		notification("no valid URL founds!", "...", "", 2000)
+	else:
+		if General_TVModeDialog == "true":
+			returned = dialogyesno(addonString_servicehtpt(7).encode('utf-8'), addonString_servicehtpt(8).encode('utf-8'))
+		
+		if returned == "ok": mode = 5
+		else: mode = 6
+		
+		MultiVideos(mode, name, url, iconimage, desc, num, viewtype)
+		
+		return mode
 	
 def TvMode(user):
 	printpoint = ""
@@ -2260,19 +2268,24 @@ def getAddonFanart(category):
 	elif category == 129: category_path = Fanart_Custom129
 	elif category == 130: category_path = Fanart_Custom130
 	
-	elif "Custom_Playlist" in category:
-		if category == "Custom_Playlist1": category_path = Custom_Playlist1_Fanart
-		elif category == "Custom_Playlist2": category_path = Custom_Playlist2_Fanart
-		elif category == "Custom_Playlist3": category_path = Custom_Playlist3_Fanart
-		elif category == "Custom_Playlist4": category_path = Custom_Playlist4_Fanart
-		elif category == "Custom_Playlist5": category_path = Custom_Playlist5_Fanart
-		elif category == "Custom_Playlist6": category_path = Custom_Playlist6_Fanart
-		elif category == "Custom_Playlist7": category_path = Custom_Playlist7_Fanart
-		elif category == "Custom_Playlist8": category_path = Custom_Playlist8_Fanart
-		elif category == "Custom_Playlist9": category_path = Custom_Playlist9_Fanart
-		elif category == "Custom_Playlist10": category_path = Custom_Playlist10_Fanart
-		else: printpoint = printpoint + "8"
-	else: printpoint = printpoint + "8"
+	else:
+		try:
+			if "Custom_Playlist" in category:
+				if category == "Custom_Playlist1": category_path = Custom_Playlist1_Fanart
+				elif category == "Custom_Playlist2": category_path = Custom_Playlist2_Fanart
+				elif category == "Custom_Playlist3": category_path = Custom_Playlist3_Fanart
+				elif category == "Custom_Playlist4": category_path = Custom_Playlist4_Fanart
+				elif category == "Custom_Playlist5": category_path = Custom_Playlist5_Fanart
+				elif category == "Custom_Playlist6": category_path = Custom_Playlist6_Fanart
+				elif category == "Custom_Playlist7": category_path = Custom_Playlist7_Fanart
+				elif category == "Custom_Playlist8": category_path = Custom_Playlist8_Fanart
+				elif category == "Custom_Playlist9": category_path = Custom_Playlist9_Fanart
+				elif category == "Custom_Playlist10": category_path = Custom_Playlist10_Fanart
+				else: printpoint = printpoint + "8"
+		except Exception, TypeError:
+			extra = extra + newline + "TypeError" + space2 + str(TypeError)
+			printpoint = printpoint + "8"
+	
 	
 	if category_path != "":
 		if "http://" in category_path or "www." in category_path:
@@ -2290,11 +2303,17 @@ def getAddonFanart(category):
 	else:
 		printpoint = printpoint + "9"
 			
-	if "9" in printpoint or "8" in printpoint: returned = addonFanart
+	if "9" in printpoint or "8" in printpoint:
+		try:
+			if os.path.exists(addonFanart2): returned = addonFanart2
+			elif os.path.exists(addonFanart): returned = addonFanart
+		except Exception, TypeError:
+			extra = extra + newline + "TypeError" + space2 + str(TypeError)
+			returned = ""
 	
 	if admin and not admin2 and admin3:
 		print printfirst + "getAddonFanart_LV" + printpoint + space + "category" + space2 + str(category) + space + "returned" + space2 + str(returned) + newline + \
-		"category_path" + space2 + str(category_path)
+		"category_path" + space2 + str(category_path) + extra
 	return returned	
 	
 def pluginend(admin):
@@ -2660,8 +2679,9 @@ def pluginend2(admin, url, containerfolderpath, viewtype):
 	'''------------------------------
 	---PRINT-END---------------------
 	------------------------------'''
-	print printfirst + "pluginend2_LV" + printpoint + space + "count" + space2 + str(count) + space + "returned_Dialog" + space2 + returned_Dialog + space + "containerfolderpath/2" + newline + \
-	str(containerfolderpath) + newline + \
-	str(containerfolderpath2) + newline + \
-	"url" + space2 + str(url)
-	'''---------------------------'''
+	if admin and not admin2 and admin3:
+		print printfirst + "pluginend2_LV" + printpoint + space + "count" + space2 + str(count) + space + "returned_Dialog" + space2 + returned_Dialog + space + "containerfolderpath/2" + newline + \
+		str(containerfolderpath) + newline + \
+		str(containerfolderpath2) + newline + \
+		"url" + space2 + str(url)
+		'''---------------------------'''

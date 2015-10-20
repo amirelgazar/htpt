@@ -253,7 +253,7 @@ def memkeyboard(admin):
 			if admin: xbmc.executebuiltin('Notification(Admin memkeyboard,'+ input +',1000)')
 		#xbmc.executebuiltin('Notification(Admin memkeyboard,'+ input +',1000)')
 		
-def connectioncheck(admin, admin2, count, systemidle3, Ping_Connected):
+def connectioncheck(admin, admin2, count, systemidle3, Ping_Now, Ping_Connected):
 	'''------------------------------
 	---NETWORK-STATUS----------------
 	------------------------------'''
@@ -269,9 +269,10 @@ def connectioncheck(admin, admin2, count, systemidle3, Ping_Connected):
 	if count == 0: printpoint = printpoint + "0"
 	
 	if Ping_Connected != "true" and (not count in count10 or count == 0):
-		setSkinSetting("1","Connected","true")
-		setSkinSetting("1","Connected2","true")
-		setSkinSetting("1","Connected3","true")
+		if Ping_Now == 'None':
+			setSkinSetting("1","Connected","true")
+			setSkinSetting("1","Connected2","true")
+			setSkinSetting("1","Connected3","true")
 		printpoint = printpoint + "9"
 	else: pass
 	
@@ -285,11 +286,12 @@ def connectioncheck(admin, admin2, count, systemidle3, Ping_Connected):
 		elif systemplatformlinux or systemplatformlinuxraspberrypi or systemplatformandroid: output = terminal('ifconfig wlan0',"Connected2")
 		else: output = terminal('ifconfig wlan0',"Connected2")
 		
-		if networkipaddress != "" and not "169.254." in networkipaddress:
+		if networkipaddress != "" and networkipaddress != None and not "169.254." in networkipaddress:
 			if systemplatformlinux or systemplatformlinuxraspberrypi:
 				if not "packets:0" in output and "inet addr" in output: printpoint = printpoint + "1"			
 			elif systemplatformwindows:
 				if not "disconnected" in output and "connected" in output: printpoint = printpoint + "1"
+				elif "disconnected" in output: printpoint = printpoint + "2"
 				elif "netsh" in output and "is not recognized" in output: printpoint = printpoint + "Q"
 			elif systemplatformandroid:
 				if not "Cannot assign" in output and "up broadcast" in output: printpoint = printpoint + "1"
@@ -298,14 +300,16 @@ def connectioncheck(admin, admin2, count, systemidle3, Ping_Connected):
 		
 		if "1" in printpoint:
 			'''CONNECTED'''
-			if not connected2: xbmc.executebuiltin('Skin.ToggleSetting(Connected2)')
+			setSkinSetting('1','Connected2','true')
+			#if not connected2: xbmc.executebuiltin('Skin.ToggleSetting(Connected2)')
 		elif "Q" in printpoint:
 			'''DEMI CONNECTED'''
 			pass
 			#if not connected2: xbmc.executebuiltin('Skin.ToggleSetting(Connected2)')
 		else:
 			'''NOT CONNECTED'''
-			if connected2: xbmc.executebuiltin('Skin.ToggleSetting(Connected2)')
+			setSkinSetting('1','Connected2','false')
+			#if connected2: xbmc.executebuiltin('Skin.ToggleSetting(Connected2)')
 			
 		'''------------------------------
 		---Connected3-(LAN)--------------
@@ -319,6 +323,7 @@ def connectioncheck(admin, admin2, count, systemidle3, Ping_Connected):
 				if not "packets:0" in output and "inet addr" in output: printpoint = printpoint + "3"
 			elif systemplatformwindows:
 				if ("Enabled" in output and "Wired LAN" in output) or "is not running" in output: printpoint = printpoint + "3"
+				elif "disconnected" in output: printpoint = printpoint + "4"
 				elif "netsh" in output and "is not recognized" in output: printpoint = printpoint + "Q"
 			elif systemplatformandroid:
 				if not "down broadcast" in output and "up broadcast" in output: printpoint = printpoint + "3"
@@ -329,13 +334,15 @@ def connectioncheck(admin, admin2, count, systemidle3, Ping_Connected):
 		
 		if "3" in printpoint:
 			'''CONNECTED'''
-			if not connected3: xbmc.executebuiltin('Skin.ToggleSetting(Connected3)')
+			setSkinSetting('1','Connected3','true')
+			if not connected3: pass
 		elif "Q" in printpoint:
 			'''DEMI CONNECTED'''
 			pass
 		else:
 			'''NOT CONNECTED'''
-			if connected3: xbmc.executebuiltin('Skin.ToggleSetting(Connected3)')
+			setSkinSetting('1','Connected3','false')
+			#if connected3: xbmc.executebuiltin('Skin.ToggleSetting(Connected3)')
 			
 	if ((count > 1 and (connected2 or connected3)) or count == 0 or "Q" in printpoint) and not "9" in printpoint:
 		'''------------------------------
@@ -372,21 +379,24 @@ def connectioncheck(admin, admin2, count, systemidle3, Ping_Connected):
 			
 			if output != "" and not "could not find" in output and not "Netwok is unreachable" in output:
 				if systemplatformlinux or systemplatformlinuxraspberrypi:
-					if "1 packets received" in output or not "100% packet loss" in output: printpoint = printpoint + "5"			
+					if "1 packets received" in output or not "100% packet loss" in output: printpoint = printpoint + "5"
+					elif "bad address" in output or output == None: printpoint = printpoint + "6"
 				elif systemplatformwindows:
 					if "Received = 1" in output or not "100% loss" in output: printpoint = printpoint + "5"
 				elif systemplatformandroid:
 					if not "down broadcast" in output and "up broadcast" in output: printpoint = printpoint + "5"
-			elif output == "" or "Q" in printpoint: pass
+			elif output != "" and "Q" in printpoint: pass
 			else: printpoint = printpoint + "6"
 		
 		if "5" in printpoint:
 			'''CONNECTED'''
-			if not connected: xbmc.executebuiltin('Skin.ToggleSetting(Connected)') ; printpoint = printpoint + "_UP_"
+			setSkinSetting('1','Connected','true')
+			if not connected: printpoint = printpoint + "_UP_"
 			else: printpoint = printpoint + "7"
 		elif "6" in printpoint:
 			'''NOT CONNECTED'''
-			if connected: xbmc.executebuiltin('Skin.ToggleSetting(Connected)') ; printpoint = printpoint + "_DOWN_"
+			setSkinSetting('1','Connected','false')
+			if connected: printpoint = printpoint + "_DOWN_"
 			printpoint = printpoint + "9"
 		else:
 			'''SEMI CONNECTED'''
@@ -482,7 +492,7 @@ def connectioncheck(admin, admin2, count, systemidle3, Ping_Connected):
 	'''------------------------------
 	---PRINT-END---------------------
 	------------------------------'''
-	if not "Q" in printpoint: setsetting('Ping_Connected',"true")
+	if not "Q" in printpoint and not "9" in printpoint: setsetting('Ping_Connected',"true")
 	else: setsetting('Ping_Connected',"false")
 	if connected2 != "": connected2S = "true"
 	else: connected2S = "false"
@@ -811,7 +821,7 @@ def startup(admin):
 		xbmc.sleep(1000)
 	
 	if xbmc.getSkinDir() == 'skin.htpt':
-		connectioncheck(admin, admin2, 0, systemidle3, Ping_Connected) ; xbmc.sleep(1000)
+		connectioncheck(admin, admin2, 0, systemidle3, Ping_Now, Ping_Connected) ; xbmc.sleep(1000)
 		if startupmusic:
 			if os.path.exists(skin_music_path + "playHTPT2.flac") and not startupmusicstr:
 				xbmc.executebuiltin('PlayMedia('+skin_music_path+'playHTPT2.flac)')

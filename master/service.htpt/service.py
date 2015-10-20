@@ -93,6 +93,7 @@ class main:
 			
 			Ping_Connected = getsetting('Ping_Connected')
 			Ping_Rate = getsetting('Ping_Rate')
+			Ping_Now = getsetting('Ping_Now')
 			'''---------------------------'''
 			Library_UpdateDate = getsetting('Library_UpdateDate')
 			Library_CleanDate = getsetting('Library_CleanDate')
@@ -251,7 +252,7 @@ class main:
 				'''------------------------------
 				---connectioncheck---------------
 				------------------------------'''
-				connectioncheck(admin, admin2, count, systemidle3, Ping_Connected)
+				connectioncheck(admin, admin2, count, systemidle3, Ping_Now, Ping_Connected)
 				'''---------------------------'''
 				
 				if Time_Shutdown != "":
@@ -268,7 +269,7 @@ class main:
 				#setPing(admin,count,systemidle3)
 				'''---------------------------'''
 			else:
-				if General_TimerN in A10: connectioncheck(admin, admin2, count, systemidle3, Ping_Connected)
+				if General_TimerN in A10: connectioncheck(admin, admin2, count, systemidle3, Ping_Now, Ping_Connected)
 				
 				if Time_DelayN > 540 and Time_DelayN < 600: #systemidle540 and not systemidle600:
 					pass

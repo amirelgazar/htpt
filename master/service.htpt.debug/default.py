@@ -69,7 +69,7 @@ elif mode == 1 and ModeOn_1 == "false":
 					'''---------------------------'''
 				notification(str(returned),"","",2000)
 				if returned == 'skip': notification_common("3")
-				elif returned == 'skip0': notification(localize(257).encode('utf-8'),addonString(79539).encode('utf-8'),"",2000)
+				elif returned == 'skip0': notification(localize(257),addonString(79539).encode('utf-8'),"",2000)
 				elif returned == 'ok':
 					'''User_Issue'''
 					returned = dialogkeyboard(User_Issue,addonString(79058).encode("utf-8"),0,'1','User_Issue', 'service.htpt.debug')
