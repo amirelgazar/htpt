@@ -25,7 +25,7 @@ if mode == None:
 			
 	if emubutton:
 		name = 'RELOAD-CFG'
-		mode6(admin, name)
+		mode6('1', admin, name)
 			
 	if not systemplatformwindows:
 		copyfiles(os.path.join(emulators_path, 'retroarch', 'config', 'retroarch.cfg'), os.path.join(addondata_path, 'addonID', 'emusettings.py')) #GAL TEST THIS!
@@ -212,12 +212,13 @@ elif mode == 6:
 	---RELOAD-CFG--------------------
 	------------------------------'''
 	name = 'RELOAD-CFG'
-	mode6(admin, name)
+	mode6('1', admin, name)
 	'''---------------------------'''
 elif mode == 7:
 	'''------------------------------
 	---AdvancedLauncher--------------
 	------------------------------'''
+	name = 'AdvancedLauncher'
 	createfolders(admin)
 	
 	if os.path.exists(launcher_file) and os.path.exists(launcher2_file):
@@ -244,6 +245,7 @@ elif mode == 7:
 			xbmc.executebuiltin('ActivateWindow(Home.xml)') ; xbmc.sleep(1000) ; xbmc.executebuiltin('RunAddon(plugin.program.advanced.launcher)')
 			'''---------------------------'''
 		else:
+			mode6('1', admin, name)
 			if not os.path.exists(os.path.join(rom_path,'Sega Master System')) and not os.path.exists(os.path.join(rom_path,'TurboGrafx 16')) and not os.path.exists(os.path.join(rom_path,'Sega Genesis')):
 				dialogok("You currently have no games!", "Choose the Advanced Options button (Left Menu), then Choose YES.", "Click once on the Downloading Games button, then Choose Confirm to dow", "")
 			elif scripthtptdebug_Info_Bluetooth == "":

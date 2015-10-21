@@ -141,6 +141,7 @@ property_reloadskin = xbmc.getInfoLabel('Window(home).Property(ReloadSkin)')
 reloadskin_check = xbmc.getInfoLabel('Control.GetLabel(700105)')
 
 property_submenutip = xbmc.getInfoLabel('Window(home).Property(SubMenuTip)')
+property_subtitlebuttonpos = xbmc.getInfoLabel('Window(home).Property(SubtitleButton.Pos)')
 '''Prevent error'''
 try: property_buttonid = property_buttonid.replace('"',"")
 except: pass

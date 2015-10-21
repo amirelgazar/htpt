@@ -996,10 +996,10 @@ def mode40(value, admin, name, printpoint):
 		------------------------------'''
 		setSkinSetting5("0",'User_ID',idstr,'ID1',id1str,'ID2',id2str,'ID3',id3str,'ID4',id4str)
 		setSkinSetting5("0",'ID5',id5str,'ID6',id6str,'ID7',id7str,'ID8',id8str,'ID9',id9str)
-		setSkinSetting5("0",'ID10',id10str,'ID11',id11str,'ID12',id12str,'ID60',id60str,'',"")
+		setSkinSetting5("0",'ID10',id10str,'ID11',id11str,'ID12',id12str,'',"",'',"")
 		setSkinSetting5("0",'MAC',macstr,'MAC1',mac1str,'MAC2',mac2str,'',"",'',"")
 		setSkinSetting5("0",'',"",'',"",'TrialDate',trialdate,'TrialDate2',trialdate2,'Country',countrystr)
-		setSkinSetting5("1",'Admin3',admin3,'',"",'ID40',id40str,'SkinReset',"true",'',"")
+		setSkinSetting5("1",'Admin3',admin3,'',"",'',"",'SkinReset',"true",'',"")
 		'''---------------------------'''
 		setSkinSetting5("1",'Account1_Active',Account1_Active,'Account2_Active',Account2_Active,'Account3_Active',Account3_Active,'Account4_Active',Account4_Active,'Account5_Active',Account5_Active)
 		setSkinSetting5("1",'',"",'',"",'',"",'',"",'Account10_Active',Account10_Active)
@@ -4476,6 +4476,8 @@ def mode218(value, admin, name, printpoint):
 		message = message + newline + '---------------------------'
 		message = message + newline + "ReloadSkin" + space2 + property_reloadskin
 		message = message + newline + '---------------------------'
+		message = message + newline + "SubMenuTip" + space2 + property_submenutip
+		message = message + newline + "SubtitleButton.Pos" + space2 + property_subtitlebuttonpos
 		
 
 		header = name
@@ -12376,7 +12378,7 @@ def setAutoSettings(custom, addonid2=""):
 			'''------------------------------
 			-service.subtitles.opensubtitles-
 			------------------------------'''
-			#if not id40str: addonsettings2(addon,'OSuser',idstr + "@gmail.com",'OSpass',idpstr,'',"",'',"",'',"")
+			#addonsettings2(addon,'OSuser',idstr + "@gmail.com",'OSpass',idpstr,'',"",'',"",'',"")
 			path = os.path.join(addondata_path, addon, 'temp', '')
 			removefiles(path)
 			'''---------------------------'''
@@ -12406,7 +12408,7 @@ def setAutoSettings(custom, addonid2=""):
 			'''------------------------------
 			---service.subtitles.subtitle----
 			------------------------------'''
-			#if not id40str and not systemplatformwindows: addonsettings2(addon,'SUBemail',idstr + "@gmail.com",'SUBpassword',idpstr,'',"",'',"",'',"")
+			#addonsettings2(addon,'SUBemail',idstr + "@gmail.com",'SUBpassword',idpstr,'',"",'',"",'',"")
 			path = os.path.join(addondata_path, addon, 'cookiejar.txt')
 			removefiles(path)
 			path = os.path.join(addondata_path, addon, 'temp', '')

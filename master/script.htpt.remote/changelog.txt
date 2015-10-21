@@ -1,5 +1,5 @@
 ------------------------
-HTPT Remote v0.1.12 (xx-Sep-15)
+HTPT Remote v0.1.12 (21-Oct-15)
 ------------------------
 - Minor bug fix.
 - Update Translation.

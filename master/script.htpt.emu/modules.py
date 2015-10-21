@@ -191,15 +191,17 @@ def mode5(admin, name):
 			w.doModal()
 			'''---------------------------'''
 
-def mode6(admin, name):
+def mode6(value, admin, name):
 	'''------------------------------
 	---Copy Config & Save Folders----
 	------------------------------'''
-	returned = dialogyesno(addonString(18).encode('utf-8'), addonString(19).encode('utf-8') + '[CR]' + addonString(15).encode('utf-8'))
+	if value == '0': returned = "ok"
+	else: returned = dialogyesno(addonString(18).encode('utf-8'), addonString(19).encode('utf-8') + '[CR]' + addonString(15).encode('utf-8'))
 	if returned == "ok" and not systemplatformwindows:
-		path = os.path.join(addondata_path, 'script.htpt.emu', 'launchers.xml')
-		removefiles(path)
-		ExtractAll(htptemu_copyrepeat_path + "retroarch.zip", emulators_path)
+		#path = os.path.join(addondata_path, 'script.htpt.emu', 'launchers.xml')
+		#removefiles(path)
+		path = os.path.join(htptemu_copyrepeat_path, 'emulators', '')
+		ExtractAll(path + "retroarch.zip", emulators_path)
 		terminal('chmod +x '+emulators_path+'','chmod' + space2 + emulators_path)
 		
 	else: notification_common("9")

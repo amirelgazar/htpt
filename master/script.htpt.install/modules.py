@@ -98,7 +98,7 @@ def setUserID(admin, addonID, User_ID, User_ID2, htpt_a1, htpt_a2):
 			setsetting_custom1(addonID,'User_ID',htpt_a1 + str(value))
 			setsetting_custom1(addonID,'Skin_Installed',htpt_a1 + 'true')
 			'''---------------------------'''
-		setSkinSetting('0','User_ID',htpt_a1 + value)
+		setSkinSetting('0','User_ID',htpt_a1 + str(value))
 		xbmc.sleep(100)
 	
 	
