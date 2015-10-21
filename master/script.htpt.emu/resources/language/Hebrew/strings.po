@@ -1,0 +1,318 @@
+msgid ""
+msgstr ""
+
+msgctxt "#1
+msgid ""
+msgstr "הגדרות משחקים"
+
+msgctxt "#2
+msgid ""
+msgstr ""
+
+msgctxt "#3
+msgid ""
+msgstr ""
+
+msgctxt "#4
+msgid ""
+msgstr "תאריך שינוי אחרון"
+
+msgctxt "#10
+msgid ""
+msgstr "אם אינך יודע מה אתה עושה, אל תיגע!"
+
+msgctxt "#11
+msgid ""
+msgstr "הורדת משחקים"
+
+msgctxt "#12
+msgid ""
+msgstr ""
+
+msgctxt "#13
+msgid ""
+msgstr ""
+
+msgctxt "#14
+msgid ""
+msgstr ""
+
+msgctxt "#15
+msgid ""
+msgstr "לידיעתך: פעולה זו נעשית באופן אוטומטי בכל הפעלה מחדש."
+
+msgctxt "#16
+msgid ""
+msgstr "הגדרות הרחבה"
+
+msgctxt "#17
+msgid ""
+msgstr "האם ברצונך לפתוח חלון הגדרות?"
+
+msgctxt "#18
+msgid ""
+msgstr "שחזור קבצי הגדרות"
+
+msgctxt "#19
+msgid ""
+msgstr "האם ברצונך לשחזר קבצי הגדרות?"
+
+###VIDEO###
+
+msgctxt "#20
+msgid ""
+msgstr "Inserts a black frame inbetween frames. Useful for 120 Hz monitors who want to play 60 Hz material with eliminated ghosting. video_refresh_rate should still be configured as if it is a 60 Hz monitor (divide refresh rate by 2)."
+
+msgctxt "#21
+msgid ""
+msgstr ""
+
+msgctxt "#22
+msgid ""
+msgstr ""
+
+msgctxt "#23
+msgid ""
+msgstr ""
+
+msgctxt "#24
+msgid ""
+msgstr ""
+
+msgctxt "#25
+msgid ""
+msgstr ""
+
+msgctxt "#26
+msgid ""
+msgstr ""
+
+msgctxt "#27
+msgid ""
+msgstr "Video refresh rate of your monitor. Used to calculate a suitable audio input rate."
+
+msgctxt "#28
+msgid ""
+msgstr "Smoothens picture with bilinear filtering. Should be disabled if using pixel shaders."
+
+msgctxt "#29
+msgid ""
+msgstr ""
+
+###AUDIO###
+
+msgctxt "#30
+msgid ""
+msgstr "Override the default audio device the audio_driver uses. This is driver dependant. E.g. ALSA wants a PCM device, OSS wants a path (e.g. /dev/dsp), Jack wants portnames (e.g. system:playback1,system:playback_2), and so on ..."
+
+msgctxt "#31
+msgid ""
+msgstr ""
+
+msgctxt "#32
+msgid ""
+msgstr "Desired audio latency in milliseconds. Might not be honored if driver can't provide given latency."
+
+msgctxt "#33
+msgid ""
+msgstr ""
+
+msgctxt "#34
+msgid ""
+msgstr "Audio output samplerate."
+
+msgctxt "#35
+msgid ""
+msgstr ""
+
+msgctxt "#36
+msgid ""
+msgstr ""
+
+msgctxt "#37
+msgid ""
+msgstr "Will sync (block) on audio. Recommended."
+
+msgctxt "#38
+msgid ""
+msgstr ""
+
+msgctxt "#39
+msgid ""
+msgstr "Audio volume. Volume is expressed in dB. 0 dB is normal volume. No gain will be applied. Gain can be controlled in runtime with input_volume_up/input_volume_down."
+
+msgctxt "#40
+msgid ""
+msgstr ""
+
+msgctxt "#41
+msgid ""
+msgstr ""
+
+msgctxt "#42
+msgid ""
+msgstr ""
+
+msgctxt "#43
+msgid ""
+msgstr ""
+
+msgctxt "#44
+msgid ""
+msgstr ""
+
+msgctxt "#45
+msgid ""
+msgstr ""
+
+msgctxt "#46
+msgid ""
+msgstr ""
+
+msgctxt "#47
+msgid ""
+msgstr ""
+
+msgctxt "#48
+msgid ""
+msgstr ""
+
+msgctxt "#49
+msgid ""
+msgstr ""
+
+msgctxt "#50
+msgid ""
+msgstr ""
+
+msgctxt "#51
+msgid ""
+msgstr ""
+
+msgctxt "#52
+msgid ""
+msgstr ""
+
+msgctxt "#53
+msgid ""
+msgstr ""
+
+msgctxt "#54
+msgid ""
+msgstr ""
+
+msgctxt "#55
+msgid ""
+msgstr ""
+
+msgctxt "#56
+msgid ""
+msgstr ""
+
+msgctxt "#57
+msgid ""
+msgstr ""
+
+msgctxt "#58
+msgid ""
+msgstr ""
+
+msgctxt "#59
+msgid ""
+msgstr ""
+
+msgctxt "#60
+msgid ""
+msgstr ""
+
+msgctxt "#61
+msgid ""
+msgstr ""
+
+msgctxt "#62
+msgid ""
+msgstr ""
+
+msgctxt "#63
+msgid ""
+msgstr ""
+
+msgctxt "#64
+msgid ""
+msgstr ""
+
+msgctxt "#65
+msgid ""
+msgstr ""
+
+msgctxt "#66
+msgid ""
+msgstr ""
+
+msgctxt "#67
+msgid ""
+msgstr ""
+
+msgctxt "#68
+msgid ""
+msgstr ""
+
+msgctxt "#69
+msgid ""
+msgstr ""
+
+msgctxt "#70
+msgid ""
+msgstr ""
+
+msgctxt "#71
+msgid ""
+msgstr ""
+
+msgctxt "#72
+msgid ""
+msgstr ""
+
+msgctxt "#73
+msgid ""
+msgstr ""
+
+msgctxt "#74
+msgid ""
+msgstr ""
+
+msgctxt "#75
+msgid ""
+msgstr ""
+
+msgctxt "#76
+msgid ""
+msgstr ""
+
+msgctxt "#77
+msgid ""
+msgstr "נסה כל אחד מההתקנים הבאים תחת הגדרות: audio_device"
+
+msgctxt "#78
+msgid ""
+msgstr "בחר "כן" אם אינך שומע סאונד במשחק"
+
+msgctxt "#79
+msgid ""
+msgstr "הצגת התקני סאונד פעילים"
+
+msgctxt "#100
+msgid ""
+msgstr "כללי"
+
+msgctxt "#101
+msgid ""
+msgstr "DEBUG"
+
+msgctxt "#102
+msgid ""
+msgstr "VIDEO"
+
+msgctxt "#103
+msgid ""
+msgstr "AUDIO"

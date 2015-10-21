@@ -20,7 +20,7 @@ value=None
 try: mode=int(params["mode"])
 except: pass
 try: value=str(params["value"])
-except: pass
+except: value = ""
 
 '''---------------------------'''
 
@@ -325,9 +325,9 @@ class main:
 	
 	elif mode == 37:
 		'''------------------------------
-		---TERMS-------------------------
+		----------------------------
 		------------------------------'''
-		name = "TERMS"
+		name = ""
 		mode37(admin, name, printpoint)
 		'''---------------------------'''
 	
@@ -352,7 +352,7 @@ class main:
 		---Skin.ResetSettings------------
 		------------------------------'''
 		name = 'Skin.ResetSettings'
-		mode40(admin, name, printpoint)
+		mode40(value, admin, name, printpoint)
 		'''---------------------------'''
 	
 	elif mode == 41:
@@ -361,14 +361,6 @@ class main:
 		------------------------------'''
 		if systemplatformwindows: terminal('rundll32.exe van.dll,RunVAN','Network')
 		else: oewindow('Network')
-		'''---------------------------'''
-		
-	elif mode == 42:
-		'''------------------------------
-		---FORMAT------------------------
-		------------------------------'''
-		name = 'FORMAT'
-		mode42(admin, name, mac5str)
 		'''---------------------------'''
 	
 	elif mode == 43:
@@ -1635,6 +1627,7 @@ class main:
 		'''------------------------------
 		---CustomHomeCustomizer-200-249--
 		------------------------------'''
+		#from variables2 import *
 		if mode == 200:
 			'''------------------------------
 			---DIALOG-SELECT-(10-100)--------
@@ -1656,7 +1649,7 @@ class main:
 			---CHOOSE-COLORS-2---------------
 			------------------------------'''
 			name = "CHOOSE-COLORS-2"
-			mode202(admin, name, printpoint)
+			mode202(value, admin, name, printpoint)
 			'''---------------------------'''
 		
 		elif mode == 203:
@@ -1717,82 +1710,82 @@ class main:
 		
 		elif mode == 210:
 			'''------------------------------
-			---?-----------------------------
+			---MOVE-ITEM---------------------
 			------------------------------'''
-			name = "?"
-			mode240(admin, name, printpoint)
+			name = "MOVE-ITEM"
+			mode210(value, admin, name, printpoint)
 			'''---------------------------'''
 			
 		elif mode == 211:
 			'''------------------------------
-			---?-----------------------------
+			---Create-New-Item---------------
 			------------------------------'''
-			name = "?"
-			mode211(admin, name, printpoint)
+			name = "Create-New-Item"
+			mode211(value, admin, name, printpoint)
 			'''---------------------------'''
 		
 		elif mode == 212:
 			'''------------------------------
-			---?-----------------------------
+			---REMOVE-ITEM-------------------
 			------------------------------'''
-			name = "?"
-			mode212(admin, name, printpoint)
+			name = "REMOVE-ITEM"
+			mode212(value, admin, name, printpoint)
 			'''---------------------------'''
 		
 		elif mode == 213:
 			'''------------------------------
-			---?-----------------------------
+			---Includes_HomeContent----------
 			------------------------------'''
-			name = "?"
-			mode213(admin, name, printpoint)
+			name = "Includes_HomeContent"
+			mode213(value, admin, name, printpoint)
 			'''---------------------------'''
 		
 		elif mode == 214:
 			'''------------------------------
-			---?-----------------------------
+			---Create-New-Sub-Item-----------
 			------------------------------'''
-			name = "?"
-			mode214(admin, name, printpoint)
+			name = "Create-New-Sub-Item"
+			mode214(value, admin, name, printpoint)
 			'''---------------------------'''
 		
 		elif mode == 215:
 			'''------------------------------
-			---?-----------------------------
+			---SET-DEFAULT-BUTTONS-----------
 			------------------------------'''
-			name = "?"
-			mode215(admin, name, printpoint)
+			name = "SET-DEFAULT-BUTTONS"
+			if property_reloadskin == "": mode215(value, admin, name, printpoint)
 			'''---------------------------'''
 		
 		elif mode == 216:
 			'''------------------------------
-			---?-----------------------------
+			---REMOVE-SUB-ITEM---------------
 			------------------------------'''
-			name = "?"
-			mode216(admin, name, printpoint)
+			name = "REMOVE-SUB-ITEM"
+			mode216(value, admin, name, printpoint)
 			'''---------------------------'''
 		
 		elif mode == 217:
 			'''------------------------------
-			---?-----------------------------
+			---setDefaultLabels--------------
 			------------------------------'''
-			name = "?"
+			name = "setDefaultLabels"
 			mode217(admin, name, printpoint)
 			'''---------------------------'''
 		
 		elif mode == 218:
 			'''------------------------------
-			---?-----------------------------
+			---editButtonProprties-----------
 			------------------------------'''
-			name = "?"
-			mode218(admin, name, printpoint)
+			name = "editButtonProprties"
+			mode218(value, admin, name, printpoint)
 			'''---------------------------'''
 		
 		elif mode == 219:
 			'''------------------------------
-			---?-----------------------------
+			---SET-POSITION------------------
 			------------------------------'''
-			name = "?"
-			mode219(admin, name, printpoint)
+			name = "SET-POSITION"
+			mode219(value, admin, name, printpoint)
 			'''---------------------------'''
 		
 		elif mode == 220:
@@ -1877,26 +1870,26 @@ class main:
 		
 		elif mode == 230:
 			'''------------------------------
-			---?-----------------------------
+			---COLOR-PICKER------------------
 			------------------------------'''
-			name = "?"
-			mode230(admin, name, printpoint)
+			name = "COLOR-PICKER"
+			mode230(value, admin, name, printpoint)
 			'''---------------------------'''
 			
 		elif mode == 231:
 			'''------------------------------
-			---?-----------------------------
+			---INSTALL-ADDON-----------------
 			------------------------------'''
-			name = "?"
-			mode231(admin, name, printpoint)
+			name = "INSTALL-ADDON"
+			mode231(value, admin, name, printpoint)
 			'''---------------------------'''
 		
 		elif mode == 232:
 			'''------------------------------
-			---?-----------------------------
+			---ACTION-BUTTON-----------------
 			------------------------------'''
-			name = "?"
-			mode232(admin, name, printpoint)
+			name = "ACTION-BUTTON"
+			mode232(value, admin, name, printpoint)
 			'''---------------------------'''
 		
 		elif mode == 233:
@@ -4060,6 +4053,7 @@ class main:
 		'''------------------------------
 		---HOME-BUTTONS-(1)-500-549------
 		------------------------------'''
+		if custom1138W: xbmc.executebuiltin('Dialog.Close(1138)')
 		if mode == 500:
 			'''------------------------------
 			---?----------------
@@ -4073,7 +4067,7 @@ class main:
 			---MOVIES-BUTTON-----------------
 			------------------------------'''
 			name = "MOVIES-BUTTON"
-			mode501(admin, name, printpoint)
+			mode501(value, admin, name, printpoint)
 			'''---------------------------'''
 		
 		elif mode == 502:
@@ -4081,7 +4075,7 @@ class main:
 			---TVSHOWS-BUTTON----------------
 			------------------------------'''
 			name = "TVSHOWS-BUTTON"
-			mode502(admin, name, printpoint)
+			mode502(value, admin, name, printpoint)
 			'''---------------------------'''
 		
 		elif mode == 503:
@@ -4090,7 +4084,7 @@ class main:
 			------------------------------'''
 			name = "ISRAEL-TV-BUTTON"
 			if not connected: printpoint = printpoint + "D/C"
-			else: mode503(admin, name, printpoint)
+			else: mode503(value, admin, name, printpoint)
 			'''---------------------------'''
 		
 		elif mode == 504:
@@ -4099,7 +4093,7 @@ class main:
 			------------------------------'''
 			name = "YOUTUBE-BUTTON"
 			if not connected: printpoint = printpoint + "D/C"
-			else: mode504(admin, name, printpoint)
+			else: mode504(value, admin, name, printpoint)
 			'''---------------------------'''
 		
 		elif mode == 505:
@@ -4108,7 +4102,7 @@ class main:
 			------------------------------'''
 			name = "GOPRO-BUTTON"
 			if not connected: printpoint = printpoint + "D/C"
-			else: mode505(admin, name, printpoint)
+			else: mode505(value, admin, name, printpoint)
 			'''---------------------------'''
 		
 		elif mode == 506:
@@ -4134,7 +4128,7 @@ class main:
 			---WEATHER-BUTTON----------------
 			------------------------------'''
 			name = "WEATHER-BUTTON"
-			mode508(admin, name, printpoint)
+			mode508(value, admin, name, printpoint)
 			'''---------------------------'''
 		
 		elif mode == 509:
@@ -4142,15 +4136,15 @@ class main:
 			---PICTURES-BUTTON---------------
 			------------------------------'''
 			name = "PICTURES-BUTTON"
-			mode509(admin, name, printpoint)
+			mode509(value, admin, name, printpoint)
 			'''---------------------------'''
 		
 		elif mode == 510:
 			'''------------------------------
 			---GAMES-BUTTON------------------
 			------------------------------'''
-			name = "?"
-			mode510(admin, name, printpoint)
+			name = "GAMES-BUTTON"
+			mode510(value, admin, name, printpoint)
 			'''---------------------------'''
 			
 		elif mode == 511:
@@ -4168,7 +4162,7 @@ class main:
 			------------------------------'''
 			name = "INTERNET-BUTTON"
 			#if not connected: printpoint = printpoint + "D/C"
-			mode512(admin, name, printpoint)
+			mode512(value, admin, name, printpoint)
 			'''---------------------------'''
 		
 		elif mode == 513:
@@ -4176,7 +4170,7 @@ class main:
 			---VIDEOS-BUTTON-----------------
 			------------------------------'''
 			name = "VIDEOS-BUTTON"
-			mode513(admin, name, printpoint)
+			mode513(value, admin, name, printpoint)
 			'''---------------------------'''
 		
 		elif mode == 514:
@@ -4200,7 +4194,7 @@ class main:
 			---FAVOURITES-BUTTON-------------
 			------------------------------'''
 			name = "FAVOURITES-BUTTON"
-			mode516(admin, name, printpoint)
+			mode516(value, admin, name, printpoint)
 			'''---------------------------'''
 		
 		elif mode == 517:
@@ -4209,7 +4203,7 @@ class main:
 			------------------------------'''
 			name = "LIVE-TV-BUTTON"
 			if not connected: printpoint = printpoint + "D/C"
-			else: mode517(admin, name, printpoint)
+			else: mode517(value, admin, name, printpoint)
 			'''---------------------------'''
 		
 		elif mode == 518:
@@ -4217,15 +4211,15 @@ class main:
 			---?-----------------------------
 			------------------------------'''
 			name = "?"
-			mode518(admin, name, printpoint)
+			mode518(value, admin, name, printpoint)
 			'''---------------------------'''
 		
 		elif mode == 519:
 			'''------------------------------
-			---?-----------------------------
+			---DOCU-BUTTON-------------------
 			------------------------------'''
-			name = "?"
-			mode519(admin, name, printpoint)
+			name = "DOCU-BUTTON"
+			mode519(value, admin, name, printpoint)
 			'''---------------------------'''
 		
 		elif mode == 520:
@@ -4233,7 +4227,7 @@ class main:
 			---ADULT-MOVIE-BUTTON------------
 			------------------------------'''
 			name = "ADULT-MOVIE-BUTTON"
-			mode520(admin, name, printpoint)
+			mode520(value, admin, name, printpoint)
 			'''---------------------------'''
 			
 		elif mode == 521:

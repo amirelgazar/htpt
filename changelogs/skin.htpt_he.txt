@@ -9,6 +9,8 @@ WIP - WORK IN PROGRESS
 - עדכון כפתור חשבונות משתמש.
 - Android support (WIP!).
 - ך במקלדת (Setiven).
+- תיקון באג חלון תפריט צד שמאל (Ranan, Moti).
+- תיקון באג בכפתור הסתר רקע עליון (Ranan).
 
 ------------------------
 HTPT SYSTEM v0.1.39 (20-Oct-15)

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<settings>
+	<category label="General">
+		<setting type="lsep" label="" visible="false" />
+		<setting id="General_ScriptON" type="bool" default="false" label="General_ScriptON" visible="false" />
+		<setting id="General_ServiceON" type="bool" default="true" label="General_ServiceON" visible="false" />
+		<setting id="General_Debug" type="bool" default="false" label="General_Debug" visible="true" />
+		<setting id="Remote_LastDate" type="text" default="" label="Remote_LastDate" visible="false"/>
+		<setting id="Remote_Name" type="text" default="" label="Remote_Name" visible="false"/>
+		<setting id="Remote_Name2" type="text" default="" label="Remote_Name2" visible="false"/>
+		<setting id="Remote_Support" type="bool" default="" label="Remote_Support" visible="false"/>
+		<setting id="Remote_TestingTime" type="slider" range="5,30" default="10" label="Remote_TestingTime" option="int" visible="true"/>
+		<setting type="lsep" label=""/>
+	</category>
+</settings>

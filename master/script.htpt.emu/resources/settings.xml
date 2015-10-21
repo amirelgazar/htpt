@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<settings>
+	<category label="102" description="VIDEO">
+		<setting type="lsep" label="20"/>
+		<setting id="video_black_frame_insertion2" type="bool" default="" label="video_black_frame_insertion" visible="true"/>
+		<setting type="lsep" label="27"/>
+		<setting id="video_refresh_rate2" type="text" default="" label="video_refresh_rate" visible="true"/>
+		<setting type="lsep" label="28"/>
+		<setting id="video_smooth2" type="text" default="" label="video_smooth" visible="true"/>
+		<setting type="lsep" label=""/>
+		<setting type="lsep" label="10"/>
+	</category>
+	
+	<category label="103" description="AUDIO">
+		<setting type="lsep" label="30"/>
+		<setting id="audio_device2" type="text" default="" label="audio_device" visible="true"/>
+		<setting type="lsep" label="32"/>
+		<setting id="audio_latency2" type="text" default="" label="audio_latency" visible="true"/>
+		<setting type="lsep" label="34"/>
+		<setting id="audio_out_rate2" type="text" default="" label="audio_out_rate " visible="true"/>
+		<setting type="lsep" label="37"/>
+		<setting id="audio_sync2" type="bool" default="" label="audio_sync" visible="true"/>
+		<setting type="lsep" label="39"/>
+		<setting id="audio_volume2" type="text" default="" label="audio_volume" visible="true"/>
+		
+		<setting type="lsep" label=""/>
+	</category>
+	
+	<category label="100">
+		<setting type="lsep" label=""/>
+		<setting id="General_LastModified" type="text" default="" label="4" visible="false"/>
+		<setting id="action" type="action" action="RunScript(script.htpt.emu,,?mode=3)" label="11" description="הורדת משחקים"/>
+		<setting id="action" type="action" action="RunScript(script.htpt.emu,,?mode=5)" label="79" option="close" description="הצגת התקני סאונד פעילים"/>
+		<setting type="lsep" label=""/>
+	</category>
+</settings>

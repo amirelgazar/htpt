@@ -23,6 +23,7 @@ class Startup:
 		
 	if xbmc.getSkinDir() == "skin.htpt":
 		'''---------------------------'''
+		mode215('_',admin,'','')
 		if totalmouse and systemplatformwindows: xbmc.executebuiltin('RunScript(script.htpt.smartbuttons,,?mode=101)')
 		setSkinSetting("0", 'smartkeyboardHN', "1")
 		setSkinSetting("0", 'smartkeyboardCN', "1")

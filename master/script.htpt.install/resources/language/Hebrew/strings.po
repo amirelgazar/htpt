@@ -1,0 +1,398 @@
+msgid ""
+msgstr ""
+
+msgctxt "#1
+msgid ""
+msgstr ""
+
+msgctxt "#2
+msgid ""
+msgstr ""
+
+msgctxt "#3
+msgid ""
+msgstr ""
+
+msgctxt "#4
+msgid ""
+msgstr ""
+
+msgctxt "#9
+msgid ""
+msgstr ""
+
+msgctxt "#10
+msgid "Install System"
+msgstr "התקנת מערכת"
+
+msgctxt "#11
+msgid "Uninstall System"
+msgstr "הסרת מערכת"
+
+msgctxt "#12
+msgid "Suspend System"
+msgstr "השהיית מערכת"
+
+msgctxt "#13
+msgid "Enter HTPT"
+msgstr "כניסה ל-HTPT"
+
+msgctxt "#14
+msgid "Help"
+msgstr "עזרה"
+
+msgctxt "#15
+msgid ""
+msgstr ""
+
+msgctxt "#16
+msgid ""
+msgstr ""
+
+msgctxt "#17
+msgid ""
+msgstr ""
+
+msgctxt "#18
+msgid ""
+msgstr ""
+
+msgctxt "#20
+msgid ""
+msgstr ""
+
+msgctxt "#21
+msgid ""
+msgstr ""
+
+msgctxt "#22
+msgid ""
+msgstr ""
+
+msgctxt "#27
+msgid ""
+msgstr ""
+
+msgctxt "#28
+msgid ""
+msgstr ""
+
+msgctxt "#29
+msgid ""
+msgstr ""
+
+msgctxt "#30
+msgid ""
+msgstr ""
+
+msgctxt "#31
+msgid ""
+msgstr ""
+
+msgctxt "#32
+msgid ""
+msgstr ""
+
+msgctxt "#33
+msgid ""
+msgstr ""
+
+msgctxt "#34
+msgid ""
+msgstr ""
+
+msgctxt "#35
+msgid ""
+msgstr ""
+
+msgctxt "#36
+msgid ""
+msgstr ""
+
+msgctxt "#37
+msgid ""
+msgstr ""
+
+msgctxt "#38
+msgid ""
+msgstr ""
+
+msgctxt "#40
+msgid ""
+msgstr ""
+
+msgctxt "#41
+msgid ""
+msgstr ""
+
+msgctxt "#42
+msgid ""
+msgstr ""
+
+msgctxt "#43
+msgid ""
+msgstr ""
+
+msgctxt "#44
+msgid ""
+msgstr ""
+
+msgctxt "#45
+msgid ""
+msgstr ""
+
+msgctxt "#46
+msgid ""
+msgstr ""
+
+msgctxt "#47
+msgid ""
+msgstr ""
+
+msgctxt "#48
+msgid ""
+msgstr ""
+
+msgctxt "#49
+msgid ""
+msgstr ""
+
+msgctxt "#50
+msgid ""
+msgstr ""
+
+msgctxt "#51
+msgid ""
+msgstr ""
+
+msgctxt "#52
+msgid ""
+msgstr ""
+
+msgctxt "#53
+msgid ""
+msgstr ""
+
+msgctxt "#54
+msgid ""
+msgstr ""
+
+msgctxt "#55
+msgid ""
+msgstr ""
+
+msgctxt "#56
+msgid ""
+msgstr ""
+
+msgctxt "#57
+msgid ""
+msgstr ""
+
+msgctxt "#58
+msgid ""
+msgstr ""
+
+msgctxt "#59
+msgid ""
+msgstr ""
+
+msgctxt "#60
+msgid ""
+msgstr ""
+
+msgctxt "#61
+msgid ""
+msgstr ""
+
+msgctxt "#62
+msgid ""
+msgstr ""
+
+msgctxt "#63
+msgid ""
+msgstr ""
+
+msgctxt "#64
+msgid ""
+msgstr ""
+
+msgctxt "#65
+msgid ""
+msgstr ""
+
+msgctxt "#66
+msgid ""
+msgstr ""
+
+msgctxt "#67
+msgid ""
+msgstr ""
+
+msgctxt "#68
+msgid ""
+msgstr ""
+
+msgctxt "#69
+msgid ""
+msgstr ""
+
+msgctxt "#70
+msgid ""
+msgstr ""
+
+msgctxt "#71
+msgid ""
+msgstr ""
+
+msgctxt "#72
+msgid ""
+msgstr ""
+
+msgctxt "#73
+msgid ""
+msgstr ""
+
+msgctxt "#74
+msgid ""
+msgstr ""
+
+msgctxt "#75
+msgid ""
+msgstr ""
+
+msgctxt "#76
+msgid ""
+msgstr ""
+
+msgctxt "#77
+msgid ""
+msgstr ""
+
+msgctxt "#78
+msgid ""
+msgstr ""
+
+msgctxt "#79
+msgid ""
+msgstr ""
+
+msgctxt "#80
+msgid "For support contact us with the Help button."
+msgstr "לתמיכה צור עמנו קשר בעזרת הכפתור עזרה."
+
+msgctxt "#81
+msgid "Action Canceled"
+msgstr "הפעולה בוטלה"
+
+msgctxt "#82
+msgid "[COLOR=Yellow]In order to finish the installation process:[/COLOR][CR]- Stand on your home page for few seconds.[CR]-Make sure you see a message about fixing.[CR]-Restart Kodi using the poweroff-soft reboot button."
+msgstr "[COLOR=Yellow]בכדי לסיים את תהליך ההתקנה הראשוני:[/COLOR][CR]-עמוד מספר שניות בעמוד הבית.[CR]-וודא שמתקבלת הודעת תיקון.[CR]-הפעל את ה-Kodi מחדש בעזרת הכפתור כיבוי-אתחול מהיר."
+
+msgctxt "#83
+msgid "Uninstall Complete!"
+msgstr "הסרת המערכת בוצעה!"
+
+msgctxt "#84
+msgid "Try again now!"
+msgstr "נסה שנית כעת!"
+
+msgctxt "#85
+msgid "Some addons has been fixed!"
+msgstr "מספר הרחבות הותקנו בהצלחה!"
+
+msgctxt "#86
+msgid "Would you like to restore your previous system settings file?[CR]Choose "yes" if you like to have your perior installation guisettings.xml file."
+msgstr "בחר "כן" אם ברצונך לשחזר קובץ הגדרות מערכת.[CR]אם תבחר "כן" הקובץ ישוחזר כפי שהיה לפני שהתקנת את ה-HTPT."
+
+msgctxt "#87
+msgid "Restoring file %s"
+msgstr "שחזור קובץ %s"
+
+msgctxt "#88
+msgid ""
+msgstr ""
+
+msgctxt "#89
+msgid "Installation almost done!"
+msgstr "ההתקנה כמעט הושלמה!"
+
+msgctxt "#90
+msgid "Choose your user name."
+msgstr "הזן את שם המשתמש שלך."
+
+msgctxt "#91
+msgid "Installation Done!"
+msgstr "ההתקנה הסתיימה בהצלחה!"
+
+msgctxt "#92
+msgid "Current Version: %s"
+msgstr "גרסה נוכחית: %s"
+
+msgctxt "#93
+msgid "Backup Current System"
+msgstr "גיבוי הגדרות נוכחיות"
+
+msgctxt "#94
+msgid "Next step: auto backup your current system.[CR]Restoring will occur upon uninstall."
+msgstr "במעבר לחלון הבא יתבצע גיבוי מערכת אוטומטי.[CR]שחזור נתונים יתבצע במידה ותסיר את ה-HTPT."
+
+msgctxt "#95
+msgid "Backup path error.."
+msgstr "נתיב גיבוי שגוי.."
+
+msgctxt "#96
+msgid "HTPT System currently support"
+msgstr "המערכת תומכת במערכות הפעלה"
+
+msgctxt "#97
+msgid "No support for your current OS!"
+msgstr "אין תמיכה במערכת הפעלה זו!"
+
+msgctxt "#98
+msgid ""
+msgstr "אם תמשיך בפעולה זו המערכת תסיר את ה-HTPT וכל ההרחבות הנלוות."
+
+msgctxt "#99
+msgid "Phone Number"
+msgstr "מספר טלפון"
+
+msgctxt "#100
+msgid "For installation, click here."
+msgstr "להתקנה לחץ כאן."
+
+msgctxt "#101
+msgid "For installation, click here."
+msgstr "להסרה לחץ כאן."
+
+msgctxt "#102
+msgid "For suspending HTPT and changing skin, click here."
+msgstr "להשהיית המערכת ומעבר למעטפת אחרת לחץ כאן."
+
+msgctxt "#103
+msgid "Choose this option to enter HTPT."
+msgstr "לחץ כאן בכדי להיכנס ל-HTPT."
+
+msgctxt "#104
+msgid "Choose this option if you need help with an issue."
+msgstr "בחר באפשרות זאת בכדי לקבל עזרה בהתקנה."
+
+msgctxt "#105
+msgid ""
+msgstr ""
+
+msgctxt "#106
+msgid ""
+msgstr ""
+
+msgctxt "#107
+msgid ""
+msgstr ""
+
+msgctxt "#108
+msgid ""
+msgstr ""
+
+msgctxt "#109
+msgid ""
+msgstr ""

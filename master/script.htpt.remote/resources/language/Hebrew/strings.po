@@ -1,0 +1,62 @@
+msgid ""
+msgstr ""
+
+msgctxt "#1
+msgid "Press to test the remote configuration"
+msgstr "לחץ לבדיקת הגדרת השלט"
+
+msgctxt "#2
+msgid "The new remote"
+msgstr "השלט החדש"
+
+msgctxt "#3
+msgid "Testing time in seconds"
+msgstr "זמן לבדיקה בשניות"
+
+msgctxt "#4
+msgid "You didn't set your TV remote yet"
+msgstr "המערכת זיהתה שטרם הגדרת שלט טלוויזיה"
+
+msgctxt "#5
+msgid "configure TV remote"
+msgstr "הגדרת שלט טלוויזיה"
+
+msgctxt "#6
+msgid "TV Remote type"
+msgstr "סוג שלט טלוויזיה"
+
+msgctxt "#7
+msgid "Note: You may change this setting at anytime."
+msgstr "לידיעתך ניתן לשנות את ההגדרה בכל עת."
+
+msgctxt "#8
+msgid "The new remote"
+msgstr "השלט החדש"
+
+msgctxt "#9
+msgid "Would you like to save this setting?"
+msgstr "האם לשמור הגדרה זו?"
+
+msgctxt "#10
+msgid "TV remote not selected."
+msgstr "לא נבחר שלט טלוויזיה."
+
+msgctxt "#11
+msgid "The system has found out that your hardware support this service"
+msgstr "המערכת זיהתה שהחומרה שלך תומכת בשירות זה"
+
+msgctxt "#12
+msgid "The system has found out that your hardware doesn't support this service"
+msgstr "המערכת זיהתה שהחומרה שלך אינה תומכת בשירות זה."
+
+msgctxt "#13
+msgid "Support tv remote (IR)"
+msgstr "תמיכה בשלט טלוויזיה (IR)"
+
+msgctxt "#14
+msgid "You have changed the TV remote settings today"
+msgstr "המערכת זיהתה שהתבצע היום שינוי בהגדרת שלט הטלוויזיה שלך"
+
+msgctxt "#15
+msgid "Note: You may change this setting at anytime in the settings button"
+msgstr "לידיעתך ניתן לשנות את ההגדרה בכל עת בכפתור הגדרות"

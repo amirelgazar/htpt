@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<settings>
+	<category label="HTPT" description="פרטי משתמש">
+		<setting type="lsep" label=""/>
+		<setting id="User_ID" type="text" default="new" label="User_ID" visible="false"/>
+		<setting id="General_ScriptON" type="bool" default="false" label="General_ScriptON" visible="false"/>
+		<setting type="lsep" label=""/>
+		<setting id="Skin_Default" type="text" default="HTPT" label="Skin_Default" visible="false"/>
+		<setting id="Skin_Installed" type="bool" default="false" label="Skin_Installed" visible="false"/>
+		<setting id="Skin_DateInstalled" type="text" default="" label="Skin_DateInstalled" visible="false"/>
+		<setting id="Skin_FirstBoot" type="bool" default="false" label="Skin_FirstBoot" visible="false"/>
+	</category>
+	
+</settings>

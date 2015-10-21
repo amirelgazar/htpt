@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 #import xbmc, os, subprocess, sys
 #import xbmc, xbmcgui, xbmcaddon
 import xbmc, xbmcgui, xbmcaddon
@@ -10,6 +11,12 @@ def mode0(admin, name, printpoint):
 	'''------------------------------
 	---TEST--------------------------
 	------------------------------'''
+	mode215('_',"","","")
+	
+	
+	
+	#notification(xbmc.getInfoLabel('$VAR[label77_91]'),"1","",1000)
+	
 	#print "localize(20122)" + space2 + localize(20122)
 	#xbmc.executebuiltin('Skin.Theme(SKINDEFAULT)')
 	#x1 = 'Skin.Theme'
@@ -33,14 +40,8 @@ def mode0(admin, name, printpoint):
 	#admin = xbmc.getInfoLabel('Skin.HasSetting(Admin)')
 	#value = []
 	#value.append("copylibrarydir" + space2 + copylibrarydir + newline)
-	#value.append("library_path" + space2 + library_path + newline)
 	
-	#print printfirst + "mode0-test: "  + str(value)
-	'''---------------------------'''
-	#htptservice_path = os.path.join(addons_path,'service.htpt','')
-	#path = os.path.join(htptservice_path, 'specials', 'tools', 'EAT-start')
-	#terminal('TASKKILL /im EAT_gil900.exe /f',"EAT-end")
-	
+	#print filtered
 	
 	#import zlib
 	#p2pstreams_path = os.path.join(addondata_path, 'plugin.video.p2p-streams', '')
@@ -57,7 +58,31 @@ def mode0(admin, name, printpoint):
 	#mode64(admin, "1")
 	
 	#systemmemorytotal2 = systemmemorytotal.replace("MB","")
+	#label70_90 = xbmc.getInfoLabel('$VAR[label70_90]')
+	#ReloadSkin(admin) ; xbmc.sleep(4000)
+	if 1 + 1 == 3:
+		from variables2 import label77_91, action77_90
+		print 'label77_91' + space2 + xbmc.getInfoLabel('$VAR[label77_91]')
+		print 'label77_91_' + space2 + label77_91
+		
+		print 'action77_90' + space2 + xbmc.getInfoLabel('$VAR[action77_90]')
+		print 'action77_90_' + space2 + action77_90
 	
+	#print 'icon77_90' + space2 + str(xbmc.getInfoLabel('$VAR[icon77_90]'))
+	#print 'icon77_90_' + space2 + icon77_90
+	
+	if 1 + 1 == 3:
+		from variables2 import *
+		xbmc.sleep(1000)
+		
+		#label84_91 = xbmc.getInfoLabel('$VAR[label84_91]')
+		print 'label84_91 ' + label84_91
+		print 'label70_90 ' + label70_90
+		print 'label70 ' + label70
+		
+		print 'label_T: ' + str(label_T)
+		for x in label_T:
+			if x != "" and not 'label' in x: print str(x)
 	#print systemmemorytotal2
 	#Skin_Name2 = terminal('find "<skin>" '+userdata_path+'guisetings.xml',"GUI1") #UNTESTED
 	#output = terminal('find "<skin>" '+userdata_path+'guisettings.xml',"GUI1") #UNTESTED
@@ -70,7 +95,7 @@ def mode0(admin, name, printpoint):
 	#echo executing copy.sh from skin && sleep 1 && echo killall && killall -9 kodi.bin && sed -i "s/$SKIN$ALL/$SKIN$SKIN_/g" $GUI && sed -i "s/$SKIN2$ALL/$SKIN$SKIN_/g" $GUI
 	#xbmc.executebuiltin('RunScript(script.htpt.smartbuttons,,?mode=50)') ; xbmc.sleep(1000)
 	#autoexec_path = os.path.join(userdata_path, 'Autoexec.py')
-	
+
 	#xbmc.executebuiltin('RunScript('+autoexec_path+')')
 	#removefiles(guisettings_file)
 	#copyfiles(guisettings2_file, guisettings_file, chmod="", mount=False)
@@ -97,6 +122,9 @@ def mode0(admin, name, printpoint):
 		backuppath = home_path
 		backupsize = getFileAttribute(2, backuppath + backupname + ".zip")
 		notification("backupsize", str(backupsize), "", 4000)
+		
+		
+	#setAutoSettings("1")
 	#CreateZip(config_path, backuppath + backupname, filteron=['samba.conf', 'autostart.sh'], level=0, append=False, ZipFullPath=True, temp=True)
 	#CreateZip(userdata_path.encode('utf-8'), backuppath + backupname, filteron=['advancedsettings.xml', 'sources.xml', 'keymaps'], filteroff=[], level=0, append=True, ZipFullPath=True, temp=False)
 	#printpoint = installaddon2(admin, 'metadata.common.imdb.com', update=False)
@@ -147,15 +175,6 @@ def mode0(admin, name, printpoint):
 		#xbmc.executebuiltin('ActivateWindow(10025,special://home/addons)')
 		#xbmc.executebuiltin('PlayMedia(plugin://plugin.video.youtube/play/?video_id=gnZuo0he5kk)')
 	pass
-	#notification(xbmc.getInfoLabel('System.ProfileName'),"","",5000)
-	#xbmc.executebuiltin('Action(PageUp)')
-	#xbmc.sleep(500)
-	#xbmc.executebuiltin('Control.SetFocus(2)')
-	#xbmc.executebuiltin('ActivateWindow(10025,special://userdata/library/,return)')
-	#terminal('xcopy '+htptservicecopy_path+'manual\\advancedsettings.xml '+userdata_path+' /s /i /y >NUL','advancedsettings.xml')
-	#print xbmc.getInfoLabel('System.TotalSpace')
-	
-	#xbmc.executebuiltin('RunScript(service.htpt.fix,,?mode=40)')
 	#ExtractAll("D:\\rom\\Arcade\\_GEAR.rar","C:\\")
 	#ExtractAll("C:\\_1P.tar","C:\\")
 	#ExtractAll("C:\\_1P.7z","C:\\_1P")
@@ -889,32 +908,14 @@ def mode36(admin, name, printpoint):
 	'''---------------------------'''
 
 def mode37(admin, name, printpoint):
-	'''------------------------------
-	---TERMS-------------------------
-	------------------------------'''
-	list0 = xbmc.getInfoLabel('$LOCALIZE[70014]')
-	list1 = xbmc.getInfoLabel('$LOCALIZE[70015]')
-	list2 = xbmc.getInfoLabel('$LOCALIZE[70016]')
-	returned, value = dialogselect('$LOCALIZE[70012]',[list0, list1, list2],0)
-	returned = int(returned)
-	returnedS = str(returned)
-	returned2 = "list" + returnedS
-	if returned == -1: pass
-	else: setSkinSetting("0",'ID6',value)
-	'''---------------------------'''
+	pass
 
 def mode38(admin, name, printpoint):
 	'''------------------------------
 	---TOGGLE-ADULT-BUTTON-----------
 	------------------------------'''
-	xbmc.executebuiltin('Skin.ToggleSetting(Adult)')
-	if not systemplatformwindows:
-		xbmc.sleep(1000)
-		os.system('sh /storage/.kodi/addons/script.htpt.emu/specials/scripts/copyemu.sh')
-	if not adult:
-		'''------------------------------
-		---ADULT-BUTTON-OFF->ON----------
-		------------------------------'''
+	off86_ = xbmc.getCondVisibility('Skin.HasSetting(off'+property_buttonid_+')') #Adult
+	if not off86_:
 		returned = dialogyesno(localize(75791), localize(75792))
 		if returned == "ok":
 			'''------------------------------
@@ -928,8 +929,9 @@ def mode38(admin, name, printpoint):
 			------------------------------'''
 			setSkinSetting("1",'Adult2',"false")
 			'''---------------------------'''
-		setSkinSetting("1",'Admin2',"false")
-		'''---------------------------'''
+	else: setSkinSetting("1",'Adult2',"false")
+	
+	if 1 + 1 == 3:
 		list0 = xbmc.getInfoLabel('$LOCALIZE[75003]')
 		list1 = xbmc.getInfoLabel('$LOCALIZE[15016]')
 		returned, value = dialogselect(localize(75793), [list0, list1],0)
@@ -941,14 +943,11 @@ def mode38(admin, name, printpoint):
 			'''---------------------------'''
 			if returned == 0: mode520(admin, name, printpoint)
 			elif returned == 1:
-				gamesbutton_(admin)
+				xbmc.executebuiltin('RunScript(script.htpt.emu,,?mode=7)')
 				xbmc.sleep(1000)
 				xbmc.executebuiltin('Action(PageDown)')
 				'''---------------------------'''
-				
-	else: setSkinSetting("1",'Adult2',"false")
-	'''---------------------------'''
-	
+
 def mode39(admin, name, printpoint):
 	'''------------------------------
 	---Reset-Network-Settings--------
@@ -964,14 +963,17 @@ def mode39(admin, name, printpoint):
 		oewindow("Network")
 		'''---------------------------'''
 		
-def mode40(admin, name, printpoint):
+def mode40(value, admin, name, printpoint):
 	'''------------------------------
 	---Skin.ResetSettings------------
 	------------------------------'''
-	returned = ""
-	skinsettingsW = xbmc.getCondVisibility('Window.IsVisible(SkinSettings.xml)')
-	if skinsettingsW: returned = dialogyesno(localize(74554) , localize(74556))
-	if returned == 'ok' and skinsettingsW:
+	extra2 = "" ; TypeError = ""
+	if value == '0': printpoint = printpoint + '1'
+	elif value == '1':
+		returned = dialogyesno(localize(74554) , localize(74556))
+		if returned == 'ok': printpoint = printpoint + '1' ; xbmc.executebuiltin('Dialog.Close(1173)')
+	
+	if printpoint == '1':
 		'''------------------------------
 		---DELETE-USER-FILES-------------
 		------------------------------'''
@@ -981,20 +983,23 @@ def mode40(admin, name, printpoint):
 		#Clean_Library("12")
 		#Clean_Library("13")
 	
-	if returned == 'ok' or not skinsettingsW:	
-		xbmc.executebuiltin('Skin.ResetSettings')
-		notification_common("2")
-		xbmc.sleep(4000)
+	if printpoint == '1':
+		xbmc.executebuiltin('Skin.ResetSettings') ; xbmc.sleep(500)
+		xbmc.executebuiltin('ActivateWindow(1000)') ; notification_common("2") ; xbmc.sleep(3000)
+		if playerhasmedia: xbmc.executebuiltin('Action(Stop)')
+		
+		#ReloadSkin(admin) ; xbmc.sleep(500)
+		
 		
 		'''------------------------------
 		---Apply-USER-IDS----------------
 		------------------------------'''
-		setSkinSetting5("0",'ID',idstr,'ID1',id1str,'ID2',id2str,'ID3',id3str,'ID4',id4str)
+		setSkinSetting5("0",'User_ID',idstr,'ID1',id1str,'ID2',id2str,'ID3',id3str,'ID4',id4str)
 		setSkinSetting5("0",'ID5',id5str,'ID6',id6str,'ID7',id7str,'ID8',id8str,'ID9',id9str)
 		setSkinSetting5("0",'ID10',id10str,'ID11',id11str,'ID12',id12str,'ID60',id60str,'',"")
-		setSkinSetting5("0",'MAC',macstr,'MAC1',mac1str,'MAC2',mac2str,'',"",'MAC5',mac5str)
+		setSkinSetting5("0",'MAC',macstr,'MAC1',mac1str,'MAC2',mac2str,'',"",'',"")
 		setSkinSetting5("0",'',"",'',"",'TrialDate',trialdate,'TrialDate2',trialdate2,'Country',countrystr)
-		setSkinSetting5("1",'Admin3',admin3,'',"",'ID40',id40str,'',"",'',"")
+		setSkinSetting5("1",'Admin3',admin3,'',"",'ID40',id40str,'SkinReset',"true",'',"")
 		'''---------------------------'''
 		setSkinSetting5("1",'Account1_Active',Account1_Active,'Account2_Active',Account2_Active,'Account3_Active',Account3_Active,'Account4_Active',Account4_Active,'Account5_Active',Account5_Active)
 		setSkinSetting5("1",'',"",'',"",'',"",'',"",'Account10_Active',Account10_Active)
@@ -1014,7 +1019,7 @@ def mode40(admin, name, printpoint):
 		'''---------------------------'''
 		setSkinSetting5("1",'',"",'',"",'AutoPlaySD',"true",'',"",'ShowFileInfo',"true") #SKIN SETTINGS
 		setSkinSetting5("1",'',"",'AutoShutdown',"true",'',"",'',"",'',"") #SKIN SETTINGS
-		setSkinSetting5("1",'hidetest',"true",'',"",'',"",'3dmovs',"true",'',"") #HOMEBUTTONS
+		setSkinSetting5("1",'off89',"true",'',"",'',"",'',"",'',"") #HOMEBUTTONS
 		'''---------------------------'''
 		
 		'''------------------------------
@@ -1022,14 +1027,19 @@ def mode40(admin, name, printpoint):
 		------------------------------'''
 		
 		'''---------------------------'''
-		
+		#from variables2 import *
+		count = 0
+
 		'''------------------------------
 		---performance-------------------
 		------------------------------'''
 		listL = ["C", "D"]
-		if id10str in listL: setSkinSetting("1",'Performance',"true")
+		#if id10str in listL: setSkinSetting("1",'Performance',"true")
 		'''---------------------------'''
-	
+		#xbmc.executebuiltin('RunScript(script.htpt.smartbuttons,,?mode=219&value=25)')
+		#mode219('25', admin, name, printpoint)
+		#xbmc.executebuiltin('Action(Back)')
+		
 	if 1 + 1 == 3:
 		if skinsettingsW: returned = dialogyesno(localize(74557), localize(74556))
 		if returned == 'ok' and skinsettingsW:
@@ -1066,47 +1076,22 @@ def mode40(admin, name, printpoint):
 				setSkinSetting5("1",'Adult',adult,'Adult2',adult2,'',"",'',"",'',"") #SKIN SETTINGS
 				'''---------------------------'''
 		elif skinsettingsW: notification_common("9")
+	
+	if printpoint == '1':
+		xbmc.executebuiltin('RunScript(script.htpt.smartbuttons,,?mode=215&value=RESET)') ; xbmc.sleep(7000)
+		xbmc.executebuiltin('Action(Back)') ; xbmc.sleep(500) ; customhomecustomizerW = xbmc.getCondVisibility('Window.IsVisible(CustomHomeCustomizer.xml)')
+		if not customhomecustomizerW: xbmc.executebuiltin('ActivateWindow(1171)')
 
+	if admin and not admin2 and admin3:
+		print printfirst + name + "_LV" + printpoint + space + extra2
+		
+		
 def mode41(admin, name, printpoint):
 	'''------------------------------
 	---?-----------------------------
 	------------------------------'''
 	name = "?"
 	mode41(admin, name, printpoint)
-	'''---------------------------'''
-
-def mode42(admin, name, mac5str):
-	'''------------------------------
-	---FORMAT------------------------
-	------------------------------'''
-	printpoint = ""
-	returned = dialogyesno('FORMAT YOUR DEVICE TOOL','CHOOSE YES TO PROCEED')
-	if returned == 'ok':
-		'''asking for a password'''
-		returned = dialogkeyboard(mac5str,"Enter Password",5,'1','MAC5',"")
-		if returned != 'skip':
-			xbmc.sleep(1000)
-			mac5str = xbmc.getInfoLabel('Skin.String(MAC5)')
-			if mac5str != "":
-				if mac5str == str70000:
-					printpoint = printpoint + "7"
-					notification("FORMAT WILL START IN 10 MIN!","REBOOT ASAP FOR CANCELING THE PROCESS!","",10000)
-					'''---------------------------'''
-				elif mac5str != str70000:
-					printpoint = printpoint + "8"
-					notification('$LOCALIZE[12342]',"BE SURE YOU KNOW WHAT YOU ARE DOING!!!","",10000)
-					setSkinSetting("1",'ADMIN',"false")
-					setSkinSetting("0",'ID9',"FTOOL")
-					xbmc.executebuiltin('ReplaceWindow(Startup.xml)')
-					xbmc.executebuiltin('RunScript(service.htpt.debug,,?mode=13)')
-					'''---------------------------'''
-					
-	elif mac5str: xbmc.executebuiltin('Skin.SetString(MAC5,)')
-	
-	'''------------------------------
-	---PRINT-END---------------------
-	------------------------------'''
-	print printfirst + name + "_LV" + printpoint + space + "mac5str" + space2 + str(mac5str) + space + " ( " + returned + " ) "
 	'''---------------------------'''
 
 def mode43(admin, name, printpoint):
@@ -1423,8 +1408,9 @@ def mode59(admin, name, printpoint):
 		elif "Foreign" in value: xbmc.executebuiltin('SetGUILanguage(English)')
 		xbmc.sleep(1000)
 		setAutoSettings("3")
+		xbmc.executebuiltin('RunScript(script.htpt.smartbuttons,,?mode=215&value=RESET)')
 		dialogok("Your current country is: "+value+"", "The system will change all contents and settings in order to fit your choosen country!", "Please note this feature is WIP and may not work at all atm..", "")	
-	
+		
 	print printfirst + name + "_LV" + printpoint + space + "list" + space2 + str(list) + space + "returned" + space2 + str(returned)
 
 def mode60(admin, name, printpoint):
@@ -1833,7 +1819,7 @@ def mode100(admin, name):
 		dialogtextviewerW = xbmc.getCondVisibility('Window.IsVisible(DialogTextViewer.xml)')
 		'''---------------------------'''
 
-	setAutoSettings("0")
+	setAutoSettings("01")
 	xbmc.sleep(500)
 	externalusb("", 100)
 	'''---------------------------'''
@@ -1928,7 +1914,7 @@ def mode110(admin, name, printpoint):
 	---?-----------------------------
 	------------------------------'''
 	name = "?"
-	mode140(admin, name, printpoint)
+	mode110(admin, name, printpoint)
 	'''---------------------------'''
 	
 def mode111(admin, name, printpoint):
@@ -2718,18 +2704,53 @@ def mode200(admin, name, printpoint):
 			notification(".","","",1000)
 			xbmc.sleep(200)
 			xbmc.executebuiltin('Action(Back)')
-			xbmc.sleep(800)
-			notification("..","","",1000)
 			xbmc.sleep(200)
-			xbmc.executebuiltin('ReloadSkin()')
+			ReloadSkin(admin)
 	
 	print printfirst + name + "_LV" + printpoint + space + "list" + space2 + str(list) + space + "returned" + space2 + str(returned) + space + "value" + space2 + str(value)
 	'''---------------------------'''
 
+def getRandomColors(admin):
+	#colors_file = os.path.join(skin_path, 'media', 'buttons', 'colors', 'colors.xml')
+	#infile_colors_ = read_from_file(colors_file, silent=True)
+	
+	returned, value1 = getRandom("0", min=0, max=70, percent=50)
+	returned, value2 = getRandom("0", min=0, max=70, percent=50)
+	returned, value3 = getRandom("0", min=0, max=70, percent=50)
+	returned, value4 = getRandom("0", min=0, max=70, percent=50)
+	returned, value5 = getRandom("0", min=0, max=70, percent=50)
+	listL = [value1, value2, value3, value4, value5]
+	count = 0
+	for value in listL:
+		count += 1
+		if value > 0 and value <= 5: value = '' ; value_ = ""
+		elif value > 5 and value <= 10: value = 'ff000000' ; value_ = 'black'
+		elif value > 10 and value <= 15: value = 'ff00a693' ; value_ = 'persian green'
+		elif value > 15 and value <= 20: value = 'ff00cccc' ; value_ = 'robin egg blue'
+		elif value > 20 and value <= 25: value = 'ffffc40c' ; value_ = 'mikado yellow'
+		elif value > 25 and value <= 30: value = 'ff00ffff' ; value_ = 'aqua'
+		elif value > 30 and value <= 35: value = 'ff1e4d2b' ; value_ = 'cal poly pomona green'
+		elif value > 35 and value <= 40: value = 'ff2f4f4f' ; value_ = 'dark slate gray'
+		elif value > 40 and value <= 45: value = 'ff4cbb17' ; value_ = 'kelly green'
+		elif value > 45 and value <= 50: value = 'ff5d8aa8' ; value_ = 'air force blue'
+		elif value > 50 and value <= 55: value = 'ff8b4513' ; value_ = 'saddle brown'
+		elif value > 55 and value <= 60: value = 'ff89cff0' ; value_ = 'baby blue'
+		elif value > 60 and value <= 65: value = 'fff5f5f5' ; value_ = 'white smoke'
+		elif value > 65 and value <= 70: value = 'ffffd1dc' ; value_ = 'pastel pink'
+		
+		if count == 1: value1 = value ; value1_ = value_
+		elif count == 2: value2 = value ; value2_ = value_
+		elif count == 3: value3 = value ; value3_ = value_
+		elif count == 4: value4 = value ; value4_ = value_
+		elif count == 5: value5 = value ; value5_ = value_
+	
+	return value1, value1_, value2, value2_, value3, value3_, value4, value4_, value5, value5_
+			
 def mode201(value, admin, name, printpoint):
 	'''------------------------------
 	---RESET-TO-DEFAULT--------------
 	------------------------------'''
+	from variables2 import *
 	returned = ""
 	container50hasfocus390 = xbmc.getCondVisibility('Container(50).HasFocus(390)') #BUTTONS
 	
@@ -2737,7 +2758,8 @@ def mode201(value, admin, name, printpoint):
 		list = ['-> (Exit)', localize(10035) + space + "(" + localize(593) + ")", localize(590) + space + "(" + localize(593) + ")", \
 		localize(74840) + space + "(" + localize(78219) + ")", localize(74840) + space + localize(590) + space + "(" + localize(78219) + ")", \
 		localize(74840) + space + "(" + localize(593) + ")", localize(74840) + space + localize(590) + space + "(" + localize(593) + ")", \
-		localize(10035) + space + localize(78215) + space + "(" + localize(593) + ")", localize(10035) + space + localize(78215) + space + localize(590) + space + "(" + localize(593) + ")"]
+		localize(10035) + space + localize(78215) + space + "(" + localize(593) + ")", localize(10035) + space + localize(78215) + space + localize(590) + space + "(" + localize(593) + ")", \
+		localize(10035) + space + "(" + localize(74614) + ")"]
 	else: list = []
 	
 	if list != []:
@@ -2756,153 +2778,72 @@ def mode201(value, admin, name, printpoint):
 		elif returned == 6: printpoint = printpoint + "DF" #RANDOM-ALL-COLORS
 		elif returned == 7: printpoint = printpoint + "G" #RESET-ALL-TRANSPERANCY
 		elif returned == 8: printpoint = printpoint + "H" #RANDOM-ALL-TRANSPERANCY
-	
-	if "A" in printpoint:	
-		setSkinSetting5('0', 'IconOverlayButton', '', 'MainBackgroundTexture', "", 'TopBackgroundTexture', "", '', "", '', "")
-		setSkinSetting5('1', 'SelectionMarker', 'false', 'SelectionMarker2', 'false', 'ShadowButton', 'false', 'OverlayButton', 'false', 'background', "false")
+		elif returned == 9: printpoint = printpoint + "I" #RESET BUTTONS PROPERTIES
+		
+		from variables2 import labelT, list1, list0, list0c, list0c2, list0o
+		xbmc.executebuiltin('Dialog.Close(1173)') ; xbmc.sleep(100) ; xbmc.executebuiltin('ActivateWindow(1000)') ; notification_common("2") ; xbmc.sleep(100)
+		'''---------------------------'''
+		
+	if "A" in printpoint:
+		for x in list0: setSkinSetting('0',x,"")
+		for x in list1: setSkinSetting('1',x,"false")
 		'''---------------------------'''
 	
 	if "B" in printpoint:
-		returned1, value1 = getRandom("0", min=0, max=100, percent=50)
-		returned2, value2 = getRandom("0", min=0, max=100, percent=50)
-		returned3, value3 = getRandom("0", min=0, max=100, percent=50)
-		returned4, value4 = getRandom("0", min=0, max=100, percent=50)
-		returned5, value5 = getRandom("0", min=0, max=100, percent=50)
-					
-		if returned1 == 'ok': value1 = "true"
-		else: value1 = "false"
-		if returned2 == 'ok': value2 = "true"
-		else: value2 = "false"
-		if returned3 == 'ok': value3 = "true"
-		else: value3 = "false"
-		if returned4 == 'ok': value4 = "true"
-		else: value4 = "false"
-		if returned5 == 'ok': value5 = "true"
-		else: value5 = "false"
-			
-		setSkinSetting5('1', 'SelectionMarker', value1, 'SelectionMarker2', value2, 'ShadowButton', value3, 'OverlayButton', value4, 'background', value5)
-		'''---------------------------'''
+		for x in list1:
+			returned1, value1 = getRandom("0", min=0, max=100, percent=50)
+			if returned1 == 'ok': value1 = "true"
+			else: value1 = "false"
+			setSkinSetting('1',x,value1)
 		
 	if "C" in printpoint:
-		value1 = ''
-		setSkinSetting5('0', 'color340', value1, 'color341', value1, 'color342', value1, 'color343', value1, 'color344', value1)
-		setSkinSetting5('0', 'color320', value1, 'color321', value1, 'color345', value1, 'color507', value1, 'color323', value1)
-		setSkinSetting5('0', 'color351', value1, 'color327', value1, 'color325', value1, 'color508', value1, 'color322', value1)
-		setSkinSetting5('0', 'color324', value1, 'color331', value1, 'color330', value1, 'color352', value1, 'color355', value1)
-		setSkinSetting5('0', 'color357', value1, '', "", '', "", '', "", '', "")
-		setSkinSetting5('0', 'color401', value1, 'color402', value1, 'color403', value1, 'color404', value1, 'color405', value1)
-		setSkinSetting5('0', 'color601', value1, 'color602', value1, 'color603', value1, 'color604', value1, 'color605', value1)
-		setSkinSetting5('0', 'color346', value1, 'color348', value1, 'color349', value1, '', "", '', "")
-		'''---------------------------'''
+		'''RESET-BUTTONS-COLORS'''
+		for i in range(70,129):
+			setSkinSetting('0','color'+str(i),"")
+			setSkinSetting('0','color'+str(i)+'.name',"")
+			'''---------------------------'''
 	
 	if "D" in printpoint:
-		returned, value1 = getRandom("0", min=0, max=70, percent=50)
-		returned, value2 = getRandom("0", min=0, max=70, percent=50)
-		returned, value3 = getRandom("0", min=0, max=70, percent=50)
-		returned, value4 = getRandom("0", min=0, max=70, percent=50)
-		returned, value5 = getRandom("0", min=0, max=70, percent=50)
-		listL = [value1, value2, value3, value4, value5]
-		count = 0
-		for value in listL:
-			count += 1
-			if value > 0 and value <= 5: value = ''
-			elif value > 5 and value <= 10: value = 'base'
-			elif value > 10 and value <= 15: value = 'lightblue'
-			elif value > 15 and value <= 20: value = 'red'
-			elif value > 20 and value <= 25: value = 'green'
-			elif value > 25 and value <= 30: value = 'bluegray'
-			elif value > 30 and value <= 35: value = 'progcolor'
-			elif value > 35 and value <= 40: value = 'purple'
-			elif value > 40 and value <= 45: value = 'teak'
-			elif value > 45 and value <= 50: value = 'darkorange'
-			elif value > 50 and value <= 55: value = 'darkblue'
-			elif value > 55 and value <= 60: value = 'darkgreen'
-			elif value > 60 and value <= 65: value = 'lightyellow'
-			elif value > 65 and value <= 70: value = 'pink'
-			
-			if count == 1: value1 = value
-			elif count == 2: value2 = value
-			elif count == 3: value3 = value
-			elif count == 4: value4 = value
-			elif count == 5: value5 = value
-			
-		
-		setSkinSetting5('0', 'color340', value1, 'color341', value2, 'color342', value3, 'color343', value4, 'color344', value5)
-		setSkinSetting5('0', 'color320', value1, 'color321', value2, 'color345', value3, 'color507', value4, 'color323', value5)
-		setSkinSetting5('0', 'color351', value1, 'color327', value2, 'color325', value3, 'color508', value4, 'color322', value5)
-		setSkinSetting5('0', 'color324', value1, 'color331', value2, 'color330', value3, 'color352', value4, 'color355', value5)
-		setSkinSetting5('0', 'color357', value1, '', "", '', "", '', "", '', "")
-		setSkinSetting5('0', 'color401', value1, 'color402', value2, 'color403', value3, 'color404', value4, 'color405', value5)
-		setSkinSetting5('0', 'color601', value1, 'color602', value2, 'color603', value3, 'color604', value4, 'color605', value5)
-		setSkinSetting5('0', 'color346', value1, 'color348', value2, 'color349', value3, '', "", '', "")
-		'''---------------------------'''
+		value1, value1_, value2, value2_, value3, value3_, value4, value4_, value5, value5_ = getRandomColors(admin)
+		for i in range(70,129):
+			x = labelT.get('label'+str(i))
+			if x != "":
+				returned, count = getRandom("0", min=1, max=5, percent=50)
+				if count == 1: value = value1 ; value_ = value1_
+				elif count == 2: value = value2 ; value_ = value2_
+				elif count == 3: value = value3 ; value_ = value3_
+				elif count == 4: value = value4 ; value_ = value4_
+				elif count == 5: value = value5 ; value_ = value5_
+				setSkinSetting('0','color'+str(i),value)
+				setSkinSetting('0','color'+str(i)+'.name',value_)
+				'''---------------------------'''
 	
 	if "E" in printpoint:
-		setSkinSetting5('0', 'TopInformationColor', "", 'TopInformationColor_', "", 'TopVideoInformationColor', "", 'TopVideoInformationColor_', "", '', "")
-		setSkinSetting5('0', 'MainBackgroundColor', "", 'MainBackgroundColor_', "", 'TopBackgroundColor', "", 'TopBackgroundColor_', "", '', "")
+		'''RESET-ALL-COLORS'''
+		for x in list0c: setSkinSetting('0',x,"")
+		for x in list0c: setSkinSetting('0',x,"")
 		'''---------------------------'''
-
-	if "F" in printpoint:
-		returned, value1 = getRandom("0", min=0, max=50, percent=50)
-		returned, value2 = getRandom("0", min=0, max=50, percent=50)
-		returned, value3 = getRandom("0", min=0, max=50, percent=50)
-		returned, value4 = getRandom("0", min=0, max=50, percent=50)
-		returned, value5 = getRandom("0", min=0, max=50, percent=50)
-		listL = [value1, value2, value3, value4, value5]
-		count = 0
-		for value in listL:
-			count += 1
-			if value > 0 and value <= 5:
-				value = ''
-				value_ = 'Default'
-			if value > 5 and value <= 10:
-				value = 'A0'
-				value_ = 'None'
-			if value > 10 and value <= 15:
-				value = 'A1'
-				value_ = localize(762)
-			if value > 15 and value <= 20:
-				value = 'A2'
-				value_ = localize(13343)
-			if value > 20 and value <= 25:
-				value = 'A3'
-				value_ = localize(79151)
-			if value > 25 and value <= 30:
-				value = 'A4'
-				value_ = localize(79152)
-			if value > 30 and value <= 35:
-				value = 'A5'
-				value_ = localize(766)
-			if value > 35 and value <= 40:
-				value = 'A6'
-				value_ = localize(767)
-			if value > 40 and value <= 45:
-				value = 'A7'
-				value_ = localize(743)
-			if value > 45 and value <= 50:
-				value = 'A8'
-				value_ = localize(353)
-			
-			if count == 1: value1 = value ; value1_ = value_
-			elif count == 2: value2 = value ; value2_ = value_
-			elif count == 3: value3 = value ; value3_ = value_
-			elif count == 4: value4 = value ; value4_ = value_
-			elif count == 5: value5 = value ; value5_ = value_
-			
 		
-		setSkinSetting5('0', 'TopInformationColor', value1, 'TopInformationColor_', value1_, 'TopVideoInformationColor', value2, 'TopVideoInformationColor_', value2_, '', "")
-		setSkinSetting5('0', 'MainBackgroundColor', value3, 'MainBackgroundColor_', value3_, 'TopBackgroundColor', value4, 'TopBackgroundColor_', value4_, '', "")
-		'''---------------------------'''
+	if "F" in printpoint:
+		'''RANDOM-ALL-COLORS'''
+		returned, count = getRandom("0", min=1, max=5, percent=50)
+		for x in list0c:
+			if count == 1: value = value1 ; value_ = value1_
+			elif count == 2: value = value2 ; value_ = value2_
+			elif count == 3: value = value3 ; value_ = value3_
+			elif count == 4: value = value4 ; value_ = value4_
+			elif count == 5: value = value5 ; value_ = value5_
+			setSkinSetting('0',x,value)
+			setSkinSetting('0',x+'.name',value_)
+			'''---------------------------'''
 		
 	if "G" in printpoint:
-		setSkinSetting5('0', 'IconOverlayButton', "", '', "", '', "", '', "", '', "") #BUTTONS
-		setSkinSetting5('0', 'MenuButtonsOverlay', "", '', "", 'LeftMenuOverlay', "", 'BottomMenuOverlay', "", 'CenterMenuOverlay', "") #MENU
-		setSkinSetting5('0', 'TopVideoInformationOverlay', "", 'TopMainBackgroundOverlay', "", 'TopInformationOverlay', "", 'MainBackgroundOverlay', "", 'BackgroundOverlay', "") #OTHERS
-		setSkinSetting5('0', 'Background2Overlay', "", '', "", '', "", '', "", '', "") #OTHERS
-		
+		'''RESET-ALL-TRANSPERANCY'''
+		for x in list0o: setSkinSetting('0',x,"")
 		'''---------------------------'''
 		
 	if "H" in printpoint:
+		'''RANDOM-ALL-TRANSPERANCY'''
 		returned, value1 = getRandom("0", min=0, max=55, percent=50)
 		returned, value2 = getRandom("0", min=0, max=55, percent=50)
 		returned, value3 = getRandom("0", min=0, max=55, percent=50)
@@ -2931,81 +2872,74 @@ def mode201(value, admin, name, printpoint):
 			elif count == 5: value5 = str(value)
 			'''---------------------------'''
 		
-		setSkinSetting5('0', 'IconOverlayButton', value1, '', "", '', "", '', "", '', "") #BUTTONS
-		setSkinSetting5('0', 'MenuButtonsOverlay', value1, '', "", 'LeftMenuOverlay', value1, 'BottomMenuOverlay', value2, 'CenterMenuOverlay', value3) #MENU
-		setSkinSetting5('0', 'TopVideoInformationOverlay', value1, 'TopMainBackgroundOverlay', value2, 'TopInformationOverlay', value3, 'MainBackgroundOverlay', value2, 'BackgroundOverlay', value5) #OTHERS
-		setSkinSetting5('0', 'Background2Overlay', value1, '', "", '', "", '', "", '', "") #OTHERS
-		'''---------------------------'''
+		for x in list0o:
+			returned, count = getRandom("0", min=1, max=5, percent=50)
+			if count == 1: y = str(value1)
+			elif count == 2: y = str(value2)
+			elif count == 3: y = str(value3)
+			elif count == 4: y = str(value4)
+			elif count == 5: y = str(value5)
+			setSkinSetting('0',x,y)
+			'''---------------------------'''
 	
+	if "I" in printpoint:
+		'''RESET BUTTONS PROPERTIES'''
+		for i in range(70,110):
+			setSkinSetting('0','id'+str(i),"")
+			setSkinSetting('0','label'+str(i),"")
+			setSkinSetting('0','action'+str(i),"")
+			setSkinSetting('0','color'+str(i),"")
+			setSkinSetting('0','icon'+str(i),"")
+			setSkinSetting('0','background'+str(i),"")
+			setSkinSetting('1','off'+str(i),"")
+			setSkinSetting('1','sub'+str(i),"")
+			'''---------------------------'''
+			for i2 in range(90,110):
+				setSkinSetting('0','id'+str(i)+'_'+str(i2),"")
+				setSkinSetting('0','label'+str(i)+'_'+str(i2),"")
+				setSkinSetting('0','action'+str(i)+'_'+str(i2),"")
+				setSkinSetting('1','off'+str(i)+'_'+str(i2),"")
+				setSkinSetting('0','icon'+str(i)+'_'+str(i2),"")
+				'''---------------------------'''
+		
 	if ("7" in printpoint or value != "") and not "8" in printpoint and not "9" in printpoint:
 		notification(".","","",1000)
-		xbmc.sleep(200)
-		xbmc.executebuiltin('Action(Back)')
-		xbmc.sleep(800)
-		notification("..","","",1000)
-		xbmc.sleep(200)
-		xbmc.executebuiltin('ReloadSkin()')
+		ReloadSkin(admin)
+		xbmc.executebuiltin('ActivateWindow(Home.xml)') ; xbmc.executebuiltin('ActivateWindow(1117)') ; xbmc.executebuiltin('ActivateWindow(1173)')
+		
 	print printfirst + name + "_LV" + printpoint + space + "list" + space2 + str(list) + space + "returned" + space2 + str(returned)
 	'''---------------------------'''
 
-def mode202(admin, name, printpoint):
+def mode202(value, admin, name, printpoint):
 	'''------------------------------
 	---CHOOSE-COLORS-2---------------
 	------------------------------'''
-	container50hasfocus236 = xbmc.getCondVisibility('Container(50).HasFocus(236)') #TopBackgroundColor
-	container50hasfocus251 = xbmc.getCondVisibility('Container(50).HasFocus(251)') #MainBackgroundColor
-	container50hasfocus253 = xbmc.getCondVisibility('Container(50).HasFocus(253)') #TopInformationColor
-	container50hasfocus255 = xbmc.getCondVisibility('Container(50).HasFocus(255)') #TopVideoInformationColor
+		
+	#x = xbmc.getInfoLabel('Container(9003).ListItem(0).Label')
+	#x2 = xbmc.getInfoLabel('Container(9003).ListItemNoWrap(0).Property(colorID)')
+	#y = xbmc.getInfoLabel('Container(9003).ListItemNoWrap(0).Property(color)')
+	#listitempropertycolor = xbmc.getInfoLabel('ListItem.Property(color)')
 	
-	x = xbmc.getInfoLabel('Container(9003).ListItem(0).Label')
-	x2 = xbmc.getInfoLabel('Container(9003).ListItemNoWrap(0).Property(colorID)')
-	y = xbmc.getInfoLabel('Container(9003).ListItemNoWrap(0).Property(color)')
-	listitempropertycolor = xbmc.getInfoLabel('ListItem.Property(color)')
-	
-	if customsettingtemp != "":
-		printpoint = printpoint + "2"
-		setSkinSetting('0', customsettingtemp, x2)
-		if x2 != "": setSkinSetting('0', customsettingtemp + '_', x)
-		else: setSkinSetting('0', customsettingtemp + '_', "")
-		notification(localize(78020) + space + localize(78017), x, "", 2000)
-		xbmc.executebuiltin('Action(Close)')
-		'''---------------------------'''
-	elif customhomecustomizerW and container50hasfocus236:
-		printpoint = printpoint + "1"
-		setSkinSetting('0', 'TopBackgroundColor', x2)
-		if x2 != "": setSkinSetting('0', 'TopBackgroundColor_', x)
-		else: setSkinSetting('0', 'TopBackgroundColor_', "")
-		notification(localize(78020) + space + localize(78017), x, "", 2000)
-		xbmc.executebuiltin('SetFocus(50)')
-		'''---------------------------'''
-	elif customhomecustomizerW and container50hasfocus251:
-		printpoint = printpoint + "1"
-		setSkinSetting('0', 'MainBackgroundColor', x2)
-		if x2 != "": setSkinSetting('0', 'MainBackgroundColor_', x)
-		else: setSkinSetting('0', 'MainBackgroundColor_', "")
-		notification(localize(78020) + space + localize(78020), x, "", 2000)
-		xbmc.executebuiltin('SetFocus(50)')
-		'''---------------------------'''
-	elif customhomecustomizerW and container50hasfocus253:
-		printpoint = printpoint + "1"
-		setSkinSetting('0', 'TopInformationColor', x2)
-		if x2 != "": setSkinSetting('0', 'TopInformationColor_', x)
-		else: setSkinSetting('0', 'TopInformationColor_', "")
-		notification(localize(78020) + space + localize(78019), x, "", 2000)
-		xbmc.executebuiltin('SetFocus(50)')
-		'''---------------------------'''
-	elif customhomecustomizerW and container50hasfocus255:
-		printpoint = printpoint + "1"
-		setSkinSetting('0', 'TopVideoInformationColor', x2)
-		if x2 != "": setSkinSetting('0', 'TopVideoInformationColor_', x)
-		else: setSkinSetting('0', 'TopVideoInformationColor_', "")
-		notification(localize(78020) + space + localize(20159), x, "", 2000)
-		xbmc.executebuiltin('SetFocus(50)')
-		'''---------------------------'''
-			
+	if property_temp != "":
+		if value == "30110":
+			'''DEFAULT COLOR'''
+			printpoint = printpoint + "2"
+			setSkinSetting('0', property_temp, "")
+			setSkinSetting('0', property_temp + '.name', "")
+			notification("...","","",1000)
+			xbmc.executebuiltin('Dialog.Close(1175)')
+			xbmc.executebuiltin('Dialog.Close(1173)')
+			xbmc.executebuiltin('Dialog.Close(1117)')
+			xbmc.executebuiltin('Action(Close)')
+			xbmc.executebuiltin('ActivateWindow(1117)')
+			xbmc.executebuiltin('ActivateWindow(1173)')
+			'''---------------------------'''
+		else: printpoint = printpoint + "9"
+		
 	else: printpoint = printpoint + "9"
-	setSkinSetting("0",'Custom_Setting_Temp',"")
-	print printfirst + name + "_LV" + printpoint + space + "x" + space2 + str(x) + space + "x2" + space2 + str(x2) + space + "y" + space2 + str(y)
+	xbmc.executebuiltin('ClearProperty(TEMP,home)')
+	print printfirst + name + "_LV" + printpoint + space + "value" + space2 + str(value) + space + "property_buttonid" + space2 + str(property_buttonid) + newline + \
+	'property_temp' + space2 + str(property_temp)
 	'''---------------------------'''
 
 def mode203(value, admin, admin3, name, printpoint):
@@ -3023,11 +2957,12 @@ def mode203(value, admin, admin3, name, printpoint):
 		if returned == -1: printpoint = printpoint + "9"
 		elif returned == 0: printpoint = printpoint + "8"
 		else: printpoint = printpoint + "7"
+		'''---------------------------'''
 		
 	if ("7" in printpoint or value != "") and not "8" in printpoint and not "9" in printpoint:
 		
-		if returned == 1 or returned == 2 or (returned == "" and value == "Templates"): path = skin_userdata_path
-		elif returned == 3: path = skin_specials_userdata_path
+		if returned == 1 or returned == 2: path = skin_userdata_path
+		elif returned == 3 or (returned == "" and value == "Templates"): path = skin_specials_userdata_path
 		else: path = ""
 		
 		if path != "":
@@ -3035,7 +2970,7 @@ def mode203(value, admin, admin3, name, printpoint):
 			file1 = os.path.join(path, "Skin_SaveDesign1.txt")
 			file2 = os.path.join(path, "Skin_SaveDesign2.txt")
 			file3 = os.path.join(path, "Skin_SaveDesign3.txt")
-			
+			'''---------------------------'''
 			if os.path.exists(file1):
 				infile1 = read_from_file(file1, silent=True)
 				filename1 = regex_from_to(infile1, "&name=", "&", excluding=True)
@@ -3075,156 +3010,70 @@ def mode203(value, admin, admin3, name, printpoint):
 			if returned == 1: printpoint = printpoint + "A" #SAVE
 			elif returned == 2 or (returned == "" and value == "Templates"): printpoint = printpoint + "B" #LOAD
 			elif returned == 3: printpoint = printpoint + "C" #DEFAULT
-	
+			
 			if "A" in printpoint:
 				'''------------------------------
 				---Save--------------------------
 				------------------------------'''
+				from variables2 import *
 				formula = ""
-				#notification(shadowbutton.encode('utf-8'), selectionmarker, "", 4000)
-				
 				formula = "Skin.Theme=2" + skincurrenttheme
+				for i in range(70,110):
+					x = idT.get('id'+str(i))
+					formula = formula + newline + 'id'+str(i)+'=0' + str(x)
+					x = labelT.get('label'+str(i))
+					formula = formula + newline + 'label'+str(i)+'=0' + str(x)
+					x = actionT.get('action'+str(i))
+					formula = formula + newline + 'action'+str(i)+'=0' + str(x)
+					x = offT.get('off'+str(i))
+					formula = formula + newline + 'off'+str(i)+'=1' + str(x)
+					x = colorT.get('color'+str(i))
+					formula = formula + newline + 'color'+str(i)+'=0' + str(x)
+					x = iconT.get('icon'+str(i))
+					formula = formula + newline + 'icon'+str(i)+'=0' + str(x)
+					x = backgroundT.get('background'+str(i))
+					formula = formula + newline + 'background'+str(i)+'=0' + str(x)
+					x = subT.get('sub'+str(i))
+					formula = formula + newline + 'sub'+str(i)+'=1' + str(x)
+					for i2 in range(91,110):
+						x = id_T.get('id'+str(i)+'_'+str(i2))
+						formula = formula + newline + 'id'+str(i)+'_'+str(i2)+'=0' + str(x)
+						x = label_T.get('label'+str(i)+'_'+str(i2))
+						formula = formula + newline + 'label'+str(i)+'_'+str(i2)+'=0' + str(x)
+						x = action_T.get('action'+str(i)+'_'+str(i2))
+						formula = formula + newline + 'action'+str(i)+'_'+str(i2)+'=0' + str(x)
+						x = off_T.get('off'+str(i)+'_'+str(i2))
+						formula = formula + newline + 'off'+str(i)+'_'+str(i2)+'=1' + str(x)
+						x = icon_T.get('icon'+str(i)+'_'+str(i2))
+						formula = formula + newline + 'icon'+str(i)+'_'+str(i2)+'=0' + str(x)
+						'''---------------------------'''
 				
-				formula = formula + newline + "SelectionMarker=1" + selectionmarker
-				formula = formula + newline + "SelectionMarker2=1" + selectionmarker2
-				formula = formula + newline + "ShadowButton=1" + shadowbutton
-				formula = formula + newline + "OverlayButton=1" + overlaybutton
+				for y in list1:
+					x = xbmc.getInfoLabel('Skin.HasSetting('+y+')')
+					formula = formula + newline + y+'=1' + str(x)
+					'''---------------------------'''
 				
-				formula = formula + newline + "background=1" + background
-				formula = formula + newline + "BackgroundOverlay=0" + backgroundoverlay
+				for y in list0:
+					x = xbmc.getInfoLabel('Skin.String('+y+')')
+					formula = formula + newline + y+'=0' + str(x)
+					'''---------------------------'''
+					
+				for y in list0c:
+					x = xbmc.getInfoLabel('Skin.String('+y+')')
+					x2 = xbmc.getInfoLabel('Skin.String('+y+'.name)')
+					formula = formula + newline + y+'=1' + str(x)
+					formula = formula + newline + y+'.name'+'=1' + str(x2)
+					'''---------------------------'''
 				
-				formula = formula + newline + "IconOverlayButton=0" + iconoverlaybutton
-				formula = formula + newline + "MenuButtonsOverlay=0" + menubuttonsoverlay
-				formula = formula + newline + "MainBackgroundOverlay=0" + mainbackgroundoverlay
+				for y in list0c2:
+					x = xbmc.getInfoLabel('Skin.String('+y+')')
+					formula = formula + newline + y+'=0' + str(x)
+					'''---------------------------'''
 				
-				formula = formula + newline + "TopMainBackgroundOverlay=0" + topmainbackgroundoverlay
-				formula = formula + newline + "LeftMenuOverlay=0" + leftmenuoverlay
-				formula = formula + newline + "BottomMenuOverlay=0" + bottommenuoverlay
-				formula = formula + newline + "CenterMenuOverlay=0" + centermenuoverlay
-				formula = formula + newline + "TopVideoInformationOverlay=0" + topvideoinformationoverlay
-				formula = formula + newline + "TopInformationOverlay=0" + topinformationoverlay
-				
-				formula = formula + newline + "MainBackgroundTexture=0" + mainbackgroundtexture
-				formula = formula + newline + "TopBackgroundTexture=0" + topbackgroundtexture
-				
-				formula = formula + newline + "MainBackgroundColor=0" + mainbackgroundcolor
-				formula = formula + newline + "MainBackgroundColor_=0" + mainbackgroundcolor_
-				formula = formula + newline + "TopBackgroundColor=0" + topbackgroundcolor
-				formula = formula + newline + "TopBackgroundColor_=0" + topbackgroundcolor_
-				formula = formula + newline + "TopInformationColor=0" + topinformationcolor
-				formula = formula + newline + "TopInformationColor_=0" + topinformationcolor_
-				formula = formula + newline + "TopVideoInformationColor=0" + topvideoinformationcolor
-				formula = formula + newline + "TopVideoInformationColor_=0" + topvideoinformationcolor_
-				
-				formula = formula + newline + "color340=0" + color340
-				formula = formula + newline + "color341=0" + color341
-				formula = formula + newline + "color342=0" + color342
-				formula = formula + newline + "color343=0" + color343
-				formula = formula + newline + "color344=0" + color344
-				formula = formula + newline + "color320=0" + color320
-				formula = formula + newline + "color321=0" + color321
-				formula = formula + newline + "color345=0" + color345
-				formula = formula + newline + "color507=0" + color507
-				formula = formula + newline + "color323=0" + color323
-				formula = formula + newline + "color351=0" + color351
-				formula = formula + newline + "color327=0" + color327
-				formula = formula + newline + "color325=0" + color325
-				formula = formula + newline + "color508=0" + color508
-				formula = formula + newline + "color322=0" + color322
-				formula = formula + newline + "color324=0" + color324
-				formula = formula + newline + "color331=0" + color331
-				formula = formula + newline + "color330=0" + color330
-				formula = formula + newline + "color352=0" + color352
-				formula = formula + newline + "color355=0" + color355
-				formula = formula + newline + "color357=0" + color357
-				formula = formula + newline + "color401=0" + color401
-				formula = formula + newline + "color402=0" + color402
-				formula = formula + newline + "color403=0" + color403
-				formula = formula + newline + "color404=0" + color404
-				formula = formula + newline + "color405=0" + color405
-				formula = formula + newline + "color601=0" + color601
-				formula = formula + newline + "color602=0" + color602
-				formula = formula + newline + "color603=0" + color603
-				formula = formula + newline + "color606=0" + color606
-				formula = formula + newline + "color605=0" + color605
-				formula = formula + newline + "color346=0" + color346
-				formula = formula + newline + "color348=0" + color348
-				formula = formula + newline + "color349=0" + color349
-				
-				formula = formula + newline + "icon340=0" + icon340
-				formula = formula + newline + "icon341=0" + icon341
-				formula = formula + newline + "icon342=0" + icon342
-				formula = formula + newline + "icon343=0" + icon343
-				formula = formula + newline + "icon344=0" + icon344
-				formula = formula + newline + "icon320=0" + icon320
-				formula = formula + newline + "icon321=0" + icon321
-				formula = formula + newline + "icon345=0" + icon345
-				formula = formula + newline + "icon507=0" + icon507
-				formula = formula + newline + "icon323=0" + icon323
-				formula = formula + newline + "icon351=0" + icon351
-				formula = formula + newline + "icon327=0" + icon327
-				formula = formula + newline + "icon325=0" + icon325
-				formula = formula + newline + "icon508=0" + icon508
-				formula = formula + newline + "icon322=0" + icon322
-				formula = formula + newline + "icon324=0" + icon324
-				formula = formula + newline + "icon331=0" + icon331
-				formula = formula + newline + "icon330=0" + icon330
-				formula = formula + newline + "icon352=0" + icon352
-				formula = formula + newline + "icon355=0" + icon355
-				formula = formula + newline + "icon357=0" + icon357
-				formula = formula + newline + "icon401=0" + icon401
-				formula = formula + newline + "icon402=0" + icon402
-				formula = formula + newline + "icon403=0" + icon403
-				formula = formula + newline + "icon404=0" + icon404
-				formula = formula + newline + "icon405=0" + icon405
-				formula = formula + newline + "icon601=0" + icon601
-				formula = formula + newline + "icon602=0" + icon602
-				formula = formula + newline + "icon603=0" + icon603
-				formula = formula + newline + "icon606=0" + icon606
-				formula = formula + newline + "icon605=0" + icon605
-				formula = formula + newline + "icon346=0" + icon346
-				formula = formula + newline + "icon348=0" + icon348
-				formula = formula + newline + "icon349=0" + icon349
-				
-				formula = formula + newline + "background340=0" + background340
-				formula = formula + newline + "background341=0" + background341
-				formula = formula + newline + "background342=0" + background342
-				formula = formula + newline + "background343=0" + background343
-				formula = formula + newline + "background344=0" + background344
-				formula = formula + newline + "background320=0" + background320
-				formula = formula + newline + "background321=0" + background321
-				formula = formula + newline + "background345=0" + background345
-				formula = formula + newline + "background507=0" + background507
-				formula = formula + newline + "background323=0" + background323
-				formula = formula + newline + "background351=0" + background351
-				formula = formula + newline + "background327=0" + background327
-				formula = formula + newline + "background325=0" + background325
-				formula = formula + newline + "background508=0" + background508
-				formula = formula + newline + "background322=0" + background322
-				formula = formula + newline + "background324=0" + background324
-				formula = formula + newline + "background331=0" + background331
-				formula = formula + newline + "background330=0" + background330
-				formula = formula + newline + "background352=0" + background352
-				formula = formula + newline + "background355=0" + background355
-				formula = formula + newline + "background357=0" + background357
-				formula = formula + newline + "background401=0" + background401
-				formula = formula + newline + "background402=0" + background402
-				formula = formula + newline + "background403=0" + background403
-				formula = formula + newline + "background404=0" + background404
-				formula = formula + newline + "background405=0" + background405
-				formula = formula + newline + "background601=0" + background601
-				formula = formula + newline + "background602=0" + background602
-				formula = formula + newline + "background603=0" + background603
-				formula = formula + newline + "background606=0" + background606
-				formula = formula + newline + "background605=0" + background605
-				formula = formula + newline + "background346=0" + background346
-				formula = formula + newline + "background348=0" + background348
-				formula = formula + newline + "background349=0" + background349
-				
-				#formula = CleanString(formula, filter=[])
-				
-				#formula = str(formula).replace(", ",",")
-				#formula = str(formula).replace(",",newline)
+				for y in list0o:
+					x = xbmc.getInfoLabel('Skin.String('+y+')')
+					formula = formula + newline + y+'=0' + str(x)
+					'''---------------------------'''
 				
 				if "1" in printpoint:
 					if filename1 == None: filename = ""
@@ -3276,6 +3125,7 @@ def mode203(value, admin, admin3, name, printpoint):
 				else:
 					#formula_ = formula_.split(',')
 					#formula_ = CleanString(formula_, filter=[])
+					xbmc.executebuiltin('ActivateWindow(1000)') ; notification_common("2") ; xbmc.sleep(200)
 					import fileinput
 					for line in fileinput.input([file]):
 						x = "" ; x1 = "" ; x2 = "" ; x3 = ""
@@ -3324,13 +3174,8 @@ def mode203(value, admin, admin3, name, printpoint):
 						'''---------------------------'''
 			
 			if not "Q" in printpoint and not "A" in printpoint:
-				notification(".","","",1000)
-				xbmc.sleep(200)
-				xbmc.executebuiltin('Action(Back)')
-				xbmc.sleep(800)
-				notification("..","","",1000)
-				xbmc.sleep(200)
-				xbmc.executebuiltin('ReloadSkin()')
+				xbmc.executebuiltin('Action(Back)') ; xbmc.sleep(200)
+				ReloadSkin(admin)
 				xbmc.executebuiltin('ActivateWindow(1173)')
 				'''---------------------------'''
 
@@ -3356,42 +3201,42 @@ def mode205(admin, name, printpoint):
 	'''------------------------------
 	---SET-STARTUP-WINDOW------------
 	------------------------------'''
-	container50button320 = xbmc.getCondVisibility('Container(50).HasFocus(320)')
-	container50button321 = xbmc.getCondVisibility('Container(50).HasFocus(321)')
-	
-	if container50button320:
-		'''------------------------------
-		---MOVIES------------------------
-		------------------------------'''
-		printpoint = printpoint + "1"
-		heading = localize(512) + space + localize(342)
-		list0 = "0. " + localize(20108) #root
-		list1 = "1. " + addonString_genesis(30027).encode('utf-8') #Most Popular
-		list2 = "2. " + addonString_genesis(30806).encode('utf-8') #Latest HD Movies
-		list3 = "3. " + addonString_genesis(30009).encode('utf-8') #Search
-		list4 = "4. " + addonString_genesis(30021).encode('utf-8') #Genres
-		returned, value = dialogselect(heading,[list0, list1, list2, list3, list4],0)
-		if returned != -1:
-			setSkinSetting("0",'moviesestartup',str(returned))
-			#setSkinSetting("0",'moviesestartup',value)
-			'''---------------------------'''
-		
-	elif container50button321:
-		'''------------------------------
-		---TVSHOWS------------------------
-		------------------------------'''
-		printpoint = printpoint + "2"
-		heading = localize(512) + space + localize(20343)
-		list0 = "0. " + localize(20108) #root
-		list1 = "1. " + addonString_genesis(30027).encode('utf-8') #Most Popular
-		list2 = "2. " + addonString_genesis(30544).encode('utf-8') #Returning TV Shows
-		list3 = "3. " + addonString_genesis(30009).encode('utf-8') #Search
-		list4 = "4. " + addonString_genesis(30021).encode('utf-8') #Genres
-		returned, value = dialogselect(heading,[list0, list1, list2, list3, list4],0)
-		if returned != -1:
-			setSkinSetting("0",'tvshowsestartup',str(returned))
-			'''---------------------------'''
-	else: printpoint = printpoint + "9"
+	addon = 'plugin.video.genesis'
+	if not xbmc.getCondVisibility('System.HasAddon('+ addon +')'): installaddon(admin, addon, "")
+	else:
+		if property_buttonid == "77":
+			'''------------------------------
+			---MOVIES------------------------
+			------------------------------'''
+			printpoint = printpoint + "1"
+			heading = localize(512) + space + localize(342)
+			list0 = "0. " + localize(20108) #root
+			list1 = "1. " + addonString_genesis(30027).encode('utf-8') #Most Popular
+			list2 = "2. " + addonString_genesis(30806).encode('utf-8') #Latest HD Movies
+			list3 = "3. " + addonString_genesis(30009).encode('utf-8') #Search
+			list4 = "4. " + addonString_genesis(30021).encode('utf-8') #Genres
+			returned, value = dialogselect(heading,[list0, list1, list2, list3, list4],0)
+			if returned != -1:
+				setSkinSetting("0",'moviesestartup',str(returned))
+				#setSkinSetting("0",'moviesestartup',value)
+				'''---------------------------'''
+			
+		elif property_buttonid == "78":
+			'''------------------------------
+			---TVSHOWS------------------------
+			------------------------------'''
+			printpoint = printpoint + "2"
+			heading = localize(512) + space + localize(20343)
+			list0 = "0. " + localize(20108) #root
+			list1 = "1. " + addonString_genesis(30027).encode('utf-8') #Most Popular
+			list2 = "2. " + addonString_genesis(30544).encode('utf-8') #Returning TV Shows
+			list3 = "3. " + addonString_genesis(30009).encode('utf-8') #Search
+			list4 = "4. " + addonString_genesis(30021).encode('utf-8') #Genres
+			returned, value = dialogselect(heading,[list0, list1, list2, list3, list4],0)
+			if returned != -1:
+				setSkinSetting("0",'tvshowsestartup',str(returned))
+				'''---------------------------'''
+		else: printpoint = printpoint + "9"
 
 def mode206(admin, name, printpoint):
 	'''------------------------------
@@ -3425,86 +3270,1218 @@ def mode209(admin, name, printpoint):
 	mode209(admin, name, printpoint)
 	'''---------------------------'''
 
-def mode210(admin, name, printpoint):
+def mode210(value, admin, name, printpoint):
 	'''------------------------------
-	---?-----------------------------
+	---MOVE-ITEM---------------------
 	------------------------------'''
-	name = "?"
-	mode240(admin, name, printpoint)
-	'''---------------------------'''
+	extra = "" ; extra2 = "" ; TypeError = "" ; x = "" ; y = "" ; y2 = ""
 	
-def mode211(admin, name, printpoint):
-	'''------------------------------
-	---?-----------------------------
-	------------------------------'''
-	name = "?"
-	mode211(admin, name, printpoint)
+	xbmc.executebuiltin('Action(Close)')
+	
+	#dp = xbmcgui.DialogProgress() ; dp.create(name, "Starting", " ")
 	'''---------------------------'''
 
-def mode212(admin, name, printpoint):
-	'''------------------------------
-	---?-----------------------------
-	------------------------------'''
-	name = "?"
-	mode212(admin, name, printpoint)
-	'''---------------------------'''
+	if not int(property_buttonid) > 0 or not int(property_buttonid_) > 0: printpoint = printpoint + "9A"
+	if '0' in value:
+		printpoint = printpoint + "0"
+		if property_temp == property_buttonid or property_temp2 == property_buttonid_: printpoint = printpoint + "9B"
+		if property_temp2 == "": printpoint = printpoint + "9C"
+		else:
+			try:
+				if not int(property_temp2) > 0: printpoint = printpoint + "9D"
+			except Exception, TypeError: extra = extra + newline + "TypeError" + space2 + str(TypeError) ; printpoint = printpoint + "9E"
+	
+	if 1 + 1 == 2: pass
+	elif '1' in value or '2' in value:
+		if property_subbuttonid == "" or property_subbuttonid_ == "": printpoint = printpoint + "9F"
+		elif not property_buttonid in property_subbuttonid and not property_buttonid_ in property_subbuttonid_: printpoint = printpoint + "9G"
+		elif '_90' in property_subbuttonid or '_90' in property_subbuttonid_: printpoint = printpoint + "9H"
+		'''---------------------------'''
+		if '1' in value:
+			'''sub menu item up'''
+			printpoint = printpoint + "1"
+			#dp.update(10,"sub menu item up"," ")
+			if property_previoussubbuttonid == "" or property_previoussubbuttonid_ == "": printpoint = printpoint + "9I"
+			elif property_subbuttonid in property_previoussubbuttonid or property_subbuttonid_ in property_previoussubbuttonid_: printpoint = printpoint + "9J"
+			elif property_subbuttonid == property_previoussubbuttonid or property_buttonid_ == property_previoussubbuttonid_: printpoint = printpoint + "9K"
+			elif '_90' in property_previoussubbuttonid or '_90' in property_previoussubbuttonid_: printpoint = printpoint + "9L"
+			'''---------------------------'''
+		elif '2' in value:
+			'''sub menu item down'''
+			printpoint = printpoint + "2"
+			#dp.update(10,"sub menu item down"," ")
+			if property_nextsubbuttonid == "" or property_nextsubbuttonid_ == "": printpoint = printpoint + "9I"
+			elif property_subbuttonid in property_nextsubbuttonid or property_subbuttonid_ in property_nextsubbuttonid_: printpoint = printpoint + "9J"
+			elif property_subbuttonid == property_nextsubbuttonid or property_buttonid_ == property_nextsubbuttonid_: printpoint = printpoint + "9K"
+			elif '_90' in property_nextsubbuttonid or '_90' in property_nextsubbuttonid_: printpoint = printpoint + "9L"
+			'''---------------------------'''	
+	if not '9' in printpoint:
+		notification_common("2")
+		from variables2 import *
+		if '0' in value:
+			for i in range(0,2):
+				x = "" ; y = "" ; y2 = ""
+				print "i" + space2 + str(i)
+				if i == 0:
+					'''property_buttonid -> property_temp'''
+					#dp.update(20,"property_buttonid -> property_temp"," ")
+					x = property_temp2
+					x2 = property_temp
+					y = property_buttonid_
+					y2 = property_buttonid
+					'''---------------------------'''
+				elif i == 1:
+					'''property_temp -> property_buttonid'''
+					#dp.update(50,"property_temp -> property_buttonid"," ")
+					x = property_buttonid_
+					x2 = property_buttonid_
+					y = property_temp2
+					y2 = property_temp
+					'''---------------------------'''
+				else: pass	
+				if x != "" and y != "":
+					'''continue'''
+					notification("...", str(labelT.get('label'+x)) + ' -> ' + str(labelT.get('label'+y)), "", 1000)
+					setSkinSetting('0','id'+x,str(idT.get('id'+y)))
+					setSkinSetting('0','label'+x,str(labelT.get('label'+y)))
+					setSkinSetting('0','action'+x,str(actionT.get('action'+y)))
+					setSkinSetting('1','off'+x,str(offT.get('off'+y)))
+					setSkinSetting('0','color'+x,str(colorT.get('color'+y)))
+					setSkinSetting('0','icon'+x,str(iconT.get('icon'+y)))
+					#setSkinSetting('0','background'+y,str(backgroundT.get('background'+x)))
+					setSkinSetting('1','sub'+x,str(subT.get('sub'+y)))
+					'''---------------------------'''
+					#setSkinSetting('0','label'+x+'_90',str(label_T.get('label'+y+'_90'))) #_90 label
+					#setSkinSetting('0','icon'+x+'_90',str(icon_T.get('icon'+y+'_90'))) #_90 icon
+					#setSkinSetting('0','action'+x+'_90',str(action_T.get('action'+y+'_90'))) #_90 icon
+					'''---------------------------'''
+					if 1 + 1 == 3:
+						for i2 in range (90,110):
+							setSkinSetting('0','id'+x+'_'+str(i2),str(id_T.get('id'+y+'_'+str(i2))))
+							setSkinSetting('1','off'+x+'_'+str(i2),str(off_T.get('off'+y+'_'+str(i2))))
+							setSkinSetting('0','label'+x+'_'+str(i2),str(label_T.get('label'+y+'_'+str(i2))))
+							setSkinSetting('0','action'+x+'_'+str(i2),str(action_T.get('action'+y+'_'+str(i2))))
+							setSkinSetting('0','icon'+x+'_'+str(i2),str(icon_T.get('icon'+y+'_'+str(i2))))
+							'''---------------------------'''
+				else: notification("Error","","",2000) ; printpoint = printpoint + "8"
+		elif '1' in value or '2' in value:
+			for i in range(0,2):
+				x = "" ; y = ""
+				if i == 0:
+					if '1' in value:
+						'''property_subbuttonid_ -> property_previoussubbuttonid_'''
+						#dp.update(20,"property_subbuttonid_ -> property_previoussubbuttonid_"," ")
+						x = property_previoussubbuttonid_
+						y = property_subbuttonid_
+						'''---------------------------'''
+					elif '2' in value:
+						'''property_subbuttonid_ -> property_nextsubbuttonid_'''
+						#dp.update(20,"property_subbuttonid_ -> property_nextsubbuttonid_"," ")
+						x = property_nextsubbuttonid_
+						y = property_subbuttonid_
+						'''---------------------------'''
+					
+				elif i == 1:
+					'''property_previoussubbuttonid_ -> property_subbuttonid_'''
+					if '1' in value:
+						'''property_previoussubbuttonid_ -> property_subbuttonid_'''
+						#dp.update(50,"property_previoussubbuttonid_ -> property_subbuttonid_"," ")
+						x = property_subbuttonid_
+						y = property_previoussubbuttonid_
+						'''---------------------------'''
+					elif '2' in value:
+						'''property_nextsubbuttonid_ -> property_subbuttonid_'''
+						#dp.update(50,"property_nextsubbuttonid_ -> property_subbuttonid_"," ")
+						x = property_subbuttonid_
+						y = property_nextsubbuttonid_
+						'''---------------------------'''
+					
+				else: pass
+				
+				if x != "" and y != "":
+					'''continue'''
+					#label_ = xbmc.getInfoLabel('$VAR[label'+y+']')
+					label_ = xbmc.getInfoLabel('$VAR['+label_T.get('label'+y)+']')
+					#label_ = xbmc.getInfoLabel('$VAR[label78_91]')
+					
+					#elif i == 1: label_ = xbmc.getInfoLabel('$VAR[label'+x+']')
+					#y2 = xbmc.getInfoLabel('$VAR[action'+x+']')
+					#from variables2 import label_T
+					notification("...", "", "", 1000)
+					setSkinSetting('0','id'+x,str(id_T.get('id'+y)))
+					setSkinSetting('1','off'+x,str(off_T.get('off'+y)))
+					#xbmc.executebuiltin('Skin.SetString(label'+x+','+str(label_T.get('label'+y))+')')
+					setSkinSetting('0','label'+x,label_T.get('label'+y))
+					#setSkinSetting('0','label'+x,str(label_))
+					setSkinSetting('0','action'+x,str(action_T.get('action'+y)))
+					setSkinSetting('0','icon'+x,str(icon_T.get('icon'+y)))
+					
+					print id_T.get('id'+y)
+					print label_T.get('label'+y)
+					print 'label_' + space2 + label_
+					print action_T.get('action'+y)
+					print icon_T.get('icon'+y)
+					print 'label_T:'
+					if 1 + 1 == 3:
+						for xx in label_T:
+							if xx != "":
+								print xx
+								'''---------------------------'''
+				else: printpoint = printpoint + "9" ; break
+				
+				extra2 = extra2 + newline + "i" + space2 + str(i) + space + "x" + space2 + str(x) + space + "y" + space2 + str(y) + space + "y2" + space2 + str(y2) + space
+	#dp.close
+	if "9" in printpoint: notification("Error Occured!", '', '', 2000)
+	else:
+		pass#ReloadSkin(admin)
+		xbmc.sleep(500) ; xbmc.executebuiltin('Action(Down)') ; xbmc.sleep(500) ; xbmc.executebuiltin('Action(Up)')
+	if admin and not admin2 and admin3:
+		print printfirst + name + "_LV" + printpoint + space + "value" + space2 + str(value) + newline + \
+		"property_buttonid" + space2 + str(property_buttonid) + space + "property_buttonid_" + space2 + str(property_buttonid_) + newline + \
+		"property_temp" + space2 + str(property_temp) + space + "property_temp2" + space2 + str(property_temp2) + newline + \
+		"property_subbuttonid" + space2 + str(property_subbuttonid) + space + "property_subbuttonid_" + space2 + str(property_subbuttonid_) + newline + \
+		"property_previoussubbuttonid" + space2 + str(property_previoussubbuttonid) + space + "property_previoussubbuttonid_" + space2 + str(property_previoussubbuttonid_) + newline + \
+		"property_nextsubbuttonid" + space2 + str(property_nextsubbuttonid) + space + "property_nextsubbuttonid_" + space2 + str(property_nextsubbuttonid_) + newline + \
+		extra + extra2
+		'''---------------------------'''
 
-def mode213(admin, name, printpoint):
+def mode211(value, admin, name, printpoint):
 	'''------------------------------
-	---?-----------------------------
+	---Create-New-Item---------------
 	------------------------------'''
-	name = "?"
-	mode213(admin, name, printpoint)
-	'''---------------------------'''
+	from variables2 import *
+	extra = "" ; TypeError = "" ; x = "" ; y = ""
+	
+	#xbmc.executebuiltin('Action(Close)')
+	if not int(property_buttonid_) > 0: printpoint = printpoint + "1" ; notification("Error No.1", "", "", 1000)
+	else:
+		'''Get new control ID'''
+		if '0' in value:
+			'''main menu item'''
+			xbmc.executebuiltin('Dialog.Close(1175)')
+			for i in range(100,109):
+				x = xbmc.getInfoLabel('Skin.String(label'+str(i)+')')
+				if x == "":
+					y = str(i)
+					setSkinSetting('0','label'+y,"...")
+					setSkinSetting('1','off'+y,"false")
+					break
+				else: pass
+		
+		elif '1' in value:
+			'''sub menu item'''
+			#xbmc.executebuiltin('Dialog.Close(1138)')
+			for i in range(100,109):
+				x = xbmc.getInfoLabel('Skin.String(label'+property_buttonid+'_'+str(i)+')')
+				print x
+				if x == "":
+					y = property_buttonid+'_'+str(i)
+					setSkinSetting('0','label'+y,"...")
+					setSkinSetting('1','off'+y,"false")
+					break
+				else: pass
 
-def mode214(admin, name, printpoint):
+					
+		if y == "": printpoint = printpoint + "9" ; notification("Cannot create new buttons","Delete some first","",2000)
+		else:
+			notification("...", "", "", 1000)
+			mode232(y, admin, 'ACTION-BUTTON', printpoint)
+			'''---------------------------'''
+			#xbmc.executebuiltin('SetProperty(TEMP2,'+str(idT.get('id'+y))+',home)') #STATIC
+			#xbmc.executebuiltin('SetProperty(TEMP,'+str(idT.get('id'+y))+',home)') #DYNAMIC
+			
+			#xbmc.executebuiltin('RunScript('+addonID+',,?mode=210&value=0)') ; xbmc.sleep(1000)
+			#mode210(y, admin, name, printpoint)
+				
+	
+	if admin and not admin2 and admin3:
+		print printfirst + name + "_LV" + printpoint + space + "value" + space2 + str(value) + newline + \
+		"property_buttonid" + space2 + str(property_buttonid) + space + "property_buttonid_" + space2 + str(property_buttonid_) + newline + \
+		"property_temp" + space2 + str(property_temp) + space + "property_temp2" + space2 + str(property_temp2) + newline + \
+		"x" + space2 + str(x) + newline + \
+		"y" + space2 + str(y) + newline + \
+		extra
+		'''---------------------------'''
+
+def mode212(value, admin, name, printpoint):
 	'''------------------------------
-	---?-----------------------------
+	---REMOVE-ITEM-------------------
 	------------------------------'''
-	name = "?"
-	mode214(admin, name, printpoint)
-	'''---------------------------'''
+	extra = "" ; extra2 = "" ; TypeError = "" ; x = "" ; two = 1 ; property_buttonname2 = ""
 
-def mode215(admin, name, printpoint):
+	try:
+		if property_buttonid == "": printpoint = printpoint + "9A"
+		else: test = int(property_buttonid_) + 1
+		if '0' in value:
+			if int(property_buttonid) < 100 and not 'B' in value: printpoint = printpoint + "9B"
+		if '1' in value:
+			if not "_" in property_subbuttonid or not "_" in property_subbuttonid_: printpoint = printpoint + "9C"
+			if not "_" in property_subbuttonid or not "_" in property_subbuttonid_: printpoint = printpoint + "9D"
+			if not property_buttonid in property_subbuttonid and not property_buttonid_ in property_subbuttonid_: printpoint = printpoint + "9E"
+		if 'B' in value and property_buttonid != property_buttonid_:
+			from variables2 import idT, labelT
+			two = 2
+			y = 'Reset item'
+			x = property_buttonid_
+			property_buttonname2 = labelT.get('label'+property_buttonid)
+			extra2 = extra2 + newline + "This action will also reset" + space2 + str(property_buttonname2) + space + "(" + str(property_buttonid) + ")"
+		
+		else:
+			y = 'Remove item'
+			x = property_buttonid_
+			two = 1
+			
+	except Exception, TypeError: extra = extra + newline + "TypeError" + space2 + str(TypeError) ; printpoint = printpoint + "9F"
+	
+	if not '9' in printpoint:
+		if '0' in value:
+			'''main menu item'''
+			printpoint = printpoint + "0"
+			xbmc.sleep(100) ; returned = dialogyesno(y + space2 + str(property_buttonname), "Choose YES to proceed!" + extra2)
+			if returned == 'skip': printpoint = printpoint + "8"
+			else:
+				for i in range(0,two):
+					if i == 1: x = str(property_buttonid)
+					setSkinSetting('1','off' + x,"false")
+					if int(property_buttonid) > 99 and not 'B' in value: setSkinSetting('0','label' + x,"")
+					else: setSkinSetting('0','label' + x,"...")
+					setSkinSetting('1','sub' + x,"false")
+					setSkinSetting('0','id' + x,"")
+					setSkinSetting('0','color' + x,"")
+					setSkinSetting('0','icon' + x,"")
+					setSkinSetting('0','action' + x,"")
+
+					if '2' in value:
+						'''sub menu items'''
+						printpoint = printpoint + "2"
+						if x == "": printpoint = printpoint + "9L"
+						else:
+							for i in range(90,109):
+								if i > 99 : setSkinSetting('0','label'+x+'_'+str(i),"")
+								else: setSkinSetting('0','label'+x+'_'+str(i),"")
+								setSkinSetting('1','off'+x+'_'+str(i),"false")
+								setSkinSetting('0','id'+x+'_'+str(i),"")
+								setSkinSetting('0','action'+x+'_'+str(i),"")
+								setSkinSetting('0','icon'+x+'_'+str(i),"")
+								'''---------------------------'''			
+				printpoint = printpoint + "7"
+					
+		if '1' in value:
+			'''sub menu item'''
+			printpoint = printpoint + "1"
+			if 'B' in value:
+				y = 'Reset item'
+				x = property_subbuttonid_
+			else:
+				y = 'Remove item'
+				x = property_subbuttonid_
+				
+			xbmc.sleep(100) ; returned = dialogyesno(y + space2 + str(property_subbuttonname), "Choose YES to proceed!")
+			if returned == 'skip': printpoint = printpoint + "8"
+			else:
+				setSkinSetting('1','off' + x,"false")
+				if not '_90' in property_subbuttonid_ and not 'B' in value: setSkinSetting('0','label' + x,"")
+				else: setSkinSetting('0','label' + x,"...")
+				setSkinSetting('0','id' + x,"")
+				setSkinSetting('0','icon' + x,"")
+				setSkinSetting('0','action' + x,"")
+				printpoint = printpoint + "7"
+		
+	
+	if not "7" in printpoint and not "8" in printpoint:
+		'''Error'''
+		notification("Error...","","",1000)
+	else:
+		xbmc.executebuiltin('Action(Close)') ; xbmc.sleep(500)
+		xbmc.executebuiltin('RunScript(script.htpt.smartbuttons,,?mode=215&value='+property_buttonid_+')')
+		if two == 2: xbmc.executebuiltin('RunScript(script.htpt.smartbuttons,,?mode=215&value='+property_buttonid+')')
+	
+	
+	
+	if admin and not admin2 and admin3:
+		print printfirst + name + "_LV" + printpoint + space + "value" + space2 + str(value) + newline + \
+		"property_buttonid" + space2 + str(property_buttonid) + space + "property_buttonid_" + space2 + str(property_buttonid_) + space + "property_buttonname" + space2 + str(property_buttonname) + newline + \
+		"property_buttonname2" + space2 + str(property_buttonname2) + newline + \
+		"property_subbuttonid" + space2 + str(property_subbuttonid) + space + "property_subbuttonid_" + space2 + str(property_subbuttonid_) + space + "property_subbuttonname" + space2 + str(property_subbuttonname) + newline + \
+		extra
+		'''---------------------------'''
+
+def mode213(value, admin, name, printpoint):
 	'''------------------------------
-	---?-----------------------------
+	---Includes_HomeContent----------
 	------------------------------'''
-	name = "?"
-	mode215(admin, name, printpoint)
-	'''---------------------------'''
+	list = [] ; i = 0 ; x = 0
+	
+	returned_Dialog, returned_Header, returned_Message = checkDialog(admin)
+	if returned_Dialog != "": printpoint = printpoint + "9"
+	
+	elif value == '1' or value == '2':
+		'''homeW/customhomecustomizerW'''
+		if custom1138W or custom1139W or custom1175W or custom1173W or myvideonavW: printpoint = printpoint + "9"
+		x = xbmc.getInfoLabel('Container(9000).ListItem('+str(i)+').Label')
+		y = xbmc.getInfoLabel('Container(9000).NumItems')
 
-def mode216(admin, name, printpoint):
+	elif value == '3':
+		'''customhomecustomizer2W'''
+		if custom1138W or custom1139W or custom1175W or custom1173W: printpoint = printpoint + "9"
+		x = xbmc.getInfoLabel('Container(51).ListItem('+str(i)+').Label')
+		y = xbmc.getInfoLabel('Container(51).NumItems')
+	
+	elif value == '4':
+		'''myvideonav'''
+		x = 'N/A'
+		y = 'N/A'
+		
+	try: test = int(y)
+	except: y = 0
+	
+	if value == '1':
+		if int(y) < 2:
+			'''set default buttons'''
+			printpoint = printpoint + "5"
+			mode215('_', admin, name, "")
+			
+			if 1 + 1 == 3:
+				if not os.path.exists(includes_homecontent_file): printpoint = printpoint + "5"
+				else:
+					filesize = getFileAttribute(2, includes_homecontent_file)
+					if filesize == 0: printpoint = printpoint + "5"
+					else:
+						homeW = xbmc.getCondVisibility('Window.IsVisible(Home.xml)')
+						container9000numitems = xbmc.getInfoLabel('Container(9000).NumItems')
+						if homeW and container9000numitems == "0": printpoint = printpoint + "5"
+						'''---------------------------'''
+					
+				if "5" in printpoint:
+					if os.path.exists(includes_homecontent2_file):
+						printpoint = printpoint + "1"
+						notification("Restoring AutoSaved Buttons", "...", "", 4000)
+						returned = copyfiles(includes_homecontent2_file, includes_homecontent_file, chmod="", mount=False)
+						if returned != 'ok': notification("Error restoring AutoSaved Buttons", "...", "", 3000)
+						xbmc.sleep(1000)
+						replace_word(includes_homecontent_file,'','', LineR=True, LineClean=True)
+						ReloadSkin(admin) ; xbmc.sleep(4000)
+					
+					homeW = xbmc.getCondVisibility('Window.IsVisible(Home.xml)')
+					container9000numitems = xbmc.getInfoLabel('Container(9000).NumItems')
+					if homeW and container9000numitems == "0":
+						printpoint = printpoint + "3"
+						if os.path.exists(includes_homecontent3_file):
+							printpoint = printpoint + "7"
+							notification("Restoring Default Home Buttons!", "...", "", 4000)
+							returned = copyfiles(includes_homecontent3_file, includes_homecontent_file, chmod="", mount=False) ; xbmc.sleep(1000)
+							if returned != 'ok': notification("Error restoring Default Home Buttons", "Contact HTPT Team", "", 3000)
+							xbmc.sleep(1000)
+							replace_word(includes_homecontent_file,'','', LineR=True, LineClean=True)
+							ReloadSkin(admin) ; xbmc.sleep(4000)
+	
+	if "9" in printpoint: pass
+	elif (value == '1' or value == '2' or value == '3') and xbmc.getInfoLabel('$VAR[background]') == "" and reloadskin_check == "": printpoint = printpoint + "7A"
+	elif value == '4' and xbmc.getCondVisibility('IsEmpty(Control.GetLabel(111))') and xbmc.getCondVisibility('!Control.IsVisible(7021)') and reloadskin_check == "": printpoint = printpoint + "7B"
+	elif (x == "" or y == ""):
+		'''ReloadSkin - Fix Bug'''
+		count = 0
+		for i in range(-5,5):
+			count += 1
+			x = xbmc.getInfoLabel('Container(9000).ListItem('+str(i)+').Label') + xbmc.getInfoLabel('Container(51).ListItem('+str(i)+').Label') + xbmc.getInfoLabel('Container(50).ListItem('+str(i)+').Label')
+			list.append(x)
+			if x != '' and x != 'Test': break
+	
+		if count > 7:
+			printpoint = printpoint + "7D"
+	
+	else:
+		pass
+	
+	if "7" in printpoint: ReloadSkin(admin)
+	
+	print printfirst + name + "_LV" + printpoint + space + "value" + space2 + str(value) + space + newline + \
+	"x" + space2 + str(x) + space + "y" + space2 + str(y) + space + newline + \
+	"list" + space2 + str(list) + newline + \
+	"$VAR[background]" + space2 + str(xbmc.getInfoLabel('$VAR[background]')) + space + "$VAR[MainBackgroundTexture]" + space2 + str(xbmc.getInfoLabel('$VAR[MainBackgroundTexture]')) + newline + \
+	"$VAR[Button9093]" + space2 + str(xbmc.getInfoLabel('$VAR[Button9093]')) + space + "reloadskin_check" + space2 + str(reloadskin_check)
+
+def mode214(value, admin, name, printpoint):
+	if value == '0':
+		returned = dialogkeyboard(property_buttonname,'Button Name',0,"",'label'+property_buttonid_,"")
+		if returned != 'skip':
+			if returned == "": setSkinSetting('0','label'+property_buttonid_, '...') ; xbmc.sleep(500) ; mode215(property_buttonid_, admin, name, "")
+	
+	if value == '1':
+		returned = dialogkeyboard(property_subbuttonname,'Sub Button Name',0,"",'label'+property_subbuttonid_,"")
+		if returned != 'skip':
+			if returned == "": setSkinSetting('0','label'+property_subbuttonid_, '...') ; xbmc.sleep(500) ; mode215(property_subbuttonid, admin, name, "")
+		
+def mode215(value, admin, name, printpoint):
+	extra2 = ""
+	from variables2 import *
+	
+	if value == '_' or value == 'MAIN':
+		for i in range(70,110):				
+			if 1 + 1 == 3:
+				x = 'id'+str(i)
+				y = xbmc.getInfoLabel('Skin.String('+x+')')
+				if y == "":
+					setSkinSetting('0',str(x),str(x).replace('id',""))
+					if admin: extra2 = extra2 + space + "id" + space + "x" + space2 + str(x) + space + "y" + space2 + str(y) + '|'
+					
+			for i2 in range(90,110):
+				x = 'id'+str(i)+'_'+str(i2)
+				y = xbmc.getInfoLabel('Skin.String('+x+')')
+				if y == "":
+					setSkinSetting('0',str(x),str(x).replace('id',""))
+					if admin: extra2 = extra2 + space + "id_" + space + "x" + space2 + str(x) + space + "y" + space2 + str(y) + '|'
+					
+	if 1 + 1 == 3:			
+		for x in id_T:
+			y = id_T.get(x)
+			print "y" + space2 + str(y)
+			if y == "" or y == None:
+				setSkinSetting('0','id' + str(x), str(x))
+				extra2 = extra2 + space + str(x) + space2 + str(y) + '|'
+			else:
+				pass
+				
+	
+	notification_common("2")
+	
+	if value == 'MAIN' or value == '_':
+		if 1 + 1 == 3:
+			for i in range(70,110):
+				
+				x = 'id'+str(i)
+				y = xbmc.getInfoLabel('Skin.String('+x+')')
+				if y == "":
+					setSkinSetting('0',str(x),str(x).replace('id',""))
+					extra2 = extra2 + newline + "id" + space + "x" + space2 + str(x) + space + "y" + space2 + str(y) + space
+						
+				for i2 in range(90,110):
+					x = 'id'+str(i)+'_'+str(i2)
+					y = xbmc.getInfoLabel('Skin.String('+x+')')
+					if y == "":
+						setSkinSetting('0',str(x),str(x).replace('id',""))
+						extra2 = extra2 + newline + "id_" + space + "x" + space2 + str(x) + space + "y" + space2 + str(y) + space
+	
+	'''סרטים'''
+	if value != "":
+		'''ראשי'''
+		x = '70' ; id = idT2.get(x)
+		if id != "" and 1 + 1 == 2:
+			label = labelT.get('label'+str(id)) ; icon = iconT.get('icon'+str(id))
+			if label == "" or label == "..." or value == 'RESET': setSkinSetting('0','label'+id,localize(342))
+			setSkinSetting('0','action'+id,'RunScript(script.htpt.smartbuttons,,?mode=501&value=0)')
+			if icon == "" or value == 'RESET': setSkinSetting('0','icon'+id,'icons/movies.png')		
+			'''---------------------------'''
+		if value in '70_93' or value == 'RESET':
+			'''קדימונים'''
+			x = '70_93' ; id = id_T2.get(x)
+			
+			if id != "" and id != None:
+				id = id.replace('id',"")
+				label = label_T.get('label'+str(id)) ; icon = icon_T.get('icon'+str(id))
+				if label == "" or label == "..." or value == 'RESET': setSkinSetting('0','label'+id,'קדימונים')
+				setSkinSetting('0','action'+id,'RunScript(script.htpt.smartbuttons,,?mode=501&value=3)')
+				if icon == "" or value == 'RESET': setSkinSetting('0','icon'+id,'icons/trailers.png')
+				'''---------------------------'''
+		if value in '70_94' or value == 'RESET':
+			'''חידון'''
+			x = '70_94' ; id = id_T2.get(x)
+			
+			if id != "" and id != None:
+				id = id.replace('id',"")
+				label = label_T.get('label'+str(id)) ; icon = icon_T.get('icon'+str(id))
+				if label == "" or label == "..." or value == 'RESET': setSkinSetting('0','label'+id,'חידון') #localize(75090)
+				setSkinSetting('0','action'+id,'RunScript(script.htpt.smartbuttons,,?mode=501&value=4)')
+				if icon == "" or value == 'RESET': setSkinSetting('0','icon'+id,'')
+				'''---------------------------'''
+	
+	'''סדרות'''
+	if value != "":
+		'''ראשי'''
+		x = '71' ; id = idT2.get(x)
+		if id != "" and 1 + 1 == 2:		
+			label = labelT.get('label'+str(id)) ; icon = iconT.get('icon'+str(id))
+			if label == "" or label == "..." or value == 'RESET': setSkinSetting('0','label'+id,localize(20343))
+			
+			setSkinSetting('0','action'+id,'RunScript(script.htpt.smartbuttons,,?mode=502&value=0)')
+			if icon == "" or value == 'RESET': setSkinSetting('0','icon'+id,'icons/tvshows.png')
+			'''---------------------------'''
+	
+	''''''
+	if value != "" and 1 + 1 == 3:
+		'''ראשי'''
+		x = '72' ; id = idT2.get(x)
+		if id != "" and 1 + 1 == 2:		
+			label = labelT.get('label'+str(id)) ; icon = iconT.get('icon'+str(id))
+			if label == "" or label == "..." or value == 'RESET': setSkinSetting('0','label'+id,'')
+			setSkinSetting('0','action'+id,'')
+			if icon == "" or value == 'RESET': setSkinSetting('0','icon'+id,'')
+			'''---------------------------'''
+	
+	''''''
+	if value != "" and 1 + 1 == 3:
+		'''ראשי'''
+		x = '73' ; id = idT2.get(x)
+		if id != "" and 1 + 1 == 2:		
+			label = labelT.get('label'+str(id)) ; icon = iconT.get('icon'+str(id))
+			if label == "" or label == "..." or value == 'RESET': setSkinSetting('0','label'+id,'')
+			setSkinSetting('0','action'+id,'')
+			if icon == "" or value == 'RESET': setSkinSetting('0','icon'+id,'')
+			'''---------------------------'''	
+		
+	'''סדרות ישראליות'''
+	if value != "":
+		'''ראשי'''
+		x = '74' ; id = idT2.get(x)
+		if id != "" and 1 + 1 == 2:		
+			label = labelT.get('label'+str(id)) ; icon = iconT.get('icon'+str(id))
+			if label == "" or label == "..." or value == 'RESET': setSkinSetting('0','label'+id,localize(73420))
+			setSkinSetting('0','action'+id,'RunScript(script.htpt.smartbuttons,,?mode=503&value=0)')
+			if icon == "" or value == 'RESET': setSkinSetting('0','icon'+id,'icons/israeltv.png')
+			'''---------------------------'''
+		print str(id)
+		if value in '74_91' or value == 'RESET':
+			'''מאקו'''
+			x = '74_91' ; id = id_T2.get(x)
+			
+			if id != "" and id != None:
+				id = id.replace('id',"")
+				label = label_T.get('label'+str(id)) ; icon = icon_T.get('icon'+str(id))
+				if label == "" or label == "..." or value == 'RESET': setSkinSetting('0','label'+id,localize(79002))
+				setSkinSetting('0','action'+id,'RunScript(script.htpt.smartbuttons,,?mode=503&value=1)')
+				if icon == "" or value == 'RESET': setSkinSetting('0','icon'+id,'icons/makoTV.png')
+				'''---------------------------'''
+		if value in '74_92' or value == 'RESET':
+			'''רשת'''
+			x = '74_92' ; id = id_T2.get(x)
+			
+			if id != "" and id != None:
+				id = id.replace('id',"")
+				label = label_T.get('label'+str(id)) ; icon = icon_T.get('icon'+str(id))
+				if label == "" or label == "..." or value == 'RESET': setSkinSetting('0','label'+id,localize(79003))
+				setSkinSetting('0','action'+id,'RunScript(script.htpt.smartbuttons,,?mode=503&value=2)')
+				if icon == "" or value == 'RESET': setSkinSetting('0','icon'+id,'icons/reshet.png')
+				'''---------------------------'''
+		if value in '74_93' or value == 'RESET':
+			'''סרטים ישראלים'''
+			x = '74_93' ; id = id_T2.get(x)
+			
+			if id != "" and id != None:
+				id = id.replace('id',"")
+				label = label_T.get('label'+str(id)) ; icon = icon_T.get('icon'+str(id))
+				if label == "" or label == "..." or value == 'RESET': setSkinSetting('0','label'+id,localize(78958))
+				setSkinSetting('0','action'+id,'RunScript(script.htpt.smartbuttons,,?mode=503&value=3)')
+				if icon == "" or value == 'RESET': setSkinSetting('0','icon'+id,'icons/israelmovies.png')
+				'''---------------------------'''
+		if value in '74_94' or value == 'RESET':
+			'''טלנובלה'''
+			x = '74_94' ; id = id_T2.get(x)
+			
+			if id != "" and id != None:
+				id = id.replace('id',"")
+				label = label_T.get('label'+str(id)) ; icon = icon_T.get('icon'+str(id))
+				if label == "" or label == "..." or value == 'RESET': setSkinSetting('0','label'+id,localize(78943))
+				setSkinSetting('0','action'+id,'RunScript(script.htpt.smartbuttons,,?mode=503&value=4)')
+				if icon == "" or value == 'RESET': setSkinSetting('0','icon'+id,'icons/soapopera.png')
+				'''---------------------------'''
+		if value in '74_96' or value == 'RESET':
+			'''VOD הוט'''
+			x = '74_96' ; id = id_T2.get(x)
+			
+			if id != "" and id != None:
+				id = id.replace('id',"")
+				label = label_T.get('label'+str(id)) ; icon = icon_T.get('icon'+str(id))
+				if label == "" or label == "..." or value == 'RESET': setSkinSetting('0','label'+id,localize(79000))
+				setSkinSetting('0','action'+id,'RunScript(script.htpt.smartbuttons,,?mode=503&value=6)')
+				if icon == "" or value == 'RESET': setSkinSetting('0','icon'+id,'icons/hotvod.png')
+				'''---------------------------'''
+		if value in '74_97' or value == 'RESET':
+			'''VOD ערוץ 10'''
+			x = '74_97' ; id = id_T2.get(x)
+			
+			if id != "" and id != None:
+				id = id.replace('id',"")
+				label = label_T.get('label'+str(id)) ; icon = icon_T.get('icon'+str(id))
+				if label == "" or label == "..." or value == 'RESET': setSkinSetting('0','label'+id,localize(79005) + ' VOD')
+				setSkinSetting('0','action'+id,'RunScript(script.htpt.smartbuttons,,?mode=503&value=7)')
+				if icon == "" or value == 'RESET': setSkinSetting('0','icon'+id,'icons/c10.png')
+				'''---------------------------'''
+		if value in '74_98' or value == 'RESET':
+			'''VOD ערוץ 11'''
+			x = '74_98' ; id = id_T2.get(x)
+			
+			if id != "" and id != None:
+				id = id.replace('id',"")
+				label = label_T.get('label'+str(id)) ; icon = icon_T.get('icon'+str(id))
+				if label == "" or label == "..." or value == 'RESET': setSkinSetting('0','label'+id,localize(79006) + ' VOD')
+				setSkinSetting('0','action'+id,'RunScript(script.htpt.smartbuttons,,?mode=503&value=8)')
+				if icon == "" or value == 'RESET': setSkinSetting('0','icon'+id,'icons/c11.png')
+				'''---------------------------'''
+	
+	'''יו-טיוב'''
+	if value != "":
+		'''ראשי'''
+		x = '75' ; id = idT2.get(x)
+		if id != "" and 1 + 1 == 2:		
+			label = labelT.get('label'+str(id)) ; icon = iconT.get('icon'+str(id))
+			if label == "" or label == "..." or value == 'RESET': setSkinSetting('0','label'+id,localize(73430))
+			setSkinSetting('0','action'+id,'RunScript(script.htpt.smartbuttons,,mode=504&value=0)')
+			if icon == "" or value == 'RESET': setSkinSetting('0','icon'+id,'icons/youtube.png')
+			'''---------------------------'''	
+		if value in '75_91' or value == 'RESET':
+			'''HTPT-צחוקים'''
+			x = '75_91' ; id = id_T2.get(x)
+			
+			if id != "" and id != None:
+				id = id.replace('id',"")
+				label = label_T.get('label'+str(id)) ; icon = icon_T.get('icon'+str(id))
+				if label == "" or label == "..." or value == 'RESET': setSkinSetting('0','label'+id,'HTPT ROFL')
+				setSkinSetting('0','action'+id,'RunScript(script.htpt.smartbuttons,,?mode=504&value=1)')
+				if icon == "" or value == 'RESET': setSkinSetting('0','icon'+id,'icons/rofl.png')
+				'''---------------------------'''
+		if value in '75_92' or value == 'RESET':
+			'''המיטב של יו-טיוב'''
+			x = '75_92' ; id = id_T2.get(x)
+			
+			if id != "" and id != None:
+				id = id.replace('id',"")
+				label = label_T.get('label'+str(id)) ; icon = icon_T.get('icon'+str(id))
+				if label == "" or label == "..." or value == 'RESET': setSkinSetting('0','label'+id,localize(79010))
+				setSkinSetting('0','action'+id,'RunScript(script.htpt.smartbuttons,,?mode=504&value=2)')
+				if icon == "" or value == 'RESET': setSkinSetting('0','icon'+id,'icons/bestofyoutube.png')
+				'''---------------------------'''
+		if value in '75_95' or value == 'RESET':
+			'''פוקר'''
+			x = '75_95' ; id = id_T2.get(x)
+			
+			if id != "" and id != None:
+				id = id.replace('id',"")
+				label = label_T.get('label'+str(id)) ; icon = icon_T.get('icon'+str(id))
+				if label == "" or label == "..." or value == 'RESET': setSkinSetting('0','label'+id,'POKER')
+				setSkinSetting('0','action'+id,'RunScript(script.htpt.smartbuttons,,?mode=504&value=5)')
+				if icon == "" or value == 'RESET': setSkinSetting('0','icon'+id,'icon/wsop.png')	
+				'''---------------------------'''
+	
+	'''מוזיקה'''
+	if value != "":
+		'''ראשי'''
+		x = '76' ; id = idT2.get(x)
+		if id != "" and 1 + 1 == 2:		
+			label = labelT.get('label'+str(id)) ; icon = iconT.get('icon'+str(id))
+			if label == "" or label == "..." or value == 'RESET': setSkinSetting('0','label'+id,localize(2))
+			setSkinSetting('0','action'+id,'RunScript(script.htpt.smartbuttons,,?mode=514&value=0)')
+			if icon == "" or value == 'RESET': setSkinSetting('0','icon'+id,'icons/music.png')
+			'''---------------------------'''	
+		if value in '76_92' or value == 'RESET':
+			'''ספריית מוזיקה'''
+			x = '76_92' ; id = id_T2.get(x)
+			
+			if id != "" and id != None:
+				id = id.replace('id',"")
+				label = label_T.get('label'+str(id)) ; icon = icon_T.get('icon'+str(id))
+				if label == "" or label == "..." or value == 'RESET': setSkinSetting('0','label'+id,localize(79491))
+				setSkinSetting('0','action'+id,'RunScript(script.htpt.smartbuttons,,?mode=514&value=3)')
+				if icon == "" or value == 'RESET': setSkinSetting('0','icon'+id,'')	
+			
+		if value in '76_93' or value == 'RESET':
+			'''רדיו'''
+			x = '76_93' ; id = id_T2.get(x)
+			
+			if id != "" and id != None:
+				id = id.replace('id',"")
+				label = label_T.get('label'+str(id)) ; icon = icon_T.get('icon'+str(id))
+				if label == "" or label == "..." or value == 'RESET': setSkinSetting('0','label'+id,localize(19021))
+				setSkinSetting('0','action'+id,'RunScript(script.htpt.smartbuttons,,?mode=514&value=4)')
+				if icon == "" or value == 'RESET': setSkinSetting('0','icon'+id,'icons/radio.png')	
+			
+		if value in '76_95' or value == 'RESET':
+			'''שיעורי גיטרה'''
+			x = '76_95' ; id = id_T2.get(x)
+			
+			if id != "" and id != None:
+				id = id.replace('id',"")
+				label = label_T.get('label'+str(id)) ; icon = icon_T.get('icon'+str(id))
+				if label == "" or label == "..." or value == 'RESET': setSkinSetting('0','label'+id,localize(79027))
+				setSkinSetting('0','action'+id,'RunScript(script.htpt.smartbuttons,,?mode=514&value=6)')
+				if icon == "" or value == 'RESET': setSkinSetting('0','icon'+id,'icons/guitar.png')	
+				
+	'''חפש/הוסף סרטים'''
+	if value != "":
+		'''ראשי'''
+		x = '77' ; id = idT2.get(x)
+		if id != "" and int(id) <100:			
+			label = labelT.get('label'+str(id)) ; icon = iconT.get('icon'+str(id))
+			if label == "" or label == "..." or value == 'RESET': setSkinSetting('0','label'+id,localize(73200))
+			setSkinSetting('0','action'+id,'RunScript(script.htpt.smartbuttons,,?mode=506&value=0)')
+			if icon == "" or value == 'RESET': setSkinSetting('0','icon'+id,'icons/moviese.png')
+			'''---------------------------'''	
+		if value in '77_91' or value == 'RESET':
+			'''פולסר'''
+			x = '77_91' ; id = id_T2.get(x)
+			
+			if id != "" and id != None:
+				id = id.replace('id',"")
+				label = label_T.get('label'+str(id)) ; icon = icon_T.get('icon'+str(id))
+				if label == "" or label == "..." or value == 'RESET': setSkinSetting('0','label'+id,localize(77474))
+				setSkinSetting('0','action'+id,'RunScript(script.htpt.smartbuttons,,?mode=506&value=1)')
+				if icon == "" or value == 'RESET': setSkinSetting('0','icon'+id,'')
+
+	'''חפש/הוסף סדרות'''
+	if value != "":
+		'''ראשי'''
+		x = '78' ; id = idT2.get(x)
+		if id != "" and int(id) <100:			
+			label = labelT.get('label'+str(id)) ; icon = iconT.get('icon'+str(id))
+			if label == "" or label == "..." or value == 'RESET': setSkinSetting('0','label'+id,localize(73210))
+			setSkinSetting('0','action'+id,'RunScript(script.htpt.smartbuttons,,?mode=507&value=0)')
+			if icon == "" or value == 'RESET': setSkinSetting('0','icon'+id,'icons/tvshowse.png')
+			'''---------------------------'''	
+		if value in '78_91' or value == 'RESET':
+			'''פולסר'''
+			x = '78_91' ; id = id_T2.get(x)
+			
+			if id != "" and id != None:
+				id = id.replace('id',"")
+				label = label_T.get('label'+str(id)) ; icon = icon_T.get('icon'+str(id))
+				if label == "" or label == "..." or value == 'RESET': setSkinSetting('0','label'+id,localize(77474))
+				setSkinSetting('0','action'+id,'RunScript(script.htpt.smartbuttons,,?mode=507&value=1)')
+				if icon == "" or value == 'RESET': setSkinSetting('0','icon'+id,'')	
+	
+	'''ערוצי טלוויזיה'''
+	if value != "":
+		'''ראשי'''
+		x = '79' ; id = idT2.get(x)
+		if id != "" and 1 + 1 == 2:
+			label = labelT.get('label'+str(id)) ; icon = iconT.get('icon'+str(id))
+			if label == "" or label == "..." or value == 'RESET': setSkinSetting('0','label'+id,localize(19023))
+			setSkinSetting('0','action'+id,'RunScript(script.htpt.smartbuttons,,?mode=517&value=0)')
+			if icon == "" or value == 'RESET': setSkinSetting('0','icon'+id,'icons/LiveTV.png')
+			'''---------------------------'''
+		if value in '79_91' or value == 'RESET':
+			'''ספורט 1'''
+			x = '79_91' ; id = id_T2.get(x)
+			
+			if id != "" and id != None:
+				id = id.replace('id',"")
+				label = label_T.get('label'+str(id)) ; icon = icon_T.get('icon'+str(id))
+				if label == "" or label == "..." or value == 'RESET': setSkinSetting('0','label'+id,localize(31621) + ' 1 ' + '('+localize(19664)+')')
+				setSkinSetting('0','action'+id,'RunScript(script.htpt.smartbuttons,,?mode=310)')
+				if icon == "" or value == 'RESET': setSkinSetting('0','icon'+id,'icons/football.png')
+			
+			
+		if value in '79_92' or value == 'RESET':
+			'''ספורט 2'''
+			x = '79_92' ; id = id_T2.get(x)
+			
+			if id != "" and id != None:
+				id = id.replace('id',"")
+				label = label_T.get('label'+str(id)) ; icon = icon_T.get('icon'+str(id))
+				if label == "" or label == "..." or value == 'RESET': setSkinSetting('0','label'+id,localize(31621) + ' 2 ' + '('+localize(19664)+')')
+				setSkinSetting('0','action'+id,'RunScript(script.htpt.smartbuttons,,?mode=311)')
+				if icon == "" or value == 'RESET': setSkinSetting('0','icon'+id,'icons/football.png')
+			
+			
+		if value in '79_96' or value == 'RESET':
+			'''ערוץ הטיולים'''
+			x = '79_96' ; id = id_T2.get(x)
+			
+			if id != "" and id != None:
+				id = id.replace('id',"")
+				label = label_T.get('label'+str(id)) ; icon = icon_T.get('icon'+str(id))
+				if label == "" or label == "..." or value == 'RESET': setSkinSetting('0','label'+id,localize(74603))
+				setSkinSetting('0','action'+id,'RunScript(script.htpt.smartbuttons,,?mode=517&value=6)')
+				if icon == "" or value == 'RESET': setSkinSetting('0','icon'+id,'icons/travel.png')
+	
+	'''מדע וטבע'''
+	if value != "":
+		'''ראשי'''
+		x = '80' ; id = idT2.get(x)
+		if id != "" and 1 + 1 == 2:
+			label = labelT.get('label'+str(id)) ; icon = iconT.get('icon'+str(id))
+			if label == "" or label == "..." or value == 'RESET': setSkinSetting('0','label'+id,'מדע וטבע')
+			setSkinSetting('0','action'+id,'RunScript(script.htpt.smartbuttons,,?mode=519&value=1)')
+			if icon == "" or value == 'RESET': setSkinSetting('0','icon'+id,'icons/animals.png')
+			'''---------------------------'''
+		
+		x = '80_94'
+		if value in x or value == 'RESET':
+			'''היסטוריה (סרטים)'''
+			id = id_T2.get(x)
+			
+			if id != "" and id != None:
+				id = id.replace('id',"")
+				label = label_T.get('label'+str(id)) ; icon = icon_T.get('icon'+str(id))
+				if label == "" or label == "..." or value == 'RESET': setSkinSetting('0','label'+id,localize(31612) + space + '(' + localize(20342) + ')')
+				setSkinSetting('0','action'+id,'RunScript(script.htpt.smartbuttons,,?mode=519&value=4)')
+				if icon == "" or value == 'RESET': setSkinSetting('0','icon'+id,'')
+				'''---------------------------'''
+				
+		x = '80_95'
+		if value in x or value == 'RESET':
+			'''היסטוריה (סדרות)'''
+			id = id_T2.get(x)
+			
+			if id != "" and id != None:
+				id = id.replace('id',"")
+				label = label_T.get('label'+str(id)) ; icon = icon_T.get('icon'+str(id))
+				if label == "" or label == "..." or value == 'RESET': setSkinSetting('0','label'+id,localize(31612) + space + '(' + localize(20343) + ')')
+				setSkinSetting('0','action'+id,'RunScript(script.htpt.smartbuttons,,?mode=519&value=5)')
+				if icon == "" or value == 'RESET': setSkinSetting('0','icon'+id,'')
+				'''---------------------------'''
+				
+		x = '80_95'
+		if value in x or value == 'RESET':
+			'''היסטוריה (סדרות)'''
+			id = id_T2.get(x)
+			
+			if id != "" and id != None:
+				id = id.replace('id',"")
+				label = label_T.get('label'+str(id)) ; icon = icon_T.get('icon'+str(id))
+				if label == "" or label == "..." or value == 'RESET': setSkinSetting('0','label'+id,localize(31612) + space + '(' + localize(20343) + ')')
+				setSkinSetting('0','action'+id,'RunScript(script.htpt.smartbuttons,,?mode=504&value=5)')
+				if icon == "" or value == 'RESET': setSkinSetting('0','icon'+id,'')
+				'''---------------------------'''
+				print "label" + space + str(label) + space + str(icon)
+			print "Walla" + space + str(x) + space + str(id)
+				
+		if value in '80_96' or value == 'RESET':
+			'''TED הרצאות'''
+			x = '80_96' ; id = id_T2.get(x)
+			
+			if id != "" and id != None:
+				id = id.replace('id',"")
+				label = label_T.get('label'+str(id)) ; icon = icon_T.get('icon'+str(id))
+				if label == "" or label == "..." or value == 'RESET': setSkinSetting('0','label'+id,localize(79014))
+				setSkinSetting('0','action'+id,'RunScript(script.htpt.smartbuttons,,?mode=504&value=6)')
+				if icon == "" or value == 'RESET': setSkinSetting('0','icon'+id,'icons/ted.png')
+			
+	'''ילדים'''
+	if value != "":
+		'''ראשי'''
+		x = '81' ; id = idT2.get(x) ; background = backgroundT.get('icon'+x)
+		if id != "" and 1 + 1 == 2:		
+			label = labelT.get('label'+str(id)) ; icon = iconT.get('icon'+str(id))
+			if label == "" or label == "..." or value == 'RESET': setSkinSetting('0','label'+id,localize(73220))
+			setSkinSetting('0','action'+id,'RunScript(script.htpt.smartbuttons,,?mode=515&value=0)')
+			if icon == "" or value == 'RESET': setSkinSetting('0','icon'+id,'icons/kids.png')
+			'''---------------------------'''	
+	
+	'''תמונות'''
+	if value != "":
+		'''ראשי'''
+		x = '82' ; id = idT2.get(x)
+		if id != "" and 1 + 1 == 2:		
+			label = labelT.get('label'+str(id)) ; icon = iconT.get('icon'+str(id))
+			if label == "" or label == "..." or value == 'RESET': setSkinSetting('0','label'+id,localize(1))
+			setSkinSetting('0','action'+id,'RunScript(script.htpt.smartbuttons,,?mode=509&value=0)')
+			if icon == "" or value == 'RESET': setSkinSetting('0','icon'+id,'icons/pictures.png')
+			'''---------------------------'''
+	
+	'''וידאו'''
+	if value != "":
+		'''ראשי'''
+		x = '83' ; id = idT2.get(x)
+		if id != "" and 1 + 1 == 2:		
+			label = labelT.get('label'+str(id)) ; icon = iconT.get('icon'+str(id))
+			if label == "" or label == "..." or value == 'RESET': setSkinSetting('0','label'+id,localize(157))
+			setSkinSetting('0','action'+id,'RunScript(script.htpt.smartbuttons,,?mode=513&value=0)')
+			if icon == "" or value == 'RESET': setSkinSetting('0','icon'+id,'icons/videos.png')
+			'''---------------------------'''	
+	
+	'''מזג אוויר'''
+	if value != "":
+		'''ראשי'''
+		x = '84' ; id = idT2.get(x)
+		if id != "" and 1 + 1 == 2:		
+			label = labelT.get('label'+str(id)) ; icon = iconT.get('icon'+str(id))
+			if label == "" or label == "..." or value == 'RESET': setSkinSetting('0','label'+id,localize(400))
+			setSkinSetting('0','action'+id,'RunScript(script.htpt.smartbuttons,,mode=508&value=0)')
+			if icon == "" or value == 'RESET': setSkinSetting('0','icon'+id,'icons/weather.png')
+			'''---------------------------'''
+		
+	'''גו-פרו'''
+	if value != "":
+		'''ראשי'''
+		x = '85' ; id = idT2.get(x)
+		if id != "" and 1 + 1 == 2:		
+			label = labelT.get('label'+str(id)) ; icon = iconT.get('icon'+str(id))
+			if label == "" or label == "..." or value == 'RESET': setSkinSetting('0','label'+id,localize(73440))
+			setSkinSetting('0','action'+id,'RunScript(script.htpt.smartbuttons,,?mode=505&value=0)')
+			if icon == "" or value == 'RESET': setSkinSetting('0','icon'+id,'icons/gopro.png')
+			'''---------------------------'''	
+		if value in '85_93' or value == 'RESET':
+			'''ספורט 5 VOD'''
+			x = '85_93' ; id = id_T2.get(x)
+			
+			if id != "" and id != None:
+				id = id.replace('id',"")
+				label = label_T.get('label'+str(id)) ; icon = icon_T.get('icon'+str(id))
+				if label == "" or label == "..." or value == 'RESET': setSkinSetting('0','label'+id,localize(31621) + ' 5 VOD')
+				setSkinSetting('0','action'+id,'RunScript(script.htpt.smartbuttons,,?mode=505&value=3)')
+				if icon == "" or value == 'RESET': setSkinSetting('0','icon'+id,'icons/israelsport5.png')
+			
+			
+		if value in '85_94' or value == 'RESET':
+			'''WWE'''
+			x = '85_94' ; id = id_T2.get(x)
+			
+			if id != "" and id != None:
+				id = id.replace('id',"")
+				label = label_T.get('label'+str(id)) ; icon = icon_T.get('icon'+str(id))
+				if label == "" or label == "..." or value == 'RESET': setSkinSetting('0','label'+id,'WWE')
+				setSkinSetting('0','action'+id,'RunScript(script.htpt.smartbuttons,,?mode=505&value=4)')
+				if icon == "" or value == 'RESET': setSkinSetting('0','icon'+id,'icons/wwe.png')	
+			
+		if value in '85_95' or value == 'RESET':
+			'''NHL'''
+			x = '85_95' ; id = id_T2.get(x)
+			
+			if id != "" and id != None:
+				id = id.replace('id',"")
+				label = label_T.get('label'+str(id)) ; icon = icon_T.get('icon'+str(id))
+				if label == "" or label == "..." or value == 'RESET': setSkinSetting('0','label'+id,'NHL')
+				setSkinSetting('0','action'+id,'RunScript(script.htpt.smartbuttons,,?mode=505&value=5)')
+				if icon == "" or value == 'RESET': setSkinSetting('0','icon'+id,'icons/nhl.png')	
+			
+		if value in '85_96' or value == 'RESET':
+			'''כדורגל'''
+			x = '85_96' ; id = id_T2.get(x)
+			
+			if id != "" and id != None:
+				id = id.replace('id',"")
+				label = label_T.get('label'+str(id)) ; icon = icon_T.get('icon'+str(id))
+				if label == "" or label == "..." or value == 'RESET': setSkinSetting('0','label'+id,localize(19551))
+				setSkinSetting('0','action'+id,'RunScript(script.htpt.smartbuttons,,?mode=505&value=6)')
+				if icon == "" or value == 'RESET': setSkinSetting('0','icon'+id,'icons/footballtoday.png')
+			
+			
+		if value in '85_97' or value == 'RESET':
+			'''כדורסל'''
+			x = '85_97' ; id = id_T2.get(x)
+			
+			if id != "" and id != None:
+				id = id.replace('id',"")
+				label = label_T.get('label'+str(id)) ; icon = icon_T.get('icon'+str(id))
+				if label == "" or label == "..." or value == 'RESET': setSkinSetting('0','label'+id,localize(79017))
+				setSkinSetting('0','action'+id,'RunScript(script.htpt.smartbuttons,,?mode=505&value=7)')
+				if icon == "" or value == 'RESET': setSkinSetting('0','icon'+id,'icons/nba.png')
+			
+			
+		if value in '85_98' or value == 'RESET':
+			'''אופנועים'''
+			x = '85_98' ; id = id_T2.get(x)
+			
+			if id != "" and id != None:
+				id = id.replace('id',"")
+				label = label_T.get('label'+str(id)) ; icon = icon_T.get('icon'+str(id))
+				if label == "" or label == "..." or value == 'RESET': setSkinSetting('0','label'+id,'אופנועים')
+				setSkinSetting('0','action'+id,'RunScript(script.htpt.smartbuttons,,?mode=505&value=8)')
+				if icon == "" or value == 'RESET': setSkinSetting('0','icon'+id,'icons/motors.png')
+				setSkinSetting('0','del'+id,'true')
+		
+	'''משחקים'''
+	if value != "":
+		'''ראשי'''
+		x = '86' ; id = idT2.get(x)
+		if id != "" and 1 + 1 == 2:		
+			label = labelT.get('label'+str(id)) ; icon = iconT.get('icon'+str(id))
+			if label == "" or label == "..." or value == 'RESET': setSkinSetting('0','label'+id,localize(15016))
+			setSkinSetting('0','action'+id,'RunScript(script.htpt.smartbuttons,,?mode=510&value=0)')
+			if icon == "" or value == 'RESET': setSkinSetting('0','icon'+id,'icons/games.png')
+			'''---------------------------'''	
+		if value in '86_91' or value == 'RESET':
+			'''גיימר TV'''
+			x = '86_91' ; id = id_T2.get(x)
+			
+			if id != "" and id != None:
+				id = id.replace('id',"")
+				label = label_T.get('label'+str(id)) ; icon = icon_T.get('icon'+str(id))
+				if label == "" or label == "..." or value == 'RESET': setSkinSetting('0','label'+id,'גיימר TV')
+				setSkinSetting('0','action'+id,'RunScript(script.htpt.smartbuttons,,?mode=510&value=1)')
+				if icon == "" or value == 'RESET': setSkinSetting('0','icon'+id,'icons/gametrailers.png')		
+	
+	'''אינטרנט'''
+	if value != "":
+		'''ראשי'''
+		x = '87' ; id = idT2.get(x)
+		if id != "" and 1 + 1 == 2:		
+			label = labelT.get('label'+str(id)) ; icon = iconT.get('icon'+str(id))
+			if label == "" or label == "..." or value == 'RESET': setSkinSetting('0','label'+id,localize(443))
+			setSkinSetting('0','action'+id,'RunScript(script.htpt.smartbuttons,,?mode=512&value=0)')
+			if icon == "" or value == 'RESET': setSkinSetting('0','icon'+id,'icons/internet.png')
+			'''---------------------------'''
+		
+	'''מעודפים'''
+	if value != "":
+		'''ראשי'''
+		x = '88' ; id = idT2.get(x)
+		if id != "" and 1 + 1 == 2:
+			label = labelT.get('label'+str(id)) ; icon = iconT.get('icon'+str(id))
+			if label == "" or label == "..." or value == 'RESET': setSkinSetting('0','label'+id,localize(1036))
+			setSkinSetting('0','action'+id,'ActivateWindow(134)') #RunScript(script.htpt.smartbuttons,,?mode=516&value=0)
+			if icon == "" or value == 'RESET': setSkinSetting('0','icon'+id,'icons/favourites.png')
+			'''---------------------------'''	
+		
+	'''מבוגרים'''
+	if value != "":
+		'''ראשי'''
+		x = '89' ; id = idT2.get(x)
+		if id != "" and 1 + 1 == 2:
+			label = labelT.get('label'+str(id)) ; icon = iconT.get('icon'+str(id))
+			if label == "" or label == "..." or value == 'RESET': setSkinSetting('0','label'+id,localize(75003))
+			setSkinSetting('0','action'+id,'RunScript(script.htpt.smartbuttons,,?mode=520&value=0)')
+			if icon == "" or value == 'RESET': setSkinSetting('0','icon'+id,'icons/adult.png')
+			'''---------------------------'''
+			
+	''''''
+	if value != "":
+		'''ראשי'''
+		x = '90' ; id = idT2.get(x)
+		if id != "" and 1 + 1 == 2:		
+			label = labelT.get('label'+str(id)) ; icon = iconT.get('icon'+str(id))
+			if label == "" or label == "..." or value == 'RESET': setSkinSetting('0','label'+id,'')
+			setSkinSetting('0','action'+id,'')
+			if icon == "" or value == 'RESET': setSkinSetting('0','icon'+id,'')
+			'''---------------------------'''	
+
+	''''''
+	if value != "":
+		'''ראשי'''
+		x = '91' ; id = idT2.get(x)
+		if id != "" and 1 + 1 == 2:		
+			label = labelT.get('label'+str(id)) ; icon = iconT.get('icon'+str(id))
+			if label == "" or label == "..." or value == 'RESET': setSkinSetting('0','label'+id,'')
+			setSkinSetting('0','action'+id,'')
+			if icon == "" or value == 'RESET': setSkinSetting('0','icon'+id,'')
+			'''---------------------------'''	
+	
+	''''''
+	if value != "":
+		'''ראשי'''
+		x = '92' ; id = idT2.get(x)
+		if id != "" and 1 + 1 == 2:		
+			label = labelT.get('label'+str(id)) ; icon = iconT.get('icon'+str(id))
+			if label == "" or label == "..." or value == 'RESET': setSkinSetting('0','label'+id,'')
+			setSkinSetting('0','action'+id,'')
+			if icon == "" or value == 'RESET': setSkinSetting('0','icon'+id,'')
+			'''---------------------------'''	
+
+	''''''
+	if value != "":
+		'''ראשי'''
+		x = '93' ; id = idT2.get(x)
+		if id != "" and 1 + 1 == 2:
+			label = labelT.get('label'+str(id)) ; icon = iconT.get('icon'+str(id))
+			if label == "" or label == "..." or value == 'RESET': setSkinSetting('0','label'+id,'')
+			setSkinSetting('0','action'+id,'')
+			if icon == "" or value == 'RESET': setSkinSetting('0','icon'+id,'')
+			'''---------------------------'''			
+		
+	''''''
+	if value != "":
+		'''ראשי'''
+		x = '94' ; id = idT2.get(x)
+		if id != "" and 1 + 1 == 2:
+			label = labelT.get('label'+str(id)) ; icon = iconT.get('icon'+str(id))
+			if label == "" or label == "..." or value == 'RESET': setSkinSetting('0','label'+id,'')
+			setSkinSetting('0','action'+id,'')
+			if icon == "" or value == 'RESET': setSkinSetting('0','icon'+id,'')
+			'''---------------------------'''	
+	
+	''''''
+	if value != "":
+		'''ראשי'''
+		x = '95' ; id = idT2.get(x)
+		if id != "" and 1 + 1 == 2:		
+			label = labelT.get('label'+str(id)) ; icon = iconT.get('icon'+str(id))
+			if label == "" or label == "..." or value == 'RESET': setSkinSetting('0','label'+id,'')
+			setSkinSetting('0','action'+id,'')
+			if icon == "" or value == 'RESET': setSkinSetting('0','icon'+id,'')
+			'''---------------------------'''	
+	
+	''''''
+	if value != "":
+		'''ראשי'''
+		x = '96' ; id = idT2.get(x)
+		if id != "" and 1 + 1 == 2:		
+			label = labelT.get('label'+str(id)) ; icon = iconT.get('icon'+str(id))
+			if label == "" or label == "..." or value == 'RESET': setSkinSetting('0','label'+id,'')
+			setSkinSetting('0','action'+id,'')
+			if icon == "" or value == 'RESET': setSkinSetting('0','icon'+id,'')
+			'''---------------------------'''	
+	
+	'''עזרה'''
+	if value != "":
+		'''ראשי'''
+		x = '97' ; id = idT2.get(x)
+		if id != "" and 1 + 1 == 2:		
+			label = labelT.get('label'+str(id)) ; icon = iconT.get('icon'+str(id))
+			if label == "" or label == "..." or value == 'RESET': setSkinSetting('0','label'+id,localize(10043))
+			setSkinSetting('0','action'+id,'ActivateWindow(1170)')
+			if icon == "" or value == 'RESET': setSkinSetting('0','icon'+id,'icons/help.png')
+			'''---------------------------'''	
+		
+	'''הגדרות'''
+	if value != "":
+		'''ראשי'''
+		x = '98' ; id = idT2.get(x)
+		if id != "" and 1 + 1 == 2:		
+			label = labelT.get('label'+str(id)) ; icon = iconT.get('icon'+str(id))
+			if label == "" or label == "..." or value == 'RESET': setSkinSetting('0','label'+id,localize(5))
+			setSkinSetting('0','action'+id,'ActivateWindow(Settings.xml)')
+			if icon == "" or value == 'RESET': setSkinSetting('0','icon'+id,'icons/settings.png')
+			'''---------------------------'''
+		
+	'''כיבוי'''
+	if value != "":
+		'''ראשי'''
+		x = '99' ; id = idT2.get(x)
+		if id != "" and 1 + 1 == 2:		
+			label = labelT.get('label'+str(id)) ; icon = iconT.get('icon'+str(id))
+			if label == "" or label == "..." or value == 'RESET': setSkinSetting('0','label'+id,localize(13005))
+			setSkinSetting('0','action'+id,'ActivateWindow(1191)')
+			if icon == "" or value == 'RESET': setSkinSetting('0','icon'+id,'icons/power.png')
+			'''---------------------------'''
+	
+	if admin:
+		print printfirst + name + "_LV" + printpoint + space + "value" + space2 + str(value) + space + "id" + space2 + str(id) + newline + \
+		"idT" + space2 + str(idT) + newline + \
+		"idT2" + space2 + str(idT2) + newline + \
+		"id_T" + space2 + str(id_T) + newline + \
+		"id_T2" + space2 + str(id_T2) + newline + \
+		extra2
+
+def mode218(value, admin, name, printpoint):
 	'''------------------------------
-	---?-----------------------------
-	------------------------------'''
-	name = "?"
-	mode216(admin, name, printpoint)
-	'''---------------------------'''
+	---editButtonProprties-----------
+	------------------------------'''	
+	if "view" in value:
+		message = ""
+		message = message + newline + "Current XML" + space2 + xbmc.getInfoLabel('Window.Property(xmlfile)')
+		message = message + newline + "TEMP" + space2 + property_temp
+		message = message + newline + "TEMP2" + space2 + property_temp2
+		message = message + newline + '---------------------------'
+		message = message + newline + "Button.ID" + space2 + property_buttonid
+		message = message + newline + "Button.ID_" + space2 + property_buttonid_
+		message = message + newline + "Button.Name" + space2 + property_buttonname
+		message = message + newline + '---------------------------'
+		message = message + newline + "SubButton.ID" + space2 + property_subbuttonid
+		message = message + newline + "SubButton.ID_" + space2 + property_subbuttonid_
+		message = message + newline + "SubButton.Name" + space2 + property_subbuttonname
+		message = message + newline + '---------------------------'
+		message = message + newline + "Previous_SubButton.ID" + space2 + property_previoussubbuttonid
+		message = message + newline + "Previous_SubButton.ID_" + space2 + property_previoussubbuttonid_
+		message = message + newline + "Next_SubButton.ID" + space2 + property_nextsubbuttonid
+		message = message + newline + "Next_SubButton.ID_" + space2 + property_nextsubbuttonid_
+		message = message + newline + '---------------------------'
+		message = message + newline + "ReloadSkin" + space2 + property_reloadskin
+		message = message + newline + '---------------------------'
+		
 
-def mode217(admin, name, printpoint):
-	'''------------------------------
-	---?-----------------------------
-	------------------------------'''
-	name = "?"
-	mode217(admin, name, printpoint)
-	'''---------------------------'''
+		header = name
+		diaogtextviewer(header,message)
 
-def mode218(admin, name, printpoint):
-	'''------------------------------
-	---?-----------------------------
-	------------------------------'''
-	name = "?"
-	mode218(admin, name, printpoint)
-	'''---------------------------'''
-
-def mode219(admin, name, printpoint):
-	'''------------------------------
-	---?-----------------------------
-	------------------------------'''
-	name = "?"
-	mode219(admin, name, printpoint)
-	'''---------------------------'''
-
+							
 def mode220(admin, name, printpoint):
 	'''------------------------------
 	---?-----------------------------
@@ -3585,30 +4562,101 @@ def mode229(admin, name, printpoint):
 	mode229(admin, name, printpoint)
 	'''---------------------------'''
 
-def mode230(admin, name, printpoint):
+def mode230(value, admin, name, printpoint):
 	'''------------------------------
-	---?-----------------------------
+	---COLOR-PICKER------------------
 	------------------------------'''
-	name = "?"
-	mode230(admin, name, printpoint)
-	'''---------------------------'''
+	#xbmc.executebuiltin('ActivateWindow(1178)')
 	
-def mode231(admin, name, printpoint):
+	if 1 + 1 == 2:
+		import xbmcgui
+		from Utils import *
+		from MainModule import *
+		from ColorPicker import ColorPicker, getParams
+		params = self.getParams()
+		colorPicker = ColorPicker("script-skin_helper_service-ColorPicker.xml", ADDON_PATH, "Default", "1080i")
+		colorPicker.skinString = params.get("SKINSTRING",None)
+		colorPicker.winProperty = params.get("WINPROPERTY",None)
+		colorPicker.shortcutProperty = params.get("SHORTCUTPROPERTY",None)
+		colorPicker.doModal()
+		propname = params.get("SHORTCUTPROPERTY",None)
+		if propname:
+			wid = xbmcgui.getCurrentWindowDialogId()
+			currentWindow = xbmcgui.Window( xbmcgui.getCurrentWindowDialogId() )
+			currentWindow.setProperty("customProperty",propname)
+			currentWindow.setProperty("customValue",colorPicker.result[0])
+			xbmc.executebuiltin("SendClick(404)")
+			xbmc.sleep(250)
+			currentWindow.setProperty("customProperty",propname+".name")
+			currentWindow.setProperty("customValue",colorPicker.result[1])
+			xbmc.executebuiltin("SendClick(404)")
+		del colorPicker
+		'''---------------------------'''
+	
+def mode231(value, admin, name, printpoint):
 	'''------------------------------
-	---?-----------------------------
+	---INSTALL-ADDON-----------------
 	------------------------------'''
-	name = "?"
-	mode231(admin, name, printpoint)
+	notification_common("24")
+	installaddonP(admin, value, update=True)
 	'''---------------------------'''
 
-def mode232(admin, name, printpoint):
+def mode232(value, admin, name, printpoint):
 	'''------------------------------
-	---?-----------------------------
+	---ACTION-BUTTON-----------------
 	------------------------------'''
-	name = "?"
-	mode232(admin, name, printpoint)
-	'''---------------------------'''
-
+	id1 = "" ; id2 = "" ; extra = "" ; TypeError = ""
+	if printpoint != "": printpoint = printpoint + "_"
+	addon = 'script.skinshortcuts'
+	if not xbmc.getCondVisibility('System.HasAddon('+ addon +')'): installaddonP(admin, addon)
+	else:
+		printpoint = printpoint + "0"
+		try:
+			if value != "":
+				if '_' in value: pass
+				else: test = int(value) + 1
+				id1 = value
+			elif custom1175W and not custom1138W:
+				if property_buttonid_ == "": printpoint = printpoint + "9B"
+				else: test = int(property_buttonid) + 1 ; id1 = property_buttonid_
+			elif custom1138W:
+				if property_subbuttonid == "" or property_subbuttonid_ == "" or (not property_buttonid in property_subbuttonid and not property_buttonid_ in property_subbuttonid_): printpoint = printpoint + "9C"
+				else: id1 = property_subbuttonid_
+		except Exception, TypeError: extra = extra + newline + "TypeError" + space2 + str(TypeError) ; printpoint = printpoint + "9D"
+		
+		if id1 != "":			
+			if custom1175W and not custom1138W:
+				'''Main Action'''
+				printpoint = printpoint + "x1"
+				xbmc.executebuiltin('RunScript(script.skinshortcuts,type=shortcuts&custom=False&showNone=True&skinLabel=label'+id1+'&skinAction=action'+id1+'&skinList=[skinList]&skinType=[skinType]&skinThumbnail=icon'+id1+')')
+			elif custom1138W:	
+				'''Sub Action'''
+				printpoint = printpoint + "x2"
+				xbmc.executebuiltin('RunScript(script.skinshortcuts,type=shortcuts&custom=False&showNone=True&skinLabel=label'+id1+'&skinAction=action'+id1+'&skinList=[skinList]&skinType=[skinType]&skinThumbnail=icon'+id1+')')
+				'''---------------------------'''
+			else: printpoint = printpoint + "8"	
+			
+			if "x" in printpoint:
+				'''wait'''
+				xbmc.sleep(4000)
+				dialogselectW = xbmc.getCondVisibility('Window.IsVisible(DialogSelect.xml)')
+				while dialogselectW and not xbmc.abortRequested:
+					xbmc.sleep(1000)
+					dialogselectW = xbmc.getCondVisibility('Window.IsVisible(DialogSelect.xml)')
+					'''---------------------------'''
+				xbmc.sleep(500) ; xlabel = xbmc.getInfoLabel('Skin.String(label'+id1+')')
+				if xlabel == "":
+					setSkinSetting('0','label'+id1,'...')
+					if 'x1' in printpoint and not '_' in id1: setSkinSetting('0','label'+id1+'_90','...')
+				else:
+					if 'x1' in printpoint and not '_' in id1: setSkinSetting('0','label'+id1+'_90',str(xlabel))
+					
+	if admin and not admin2 and admin3:
+		print printpoint + name + "_LV" + printpoint + space + "value" + space2 + str(value) + space + "property_buttonid" + space2 + str(property_buttonid) + space + "property_subbuttonid" + space2 + str(property_subbuttonid) + newline + \
+		"id1" + space2 + str(id1) + space + "id2" + space2 + str(id2) + newline + \
+		extra
+		'''---------------------------'''
+			
 def mode233(admin, name, printpoint):
 	'''------------------------------
 	---?-----------------------------
@@ -6025,162 +7073,270 @@ def mode500(admin, name, printpoint):
 	pass
 	'''---------------------------'''
 
-def mode501(admin,name, printpoint):
+def mode501(value, admin, name, printpoint):
 	'''------------------------------
 	---MOVIES-BUTTON-----------------
 	------------------------------'''
-	libraryhascontentmovies = xbmc.getCondVisibility('Library.HasContent(Movies)')
-	if libraryhascontentmovies:
-		if admin: xbmc.executebuiltin('Notification(Admin,moviesbutton,1000)')
-		xbmc.executebuiltin('ActivateWindow(Videos,MovieTitles,return)')
-		if not autoview:
-			xbmc.sleep(2000)
-			if xbmc.getCondVisibility('System.IdleTime(2)'): notification(localize(98) + space + localize(1223), localize(79534), "", 4000)
-	else:
-		if not autoviewoff: setSkinSetting("1",'AutoViewoff',"true")
-		#xbmc.executebuiltin('ActivateWindow(video,"special://userdata/library/movies/",return)')
-		url = "special://userdata/library/movies/"
-		returned = ActivateWindow("1", url, url, 0, wait=True)
-		if returned != "":
-			try:
-				containernumitems = xbmc.getInfoLabel('Container.NumItems')
-				if int(containernumitems) < 3: xbmc.executebuiltin('Notification($LOCALIZE[79079] $LOCALIZE[342] $LOCALIZE[79090],$LOCALIZE[79091],4000)')
-				'''---------------------------'''
-			except: pass
-		if scripthtptsmartbuttonsLibraryData_LocalMoviesFiles == "0": xbmc.executebuiltin('RunScript(script.htpt.smartbuttons,,?mode=55)')
+	if value == '0':
+		libraryhascontentmovies = xbmc.getCondVisibility('Library.HasContent(Movies)')
+		if libraryhascontentmovies:
+			if admin: xbmc.executebuiltin('Notification(Admin,moviesbutton,1000)')
+			xbmc.executebuiltin('ActivateWindow(Videos,MovieTitles,return)')
+			if not autoview:
+				xbmc.sleep(2000)
+				if xbmc.getCondVisibility('System.IdleTime(2)'): notification(localize(98) + space + localize(1223), localize(79534), "", 4000)
 		else:
-			if libraryisscanningvideo and not libraryhascontentmovies: xbmc.sleep(4000) ; xbmc.executebuiltin('UpdateLibrary(video)')
+			if not autoviewoff: setSkinSetting("1",'AutoViewoff',"true")
+			#xbmc.executebuiltin('ActivateWindow(video,"special://userdata/library/movies/",return)')
+			url = "special://userdata/library/movies/"
+			returned = ActivateWindow("1", url, url, 0, wait=True)
+			if returned != "":
+				try:
+					containernumitems = xbmc.getInfoLabel('Container.NumItems')
+					if int(containernumitems) < 3: xbmc.executebuiltin('Notification($LOCALIZE[79079] $LOCALIZE[342] $LOCALIZE[79090],$LOCALIZE[79091],4000)')
+					'''---------------------------'''
+				except: pass
+			if scripthtptsmartbuttonsLibraryData_LocalMoviesFiles == "0": xbmc.executebuiltin('RunScript(script.htpt.smartbuttons,,?mode=55)')
 			else:
-				setsetting_custom1('service.htpt.fix','Fix_100',"true")
-				if scripthtptinstall_Skin_FirstBoot == "true": dialogok("Reboot Required!", "Please reboot in order to finish the first installation", "", "")
-				else: xbmc.executebuiltin('RunScript(service.htpt.fix,,?mode=3)')
-				xbmc.executebuiltin('ActivateWindow(0)')
-				'''---------------------------'''
-	
-	setSkinSetting("1",'AutoViewoff',"false")
-	'''---------------------------'''
-
-def mode502(admin, name, printpoint):
+				if libraryisscanningvideo and not libraryhascontentmovies: xbmc.sleep(4000) ; xbmc.executebuiltin('UpdateLibrary(video)')
+				else:
+					setsetting_custom1('service.htpt.fix','Fix_100',"true")
+					if scripthtptinstall_Skin_FirstBoot == "true": dialogok("Reboot Required!", "Please reboot in order to finish the first installation", "", "")
+					else: xbmc.executebuiltin('RunScript(service.htpt.fix,,?mode=3)')
+					xbmc.executebuiltin('ActivateWindow(0)')
+					'''---------------------------'''
+		
+		setSkinSetting("1",'AutoViewoff',"false")
+		'''---------------------------'''
+	elif value == "3":
+		'''------------------------------
+		---TRAILERS----------------------
+		------------------------------'''
+		addon = 'screensaver.randomtrailers'
+		if xbmc.getCondVisibility('System.HasAddon('+ addon +')'): xbmc.executebuiltin('RunAddon(screensaver.randomtrailers)')
+		else:
+			installaddon(admin, addon, "") ; xbmc.sleep(500)
+			
+	elif value == '4':
+		'''------------------------------
+		---QUIZ--------------------------
+		------------------------------'''
+		addon = 'script.moviequiz'
+		if xbmc.getCondVisibility('System.HasAddon('+ addon +')'):
+			xbmc.executebuiltin('RunAddon('+ addon +')')
+			'''---------------------------'''
+		else: installaddon(admin, addon, "")
+		
+def mode502(value, admin, name, printpoint):
 	'''------------------------------
 	---TVSHOWS-BUTTON----------------
 	------------------------------'''
-	libraryhascontenttvshows = xbmc.getCondVisibility('Library.HasContent(TVShows)')
-	if libraryhascontenttvshows:
-		if admin: xbmc.executebuiltin('Notification(Admin,tvshowsbutton,1000)')
-		xbmc.executebuiltin('ActivateWindow(VideoLibrary,TVShowTitles,return)')
-		if not autoview:
-			xbmc.sleep(2000)
-			if xbmc.getCondVisibility('System.IdleTime(2)'): notification(localize(98) + space + localize(1223), localize(79534), "", 4000)
-	else:
-		if not autoviewoff: setSkinSetting("1",'AutoViewoff',"true")
-		#xbmc.executebuiltin('ActivateWindow(video,"special://userdata/library/tvshows/",return)')
-		url = "special://userdata/library/tvshows/"
-		returned = ActivateWindow("1", url, url, 0, wait=True)
-		if returned != "":
-			try:
-				containernumitems = xbmc.getInfoLabel('Container.NumItems')
-				if int(containernumitems) < 3: xbmc.executebuiltin('Notification($LOCALIZE[79079] $LOCALIZE[20343] $LOCALIZE[79090],$LOCALIZE[79091],4000)')
-			except: pass
-			'''---------------------------'''
-		if scripthtptsmartbuttonsLibraryData_LocalTvshowsFiles == "0": xbmc.executebuiltin('RunScript(script.htpt.smartbuttons,,?mode=55)')
+	if value == '0':
+		libraryhascontenttvshows = xbmc.getCondVisibility('Library.HasContent(TVShows)')
+		if libraryhascontenttvshows:
+			if admin: xbmc.executebuiltin('Notification(Admin,tvshowsbutton,1000)')
+			xbmc.executebuiltin('ActivateWindow(VideoLibrary,TVShowTitles,return)')
+			if not autoview:
+				xbmc.sleep(2000)
+				if xbmc.getCondVisibility('System.IdleTime(2)'): notification(localize(98) + space + localize(1223), localize(79534), "", 4000)
 		else:
-			if libraryisscanningvideo: xbmc.sleep(4000) ; xbmc.executebuiltin('UpdateLibrary(video)')
-			else:
-				setsetting_custom1('service.htpt.fix','Fix_101',"true")
-				if scripthtptinstall_Skin_FirstBoot == "true": dialogok("Reboot Required!", "Please reboot in order to finish the first installation", "", "")
-				else: xbmc.executebuiltin('RunScript(service.htpt.fix,,?mode=3)')
-				xbmc.executebuiltin('ActivateWindow(0)')
+			if not autoviewoff: setSkinSetting("1",'AutoViewoff',"true")
+			#xbmc.executebuiltin('ActivateWindow(video,"special://userdata/library/tvshows/",return)')
+			url = "special://userdata/library/tvshows/"
+			returned = ActivateWindow("1", url, url, 0, wait=True)
+			if returned != "":
+				try:
+					containernumitems = xbmc.getInfoLabel('Container.NumItems')
+					if int(containernumitems) < 3: xbmc.executebuiltin('Notification($LOCALIZE[79079] $LOCALIZE[20343] $LOCALIZE[79090],$LOCALIZE[79091],4000)')
+				except: pass
 				'''---------------------------'''
-	setSkinSetting("1",'AutoViewoff',"false")
-	'''---------------------------'''
-	
-def mode503(admin, name, printpoint):
+			if scripthtptsmartbuttonsLibraryData_LocalTvshowsFiles == "0": xbmc.executebuiltin('RunScript(script.htpt.smartbuttons,,?mode=55)')
+			else:
+				if libraryisscanningvideo: xbmc.sleep(4000) ; xbmc.executebuiltin('UpdateLibrary(video)')
+				else:
+					setsetting_custom1('service.htpt.fix','Fix_101',"true")
+					if scripthtptinstall_Skin_FirstBoot == "true": dialogok("Reboot Required!", "Please reboot in order to finish the first installation", "", "")
+					else: xbmc.executebuiltin('RunScript(service.htpt.fix,,?mode=3)')
+					xbmc.executebuiltin('ActivateWindow(0)')
+					'''---------------------------'''
+		setSkinSetting("1",'AutoViewoff',"false")
+		'''---------------------------'''
+	elif value == '1':
+		pass
+		
+def mode503(value, admin, name, printpoint):
 	'''------------------------------
 	---ISRAEL-TV-BUTTON--------------
 	------------------------------'''
-	addon = 'plugin.video.sdarot.tv'
-	if xbmc.getCondVisibility('System.HasAddon('+ addon +')'):
-		printpoint = printpoint + "1"
-		if admin and not admin2:
-			path = os.path.join(addondata_path, 'plugin.video.sdarot.tv', 'sdarot-cookiejar.txt')
-			removefiles(path)
-			notification("DELETING COOKIE","","",1000)
-			xbmc.sleep(1000)
-			'''---------------------------'''
-		else:
-			addonsettings2('plugin.video.sdarot.tv','DEBUG',"false",'cache',"24",'domain',"http://www.sdarot.wf",'',"",'',"")
-			'''---------------------------'''
-			
-		url = 'plugin://plugin.video.sdarot.tv/?mode=2&module=http%3a%2f%2fwww.sdarot.wf%2fseries%2fgenre%2f20%d7%99%d7%a9%d7%a8%d7%90%d7%9c%d7%99&name=%d7%99%d7%a9%d7%a8%d7%90%d7%9c%d7%99&url=all-heb'
-		returned = ActivateWindow("1", 'plugin.video.sdarot.tv', url, 'return0', wait=True)
-		if returned == "": returned = ActivateWindow("0", 'plugin.video.sdarot.tv', url, 'return0', wait=True) ; printpoint = printpoint + "3"
-		if returned == "":
-			from shared_modules3 import urlcheck
-			printpoint = printpoint + "4"
-			returned = urlcheck('http://www.sdarot.wf', ping=False)
-			if returned == "ok":
-				printpoint = printpoint + "6"
-			else:
-				'''------------------------------
-				---WEBSITE-DOWN------------------
-				------------------------------'''
-				notification('[COLOR=Red]' + localize(75787) + '[/COLOR]', localize(75788),"",4000)
-				xbmc.executebuiltin('Action(Close)')
+	if value == '0':
+		addon = 'plugin.video.sdarot.tv'
+		if xbmc.getCondVisibility('System.HasAddon('+ addon +')'):
+			printpoint = printpoint + "1"
+			if admin and not admin2:
+				path = os.path.join(addondata_path, 'plugin.video.sdarot.tv', 'sdarot-cookiejar.txt')
+				removefiles(path)
+				notification("DELETING COOKIE","","",1000)
+				xbmc.sleep(1000)
 				'''---------------------------'''
-	else: installaddon(admin, addon, "")
-	'''---------------------------'''
-
-def mode504(admin, name, printpoint):
+			else:
+				addonsettings2('plugin.video.sdarot.tv','DEBUG',"false",'cache',"24",'domain',"http://www.sdarot.wf",'',"",'',"")
+				'''---------------------------'''
+				
+			url = 'plugin://plugin.video.sdarot.tv/?mode=2&module=http%3a%2f%2fwww.sdarot.wf%2fseries%2fgenre%2f20%d7%99%d7%a9%d7%a8%d7%90%d7%9c%d7%99&name=%d7%99%d7%a9%d7%a8%d7%90%d7%9c%d7%99&url=all-heb'
+			returned = ActivateWindow("1", 'plugin.video.sdarot.tv', url, 'return0', wait=True)
+			if returned == "": returned = ActivateWindow("0", 'plugin.video.sdarot.tv', url, 'return0', wait=True) ; printpoint = printpoint + "3"
+			if returned == "":
+				from shared_modules3 import urlcheck
+				printpoint = printpoint + "4"
+				returned = urlcheck('http://www.sdarot.wf', ping=False)
+				if returned == "ok":
+					printpoint = printpoint + "6"
+				else:
+					'''------------------------------
+					---WEBSITE-DOWN------------------
+					------------------------------'''
+					notification('[COLOR=Red]' + localize(75787) + '[/COLOR]', localize(75788),"",4000)
+					xbmc.executebuiltin('Action(Close)')
+					'''---------------------------'''
+		else: installaddon(admin, addon, "")
+		'''---------------------------'''
+	elif value == '1':
+		addon = 'plugin.video.makoTV.video'
+		if xbmc.getCondVisibility('System.HasAddon('+ addon +')'): xbmc.executebuiltin('RunAddon('+ addon +')')
+		else: installaddon(admin, addon, "")
+		'''---------------------------'''
+	elif value == '2':
+		addon = 'plugin.video.reshet.video'
+		if xbmc.getCondVisibility('System.HasAddon('+ addon +')'): xbmc.executebuiltin('RunAddon('+ addon +')')
+		else: installaddon(admin, addon, "")
+		'''---------------------------'''
+	elif value == '3':
+		xbmc.executebuiltin('SetProperty(Button.ID,N/A,home)')
+		xbmc.executebuiltin('SetProperty(SubButton.ID,74_93,home)')
+		xbmc.executebuiltin('ActivateWindow(1138)')
+		xbmc.executebuiltin('SetProperty(Button.ID,'+property_buttonid+',home)')
+		xbmc.executebuiltin('SetProperty(SubButton.ID,'+property_subbuttonid+',home)')
+		'''---------------------------'''
+	elif value == '4':
+		xbmc.executebuiltin('SetProperty(Button.ID,N/A,home)')
+		xbmc.executebuiltin('SetProperty(SubButton.ID,74_94,home)')
+		xbmc.executebuiltin('ActivateWindow(1138)')
+		xbmc.executebuiltin('SetProperty(Button.ID,'+property_buttonid+',home)')
+		xbmc.executebuiltin('SetProperty(SubButton.ID,'+property_subbuttonid+',home)')
+		'''---------------------------'''
+	elif value == '5':
+		pass
+		'''---------------------------'''
+	elif value == '6':
+		addon = 'plugin.video.hotVOD.video'
+		if xbmc.getCondVisibility('System.HasAddon('+ addon +')'): xbmc.executebuiltin('RunAddon('+ addon +')')
+		else: installaddon(admin, addon, "")
+		'''---------------------------'''
+	elif value == '7':
+		addon = 'plugin.video.ilten'
+		if xbmc.getCondVisibility('System.HasAddon('+ addon +')'): xbmc.executebuiltin('RunAddon('+ addon +')')
+		else: installaddon(admin, addon, "")
+		'''---------------------------'''
+	elif value == '8':
+		addon = 'plugin.video.IBA'
+		if xbmc.getCondVisibility('System.HasAddon('+ addon +')'): xbmc.executebuiltin('RunAddon('+ addon +')')
+		else: installaddon(admin, addon, "")
+		'''---------------------------'''
+	elif value == '9':
+		pass
+		'''---------------------------'''
+	SubMenuTip(admin)
+	
+def mode504(value, admin, name, printpoint):
 	'''------------------------------
 	---YOUTUBE-BUTTON----------------
 	------------------------------'''
-	addon = 'plugin.video.youtube'
-	if xbmc.getCondVisibility('System.HasAddon('+ addon +')'):
-		xbmc.executebuiltin('RunAddon(plugin.video.youtube)')
-	else: installaddon(admin, addon, "")
-	'''---------------------------'''
-
-def mode505(admin, name, printpoint):
+	if value == '0':
+		addon = 'plugin.video.youtube'
+		if xbmc.getCondVisibility('System.HasAddon('+ addon +')'): xbmc.executebuiltin('RunAddon('+ addon +')')
+		else: installaddon(admin, addon, "")
+		'''---------------------------'''
+	if value == '1':
+		addon = 'plugin.video.htptrofl'
+		if xbmc.getCondVisibility('System.HasAddon('+ addon +')'): xbmc.executebuiltin('RunAddon('+ addon +')')
+		else: installaddon(admin, addon, "")
+		'''---------------------------'''
+	elif value == '2':
+		addon = 'plugin.video.bestofyoutube_com'
+		if xbmc.getCondVisibility('System.HasAddon('+ addon +')'): xbmc.executebuiltin('RunAddon('+ addon +')')
+		else: installaddon(admin, addon, "")
+		'''---------------------------'''
+	elif value == '5':
+		addon = 'plugin.video.thaakillah'
+		if xbmc.getCondVisibility('System.HasAddon('+ addon +')'): xbmc.executebuiltin('RunAddon('+ addon +')')
+		else: installaddon(admin, addon, "")
+		'''---------------------------'''
+	SubMenuTip(admin)
+		
+def mode505(value, admin, name, printpoint):
 	'''------------------------------
 	---GOPRO-BUTTON------------------
 	------------------------------'''
-	addon = 'plugin.video.htpt.gopro'
-	if xbmc.getCondVisibility('System.HasAddon('+ addon +')'):
-		returned = ActivateWindow("0", addon , 'plugin://'+addon+'/' , 0, wait=True)
-		if returned == 'ok2' and 1 + 1 == 3:
-			systemcurrentcontrol = findin_systemcurrentcontrol("0",str73440.encode('utf-8'),40,'Action(Down)','Action(Select)')
-			count = 0
-			systemidle0 = xbmc.getCondVisibility('System.IdleTime(0)')
-			while count < 10 and systemcurrentcontrol != str73440.encode('utf-8') and systemidle0 and not xbmc.abortRequested:
-				count += 1
+	if value == '0':
+		addon = 'plugin.video.htpt.gopro'
+		if xbmc.getCondVisibility('System.HasAddon('+ addon +')'):
+			returned = ActivateWindow("0", addon , 'plugin://'+addon+'/' , 0, wait=True)
+			if returned == 'ok2' and 1 + 1 == 3:
 				systemcurrentcontrol = findin_systemcurrentcontrol("0",str73440.encode('utf-8'),40,'Action(Down)','Action(Select)')
+				count = 0
 				systemidle0 = xbmc.getCondVisibility('System.IdleTime(0)')
-				xbmc.sleep(200)
-			if count < 10 and systemidle0: notification_common("14")
-	else: installaddon(admin, addon, "")
+				while count < 10 and systemcurrentcontrol != str73440.encode('utf-8') and systemidle0 and not xbmc.abortRequested:
+					count += 1
+					systemcurrentcontrol = findin_systemcurrentcontrol("0",str73440.encode('utf-8'),40,'Action(Down)','Action(Select)')
+					systemidle0 = xbmc.getCondVisibility('System.IdleTime(0)')
+					xbmc.sleep(200)
+				if count < 10 and systemidle0: notification_common("14")
+		else: installaddon(admin, addon, "")
+		'''---------------------------'''
+	elif value == '3':
+		addon = 'plugin.video.israelsports'
+		if xbmc.getCondVisibility('System.HasAddon('+ addon +')'): xbmc.executebuiltin('RunAddon('+ addon +')')
+		else: installaddon(admin, addon, "")
+		'''---------------------------'''
+	elif value == '4':
+		addon = 'plugin.video.wweonline'
+		if xbmc.getCondVisibility('System.HasAddon('+ addon +')'): xbmc.executebuiltin('RunAddon('+ addon +')')
+		else: installaddon(admin, addon, "")
+		'''---------------------------'''
+	elif value == '5':
+		addon = 'plugin.video.nhlondemand'
+		if xbmc.getCondVisibility('System.HasAddon('+ addon +')'): xbmc.executebuiltin('RunAddon('+ addon +')')
+		else: installaddon(admin, addon, "")
+		'''---------------------------'''
+	elif value == '6':
+		addon = 'plugin.video.football.today'
+		if xbmc.getCondVisibility('System.HasAddon('+ addon +')'): xbmc.executebuiltin('RunAddon('+ addon +')')
+		else: installaddon(admin, addon, "")
+		'''---------------------------'''
+	elif value == '7':
+		addon = 'plugin.video.nbaondemand'
+		if xbmc.getCondVisibility('System.HasAddon('+ addon +')'): xbmc.executebuiltin('RunAddon('+ addon +')')
+		else: installaddon(admin, addon, "")
+		'''---------------------------'''
+	elif value == '8':
+		addon = 'plugin.video.the666sicco'
+		if xbmc.getCondVisibility('System.HasAddon('+ addon +')'): xbmc.executebuiltin('RunAddon('+ addon +')')
+		else: installaddon(admin, addon, "")
+		'''---------------------------'''
 		
-				
-		#returned = ActivateWindow("1", 'plugin.video.htpt.gopro' , 'plugin://plugin.video.htpt.gopro/?iconimage=https%3a%2f%2fyt3.ggpht.com%2f-sp0YiR_yyR0%2fAAAAAAAAAAI%2fAAAAAAAAAAA%2fkXU4u1ny2T4%2fs100-c-k-no%2fphoto.jpg&mode=9&name=GoPro&num=1&url=GoProCamera' , "", wait=True)
-		#returned = ActivateWindow('plugin.video.htpt.gopro', 'plugin://plugin.video.htpt.gopro/?iconimage=https%3a%2f%2fyt3.ggpht.com%2f-sp0YiR_yyR0%2fAAAAAAAAAAI%2fAAAAAAAAAAA%2fkXU4u1ny2T4%2fs100-c-k-no%2fphoto.jpg&mode=9&name=GoPro&num=1&url=GoProCamera', "", wait=True)
-		#returned = ActivateWindow("1", 'plugin.video.htpt.gopro' , 'plugin://plugin.video.htpt.gopro/?iconimage=https%3a%2f%2fyt3.ggpht.com%2f-sp0YiR_yyR0%2fAAAAAAAAAAI%2fAAAAAAAAAAA%2fkXU4u1ny2T4%2fs100-c-k-no%2fphoto.jpg&mode=9&name=GoPro&num=1&url=GoProCamera' , 0, wait=True)
-		
-		#returned = ActivateWindow("1", 'plugin.video.htpt.gopro', 'plugin://plugin.video.htpt.gopro/?iconimage=https%3a%2f%2fyt3.ggpht.com%2f-sp0YiR_yyR0%2fAAAAAAAAAAI%2fAAAAAAAAAAA%2fkXU4u1ny2T4%2fs100-c-k-no%2fphoto.jpg&mode=9&name=GoPro&num=1&url=GoProCamera', "", wait=True)
-		#xbmc.sleep(5000)
-		#xbmc.executebuiltin('ActivateWindow(10025,plugin://plugin.video.htpt.gopro/?iconimage=https%3a%2f%2fyt3.ggpht.com%2f-sp0YiR_yyR0%2fAAAAAAAAAAI%2fAAAAAAAAAAA%2fkXU4u1ny2T4%2fs100-c-k-no%2fphoto.jpg&mode=9&name=GoPro&num=1&url=GoProCamera,return)')
-		#
-	'''---------------------------'''
+	SubMenuTip(admin)
 
 def mode506(value, admin, name, printpoint):
 	'''------------------------------
 	---MOVIESE-BUTTON----------------
 	------------------------------'''
-	if value == "101" or not moviesep:
+	if value == "0":
 		printpoint = printpoint + "5"
 		url = 'plugin://plugin.video.genesis/?action=movieNavigator'
 		returned = ActivateWindow("1", 'plugin.video.genesis', url, 0, wait=True)
 		printpoint = printpoint + moviese_tvshowse(admin, name, printpoint, returned)
 		'''---------------------------'''
-	elif value == "102":
+	elif value == "1":
 		'''------------------------------
 		---PULSAR------------------------
 		------------------------------'''
@@ -6191,8 +7347,8 @@ def mode506(value, admin, name, printpoint):
 			if not xbmc.getCondVisibility('System.HasAddon('+ addon +')'):
 				url = 'https://github.com/steeve/plugin.video.pulsar/releases/download/v0.6.1/plugin.video.pulsar-0.6.1.zip'
 				DownloadFile(url, addon+".zip", packages_path, addons_path, silent=False) ; xbmc.executebuiltin("UpdateLocalAddons")
-	
-	elif value == "104":
+				
+	elif value == "4":
 		'''------------------------------
 		---3D-MOVIES---------------------
 		------------------------------'''
@@ -6206,13 +7362,13 @@ def mode507(value, admin, name, printpoint):
 	'''------------------------------
 	---TVSHOWSE-BUTTON---------------
 	------------------------------'''
-	if value == "101" or not tvshowsep:
+	if value == "0":
 		printpoint = printpoint + "5"
 		url = 'plugin://plugin.video.genesis/?action=tvNavigator'
 		returned = ActivateWindow("1", 'plugin.video.genesis', url, 0, wait=True)
 		printpoint = printpoint + moviese_tvshowse(admin, name, printpoint, returned)
 		'''---------------------------'''
-	elif value == "102":
+	elif value == "1":
 		'''------------------------------
 		---PULSAR------------------------
 		------------------------------'''
@@ -6302,18 +7458,18 @@ def moviese_tvshowse(admin, name, printpoint, returned):
 				value2 = str20343 #str20343.decode('utf-8').encode('utf-8')
 				xbmc.executebuiltin('Action(PageUp)')
 				xbmc.executebuiltin('Action(PageUp)')
-				if tvshowsestartup == "0": value = "" #root
-				elif tvshowsestartup == "1": value = addonString_genesis(30027).encode('utf-8') #Most Popular
-				elif tvshowsestartup == "2": value = addonString_genesis(30544).encode('utf-8') #Returning TV Shows
-				elif tvshowsestartup == "3": value = addonString_genesis(30009).encode('utf-8') #Search
-				elif tvshowsestartup == "4": value = addonString_genesis(30021).encode('utf-8') #Genres
+				if moviesestartup == "0": value = "" #root
+				elif moviesestartup == "1": value = addonString_genesis(30027).encode('utf-8') #Most Popular
+				elif moviesestartup == "2": value = addonString_genesis(30544).encode('utf-8') #Returning TV Shows
+				elif moviesestartup == "3": value = addonString_genesis(30009).encode('utf-8') #Search
+				elif moviesestartup == "4": value = addonString_genesis(30021).encode('utf-8') #Genres
 				else: value = ""
 				if value != "": value = "[" + value + "]"
 				'''---------------------------'''
 				count = 0
 				while count < 17 and containerfolderpath == roottv and value != "" and not xbmc.abortRequested:
-					if tvshowsestartup == "3" and not xbmc.Player().isPlayingVideo(): systemcurrentcontrol = findin_systemcurrentcontrol("0",value,40,'Action(Up)','')
-					elif tvshowsestartup == "3": systemcurrentcontrol = findin_systemcurrentcontrol("0",value,40,'Action(Down)','')
+					if moviesestartup == "3" and not xbmc.Player().isPlayingVideo(): systemcurrentcontrol = findin_systemcurrentcontrol("0",value,40,'Action(Up)','')
+					elif moviesestartup == "3": systemcurrentcontrol = findin_systemcurrentcontrol("0",value,40,'Action(Down)','')
 					else: systemcurrentcontrol = findin_systemcurrentcontrol("0",value,40,'Action(Down)','Action(Select)')
 					
 					if systemcurrentcontrol == value: count = 40
@@ -6328,27 +7484,35 @@ def moviese_tvshowse(admin, name, printpoint, returned):
 				xbmc.sleep(3000)
 				containerfolderpath = xbmc.getInfoLabel('Container.FolderPath')
 				if containerfolderpath == rootmovies or containerfolderpath == roottv:
-					if moviesestartup != "3" and tvshowsestartup != "3": notification('[COLOR=Yellow]' + value + '[/COLOR]' + localize(512) + space2, localize(75782), "", 4000)
-				elif moviesestartup == "3" or tvshowsestartup == "3": notification('[COLOR=Yellow]' + value + '[/COLOR]' + localize(512) + space2, localize(75782), "", 4000)
+					if moviesestartup != "3" and moviesestartup != "3": notification('[COLOR=Yellow]' + value + '[/COLOR]' + localize(512) + space2, localize(75782), "", 4000)
+				elif moviesestartup == "3" or moviesestartup == "3": notification('[COLOR=Yellow]' + value + '[/COLOR]' + localize(512) + space2, localize(75782), "", 4000)
 		elif admin: notification("containerfolderpath_Error","","",1000)
 	
+	SubMenuTip(admin)
 	return printpoint
 	
-def mode508(admin, name, printpoint):
+def mode508(value, admin, name, printpoint):
 	'''------------------------------
 	---WEATHER-BUTTON----------------
 	------------------------------'''
-	pass
-	'''---------------------------'''
+	if value == '0':
+		addon = 'weather.yahoo'
+		if xbmc.getCondVisibility('System.HasAddon('+ addon +')'):
+			xbmc.executebuiltin('ActivateWindow(MyWeather)')
+			xbmc.executebuiltin('Action(Weather.Refresh)')
+			'''---------------------------'''
+		else: installaddon(admin, addon, "")
+		'''---------------------------'''
 
-def mode509(admin, name, printpoint):
+def mode509(value, admin, name, printpoint):
 	'''------------------------------
 	---PICTURES-BUTTON---------------
 	------------------------------'''
-	name2 = str1
-	path2 = "pictures"
-	pictures_videos(admin, name, printpoint, 509, name2, path2)
-	'''---------------------------'''
+	if value == '0':
+		name2 = str1
+		path2 = "pictures"
+		pictures_videos(admin, name, printpoint, 509, name2, path2)
+		'''---------------------------'''
 
 def pictures_videos(admin, name, printpoint, mode, name2, path2):
 	'''------------------------------
@@ -6427,7 +7591,7 @@ def externalusb(device, mode):
 	name = 'externalusb' ; printpoint = ""
 	setSkinSetting("1",'AutoViewoff',"true")
 	videosbutton = xbmc.getCondVisibility('Container(9000).HasFocus(325)')
-	picturesbutton = xbmc.getCondVisibility('Container(9000).HasFocus(507)')
+	picturesbutton = xbmc.getCondVisibility('Container(9000).HasFocus(80)')
 	if device == "":
 		printpoint = printpoint + "1"
 		returned = supportcheck(name, ["A", "B", "A?", "B?"], totalspace=100, Intel=False, silence=True)
@@ -6627,65 +7791,49 @@ def HelpButton_Video_Pic(name, path2):
 			w.doModal()
 			'''---------------------------'''
 				
-def mode510(admin, name, printpoint):
+def mode510(value, admin, name, printpoint):
 	'''------------------------------
 	---GAMES-BUTTON------------------
 	------------------------------'''
-	name2 = localize(15016)
+	if value == '0':
+		name2 = localize(15016)
 
-	returned = supportcheck(name2, ["A","A?","B","B?"], 200, platform="13456")
-	if returned == "ok":
-		addon = 'plugin.program.advanced.launcher'
-		if xbmc.getCondVisibility('System.HasAddon('+ addon +')'):
-			printpoint = printpoint + "7"
-			'''---------------------------'''
-		else:
-			installaddon(admin, addon, "")
-			'''---------------------------'''
-		
-		addon = 'script.htpt.emu'
-		if xbmc.getCondVisibility('System.HasAddon('+ addon +')'):
-			printpoint = printpoint + "7"
-			'''---------------------------'''
-		else:
-			installaddon(admin, addon, "")
-			'''---------------------------'''
-		
-		if "77" in printpoint:
-			if not os.path.exists(os.path.join(addons_path,'emulator.retroarch')) and not admin3:
-				file = "emu_htpt.zip"
-				fileID = getfileID(file)
-				DownloadFile("https://www.dropbox.com/s/"+fileID+"/emu_htpt.zip?dl=1", file, temp_path, addons_path)
-				if os.path.exists(os.path.join(addons_path,'emulator.retroarch')): dialogok("Reboot required", "In order to start playing games, you should reboot your device", "", "")
-			else: gamesbutton_(admin)
-			'''---------------------------'''
-
-def gamesbutton_(admin):
-	if not systemplatformwindows: os.system('sh /storage/.kodi/addons/script.htpt.emu/specials/scripts/launcher.sh')
-	xbmc.executebuiltin('RunAddon(plugin.program.advanced.launcher)')
-	xbmc.sleep(2000)
-	systemcurrentcontrol = xbmc.getInfoLabel('System.CurrentControl')
-	containernumitems = xbmc.getInfoLabel('Container.NumItems')
-	'''---------------------------'''
-	if (systemcurrentcontrol == "[..]" or systemcurrentcontrol == "[Default]") and (containernumitems == "0" or containernumitems == "1"):
-		'''------------------------------
-		---FIX-CONFIGURATION-FILE--------
-		------------------------------'''
-		print printfirst + space + "gamesbutton" + space + "Possible Error in file: launcher.xml"
-		dialogok(localize(75795), localize(75796),"","")
-		if not systemplatformwindows: os.system('sh /storage/.kodi/addons/script.htpt.emu/specials/scripts/copyemu.sh')
-		xbmc.executebuiltin('ActivateWindow(Home.xml)')
-		xbmc.sleep(2000)
-		xbmc.executebuiltin('RunAddon(plugin.program.advanced.launcher)')
-		'''---------------------------'''
-	else:
-		if not os.path.exists(os.path.join(rom_path,'Sega Master System')) and not os.path.exists(os.path.join(rom_path,'TurboGrafx 16')) and not os.path.exists(os.path.join(rom_path,'Sega Genesis')):
-			dialogok("You currently have no games!", "Choose the Advanced Options button (Left Menu), then Choose YES.", "Click once on the Downloading Games button, then Choose Confirm to dow", "")
-		elif scripthtptdebug_Info_Bluetooth == "":
-			returned = dialogyesno("Bluetooth support", "Click YES in order to learn how to sync your PS3 controller")
-			if returned == 'ok':
-				diaogtextviewer("How to sync your PS3 controller", "This guide assume your hardware have a supported bluetooth adapter.[CR]If it's not then note that you maybe able to play with your PS3 cable attached![CR][CR]1. Enable your bluetooth by Choosing the Joystick Status button (left menu) then go up + right into service tab.[CR]Select the Enable Bluetooth option.[CR]2. Plug in your PS3 cable (Use 2.0 usb slot), connect it to the PS3 controller.[CR]Note: If the lights are blinking then your controller is charging.[CR]3. Click the PS button once.[CR]Note: The blinked lights are now off and your 1 player slot should light up.[CR]4. Unplug the PS3 cable.[CR]Note: The lights will blink and the controller should be auto sync in a few seconds.[CR]If that's not occur it's recommend to reboot your device.[CR]5. If the 1P light isn't on but 2-4P, you should unplug your others bluetooth device (one time), disconnect your PS3 controller by using the Josytick Status button, then turn on the PS3 controller by using the PS3 button.[CR][CR]- You can enable up to 4 PS3 controllers at once, they are all able to control your interface and in-game (ofcourse).")
+		returned = supportcheck(name2, ["A","A?","B","B?"], 200, platform="13456")
+		if returned == "ok":
+			addon = 'plugin.program.advanced.launcher'
+			if xbmc.getCondVisibility('System.HasAddon('+ addon +')'):
+				printpoint = printpoint + "7"
+				'''---------------------------'''
+			else:
+				installaddonP(admin, addon)
+				'''---------------------------'''
 			
+			addon = 'script.htpt.emu'
+			if xbmc.getCondVisibility('System.HasAddon('+ addon +')'):
+				printpoint = printpoint + "7"
+				'''---------------------------'''
+			else:
+				installaddon(admin, addon, "")
+				'''---------------------------'''
+			
+			if "77" in printpoint:
+				if not os.path.exists(os.path.join(addons_path,'emulator.retroarch')) and not admin3:
+					file = "emu_htpt.zip"
+					fileID = getfileID(file)
+					DownloadFile("https://www.dropbox.com/s/"+fileID+"/emu_htpt.zip?dl=1", file, temp_path, addons_path)
+					if os.path.exists(os.path.join(addons_path,'emulator.retroarch')): dialogok("Reboot required", "In order to start playing games, you should reboot your device", "", "")
+				else: xbmc.executebuiltin('RunScript(script.htpt.emu,,?mode=7)')
+				'''---------------------------'''
+	elif value == '1':
+		'''------------------------------
+		---GAMER-TV----------------------
+		------------------------------'''
+		addon = 'plugin.video.g4tv'
+		if xbmc.getCondVisibility('System.HasAddon('+ addon +')'):
+			xbmc.executebuiltin('RunAddon('+ addon +')')
+			'''---------------------------'''
+		else: installaddon(admin, addon, "")
+		
 def mode511(admin, name, printpoint):
 	'''------------------------------
 	---TRAILERS-BUTTON---------------
@@ -6693,50 +7841,49 @@ def mode511(admin, name, printpoint):
 	pass
 	'''---------------------------'''
 
-def mode512(admin, name, printpoint):
+def mode512(value, admin, name, printpoint):
 	'''------------------------------
 	---INTERNET-BUTTON---------------
 	------------------------------'''
-	name = localize(443)
-	if systemplatformwindows: terminal('start /max www.google.co.il','')
-	else:
-		returned = supportcheck(name, ["A","B"], 1, Intel=True, platform="456")
-		if returned == "ok":
-			if connected or connected2 or connected3:
-				returned = dialogyesno(str79215,str79216)
-				if returned == "ok":
-					addon = 'browser.chromium-browser'
-					if xbmc.getCondVisibility('System.HasAddon('+ addon +')'):
-						notification(str79217, str79218, "", 4000)
-						settingschange('SystemSettings','input.enablemouse','1','no',xbmc.getInfoLabel('$LOCALIZE[14094]'),xbmc.getInfoLabel('$LOCALIZE[21369]'))
-						xbmc.sleep(1000)
-						if not systemplatformwindows: xbmc.executebuiltin('RunAddon(browser.chromium-browser)')
+	if value == '0':
+		name = localize(443)
+		if systemplatformwindows: terminal('start /max www.google.co.il','')
+		else:
+			returned = supportcheck(name, ["A","B"], 1, Intel=True, platform="456")
+			if returned == "ok":
+				if connected or connected2 or connected3:
+					returned = dialogyesno(str79215,str79216)
+					if returned == "ok":
+						addon = 'browser.chromium-browser'
+						if xbmc.getCondVisibility('System.HasAddon('+ addon +')'):
+							notification(str79217, str79218, "", 4000)
+							settingschange('SystemSettings','input.enablemouse','1','no',xbmc.getInfoLabel('$LOCALIZE[14094]'),xbmc.getInfoLabel('$LOCALIZE[21369]'))
+							xbmc.sleep(1000)
+							if not systemplatformwindows: xbmc.executebuiltin('RunAddon(browser.chromium-browser)')
+							'''---------------------------'''
+						else: installaddon(admin, addon, "")
+					else:
+						notification_common("8")
+						#settingschange('SystemSettings','input.enablemouse','0','no',xbmc.getInfoLabel('$LOCALIZE[14094]'),xbmc.getInfoLabel('$LOCALIZE[21369]'))
 						'''---------------------------'''
-					else: installaddon(admin, addon, "")
-				else:
-					notification_common("8")
-					#settingschange('SystemSettings','input.enablemouse','0','no',xbmc.getInfoLabel('$LOCALIZE[14094]'),xbmc.getInfoLabel('$LOCALIZE[21369]'))
-					'''---------------------------'''
-				
-				
-				
-			else: notification_common("4")
-	'''---------------------------'''
+				else: notification_common("4")
+				'''---------------------------'''
 
-def mode513(admin, name, printpoint):
+def mode513(value, admin, name, printpoint):
 	'''------------------------------
 	---VIDEOS-BUTTON-----------------
 	------------------------------'''
-	name2 = str3
-	path2 = "videos" 
-	pictures_videos(admin, name, printpoint, 513, name2, path2)
-	'''---------------------------'''
+	if value == '0':
+		name2 = str3
+		path2 = "videos" 
+		pictures_videos(admin, name, printpoint, 513, name2, path2)
+		'''---------------------------'''
 
 def mode514(value, admin, name, printpoint):
 	'''------------------------------
 	---MUSIC-BUTTON------------------
 	------------------------------'''
-	if value == "101" or not musicsep:
+	if value == "0":
 		'''------------------------------
 		---HTPT-MUSIC--------------------
 		------------------------------'''
@@ -6745,12 +7892,9 @@ def mode514(value, admin, name, printpoint):
 			xbmc.executebuiltin('RunAddon('+ addon +',,)')
 			'''---------------------------'''
 		else: installaddon(admin, addon, "")
-		if not musicsep:
-			if musicseptip or scripthtptinstall_Skin_FirstBoot == "true":
-				notification_common("25")
-				if musicseptip: setSkinSetting("1", 'musicseptip', "false")
+		SubMenuTip(admin)
 				
-	elif value == "102":
+	elif value == "1":
 		'''------------------------------
 		---NINBORA-MUSIC-----------------
 		------------------------------'''
@@ -6762,12 +7906,12 @@ def mode514(value, admin, name, printpoint):
 				xbmc.executebuiltin('RunAddon('+ addon +',,)')
 				'''---------------------------'''
 			else: installaddon(admin, addon, "")
-	
-	if value == "103":
+			
+	elif value == "3":
 		'''------------------------------
 		---LOCAL-MUSIC-------------------
 		------------------------------'''
-		name2 = str75004.encode('utf-8')
+
 		if libraryhascontentmusic:
 			if musiclinkstr == "": xbmc.executebuiltin('ActivateWindow(502,return)')
 			else: xbmc.executebuiltin('ActivateWindow(502,'+ musiclinkstr +',return)')
@@ -6775,30 +7919,41 @@ def mode514(value, admin, name, printpoint):
 			xbmc.executebuiltin('ActivateWindow(501,root),return)')
 			#xbmc.executebuiltin('ActivateWindow(501),return)')
 			xbmc.sleep(1000)
-			dialogok('[COLOR=Yellow]' + addonString(120) % (name2.decode('utf-8')) + '[/COLOR]', addonString(147) % (name2.decode('utf-8')), localize(75783), '')
+			dialogok('[COLOR=Yellow]' + addonString(120) % (localize(36914).decode('utf-8')) + '[/COLOR]', addonString(147) % (localize(75004).decode('utf-8')), localize(75783), '')
 			'''---------------------------'''
-			returned = supportcheck(name2, ["A", "B", "A?", "B?"], totalspace=40, Intel=False, silence=False)
+			returned = supportcheck(localize(75004), ["A", "B", "A?", "B?"], totalspace=40, Intel=False, silence=False)
 			if returned != 'ok': pass
-	
-	elif value == "104":
+			
+	elif value == "4":
 		'''------------------------------
 		---RADIO-------------------------
 		------------------------------'''
 		addon = 'plugin.video.israelive'
-		if xbmc.getCondVisibility('System.HasAddon('+ addon +')'):
+		if xbmc.getCondVisibility('System.HasAddon(PVR.HasRadioChannels)'):
+			xbmc.executebuiltin('ActivateWindow(RadioGuide)')
+			
+		elif xbmc.getCondVisibility('System.HasAddon('+ addon +')'):
 			#xbmc.executebuiltin('RunAddon('+ addon +',,)')
-			if xbmc.getCondVisibility('!System.GetBool(pvrmanager.enabled)'): xbmc.executebuiltin('ActivateWindow(10025,plugin://plugin.video.israelive/?categoryid=9999&description&displayname=10000&iconimage=http%3a%2f%2fmdmorrope.gob.pe%2fportalweb%2fimagenes%2fradioss.png&mode=2&name=%5bCOLOR%20chartreuse%5d%5bB%5d%5b%d7%a8%d7%93%d7%99%d7%95%5d%5b%2fB%5d%5b%2fCOLOR%5d&url,return)')
-			else: xbmc.executebuiltin('ActivateWindow(MyPVRChannels.xml)')
+			
+			if not sgbpvrmanagerenabled: xbmc.executebuiltin('ActivateWindow(10025,plugin://plugin.video.israelive/?categoryid=9999&description&displayname=10000&iconimage=http%3a%2f%2fmdmorrope.gob.pe%2fportalweb%2fimagenes%2fradioss.png&mode=2&name=%5bCOLOR%20chartreuse%5d%5bB%5d%5b%d7%a8%d7%93%d7%99%d7%95%5d%5b%2fB%5d%5b%2fCOLOR%5d&url,return)')
+			else: xbmc.executebuiltin('ActivateWindow(MyPVRChannels.xml)') ; notification("Test","","",2000)
 			'''---------------------------'''
 		else: installaddon(admin, addon, "")
-
-	'''---------------------------'''
-
+		
+	elif value == "6":
+		'''------------------------------
+		---GUITAR------------------------
+		------------------------------'''
+		addon = 'plugin.video.ultimateguitar'
+		if xbmc.getCondVisibility('System.HasAddon('+ addon +')'): xbmc.executebuiltin('RunAddon('+ addon +')')
+		else: installaddon(admin, addon, "")
+		'''---------------------------'''
+		
 def mode515(value, admin, name, printpoint):
 	'''------------------------------
 	---KIDS-BUTTON-------------------
 	------------------------------'''
-	if value == "101" or not kidsep:
+	if value == "0":
 		'''------------------------------
 		---HTPT-KIDS---------------------
 		------------------------------'''
@@ -6807,73 +7962,77 @@ def mode515(value, admin, name, printpoint):
 			xbmc.executebuiltin('RunAddon('+ addon +',,)')
 			'''---------------------------'''
 		else: installaddon(admin, addon, "")
-		if not kidsep:
-			if kidseptip or scripthtptinstall_Skin_FirstBoot == "true":
-				#notification_common("25")
-				if kidseptip: setSkinSetting("1", 'kidseptip', "false")
-	'''---------------------------'''
+		SubMenuTip(admin)
 
-def mode516(admin, name, printpoint):
+def mode516(value, admin, name, printpoint):
 	'''------------------------------
 	---FAVOURITES-BUTTON-------------
 	------------------------------'''
-	pass
-	'''---------------------------'''
+	if value == '0':
+		xbmc.executebuiltin('ActivateWindow(134)')
+		'''---------------------------'''
 
-def mode517(admin, name, printpoint):
+def mode517(value, admin, name, printpoint):
 	'''------------------------------
 	---LIVE-TV-BUTTON----------------
 	------------------------------'''
-	extra = "" ; TypeError = ""
-	containerfolderpath = xbmc.getInfoLabel('Container.FolderPath')
-	if livetvbutton2:
-		name = "livetvbutton2"
-		xbmc.executebuiltin('ActivateWindow(TVChannels)')
-		xbmc.sleep(1000)
-		mypvrchannels = xbmc.getCondVisibility('Window.IsVisible(MyPVRChannels.xml)')
-		count = 0
-		while count < 10 and not mypvrchannels and not xbmc.abortRequested:
-			xbmc.sleep(100)
-			count += 1
-			mypvrchannels = xbmc.getCondVisibility('Window.IsVisible(MyPVRChannels.xml)')
-			xbmc.sleep(100)
-		if mypvrchannels:
-			containerfoldername = xbmc.getInfoLabel('Container.FolderName')
-			containernumitems = xbmc.getInfoLabel('Container.NumItems')
-			try:
-				if int(containernumitems) < 2: printpoint = printpoint + "8"
-				elif containerfoldername != localize(19287): dialogok('[COLOR=Yellow]' + '$LOCALIZE[19051]' + '[/COLOR]', str79548 % (containernumitems), str79549, "")
-			except Exception, TypeError: extra = extra + newline + "TypeError" + space2 + str(TypeError)
-
-		else: printpoint = printpoint + "9"
-		if "8" in printpoint or "9" in printpoint:
-			xbmc.executebuiltin('RunAddon(plugin.video.israelive)')
-			dialogkaitoastW = xbmc.getCondVisibility('Window.IsVisible(DialogKaiToast.xml)')
-			count = 0
-			while count < 10 and not dialogkaitoastW and not xbmc.abortRequested:
-				count += 1
-				xbmc.sleep(200)
-				dialogkaitoastW = xbmc.getCondVisibility('Window.IsVisible(DialogKaiToast.xml)')
-			if count == 10:
-				xbmc.executebuiltin('RunScript(script.htpt.smartbuttons,,?mode=10)')		
-	else:
-		if livetvbutton: name = "livetvbutton"
-		else: name = "livetvcustom"
-		returned = ActivateWindow("0", 'plugin.video.israelive', 'plugin://plugin.video.israelive/', 1, wait=True)
-		if not "ok" in returned:
-			printpoint = printpoint + "6"
-			returned = ActivateWindow("1", 'plugin.video.israelive', 'plugin://plugin.video.israelive/', 1, wait=True)
-		if "ok" in returned:
-			printpoint = printpoint + "7"
-			pass
-		containernumitems = xbmc.getInfoLabel('Container.NumItems')
+	if '0' in value:
+		extra = "" ; TypeError = ""
 		containerfolderpath = xbmc.getInfoLabel('Container.FolderPath')
-		systemcurrentcontrol = xbmc.getInfoLabel('System.CurrentControl')
-		
-	if admin or extra != "": print printfirst + name + "_LV" + printpoint + space + "containernumitems" + space2 + str(containernumitems) + space + "containerfolderpath" + space2 + containerfolderpath + extra
-	'''---------------------------'''
+		if xbmc.getCondVisibility('System.GetBool(pvrmanager.enabled)'):
+			printoint = printpoint + "1"
+			xbmc.executebuiltin('ActivateWindow(TVChannels)')
+			xbmc.sleep(1000)
+			mypvrchannels = xbmc.getCondVisibility('Window.IsVisible(MyPVRChannels.xml)')
+			count = 0
+			while count < 10 and not mypvrchannels and not xbmc.abortRequested:
+				xbmc.sleep(100)
+				count += 1
+				mypvrchannels = xbmc.getCondVisibility('Window.IsVisible(MyPVRChannels.xml)')
+				xbmc.sleep(100)
+			if mypvrchannels:
+				containerfoldername = xbmc.getInfoLabel('Container.FolderName')
+				containernumitems = xbmc.getInfoLabel('Container.NumItems')
+				try:
+					if int(containernumitems) < 2: printpoint = printpoint + "8"
+					elif containerfoldername != localize(19287): dialogok('[COLOR=Yellow]' + '$LOCALIZE[19051]' + '[/COLOR]', str79548 % (containernumitems), str79549, "")
+				except Exception, TypeError: extra = extra + newline + "TypeError" + space2 + str(TypeError)
 
-def mode518(admin, name, printpoint):
+			else: printpoint = printpoint + "9"
+			if "8" in printpoint or "9" in printpoint:
+				xbmc.executebuiltin('RunAddon(plugin.video.israelive)')
+				dialogkaitoastW = xbmc.getCondVisibility('Window.IsVisible(DialogKaiToast.xml)')
+				count = 0
+				while count < 10 and not dialogkaitoastW and not xbmc.abortRequested:
+					count += 1
+					xbmc.sleep(200)
+					dialogkaitoastW = xbmc.getCondVisibility('Window.IsVisible(DialogKaiToast.xml)')
+				if count == 10:
+					xbmc.executebuiltin('RunScript(script.htpt.smartbuttons,,?mode=12)')		
+		else:
+			printpoint = printpoint + "2"
+			returned = ActivateWindow("0", 'plugin.video.israelive', 'plugin://plugin.video.israelive/', 1, wait=True)
+			if not "ok" in returned:
+				printpoint = printpoint + "6"
+				returned = ActivateWindow("1", 'plugin.video.israelive', 'plugin://plugin.video.israelive/', 1, wait=True)
+			if "ok" in returned:
+				printpoint = printpoint + "7"
+				pass
+			containernumitems = xbmc.getInfoLabel('Container.NumItems')
+			containerfolderpath = xbmc.getInfoLabel('Container.FolderPath')
+			systemcurrentcontrol = xbmc.getInfoLabel('System.CurrentControl')
+
+		if admin or extra != "": print printfirst + name + "_LV" + printpoint + space + "containernumitems" + space2 + str(containernumitems) + space + "containerfolderpath" + space2 + containerfolderpath + extra
+		'''---------------------------'''
+	elif '6' in value:
+		'''ערוץ הטיולים'''
+		addon = 'plugin.video.travel'
+		if xbmc.getCondVisibility('System.HasAddon('+ addon +')'): xbmc.executebuiltin('RunAddon('+ addon +')')
+		else: installaddon(admin, addon, "")
+		'''---------------------------'''
+	SubMenuTip(admin)
+	
+def mode518(value, admin, name, printpoint):
 	'''------------------------------
 	---?-----------------------------
 	------------------------------'''
@@ -6881,25 +8040,49 @@ def mode518(admin, name, printpoint):
 	mode518(admin, name, printpoint)
 	'''---------------------------'''
 
-def mode519(admin, name, printpoint):
+def mode519(value, admin, name, printpoint):
 	'''------------------------------
-	---?-----------------------------
+	---NATURE/SCIENCE-BUTTON---------
 	------------------------------'''
-	name = "?"
-	mode519(admin, name, printpoint)
-	'''---------------------------'''
+	if value == '1':
+		addon = 'plugin.video.movixws'
+		if not xbmc.getCondVisibility('System.HasAddon('+ addon +')'): installaddon(admin, addon, update=True)
+		else:
+			url = 'plugin://plugin.video.movixws/?iconimage=http%3a%2f%2ficons.iconarchive.com%2ficons%2faaron-sinuhe%2ftv-movie-folder%2f512%2fDocumentaries-National-Geographic-icon.png&mode=2&name=Documentary%20-%20%d7%93%d7%95%d7%a7%d7%95%d7%9e%d7%a0%d7%98%d7%a8%d7%99&url=http%3a%2f%2fwww.movix.me%2fgenres%2fDocumentary'
+			returned = ActivateWindow("1", addon, url, 0, wait=True)
+			if not 'ok' in returned:
+				returned = ActivateWindow("0", addon, url, 0, wait=True)
+				'''---------------------------'''
+				
+	if value == '5':
+		addon = 'plugin.video.sdarot.tv'
+		if not xbmc.getCondVisibility('System.HasAddon('+ addon +')'): installaddon(admin, addon, update=True)
+		else:
+			url = 'plugin://plugin.video.sdarot.tv/?mode=2&module=http%3a%2f%2fwww.sdarot.wf%2fseries%2fgenre%2f11%d7%94%d7%99%d7%a1%d7%98%d7%95%d7%a8%d7%99%d7%94&name=%d7%94%d7%99%d7%a1%d7%98%d7%95%d7%a8%d7%99%d7%94&summary&url=all-heb'
+			returned = ActivateWindow("1", addon, url, 0, wait=True)
+			if not 'ok' in returned:
+				returned = ActivateWindow("0", addon, url, 0, wait=True)
+				'''---------------------------'''
+				
+	elif value == '6':
+		addon = 'plugin.video.ted.talks'
+		if xbmc.getCondVisibility('System.HasAddon('+ addon +')'): xbmc.executebuiltin('RunAddon('+ addon +')')
+		else: installaddon(admin, addon, "")
+		'''---------------------------'''
+	
 
-def mode520(admin, name, printpoint):
+def mode520(value, admin, name, printpoint):
 	'''------------------------------
 	---ADULT-MOVIE-BUTTON------------
 	------------------------------'''
-	addon = 'repository.xbmcadult'
-	if not xbmc.getCondVisibility('System.HasAddon('+ addon +')'): installaddon2(admin, addon, update=True) ; xbmc.sleep(1000) ; xbmc.executebuiltin('Action(Back)') ; xbmc.sleep(1000)
+	if value == '0':
+		addon = 'repository.xbmcadult'
+		if not xbmc.getCondVisibility('System.HasAddon('+ addon +')'): installaddon2(admin, addon, update=True) ; xbmc.sleep(1000) ; xbmc.executebuiltin('Action(Back)') ; xbmc.sleep(1000)
 
-	addon = 'plugin.video.videodevil'
-	if xbmc.getCondVisibility('System.HasAddon('+ addon +')'): xbmc.executebuiltin('RunAddon(plugin.video.videodevil)')
-	else: installaddon(admin, addon, "", update=True)
-	'''---------------------------'''
+		addon = 'plugin.video.videodevil'
+		if xbmc.getCondVisibility('System.HasAddon('+ addon +')'): xbmc.executebuiltin('RunAddon(plugin.video.videodevil)')
+		else: installaddon(admin, addon, "", update=True)
+		'''---------------------------'''
 	
 def mode521(admin, name, printpoint):
 	'''------------------------------
@@ -7129,46 +8312,7 @@ def mode549(value, admin, name, printpoint):
 	'''------------------------------
 	---MORE-BUTTON-------------------
 	------------------------------'''
-	if value == "101":
-		'''------------------------------
-		---GAMER-TV----------------------
-		------------------------------'''
-		addon = 'plugin.video.g4tv'
-		if xbmc.getCondVisibility('System.HasAddon('+ addon +')'):
-			xbmc.executebuiltin('RunAddon('+ addon +')')
-			'''---------------------------'''
-		else: installaddon(admin, addon, "")
-		
-	elif value == "102":
-		'''------------------------------
-		---GUITAR------------------------
-		------------------------------'''
-		addon = 'plugin.video.ultimateguitar'
-		if xbmc.getCondVisibility('System.HasAddon('+ addon +')'):
-			xbmc.executebuiltin('RunAddon('+ addon +')')
-			'''---------------------------'''
-		else: installaddon(admin, addon, "")
-	
-	elif value == "103":
-		'''------------------------------
-		---QUIZ--------------------------
-		------------------------------'''
-		addon = 'script.moviequiz'
-		if xbmc.getCondVisibility('System.HasAddon('+ addon +')'):
-			xbmc.executebuiltin('RunAddon('+ addon +')')
-			'''---------------------------'''
-		else: installaddon(admin, addon, "")
-	
-	elif value == "104":
-		'''------------------------------
-		---?--------------------------
-		------------------------------'''
-		addon = 'plugin.video.ultimateguitar'
-		if xbmc.getCondVisibility('System.HasAddon('+ addon +')'):
-			xbmc.executebuiltin('RunAddon('+ addon +')')
-			'''---------------------------'''
-		else: installaddon(admin, addon, "")
-	'''---------------------------'''
+	pass
 
 def mode550(admin, name, printpoint):
 	'''------------------------------
@@ -11133,7 +12277,7 @@ def setAutoSettings(custom, addonid2=""):
 	
 	countrystr = xbmc.getInfoLabel('Skin.String(Country)')
 	
-	if custom == "0":
+	if "0" in custom:
 		'''------------------------------
 		---INSTALL-ADDONS----------------
 		------------------------------'''
@@ -11160,6 +12304,7 @@ def setAutoSettings(custom, addonid2=""):
 			#if not xbmc.getCondVisibility('System.HasAddon('+ addon +')'): installaddon(admin, addon, "")
 			#addon = 'script.pulsar.torrenthound-mc'
 			#if not xbmc.getCondVisibility('System.HasAddon('+ addon +')'): installaddon(admin, addon, "")
+			
 			addon = 'script.pulsar.yify-mc'
 			if not xbmc.getCondVisibility('System.HasAddon('+ addon +')'):
 				installaddon(admin, addon, "", update=False)
@@ -11293,10 +12438,19 @@ def setAutoSettings(custom, addonid2=""):
 		set_accountdate('SDAROT TV','plugin.video.sdarot.tv', 'username', 'user_password', sdarottv_user, sdarottv_password, 'Account2_Active', 'Account2_Period', 'Account2_EndDate', Account2_Active, Account2_Period, Account2_EndDate, "1")
 		'''---------------------------'''
 	
-	elif custom == "1":
-		pass
+	if "1" in custom:
+		if not adult2:
+			'''hide adult contents'''
+			from variables2 import labelT2
+			x = labelT2.get(localize(75003))
+			if 'label' in str(x):
+				x = x.replace('label',"")
+				setSkinSetting('1','off'+x,"true")
+			
+			#print "x" + space2 + str(x)
+			#setSkinSetting('0','label'+x,str(labelT.get('label'+y)))
 	
-	elif custom == "3":
+	if "3" in custom:
 		'''------------------------------
 		---SETTING-ADDONS-BY-COUNTRY-----
 		------------------------------'''
@@ -11404,11 +12558,10 @@ def setAutoSettings(custom, addonid2=""):
 				#setsetting_custom1(addon,remoteSettingsUrl,"")
 				'''---------------------------'''
 				
-	elif custom == "4":
+	if "4" in custom:
 		'''------------------------------
 		---SETTING-GENERAL-ADDONS--------
 		------------------------------'''
-		
 		addon = 'plugin.video.bestofyoutube_com'
 		if xbmc.getCondVisibility('System.HasAddon('+ addon +')'):
 			if addonid2 == "" or addonid2 == addon:
@@ -11501,4 +12654,11 @@ def setCurrent_Subtitle(admin):
 	------------------------------'''
 	if admin: print printfirst + space + "setCurrent_Subtitle" + space2 + scripthtptrefresh_Current_Subtitle + space + "(" + dialogsubtitles2 + ")"
 	'''---------------------------'''
+	
+def SubMenuTip(admin):
+	if not property_submenutip:
+		if scripthtptinstall_Skin_FirstBoot != "true":
+			notification_common("25")
+			xbmc.executebuiltin('SetProperty(SubMenuTip,true,home)')
+			'''---------------------------'''
 	
