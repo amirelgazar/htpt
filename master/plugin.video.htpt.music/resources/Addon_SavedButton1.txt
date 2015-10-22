@@ -1,0 +1,6 @@
+&name=אמיר אלגזר&
+Custom_Playlist2_ID=5&youtube_ch=UCvNUOZHuDqNUgWwZ-TJyj4A/playlists,&youtube_ch=UCesTRyprtMHFu6mp6oJsQzA/playlists,&youtube_pl=PL6CcUVzFqqcVNcscz560ZsaxhWrQOrWXH
+Custom_Playlist2_Fanart=5
+Custom_Playlist2_Name=5אמיר אלגזר פלייליסטים
+Custom_Playlist2_Thumb=5C:\Users\Elgazar\AppData\Roaming\Kodi\addons\skin.phenomenal\media\ICONS\music icon\MyMusic.png
+Custom_Playlist2_Description=5
