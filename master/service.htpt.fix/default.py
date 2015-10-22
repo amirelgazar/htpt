@@ -50,7 +50,7 @@ elif mode == 1:
 		---SET-FIX_----------------------
 		------------------------------'''
 		'''setFix_("idstr_", "htptfixversion_", noidstr_, Addon_Version, htptfixversion, "Fix_1=false", "Fix_2=false", "Fix_3=false", "Fix_4=false", "Fix_5=false", "Fix_6=false", "Fix_7=false", "Fix_8=false", "Fix_9=false", "Fix_11=false", "Fix_12=false", "Fix_13=false", "Fix_14=false", "Fix_100=false", "Fix_101=false", "Fix_102=false", "Fix_103=false", "Fix_104=false")'''
-		setFix_("htpt6490216", "0.1.59", '', Addon_Version, htptfixversion, "Fix_1=false", "Fix_2=false", "Fix_3=false", "Fix_4=false", "Fix_5=false", "Fix_6=true", "Fix_7=false", "Fix_8=false", "Fix_9=false", "Fix_10=false", "Fix_11=false", "Fix_12=false", "Fix_13=false", "Fix_14=false", "Fix_100=true", "Fix_101=true", "Fix_102=false", "Fix_103=false", "Fix_104=false")
+		setFix_("N/A", "0.1.60", '', Addon_Version, htptfixversion, "Fix_1=false", "Fix_2=false", "Fix_3=false", "Fix_4=false", "Fix_5=true", "Fix_6=true", "Fix_7=false", "Fix_8=false", "Fix_9=false", "Fix_10=false", "Fix_11=false", "Fix_12=false", "Fix_13=false", "Fix_14=false", "Fix_100=false", "Fix_101=false", "Fix_102=false", "Fix_103=false", "Fix_104=false")
 		'''---------------------------'''
 		
 		'''------------------------------
@@ -68,9 +68,9 @@ elif mode == 1:
 		---ID-REWRITE--------------------
 		------------------------------'''
 		'''idstr = USERNAME EN , id1str = USERNAME HE, id2str = INSTALLATION DATE, id3str = WARRENTY END, id4str = ADDRESS, id5str = TELEPHONE NUMBER, id6str = PAYMENT TERMS,
-		id7str = QUESTION, id8str = TECHNICAL NAME, id9str = CODE RED, id10str = HTPT'S MODEL, ID11 = MAC1, ID12 = MAC2, ID40=, ID60 = '''
+		id7str = QUESTION, id8str = TECHNICAL NAME, id9str = CODE RED, id10str = HTPT'S MODEL, ID11 = MAC1, ID12 = MAC2'''
 		'''ID_Rewrite(idstr_, htptfixversion_, Addon_Version, htptfixversion, "", "", "", "", "", "", "", "", "", "", "", "", "", "")'''
-		ID_Rewrite("htpt3313341", "0.1.47", Addon_Version, htptfixversion, "idstr=htptuser9", "id1str=", "id2str=", "id3str=", "id4str=", "id5str=", "id6str=", "id7str=", "id8str=", "id9str=TULU", "id10str=", "id11str=", "id12str=", "id40str=false", "id60str=")
+		ID_Rewrite("htpt3313341", "0.1.47", Addon_Version, htptfixversion, "idstr=htptuser9", "id1str=", "id2str=", "id3str=", "id4str=", "id5str=", "id6str=", "id7str=", "id8str=", "id9str=TULU", "id10str=", "id11str=", "id12str=")
 		'''---------------------------'''
 		
 		'''------------------------------
@@ -155,13 +155,6 @@ elif mode == 10:
 					systemcurrentcontrol = findin_systemcurrentcontrol("0",localize(107),100,'Action(Down)','Action(Select)')
 					'''---------------------------'''
 				if count < 10: printpoint = printpoint + "7"
-				'''---------------------------'''
-		elif localize(166) in returned_Header:
-			if 1 + 1 == 3:
-				if systemhasaddon_htptinstall and id40str:
-					 if scripthtptinstall_General_ScriptON != "true": pass #xbmc.executebuiltin('RunScript(script.htpt.install,,?mode=22)')
-					 else: setsetting_custom1('script.htpt.install', 'General_ScriptON', "false")
-				else: xbmc.executebuiltin('dialog.close(selectdialog)')
 				'''---------------------------'''
 			
 		'''---------------------------'''

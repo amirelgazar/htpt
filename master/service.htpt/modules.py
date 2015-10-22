@@ -180,27 +180,6 @@ def setTime_Start(admin):
 	Time_Start2 = getsetting('Time_Start')
 	print printfirst + "setTime_Start" + space2 + "Time_Start" + space2 + Time_Start + " - " + Time_Start2 + space3
 	'''---------------------------'''
-		
-def validationstartup(admin, Skin_Name):
-	if xbmc.getSkinDir() == 'skin.htpt':
-		validation = xbmc.getInfoLabel('Skin.HasSetting(VALIDATION)')
-		validation5 = xbmc.getInfoLabel('Skin.String(VALIDATION5)')
-		count = 0
-		if validation and validation5 != '0' and not xbmc.abortRequested:
-			#if admin and count == 1: xbmc.executebuiltin('Notification(Admin,validationstartup)')
-			startup_a = xbmc.getCondVisibility('Window.IsActive(Startup.xml)')
-			skinsettings = xbmc.getCondVisibility('Window.IsVisible(SkinSettings.xml)')
-			loginscreen = xbmc.getCondVisibility('Window.IsVisible(LoginScreen.xml)')
-			loginscreen_p = xbmc.getCondVisibility('Window.Previous(LoginScreen.xml)')
-			validation = xbmc.getInfoLabel('Skin.HasSetting(VALIDATION)')
-			validation5 = xbmc.getInfoLabel('Skin.String(VALIDATION5)')
-			playerhasmedia = xbmc.getInfoLabel('Player.HasMedia')
-			htptlogo = xbmc.getInfoLabel('Player.Filename') == "playHTPT.mp4"
-			if not startup_a and not loginscreen and not loginscreen_p and not skinsettings and not htptlogo: xbmc.executebuiltin('ReplaceWindow(Startup.xml)')
-			if playerhasmedia and not htptlogo:
-				xbmc.executebuiltin('Action(Close)')
-				xbmc.executebuiltin('Notification(HTPT AUTHENTICATION FAILED!,FOR SUPPORT: [COLOR Yellow]infohtpt@gmail.com[/COLOR],10000,icons/sc2.png)')
-				'''---------------------------'''
 
 def videoplayertweak(admin,playerhasvideo):
 	if playerhasvideo:
@@ -498,7 +477,7 @@ def connectioncheck(admin, admin2, count, systemidle3, Ping_Now, Ping_Connected)
 	else: connected2S = "false"
 	if connected3 != "": connected3S = "true"
 	else: connected3S = "false"
-	if (admin and admin2) or count == 0 or "_DOWN_" in printpoint or "_UP_" in printpoint:
+	if (admin and admin2 and admin3 and 1 + 1 == 3) or count == 0 or "_DOWN_" in printpoint or "_UP_" in printpoint:
 		print printfirst + space + "connectioncheck_LV" + printpoint + space + "count" + space2 + str(count) + space + "connected2/3" + space2 + connected2S + "/" + connected3S + extra
 		'''---------------------------'''
 
@@ -543,12 +522,12 @@ def setPing_Rate(admin, admin2, Ping_Rate, Ping_1, Ping_2, Ping_3, Ping_4, Ping_
 		'''------------------------------
 		---PRINT-END---------------------
 		------------------------------'''
-		if admin and admin2: print printfirst + space + "setPing_Rate" + space2 + "pingtotal/2" + space2 + pingtotalS + " / 10 = " + pingtotal2S + space + "Ping_Rate" + space2 + Ping_Rate + " - " + Ping_Rate2
+		if admin and admin2 and admin3 and 1 + 1 == 3: print printfirst + space + "setPing_Rate" + space2 + "pingtotal/2" + space2 + pingtotalS + " / 10 = " + pingtotal2S + space + "Ping_Rate" + space2 + Ping_Rate + " - " + Ping_Rate2
 		'''---------------------------'''
 	except:
 		setsetting('Ping_Rate',"1")
 		setSkinSetting("0", 'Ping_Rate', "1")
-		if admin: print printfirst + space + "setPing_Rate" + space2 + "Ping_Rate" + space2 + "1"
+		if admin and admin2 and admin3 and 1 + 1 == 3: print printfirst + space + "setPing_Rate" + space2 + "Ping_Rate" + space2 + "1"
 		'''---------------------------'''
 
 def setSkin_Name(Skin_Name):
@@ -677,37 +656,6 @@ def setSkin_Update(admin, Skin_Version, htptskinversion, Skin_Update):
 	'''------------------------------
 	---CHECK-FOR-SKIN-UPDATE---------
 	------------------------------'''
-	#admin = xbmc.getInfoLabel('Skin.HasSetting(Admin)')
-	#htptskinversion = xbmc.getInfoLabel('System.AddonVersion(skin.htpt)')
-	#Skin_Version = getsetting('Skin_Version')
-	#Skin_Update = getsetting('Skin_Update')
-	
-	#if not systemplatformwindows: log = open('/storage/.kodi/temp/kodi.log', 'r')
-	#elif systemplatformwindows: log = open('Z:\kodi.log', 'r')
-	#file = log.read()
-	#log.close()
-	#count = 0
-	#while count < 10 and not "FileManager: copy https://raw.githubusercontent.com/htpthtpt/htpt/master/skin.htpt/skin.htpt" in file and not xbmc.abortRequested:
-		#xbmc.sleep(1000)
-		#validationstartup('run')
-		#count += 1
-		#countS = str(count)
-		#if admin: xbmc.executebuiltin('Notification(Admin,UpdateSkin ('+ countS +'),1000)')
-		#if not systemplatformwindows: log = open('/storage/.kodi/temp/kodi.log', 'r')
-		#elif systemplatformwindows: log = open('Z:\kodi.log', 'r')
-		#file = log.read()
-	#log.close()
-	#count = 0
-	#while count < 10 and "FileManager: copy https://raw.githubusercontent.com/htpthtpt/htpt/master/skin.htpt/skin.htpt" in file and not xbmc.abortRequested:
-		#xbmc.sleep(1000)
-		#count += 1
-		#if count == 1:
-			#xbmc.executebuiltin('Notification($LOCALIZE[79200] '+ htptskinversion +'),$LOCALIZE[31407],7000)')
-			#heading = xbmc.getInfoLabel('$LOCALIZE[79200]') + ' ' + htptskinversion
-			#dialogok(heading, addonString_servicehtpt(10), "", "")
-		#if Skin_Update != "true": setsetting_custom1('service.htpt','Skin_Update',"true")
-		#if count == 10: xbmc.executebuiltin('dialog.close(okdialog)')
-			
 	if Skin_Version != htptskinversion and Skin_Update == "false":
 		Skin_Update2 = "true"
 		setsetting('Skin_UpdateLog',"true")
@@ -717,9 +665,6 @@ def setSkin_Update(admin, Skin_Version, htptskinversion, Skin_Update):
 		
 	if Skin_Update != Skin_Update2: setsetting('Skin_Update',Skin_Update2)
 	'''---------------------------'''
-	#if "FileManager: copy http://raw.github.com/lambda81/lambda-repo/master/plugin.video.genesis/" in file:
-		#xbmc.executebuiltin('Notification($LOCALIZE[75000],$LOCALIZE[31407],2000)')
-		#xbmc.sleep(1000)
 		
 	'''------------------------------
 	---PRINT-END---------------------

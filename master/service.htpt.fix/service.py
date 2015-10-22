@@ -35,7 +35,6 @@ class clean:
 	removefiles(addondata_path + '#')
 	removeaddons(['script.htpt.homebuttons', 'service.htpt.fix', 'service.htpt', 'script.htpt.smartbuttons', 'service.htpt.debug', 'script.htpt.emu', 'script.htpt.install', 'script.htpt.refresh', 'script.htpt.widgets', 'plugin.video.htpt.kids', 'plugin.video.htpt.gopro', 'plugin.video.htpt.music', 'skin.htpt'], "3")
 	path1 = os.path.join(addons_path,'script.htpt.widgets','')
-	#if os.path.exists(path1) and not id40str: removeaddons(['service.skin.widgets'], "123")
 	if not os.path.exists(temp_path): os.mkdir(temp_path)
 	if not os.path.exists(downloads_path): os.mkdir(downloads_path)
 	if not os.path.exists(music_path): os.mkdir(music_path)
@@ -43,8 +42,6 @@ class clean:
 	'''---------------------------'''
 
 class startup:
-		
-	#xbmc.executebuiltin('RunScript(service.htpt.fix,,?mode=13)') #setModel
 	xbmc.executebuiltin('RunScript(service.htpt.fix,,?mode=12)') #downloads
 	xbmc.executebuiltin('RunScript(service.htpt.fix,,?mode=20)') #setAdvancedSettings
 	
@@ -93,89 +90,91 @@ class main:
 		if xbmc.getSkinDir() != "skin.htpt":
 			xbmc.sleep(60000)
 		else:
-			'''------------------------------
-			---VARIABLES---------------------
-			------------------------------'''
-			#if admin: print printfirst + "DEBUGGING! (0)" + space + "Fix_1/2/3" + space2 + Fix_1 + " / " + Fix_2 + " / " + Fix_3 + space + "Addon_Version" + space2 + Addon_Version + space + "Addon_UpdateLog" + space2 + Addon_UpdateLog
-			systeminternetstate = xbmc.getInfoLabel('System.InternetState')
-			networkipaddress = xbmc.getInfoLabel('Network.IPAddress')
-			connected = xbmc.getInfoLabel('Skin.HasSetting(Connected)')
-			hasinternet = systeminternetstate != "" and networkipaddress != "" and not "169.254." in networkipaddress and (connected or systemplatformwindows)
-			'''---------------------------'''
-			admin = xbmc.getInfoLabel('Skin.HasSetting(Admin)')
-			admin2 = xbmc.getInfoLabel('Skin.HasSetting(Admin2)')
-			playerhasvideo = xbmc.getCondVisibility('Player.HasVideo')
-			systemidle7 = xbmc.getCondVisibility('System.IdleTime(7)')
-			systemidle120 = xbmc.getCondVisibility('System.IdleTime(120)')
-			validation = xbmc.getInfoLabel('Skin.HasSetting(VALIDATION)')
-			validation2 = xbmc.getInfoLabel('Skin.HasSetting(VALIDATION2)')
-			performance = xbmc.getInfoLabel('Skin.HasSetting(Performance)')
-			home_aW = xbmc.getCondVisibility('Window.IsActive(0)')
-			containerfolderpath = xbmc.getInfoLabel('Container.FolderPath')
-			'''---------------------------'''
-			dialogbusyW = xbmc.getCondVisibility('Window.IsVisible(DialogBusy.xml)')
-			dialogokW = xbmc.getCondVisibility('Window.IsVisible(DialogOk.xml)')
-			dialogprogressW = xbmc.getCondVisibility('Window.IsVisible(DialogProgress.xml)')
-			dialogselectW = xbmc.getCondVisibility('Window.IsVisible(DialogSelect.xml)')
-			dialogyesnoW = xbmc.getCondVisibility('Window.IsVisible(DialogYesNo.xml)')
-			dialogtextviewerW = xbmc.getCondVisibility('Window.IsVisible(DialogTextViewer.xml)')
-			startupW = xbmc.getCondVisibility('Window.IsVisible(Startup.xml)')
-			custom1191W = xbmc.getCondVisibility('Window.IsVisible(Custom1191.xml)')
-			'''---------------------------'''
-			if scriptcount2 == 0:
-				if (not playerhasvideo and systemidle7 and home_aW and not validation) or startupW:
-					x = 0
-					if startupW and not systemidle7: xbmc.executebuiltin('RunScript('+ addonID +',,?mode=1)') #Addon_Update-&-SET
-					else: x += 1
-					if home_aW and not dialogprogressW and not dialogokW and not dialogbusyW and not dialogtextviewerW and not dialogyesnoW and not dialogselectW and not custom1191W and not startupW: xbmc.executebuiltin('RunScript(service.htpt.fix,,)')
-					else: x += 1
-					if x > 0: scriptcount += 1
-					if admin: print printfirst + space + "count" + space2 + str(scriptcount)
-					'''---------------------------'''
-						
+			custom1000W = xbmc.getCondVisibility('Window.IsVisible(Custom1000.xml)')
+			if custom1000W:
+				xbmc.sleep(10000)
+			else:
 				'''------------------------------
-				---scriptcount2------------------
+				---VARIABLES---------------------
 				------------------------------'''
-				if admin and not systemidle120: scriptcount2 += 2 #xbmc.sleep(10000)
-				elif playerhasvideo: scriptcount2 += 24 #xbmc.sleep(120000)
-				elif not home_aW: scriptcount2 += 4 #xbmc.sleep(20000)
-				else: scriptcount2 += 2 #xbmc.sleep(10000)
+				#if admin: print printfirst + "DEBUGGING! (0)" + space + "Fix_1/2/3" + space2 + Fix_1 + " / " + Fix_2 + " / " + Fix_3 + space + "Addon_Version" + space2 + Addon_Version + space + "Addon_UpdateLog" + space2 + Addon_UpdateLog
+				systeminternetstate = xbmc.getInfoLabel('System.InternetState')
+				networkipaddress = xbmc.getInfoLabel('Network.IPAddress')
+				connected = xbmc.getInfoLabel('Skin.HasSetting(Connected)')
+				hasinternet = systeminternetstate != "" and networkipaddress != "" and not "169.254." in networkipaddress and (connected or systemplatformwindows)
 				'''---------------------------'''
-						
-			'''---------------------------'''
-			if scriptcount2 > 0: scriptcount2 += -1
-			'''---------------------------'''
-			if scriptcount >= 10:
-				if admin and not admin2:
-					pass
-					#notification(printfirst,"Clean Exit = NO","scriptcount = 0",2000)
-					#scriptcount = 0
-					#setsetting_custom1("service.htpt.fix",'Addon_ServiceON',"true")
-				else:
-					pass
-					setsetting_custom1("service.htpt.fix",'Addon_ServiceON',"false")
-					print printfirst + "Clean Exit" + space + "Addon_ServiceON" + space2 + Addon_ServiceON
-					sys.exit()
+				admin = xbmc.getInfoLabel('Skin.HasSetting(Admin)')
+				admin2 = xbmc.getInfoLabel('Skin.HasSetting(Admin2)')
+				playerhasvideo = xbmc.getCondVisibility('Player.HasVideo')
+				systemidle7 = xbmc.getCondVisibility('System.IdleTime(7)')
+				systemidle120 = xbmc.getCondVisibility('System.IdleTime(120)')
+				performance = xbmc.getInfoLabel('Skin.HasSetting(Performance)')
+				home_aW = xbmc.getCondVisibility('Window.IsActive(0)')
+				containerfolderpath = xbmc.getInfoLabel('Container.FolderPath')
+				'''---------------------------'''
+				dialogbusyW = xbmc.getCondVisibility('Window.IsVisible(DialogBusy.xml)')
+				dialogokW = xbmc.getCondVisibility('Window.IsVisible(DialogOk.xml)')
+				dialogprogressW = xbmc.getCondVisibility('Window.IsVisible(DialogProgress.xml)')
+				dialogselectW = xbmc.getCondVisibility('Window.IsVisible(DialogSelect.xml)')
+				dialogyesnoW = xbmc.getCondVisibility('Window.IsVisible(DialogYesNo.xml)')
+				dialogtextviewerW = xbmc.getCondVisibility('Window.IsVisible(DialogTextViewer.xml)')
+				startupW = xbmc.getCondVisibility('Window.IsVisible(Startup.xml)')
+				custom1191W = xbmc.getCondVisibility('Window.IsVisible(Custom1191.xml)')
+				'''---------------------------'''
+				if scriptcount2 == 0:
+					if (not playerhasvideo and systemidle7 and home_aW) or startupW:
+						x = 0
+						if startupW and not systemidle7: xbmc.executebuiltin('RunScript('+ addonID +',,?mode=1)') #Addon_Update-&-SET
+						else: x += 1
+						if home_aW and not dialogprogressW and not dialogokW and not dialogbusyW and not dialogtextviewerW and not dialogyesnoW and not dialogselectW and not custom1191W and not startupW: xbmc.executebuiltin('RunScript(service.htpt.fix,,)')
+						else: x += 1
+						if x > 0: scriptcount += 1
+						if admin: print printfirst + space + "count" + space2 + str(scriptcount)
+						'''---------------------------'''
+							
+					'''------------------------------
+					---scriptcount2------------------
+					------------------------------'''
+					if admin and not systemidle120: scriptcount2 += 2 #xbmc.sleep(10000)
+					elif playerhasvideo: scriptcount2 += 24 #xbmc.sleep(120000)
+					elif not home_aW: scriptcount2 += 4 #xbmc.sleep(20000)
+					else: scriptcount2 += 2 #xbmc.sleep(10000)
 					'''---------------------------'''
+							
+				'''---------------------------'''
+				if scriptcount2 > 0: scriptcount2 += -1
+				'''---------------------------'''
+				if scriptcount >= 10:
+					if admin and not admin2:
+						pass
+						#notification(printfirst,"Clean Exit = NO","scriptcount = 0",2000)
+						#scriptcount = 0
+						#setsetting_custom1("service.htpt.fix",'Addon_ServiceON',"true")
+					else:
+						pass
+						setsetting_custom1("service.htpt.fix",'Addon_ServiceON',"false")
+						print printfirst + "Clean Exit" + space + "Addon_ServiceON" + space2 + Addon_ServiceON
+						sys.exit()
+						'''---------------------------'''
 
-			'''---------------------------'''
+				'''---------------------------'''
+				
+				'''------------------------------
+				---SLEEP-------------------------
+				------------------------------'''
+				if admin and not systemidle7: xbmc.sleep(5000)
+				elif playerhasvideo: xbmc.sleep(60000)
+				else: xbmc.sleep(10000)
+				if performance: xbmc.sleep(10000)
+				'''---------------------------'''
+				
+				'''------------------------------
+				---PRINT-END---------------------
+				------------------------------'''
+				if admin and not admin2 and admin3 and not systemidle7: print printfirst + "service.py" + space + "scriptcount" + space2 + str(scriptcount) + " (" + str(scriptcount2) + ") " + space + "General_ScriptON" + space2 + General_ScriptON + space + "Addon_ServiceON" + space2 + Addon_ServiceON
+				'''---------------------------'''
 			
-			'''------------------------------
-			---SLEEP-------------------------
-			------------------------------'''
-			if admin and not systemidle7: xbmc.sleep(5000)
-			elif playerhasvideo: xbmc.sleep(60000)
-			else: xbmc.sleep(10000)
-			if performance: xbmc.sleep(10000)
-			'''---------------------------'''
-			
-			'''------------------------------
-			---PRINT-END---------------------
-			------------------------------'''
-			if admin and not admin2 and admin3 and not systemidle7: print printfirst + "service.py" + space + "scriptcount" + space2 + str(scriptcount) + " (" + str(scriptcount2) + ") " + space + "General_ScriptON" + space2 + General_ScriptON + space + "Addon_ServiceON" + space2 + Addon_ServiceON
-			'''---------------------------'''
-		
-		if xbmc.abortRequested:
-			print printfirst + "Error 1170: AbortRequested!"
-			sys.exit()
-			'''---------------------------'''
+	if xbmc.abortRequested:
+		print printfirst + "Error 1170: AbortRequested!"
+		sys.exit()
+		'''---------------------------'''

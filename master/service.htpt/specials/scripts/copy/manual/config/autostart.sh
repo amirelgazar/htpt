@@ -39,7 +39,7 @@ chmod +x $SMARTBUTTONS_PATH/specials/scripts/*
 #chmod +x $REMOTE_PATH/*
 chmod +x $USERDATA_PATH3/*
 
-$SERVICE_PATH/specials/scripts/clean.sh
+#$SERVICE_PATH/specials/scripts/clean.sh
 #$HOME/.kodi/addons/skin.htpt/specials/scripts/copy.sh
 
 #$REMOTE_PATH/remote.sh

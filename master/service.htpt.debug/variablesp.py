@@ -390,7 +390,7 @@ FREE SPACE:        %s
 ------------------------------
 ''' % (systemcputemperature, systemgputemperature, systemhddtemperature, systemcpuusage, systemfanspeed, systemmemorytotal, systemfreememory, freespace2)
 
-if id40str != "false":
+if 1 + 1 == 2:
 	if sdarottv_password != "": sdarottv_password = "***"
 	if subtitle_set2 != "": subtitle_set2 = "***"
 	if realdedrid_password != "": realdedrid_password = "***"

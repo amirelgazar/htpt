@@ -864,7 +864,7 @@ def AdvancedCustom(mode, name, url, thumb, desc, num, viewtype, fanart):
 	if ("7" in printpoint or value != "") and not "8" in printpoint and not "9" in printpoint:
 		
 		if returned == 1 or returned == 2: path = os.path.join(addondata_path, addonID, '')
-		elif returned == 3: path = os.path.join(addonPath, addonID, 'resources', 'templates', '')
+		elif returned == 3: path = os.path.join(addonPath, 'resources', 'templates', '')
 		elif returned == 4: pass
 		else: path = ""
 		
@@ -898,9 +898,9 @@ def AdvancedCustom(mode, name, url, thumb, desc, num, viewtype, fanart):
 				filename3 = regex_from_to(infile3, "&name=", "&", excluding=True)
 			else: filename3 = None
 			
-			value1 = value + space + "1" + space + "(" + str(filename1) + ")"
-			value2 = value + space + "2" + space + "(" + str(filename2) + ")"
-			value3 = value + space + "3" + space + "(" + str(filename3) + ")"
+			value1 = 'NO.' + space + "1" + space + "(" + str(filename1) + ")"
+			value2 = 'NO.' + space + "2" + space + "(" + str(filename2) + ")"
+			value3 = 'NO.' + space + "3" + space + "(" + str(filename3) + ")"
 			
 			'''save/load'''
 			if filename1 == None: value1 = '[COLOR=Red]' + value1 + '[/COLOR]'
@@ -1150,7 +1150,7 @@ def AdvancedCustom(mode, name, url, thumb, desc, num, viewtype, fanart):
 			'''---------------------------'''
 			
 	if admin and not admin2 and admin3:
-		print printfirst + name + "_LV" + printpoint + space + newline + \
+		print printfirst + 'AdvancedCustom' + space2 + 'name_' + space2 + name + "_LV" + printpoint + space + newline + \
 		"path" + space2 + str(path) + newline + \
 		"file1" + space2 + str(file1) + newline + \
 		"file2" + space2 + str(file2) + newline + \
@@ -1950,7 +1950,9 @@ def TvMode2(mode, name, url, iconimage, desc, num, viewtype):
 		notification("no valid URL founds!", "...", "", 2000)
 	else:
 		if General_TVModeDialog == "true":
-			returned = dialogyesno(addonString_servicehtpt(7).encode('utf-8'), addonString_servicehtpt(8).encode('utf-8'))
+			if General_TVModeShuffle == "true": extra = addonString_servicehtpt(8).encode('utf-8')
+			else: extra = addonString_servicehtpt(61).encode('utf-8') + '[CR]' + addonString_servicehtpt(62).encode('utf-8')
+			returned = dialogyesno(addonString_servicehtpt(7).encode('utf-8'), extra)
 		
 		if returned == "ok": mode = 5
 		else: mode = 6

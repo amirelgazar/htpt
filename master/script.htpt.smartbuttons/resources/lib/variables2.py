@@ -37,6 +37,9 @@ if 1 + 1 == 2:
 	iconunfocuscolorname = xbmc.getInfoLabel('Skin.String(IconUnFocusColor.name)')
 	iconfocuscolor = xbmc.getInfoLabel('Skin.String(IconFocusColor)')
 	iconfocuscolorname = xbmc.getInfoLabel('Skin.String(IconFocusColor.name)')
+	keyboardmaincolor = xbmc.getInfoLabel('Skin.String(KeyboardMainColor)')
+	keyboardmaincolorname = xbmc.getInfoLabel('Skin.String(KeyboardMainColor.name)')
+	
 	
 if property_buttonid != "" and property_buttonid_ != "" or 1 + 1 == 2:
 	'''------------------------------
@@ -5432,7 +5435,7 @@ if property_subbuttonid != "" and property_subbuttonid_ != "" or property_temp !
 	
 if xbmc.getCondVisibility('Window.IsVisible(DialogSelect.xml)') or 1 + 1 == 2:
 	list0 = ['ElementUButton', 'ElementFButton', 'MenuDesign'] #NO RANDOM SUPPORT
-	list0c = ['MenuColor', 'SubMenuMarkColor', 'TopInformationColor', 'TopVideoInformationColor', 'MainBackgroundColor', 'TopBackgroundColor', 'IconUnFocusColor', 'IconFocusColor']
+	list0c = ['MenuColor', 'SubMenuMarkColor', 'TopInformationColor', 'TopVideoInformationColor', 'MainBackgroundColor', 'TopBackgroundColor', 'IconUnFocusColor', 'IconFocusColor', 'KeyboardMainColor']
 	list0c2 = ['MainBackgroundTexture', 'TopBackgroundTexture'] #NO RANDOM SUPPORT
 	list0o = ['IconOverlayButton', 'MenuButtonsOverlay', 'LeftMenuOverlay', 'BottomMenuOverlay', 'CenterMenuOverlay', 'TopVideoInformationOverlay', 'TopMainBackgroundOverlay', 'TopInformationOverlay', 'MainBackgroundOverlay', 'BackgroundOverlay', 'Background2Overlay']
 	list1 = ['SelectionMarker', 'SelectionMarker2', 'ShadowButton', 'OverlayButton', 'background', 'BevelButton', 'StrokeButton', 'HideTopMainBackground']

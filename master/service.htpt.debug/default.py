@@ -47,7 +47,7 @@ elif mode == 1 and ModeOn_1 == "false":
 	'''------------------------------
 	---DEBUG-BUTTON------------------
 	------------------------------'''
-	if not connected: notification_common("5")
+	if not connected and xbmc.getSkinDir() == 'skin.htpt': notification_common("5")
 	else:
 		'''Current_Name'''
 		returned = dialogkeyboard(User_Name, localize(1014) + space + "(" + addonString_servicehtpt(22).encode('utf-8') + ")", 0, '1', 'User_Name', 'service.htpt.debug')

@@ -183,7 +183,7 @@ msgstr "שם כפתור"
 
 msgctxt "#46
 msgid "New %s"
-msgstr "%s חדש הוסף"
+msgstr "%s חדש"
 
 msgctxt "#47
 msgid "New %s"
@@ -202,44 +202,44 @@ msgid "Button"
 msgstr "כפתור"
 
 msgctxt "#51
-msgid ""
-msgstr ""
+msgid "Load"
+msgstr "טעינה"
 
 msgctxt "#52
-msgid ""
-msgstr ""
+msgid "Check addon.xml for the current addon's source."
+msgstr "פתח קובץ addon.xml ובחר בנתיב מקור (source)."
 
 msgctxt "#53
-msgid ""
-msgstr ""
+msgid "Enter the %s folder."
+msgstr "כנס לתיקייה %s"
 
 msgctxt "#54
-msgid ""
-msgstr ""
+msgid "Click the + button (Create new file here)"
+msgstr "בחר בכפתור + (Create new file here)"
 
 msgctxt "#55
-msgid ""
-msgstr ""
+msgid "Paste your configuration txt file in the large white box"
+msgstr "הדבק את הנתונים בקובץ הכפתור שלך בחלון הלבן הגדול"
 
 msgctxt "#56
-msgid ""
-msgstr ""
+msgid "Click the %s button"
+msgstr "לחץ על הכפתור %s"
 
 msgctxt "#57
-msgid ""
-msgstr ""
+msgid "One"
+msgstr "אחת"
 
 msgctxt "#58
-msgid ""
-msgstr ""
+msgid "Saved Succesfully!"
+msgstr "נשמרו בהצלחה!"
 
 msgctxt "#59
-msgid ""
-msgstr ""
+msgid "Saved Succesfully!"
+msgstr "נשמר בהצלחה!"
 
 msgctxt "#60
-msgid ""
-msgstr ""
+msgid "Your input is empty!"
+msgstr "הכנסת נתון ריק!"
 
 msgctxt "#61
 msgid ""

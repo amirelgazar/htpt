@@ -8,50 +8,44 @@ def guicheck(admin):
 	guisettings_file_ = read_from_file(guisettings_file, silent=True)
 	guisettings2_file_ = read_from_file(guisettings2_file, silent=True)
 	guisettings3_file_ = read_from_file(guisettings3_file, silent=True)
-	guisettings4_file_ = read_from_file(guisettings4_file, silent=True)
 	
 	x = 'skin'
 	guisettings_file_SKIN = regex_from_to(guisettings_file_, '<'+x+'>', '</'+x+'>', excluding=True)
 	guisettings2_file_SKIN = regex_from_to(guisettings2_file_, '<'+x+'>', '</'+x+'>', excluding=True)
 	guisettings3_file_SKIN = regex_from_to(guisettings3_file_, '<'+x+'>', '</'+x+'>', excluding=True)
-	guisettings4_file_SKIN = regex_from_to(guisettings4_file_, '<'+x+'>', '</'+x+'>', excluding=True)
 	
-	x = '"skin.htpt.ID"'
-	guisettings_file_ID = regex_from_to(guisettings_file_, ''+x+'>', '</setting>', excluding=True)
-	guisettings2_file_ID = regex_from_to(guisettings2_file_, ''+x+'>', '</setting>', excluding=True)
-	guisettings3_file_ID = regex_from_to(guisettings3_file_, ''+x+'>', '</setting>', excluding=True)
-	guisettings4_file_ID = regex_from_to(guisettings4_file_, ''+x+'>', '</setting>', excluding=True)
+	x = '"skin.htpt.User_ID"'
+	guisettings_file_ID = regex_from_to(guisettings_file_, 'name='+x+'>', '</setting>', excluding=True)
+	guisettings2_file_ID = regex_from_to(guisettings2_file_, 'name='+x+'>', '</setting>', excluding=True)
+	guisettings3_file_ID = regex_from_to(guisettings3_file_, 'name='+x+'>', '</setting>', excluding=True)
 	
-	x = '"skin.htpt.VALIDATION2"'
-	guisettings4_file_VALIDATION2 = regex_from_to(guisettings4_file_, ''+x+'>', '</setting>', excluding=True)
-	guisettings2_file_VALIDATION2 = regex_from_to(guisettings2_file_, ''+x+'>', '</setting>', excluding=True)
-	guisettings3_file_VALIDATION2 = regex_from_to(guisettings3_file_, ''+x+'>', '</setting>', excluding=True)
+	x = '"skin.htpt.SkinReset"'
+	guisettings_file_SkinReset = regex_from_to(guisettings_file_, 'name='+x+'>', '</setting>', excluding=True)
+	guisettings2_file_SkinReset = regex_from_to(guisettings2_file_, 'name='+x+'>', '</setting>', excluding=True)
+	guisettings3_file_SkinReset = regex_from_to(guisettings3_file_, 'name='+x+'>', '</setting>', excluding=True)
 	
 	x = 'systemtotaluptime'
 	guisettings_file_UPTIME = regex_from_to(guisettings_file_, '<'+x+'>', '</'+x+'>', excluding=True)
 	guisettings2_file_UPTIME = regex_from_to(guisettings2_file_, '<'+x+'>', '</'+x+'>', excluding=True)
 	guisettings3_file_UPTIME = regex_from_to(guisettings3_file_, '<'+x+'>', '</'+x+'>', excluding=True)
-	guisettings4_file_UPTIME = regex_from_to(guisettings4_file_, '<'+x+'>', '</'+x+'>', excluding=True)
 	try: guisettings_file_UPTIME = int(guisettings_file_UPTIME)
 	except Exception, TypeError: guisettings_file_UPTIME = 0 ; extra = extra + newline + "TypeError" + space2 + str(TypeError)
 	try: guisettings2_file_UPTIME = int(guisettings2_file_UPTIME)
 	except Exception, TypeError: guisettings2_file_UPTIME = 0 ; extra = extra + newline + "TypeError" + space2 + str(TypeError)
 	try: guisettings3_file_UPTIME = int(guisettings3_file_UPTIME)
 	except Exception, TypeError: guisettings3_file_UPTIME = 0 ; extra = extra + newline + "TypeError" + space2 + str(TypeError)
-	try: guisettings4_file_UPTIME = int(guisettings4_file_UPTIME)
-	except Exception, TypeError: guisettings4_file_UPTIME = 0 ; extra = extra + newline + "TypeError" + space2 + str(TypeError)
 	
 	if guisettings_file_SKIN != 'skin.htpt': printpoint = printpoint + "1"
-	if guisettings_file_ID == "" or (guisettings_file_UPTIME > 1 and guisettings_file_UPTIME < guisettings2_file_UPTIME): printpoint = printpoint + "2"
-	if guisettings4_file_VALIDATION2 == "true": printpoint = printpoint + "3"
+	if guisettings_file_ID == "" or (guisettings_file_UPTIME < guisettings2_file_UPTIME and guisettings_file_UPTIME < guisettings2_file_UPTIME): printpoint = printpoint + "2"
+	if guisettings_file_SkinReset != "true": printpoint = printpoint + "3"
 	
 	if guisettings2_file_SKIN != 'skin.htpt': printpoint = printpoint + "4"
 	if guisettings2_file_ID == "": printpoint = printpoint + "5"
-	if guisettings2_file_VALIDATION2 == "true": printpoint = printpoint + "6"
+	if guisettings2_file_SkinReset != "true": printpoint = printpoint + "6"
 	
 	if guisettings3_file_SKIN != 'skin.htpt': printpoint = printpoint + "7"
 	if guisettings3_file_ID == "": printpoint = printpoint + "8"
-	if guisettings3_file_VALIDATION2 == "true": printpoint = printpoint + "9"
+	if guisettings3_file_SkinReset != "true": printpoint = printpoint + "9"
 	
 	if (not "4" in printpoint and not "5" in printpoint and not "6" in printpoint) or (not "7" in printpoint and not "8" in printpoint and not "9" in printpoint):
 		if guisettings_file_ID != guisettings2_file_ID and guisettings_file_ID != guisettings3_file_ID or (guisettings_file_UPTIME < guisettings2_file_UPTIME and guisettings_file_UPTIME < guisettings3_file_UPTIME):
@@ -60,11 +54,17 @@ def guicheck(admin):
 			if (guisettings2_file_ID_len == 11 or guisettings3_file_ID_len == 11):
 				printpoint = printpoint + "A"
 	
+	if "3" in printpoint + "6" in printpoint + "9" in printpoint:
+		setsetting_custom1('service.htpt.fix','Fix_5', "true") ; xbmc.sleep(1000)
+		xbmc.executebuilin('RunScript(service.htpt.fix,,?mode=3)')
+	
 	if printpoint == "": printpoint = printpoint + "_"
 	
 	print printfirst + name + "_LV" + printpoint + space + "guisettings_file_SKIN/2/3" + space2 + str(guisettings_file_SKIN) + space4 + str(guisettings2_file_SKIN) + space4 + str(guisettings3_file_SKIN) + newline + \
 	"guisettings_file_ID" + space2 + str(guisettings_file_ID) + space + "guisettings2_file_ID" + space2 + str(guisettings2_file_ID) + space + "guisettings3_file_ID" + space2 + str(guisettings3_file_ID) + newline + \
 	"guisettings_file_UPTIME" + space2 + str(guisettings_file_UPTIME) + space + "guisettings2_file_UPTIME" + space2 + str(guisettings2_file_UPTIME) + space + "guisettings3_file_UPTIME" + space2 + str(guisettings3_file_UPTIME)
+	"guisettings_file_SkinReset" + space2 + str(guisettings_file_SkinReset) + space + "guisettings2_file_SkinReset" + space2 + str(guisettings2_file_SkinReset) + space + "guisettings3_file_SkinReset" + space2 + str(guisettings3_file_SkinReset)
+	
 	return printpoint, guisettings_file_
 
 def guikeeper(admin, guicheck="", guiread=""):
@@ -528,8 +528,7 @@ def guiset_videos(admin, guisettings_file, guisettings_file_):
 	x = 'usevaapi' #ALLOW HARDWARE ACCELERATION (VAAPI) -INTEL
 	old_word = regex_from_to(guisettings_file_, '<'+x+'>', '</'+x+'>', excluding=False)
 	if old_word == '<'+x+'></'+x+'>': old_word = regex_from_to(guisettings_file_, '<'+x+' default="true">', '</'+x+'>', excluding=False)
-	if not id40str or scripthtptinstall_Skin_FirstBoot == "true": new_word = '<'+x+'>true</'+x+'>'
-	else: new_word = '<'+x+'>N/A</'+x+'>'
+	new_word = '<'+x+'>false</'+x+'>'
 	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings_file,old_word,new_word)
 	'''---------------------------'''
 	x = 'usevaapimpeg2' #USE MPEG-2 VAAPI

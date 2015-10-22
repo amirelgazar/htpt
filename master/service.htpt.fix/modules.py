@@ -72,7 +72,6 @@ def Mode_20(admin, name, printpoint, scripthtptdebug_Info_TotalSpace, scripthtpt
 			if scripthtptdebug_Info_TotalMemoryN < 2000 and performance and scripthtptdebug_General_AllowDebug != "true": new_word = '<'+x+'>-1</'+x+'>'
 			elif admin3 and admin and admin2: new_word = '<'+x+'>1</'+x+'>'
 			else: new_word = '<'+x+'>0</'+x+'>'
-			#print "123123" + space + "id40str" + space2 + str(id40str) + space + "scripthtptdebug_Info_TotalMemoryN" + space2 + str(scripthtptdebug_Info_TotalMemoryN) + space + "scripthtptdebug_General_AllowDebug" + space2 + str(scripthtptdebug_General_AllowDebug)
 			replace_word(infile,old_word,new_word)
 			'''---------------------------'''
 			
@@ -152,7 +151,7 @@ def Mode_20plus(admin):
 	
 	print printfirst + name + "_LV" + printpoint + space
 	
-def ID_Rewrite(idstr_, htptfixversion_, Addon_Version, htptfixversion, idstr2, id1str2, id2str2, id3str2, id4str2, id5str2, id6str2, id7str2, id8str2, id9str2, id10str2, id11str2, id12str2, id40str2, id60str2):
+def ID_Rewrite(idstr_, htptfixversion_, Addon_Version, htptfixversion, idstr2, id1str2, id2str2, id3str2, id4str2, id5str2, id6str2, id7str2, id8str2, id9str2, id10str2, id11str2, id12str2):
 	'''------------------------------
 	---***---------------------------
 	------------------------------'''
@@ -172,10 +171,8 @@ def ID_Rewrite(idstr_, htptfixversion_, Addon_Version, htptfixversion, idstr2, i
 		id10str2 = id10str2.replace("id10str=", "").encode('utf-8')
 		id11str2 = id11str2.replace("id11str=", "").encode('utf-8')
 		id12str2 = id12str2.replace("id12str=", "").encode('utf-8')
-		id40str2 = id40str2.replace("id40str=", "").encode('utf-8')
-		id60str2 = id60str2.replace("id60str=", "").encode('utf-8')
 		'''idstr = USERNAME EN , id1str = USERNAME HE, id2str = INSTALLATION DATE, id3str = WARRENTY END, id4str = ADDRESS, id5str = TELEPHONE NUMBER, id6str = PAYMENT TERMS,
-		id7str = QUESTION, id8str = TECHNICAL NAME, id9str = CODE RED, id10str = HTPT'S MODEL, ID11 = MAC1, ID12 = MAC2, ID40=, ID60 = '''
+		id7str = QUESTION, id8str = TECHNICAL NAME, id9str = CODE RED, id10str = HTPT'S MODEL, ID11 = MAC1, ID12 = MAC2'''
 		if idstr2 != "": setSkinSetting("0",'ID',idstr2)
 		if id1str2 != "": setSkinSetting("0",'ID1',id1str2)
 		if id2str2 != "": setSkinSetting("0",'ID2',id2str2)
@@ -189,8 +186,6 @@ def ID_Rewrite(idstr_, htptfixversion_, Addon_Version, htptfixversion, idstr2, i
 		if id10str2 != "": setSkinSetting("0",'ID10',id10str2)
 		if id11str2 != "": setSkinSetting("0",'ID11',id11str2)
 		if id12str2 != "": setSkinSetting("0",'ID12',id12str2)
-		if id40str2 != "": setSkinSetting("0",'ID40',id40str2)
-		if id60str2 != "": setSkinSetting("0",'ID60',id60str2)
 		'''---------------------------'''
 		print printfirst + "ID_Rewrite: " + datenowS + space
 		'''---------------------------'''
@@ -731,7 +726,7 @@ def doFix_2(printpoint):
 	#addonsL.append('script.toolbox')
 	'''---------------------------'''
 	
-	if (id10str == "C" or id10str == "D") and not id40str:
+	if (id10str == "C" or id10str == "D"):
 		pass
 		#addonsL.append('plugin.program.advanced.launcher')
 		#addonsL.append('script.htpt.emu')
@@ -865,7 +860,7 @@ def Execute_Fix(admin, Fix_Done, Fix_L, Fix_1, Fix_2, Fix_3, Fix_4, Fix_5, Fix_6
 				'''------------------------------
 				---RESET-GUI---------------------
 				------------------------------'''
-				xbmc.executebuiltin('RunScript(script.htpt.smartbuttons,,?mode=40)')
+				xbmc.executebuiltin('RunScript(script.htpt.smartbuttons,,?mode=40&amp;value=0)')
 				xbmc.sleep(4000)
 				dialogok(str78986.encode('utf-8') + '[CR]' + '[COLOR=Yellow]' + str74554.encode('utf-8') + '[/COLOR]', '$LOCALIZE[74795]', "", '$LOCALIZE[78984]')
 				Fix_Done = Fix_Done + space4 + 'Fix_5'
@@ -1132,9 +1127,9 @@ def setMessagesCustom_All(admin):
 	count = 0
 	while count == 0 and returned != "ok" and datenowS != "" and not xbmc.abortRequested:
 		
-		if (id9str == htpt_a2 or id40str or (admin and not admin2)) and yomshabat != "true":
+		if (id9str == htpt_a2 or (admin and not admin2)) and yomshabat != "true":
 			
-			if id40str and scripthtptinstall_Skin_DateInstalled != "":
+			if scripthtptinstall_Skin_DateInstalled != "":
 				'''------------------------------
 				---DOWNLOADED--------------------
 				------------------------------'''

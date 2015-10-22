@@ -176,10 +176,11 @@ def ExtractAll(source, output):
 	else: return False
 
 def getFileAttribute(custom, file):
-	name = 'getFileAttribute' ; printpoint = "" ; extra = ""
-	import time
-	returned = ""
-	if custom == 1: #last modified
+	name = 'getFileAttribute' ; printpoint = "" ; extra = "" ; returned = ""
+	
+	if not os.path.exists(file): printpoint = printpoint + "8"
+	elif custom == 1: #last modified
+		import time
 		returned = time.ctime(os.path.getmtime(file))
 		extra = extra + newline + "timenow5" + space2 + str(timenow5)
 		
@@ -218,7 +219,8 @@ def localize(value, s=None):
 	try: returned = returned.encode('utf-8')
 	except: pass
 	
-	if admin3 or extra != "": print printfirst + name + space + "value" + space2 + str(value) + space + "returned" + space2 + str(returned) + space + extra
+	if (admin and not admin2 and admin3 and 1 + 1 == 3) or extra != "":
+		print printfirst + name + space + "value" + space2 + str(value) + space + "returned" + space2 + str(returned) + space + extra
 	return returned
 	
 def DownloadFile(url, filename, downloadpath, extractpath, silent=False):
@@ -477,6 +479,7 @@ def setAddon_UpdateLog(admin, Addon_Version, Addon_UpdateDate, Addon_ShowLog, Ad
 
 def terminal(command,desc):
 	import subprocess
+	customhomecustomizerW = xbmc.getCondVisibility('Window.IsVisible(CustomHomeCustomizer.xml)')
 	admin = xbmc.getInfoLabel('Skin.HasSetting(Admin)') ; admin2 = xbmc.getInfoLabel('Skin.HasSetting(Admin2)') ; admin3 = xbmc.getInfoLabel('Skin.HasSetting(Admin3)') ; TypeError = "" ; extra = "" ; output = ""
 	
 	try:
@@ -491,7 +494,7 @@ def terminal(command,desc):
 	'''------------------------------
 	---PRINT-END---------------------
 	------------------------------'''
-	if admin and admin2 and admin3 or extra != "":
+	if (admin and admin2 and admin3 or extra != "") and not customhomecustomizerW:
 		try: print printfirst + "terminal" + space + desc + space2 + str(output) + extra
 		except Exception, TypeError:
 			extra = extra + newline + "TypeError" + space2 + str(TypeError)
@@ -1392,7 +1395,9 @@ def installaddon(admin, addonid2, name, update=True):
 			#xbmc.sleep(1000) #; dp.update(60, addonid2, " ")
 			#dp.update(100, addonid2, " ")
 			#dp.close
-		
+			dialogyesnoW = xbmc.getCondVisibility('Window.IsVisible(DialogYesNo.xml)')
+			if not dialogyesnoW:
+				xbmc.executebuiltin('Action(Close)') ; xbmc.sleep(500) ; xbmc.executebuiltin('ActivateWindow(10025,plugin://'+ addonid2 +'),returned')
 		#xbmc.sleep(1000)
 		setSkinSetting("1",'ShowDialog',"false")
 		if xbmc.getCondVisibility('System.HasAddon('+ addonid2 +')') and os.path.exists(addons_path + addonid2):
@@ -1516,6 +1521,24 @@ def installaddonP(admin, addon, update=True):
 		elif "9" in printpoint: pass
 		else: printpoint = printpoint + "7"
 	
+	elif addon == 'script.skin.helper.service': #FIXED PATH
+		if not xbmc.getCondVisibility('System.HasAddon('+ addon +')') or not os.path.exists(addons_path + addon) and not "9" in printpoint:
+			fileID = getfileID(addon+".zip")
+			DownloadFile("https://github.com/marcelveldt/script.skin.helper.service/archive/master.zip", addon + "-master.zip", packages_path, addons_path, silent=True)
+			if os.path.exists(addons_path + addon + "-master") or os.path.exists(addons_path + addon): printpoint = printpoint + "5"
+			else: printpoint = printpoint + "9"
+		elif "9" in printpoint: pass
+		else: printpoint = printpoint + "7"
+	
+	elif addon == 'script.skinshortcuts': #FIXED PATH
+		if not xbmc.getCondVisibility('System.HasAddon('+ addon +')') or not os.path.exists(addons_path + addon) and not "9" in printpoint:
+			fileID = getfileID(addon+".zip")
+			DownloadFile("https://github.com/BigNoid/script.skinshortcuts/archive/master.zip", addon + "-master.zip", packages_path, addons_path, silent=True)
+			if os.path.exists(addons_path + addon + "-master") or os.path.exists(addons_path + addon): printpoint = printpoint + "5"
+			else: printpoint = printpoint + "9"
+		elif "9" in printpoint: pass
+		else: printpoint = printpoint + "7"
+		
 	if "5" in printpoint:
 		if update == True:
 			xbmc.executebuiltin("UpdateLocalAddons")
@@ -1754,7 +1777,7 @@ def notification(heading, message, icon, time):
 	if '$LOCALIZE' in heading or '$ADDON' in heading: heading = xbmc.getInfoLabel(heading)
 	if '$LOCALIZE' in message or '$ADDON' in message: message = xbmc.getInfoLabel(message)
 	
-	icon = "misc/logo/logo8.png"
+	icon = ""
 	
 	dialog.notification(heading, message, icon, time)
 	
@@ -1886,17 +1909,22 @@ def copyfiles(source, target, chmod="", mount=False):
 		shutil.copyfile(source, target)
 	
 	if not systemplatformwindows and chmod != "": terminal('chmod '+chmod+' '+target+'','chmod' + space2 + target) ; printpoint = printpoint + "C" #GAL TEST THIS! 
-	#sourcefile_date = getFileAttribute(1, source)
-	sourcefile_size = getFileAttribute(2, source)
-	#targetfile_date = getFileAttribute(1, target)
-	targetfile_size = getFileAttribute(2, target)
-	if sourcefile_size == targetfile_size:
-		#if targetfile_date == str(timenow5)
-		printpoint = printpoint + "7"
-		returned = "ok"
+	
+	if os.path.isdir(source) == True or "\*" in source or os.path.isdir(target) == True or "\*" in target: returned = "ok"
 	else:
-		returned = "skip"
-	print printfirst + name + "_LV" + printpoint + space + "source" + space2 + str(source) + space + "target" + space2 + str(target) + space + "source1" + space2 + str(source1)
+		#sourcefile_date = getFileAttribute(1, source)
+		sourcefile_size = getFileAttribute(2, source)
+		#targetfile_date = getFileAttribute(1, target)
+		targetfile_size = getFileAttribute(2, target)
+		if sourcefile_size == targetfile_size:
+			#if targetfile_date == str(timenow5)
+			printpoint = printpoint + "7"
+			returned = "ok"
+		else:
+			returned = "skip"
+	
+	if admin and not admin2 and admin3:
+		print printfirst + name + "_LV" + printpoint + space + "source" + space2 + str(source) + space + "target" + space2 + str(target) + space + "source1" + space2 + str(source1)
 	
 	return returned
 	
@@ -1937,7 +1965,7 @@ def notification_common(custom):
 	elif custom == "22": notification('$LOCALIZE[75062]','',"",4000) #The system is processing for solution...
 	elif custom == "23": notification(localize(78929), localize(78980),"",4000) #Active download in background
 	elif custom == "24": notification(localize(79195), localize(79154),"",2000) #Addon is missing! Trying to download addon
-	elif custom == "25": notification('Want more related addons?', 'Check the Customize HTPT window',"",4000) #Want more music addons? #Check the Customize HTPT window
+	elif custom == "25": notification('Want more related addons?', 'Check the Customize HTPT window (Ctrl+L)',"",4000) #Want more music addons? #Check the Customize HTPT window
 	elif custom == "100": notification('$LOCALIZE[78971]' ,'[COLOR=Yellow]' + str74550.encode('utf-8') % (localize(342)) + '[/COLOR]' + space + addonString_servicehtpt(10).encode('utf-8') + space,"",7000) #MVAZEH TIKUN YADANI
 	elif custom == "101": notification('$LOCALIZE[78971]' ,'[COLOR=Yellow]' + str74550.encode('utf-8') % (str36903.encode('utf-8')) + '[/COLOR]' + space + addonString_servicehtpt(10).encode('utf-8') + space,"",7000) #MVAZEH TIKUN YADANI
 
@@ -1994,7 +2022,7 @@ def read_from_file(infile, silent=True, lines=False):
 		
 	except Exception, TypeError: extra = extra + newline + "TypeError" + space2 + str(TypeError)
 	
-	if admin and not admin2 and admin3:
+	if admin and admin2 and admin3 and 1 + 1 == 3:
 		print printfirst + name + "_LV" + printpoint + space + "infile" + space2 + str(infile) + space + "lines" + space2 + str(lines) + newline + \
 		"returned" + space2 + str(returned) + extra
 	
@@ -2027,7 +2055,7 @@ def regex_from_to(text, from_string, to_string, excluding=True):
 				extra = newline + "TypeError" + space2 + str(TypeError)
 				r = ""
 	
-    if admin and admin2 and admin3:
+    if admin and admin2 and admin3 and 1 + 1 == 3:
 		if excluding == True or r == "": print printfirst + "regex_from_to" + space2 + "from_string" + space2 + str(from_string) + space + "to_string" + space2 + str(to_string) + space + "r" + space2 + str(r) + space + "text" + space2 + str(text) + space + extra
 		else: print printfirst + "regex_from_to" + space2 + "from_string" + space2 + "r" + space2 + str(r) + space + "text" + space2 + str(text) + space + extra
     return str(r)
@@ -2081,18 +2109,26 @@ def replace_word(infile,old_word,new_word, infile_="", LineR=False , LineClean=F
 		infile__.close()
 		'''---------------------------'''
 		
-	if admin and not admin2 and admin3:
+	if admin and admin2 and admin3:
 		print printfirst + "replace_word_LV" + printpoint + space + "infile" + space2 + str(infile) + space + newline + \
 		"old_word" + space2 + str(old_word) + newline + \
 		"new_word" + space2 + str(new_word) + newline + \
 		"value" + space2 + str(value) + extra
 
 def ReloadSkin(admin):
-	if playerhasmedia: xbmc.executebuiltin('Action(Stop)') ; notification('Video Stop',"","",1000) ; xbmc.sleep(1000)
-	notification("..","","",1000)
-	xbmc.executebuiltin('SetProperty(ReloadSkin,true,home)') ; xbmc.sleep(200)
-	xbmc.executebuiltin('ReloadSkin()') ; xbmc.sleep(2000)
-	xbmc.executebuiltin('ClearProperty(ReloadSkin,home)')
+	if property_reloadskin == "":
+		xbmc.executebuiltin('ActivateWindow(1000)')
+		xbmc.executebuiltin('SetProperty(ReloadSkin,true,home)')
+		if playerhasmedia: xbmc.executebuiltin('Action(Stop)') ; notification('Video Stop',"","",1000) ; xbmc.sleep(1000)
+		notification("..","","",1000)
+		xbmc.sleep(200)
+		xbmc.executebuiltin('ReloadSkin()') ; xbmc.sleep(1500)
+		xbmc.executebuiltin('AlarmClock(reloadskin,ClearProperty(ReloadSkin,home),00:05,silent)')
+		xbmc.executebuiltin('Action(Back)')
+		#xbmc.executebuiltin('ReplaceWindow(CustomHomeCustomizer.xml)')
+	else:
+		pass
+		#xbmc.executebuiltin('RunScript(script.htpt.smartbuttons,,?mode=215&value=_)')
 	
 def settingschange(window,systemgetbool,falsetrue,force,string1,string2):
 	'''systemgetbool'''
@@ -2214,7 +2250,9 @@ def setSkinSetting(custom,set1,set1v):
 		
 		name = 'setSkinSetting' ; printpoint = "" ; admin = xbmc.getInfoLabel('Skin.HasSetting(Admin)') ; admin2 = xbmc.getInfoLabel('Skin.HasSetting(Admin2)') ; setting1 = ""
 		
-		if '$LOCALIZE' in set1v or '$ADDON' in set1v: set1v = xbmc.getInfoLabel(set1v) ; printpoint = printpoint + "1"
+		if '$LOCALIZE' in set1v or '$ADDON' in set1v: 
+			try: set1v = xbmc.getInfoLabel(set1v) ; printpoint = printpoint + "1"
+			except Exception, TypeError: printpoint = printpoint + "9"
 		''' custom: 0 = Skin.String, 1 = Skin.HasSetting'''
 		'''---------------------------'''
 		printpoint = printpoint + "2"
@@ -2240,7 +2278,7 @@ def setSkinSetting(custom,set1,set1v):
 		'''------------------------------
 		---PRINT-END---------------------
 		------------------------------'''
-		if setting1 != set1v and admin and admin2:
+		if setting1 != set1v and admin and admin2 and admin3:
 			print printfirst + name + "_LV" + printpoint + space + custom + space + set1 + space2 + setting1 + " - " + set1v + space + \
 			newline + "localize(20122)" + space2 + localize(20122)
 			'''---------------------------'''
@@ -2385,10 +2423,6 @@ def supportcheck(name, supported, totalspace=1, Intel=False, silence=False, plat
 			if name == str75004.encode('utf-8'): dialogok('[COLOR=Yellow]' + addonString(124) % (id10str) + '[/COLOR]' + extra, localize(74541), localize(75784), '')
 			else: dialogok('$LOCALIZE[79501]',str74540.encode('utf-8') % (id10str) + extra, str74543.encode('utf-8') % (name) ,str74542.encode('utf-8'))
 			'''---------------------------'''
-	elif name == localize(15016) and macstr in macbL:
-		if not "?" in id10str: dialogok('$LOCALIZE[74539]',str74540.encode('utf-8') % (id10str) + extra, str74544.encode('utf-8') % (name) + '[CR]' + str79496.encode('utf-8') + '[CR]' + str79497.encode('utf-8') ,str74542.encode('utf-8')) 
-		else: dialogok('$LOCALIZE[74538]',str74540.encode('utf-8') % (id10str) + extra, str74543.encode('utf-8') % (name) + space + str74545.encode('utf-8') + '[CR]' + str79496.encode('utf-8') + '[CR]' + str79497.encode('utf-8') ,str74542.encode('utf-8')) 
-		printpoint = printpoint + "9"
 	else: printpoint = printpoint + "7"
 	
 	if "9" in printpoint: returned = "skip"
@@ -2575,6 +2609,44 @@ class TextViewer_Dialog(xbmcgui.WindowXMLDialog):
     def onFocus(self, controlID):
         pass
 
+class Custom1000_Dialog(xbmcgui.Window):
+  '''progress= | title= | '''
+  def __init__(self):
+	extra = "" ; extra2 = "" ; TypeError = "" ; printpoint = "" ; count_set = 0 ; exit_requested = False ; progress = '0' ; title = '' ; addonisrunning = '?'
+	progress = xbmc.getInfoLabel('Window(home).Property(TEMP)')
+	title = xbmc.getInfoLabel('Window(home).Property(TEMP2)')
+	addonisrunning = xbmc.getInfoLabel('Window(home).Property(script.htpt.smartbuttons_RUNNING)')
+	
+	self.strActionInfo = xbmcgui.ControlLabel(0, 0, 1260, 680,'', 'Size42B', 'White2','',6)
+	self.addControl(self.strActionInfo)
+	self.strActionInfo.setLabel(localize(31407))
+	
+	if progress != "":
+		'''Create Dialog Progress'''
+		self.strActionInfo = xbmcgui.ControlLabel(0, 50, 1260, 680,'', 'size36B', 'Yellow','',6)
+		self.addControl(self.strActionInfo)
+		self.strActionInfo.setLabel(progress)
+	
+	if title != "":
+		'''Create Subject'''
+		self.strActionInfo = xbmcgui.ControlLabel(0, 100, 1260, 680,'', 'size28', 'White','',6)
+		self.addControl(self.strActionInfo)
+		self.strActionInfo.setLabel(str(title))
+		
+  def _exit(self):
+      global exit_requested
+      exit_requested = True
+      self.close()
+      if admin:
+		print printfirst + 'Custom1000_Dialog' + space + 'progress' + space2 + str(progress) + space + "title" + space2 + str(title) + space + 'addonisrunning' + space2 + str(addonisrunning)
+	  
+  def onAction(self, action):
+	if action == ACTION_PREVIOUS_MENU:
+	  self._exit()
+	elif action == ACTION_SELECT_ITEM:
+	  self._exit()
+	  
+	  
 def ActivateWindow(custom, addon, url, return0, wait=True):
 	admin = xbmc.getInfoLabel('Skin.HasSetting(Admin)')
 	containernumitems = ""

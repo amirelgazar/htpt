@@ -133,9 +133,9 @@ class main:
 	
 	elif mode == 13:
 		'''------------------------------
-		---?-----------------------------
+		---SubtitleButton_Country--------
 		------------------------------'''
-		name = "?"
+		name = "SubtitleButton_Country"
 		mode13(admin, name, printpoint)
 		'''---------------------------'''
 	
@@ -277,10 +277,10 @@ class main:
 	
 	elif mode == 31:
 		'''------------------------------
-		---?-----------------------------
+		---Custom1000--------------------
 		------------------------------'''
-		name = "?"
-		mode31(admin, name, printpoint)
+		name = "Custom1000"
+		mode31(value, admin, name, printpoint)
 		'''---------------------------'''
 	
 	elif mode == 32:
@@ -349,9 +349,9 @@ class main:
 		
 	elif mode == 40:
 		'''------------------------------
-		---Skin.ResetSettings------------
+		---Reset-Skin-Settings-----------
 		------------------------------'''
-		name = 'Skin.ResetSettings'
+		name = localize(79517)
 		mode40(value, admin, name, printpoint)
 		'''---------------------------'''
 	
@@ -1633,7 +1633,7 @@ class main:
 			---DIALOG-SELECT-(10-100)--------
 			------------------------------'''
 			name = "DIALOG-SELECT-(10-100)"
-			mode200(admin, name, printpoint)
+			mode200(value, admin, name, printpoint)
 			'''---------------------------'''	
 		
 		elif mode == 201:

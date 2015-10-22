@@ -98,7 +98,6 @@ def CATEGORIES101(admin):
 	'''דודו טסה'''
 	addDir(addonString(10110).encode('utf-8'),'DuduTassaOfficial',9,'http://www.nrg.co.il/images/archive/465x349/1/028/989.jpg',addonString(101100).encode('utf-8'),'1',"", getAddonFanart(background))
 
-	
 	'''דני סנדרסון'''
 	addDir(addonString(10111).encode('utf-8'),'PLWs5r3WqRUR0kiPs-hou6gtDbj9qlUBK_',13,'http://images1.calcalist.co.il/PicServer2/20122005/158200/YE0415562_l.jpg',addonString(101110).encode('utf-8'),'1',"", getAddonFanart(background))
 			

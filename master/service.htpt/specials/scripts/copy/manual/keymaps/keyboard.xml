@@ -26,8 +26,8 @@
 			<s mod="ctrl,alt" description="הגדרות מעטפת">activatewindow(skinsettings)</s>
 			<t mod="ctrl">noop</t>
 			<t mod="ctrl,shift">noop</t>
-			<w mod="ctrl,shift" description="הגדרות כפתורי בית">activatewindow(1131)</w>
-			<w mod="ctrl,alt" description="הגדרות כפתורי בית">activatewindow(1131)</w>
+			<w mod="ctrl,shift" description="הגדרות כפתורי בית">RunScript(script.htpt.smartbuttons,,?mode=218&amp;value=view)</w>
+			<w mod="ctrl,alt" description="הגדרות כפתורי בית">RunScript(script.htpt.smartbuttons,,?mode=218&amp;value=view)</w>
 			<x>noop</x>
 			<z>noop</z>
 		</keyboard>

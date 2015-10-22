@@ -11,7 +11,6 @@ def mode0(admin, name, printpoint):
 	'''------------------------------
 	---TEST--------------------------
 	------------------------------'''
-	mode215('_',"","","")
 	
 	
 	
@@ -656,6 +655,7 @@ def mode9(admin, name, Current_Year, Current_M_T):
 		
 	#if dialogsubtitlesW: xbmc.executebuiltin('Dialog.Close(subtitlesearch)')
 	setSkinSetting("0",'DialogSubtitles',"")
+	
 	playerpaused = xbmc.getCondVisibility('Player.Paused')
 	if playerpaused: xbmc.executebuiltin('Action(Play)')
 	'''---------------------------'''
@@ -714,12 +714,19 @@ def mode12(admin, name, printpoint):
 
 def mode13(admin, name, printpoint):
 	'''------------------------------
-	---?-----------------------------
+	---SubtitleButton_Country--------
 	------------------------------'''
-	name = "?"
-	mode13(admin, name, printpoint)
-	'''---------------------------'''
-
+	videoplayersubtitleslanguage = xbmc.getInfoLabel('VideoPlayer.SubtitlesLanguage') ; videoplayersubtitleslanguage_ = ""
+	if videoplayersubtitleslanguage != "":
+		len_ = len(videoplayersubtitleslanguage)
+		if str(len_) != '2':
+			if str(len_) == '3':
+				videoplayersubtitleslanguage_ = videoplayersubtitleslanguage[:-1]
+				
+		xbmc.executebuiltin('SetProperty(SubtitleButton.Country,'+videoplayersubtitleslanguage_+',home)')
+		'''---------------------------'''
+	if admin: print printfirst + name + "_LV" + printpoint + space + "videoplayersubtitleslanguage" + space2 + str(videoplayersubtitleslanguage) + space + "videoplayersubtitleslanguage_" + space2 + str(videoplayersubtitleslanguage_)
+	
 def mode14(admin, name, printpoint):
 	'''------------------------------
 	---?-----------------------------
@@ -965,7 +972,7 @@ def mode39(admin, name, printpoint):
 		
 def mode40(value, admin, name, printpoint):
 	'''------------------------------
-	---Skin.ResetSettings------------
+	---Reset-Skin-Settings-----------
 	------------------------------'''
 	extra2 = "" ; TypeError = ""
 	if value == '0': printpoint = printpoint + '1'
@@ -985,7 +992,7 @@ def mode40(value, admin, name, printpoint):
 	
 	if printpoint == '1':
 		xbmc.executebuiltin('Skin.ResetSettings') ; xbmc.sleep(500)
-		xbmc.executebuiltin('ActivateWindow(1000)') ; notification_common("2") ; xbmc.sleep(3000)
+		Custom1000(name,1,'This action may take a while.. be patient!',30)
 		if playerhasmedia: xbmc.executebuiltin('Action(Stop)')
 		
 		#ReloadSkin(admin) ; xbmc.sleep(500)
@@ -2629,87 +2636,57 @@ def mode199(admin, name, printpoint):
 	mode199(admin, name, printpoint)
 	'''---------------------------'''
 	
-def mode200(admin, name, printpoint):
+def mode200(value, admin, name, printpoint):
 	'''------------------------------
 	---DIALOG-SELECT-(10-100)--------
 	------------------------------'''
+	extra = "" ; TypeError = "" ; value2 = "" ; returned = ""
 	list = ['-> (Exit)', 'default', '10', '20', '30', '40', '50', '60', '70', '80', '90', '100']
-	value = ""
 	
-	container50hasfocus210 = xbmc.getCondVisibility('Container(50).HasFocus(210)') #Selected Icon
-	container50hasfocus250 = xbmc.getCondVisibility('Container(50).HasFocus(250)') #Main background
-	container50hasfocus254 = xbmc.getCondVisibility('Container(50).HasFocus(254)') #TopInformationOverlay
-	container50hasfocus256 = xbmc.getCondVisibility('Container(50).HasFocus(256)') #TopVideoInformationOverlay
-	container50hasfocus265 = xbmc.getCondVisibility('Container(50).HasFocus(265)') #TopMainBackgroundOverlay
-	container50hasfocus270 = xbmc.getCondVisibility('Container(50).HasFocus(270)') #LeftMenuOverlay
-	container50hasfocus273 = xbmc.getCondVisibility('Container(50).HasFocus(273)') #BottomMenuOverlay
-	container50hasfocus276 = xbmc.getCondVisibility('Container(50).HasFocus(276)') #CenterMenuOverlay
-	container50hasfocus260 = xbmc.getCondVisibility('Container(50).HasFocus(260)') #MenuButtonsOverlay
+	if value != "":
+		try:
+			test = xbmc.getInfoLabel('Skin.String('+value+')')
+			if test != None: printpoint = printpoint + "1"
+		except Exception, TypeError: extra = extra + newline + "TypeError" + space2 + str(TypeError)
+	else: pass
 	
-	container50hasfocus16 = xbmc.getCondVisibility('Container(50).HasFocus(16)') #StartUpVolume
+	if "1" in printpoint:
+		returned, value2 = dialogselect('$LOCALIZE[74433]',list,0)
 	
-	if not container50hasfocus210 and not container50hasfocus250 and not container50hasfocus254 and not container50hasfocus256 and not container50hasfocus265 and not container50hasfocus270 and not container50hasfocus273 and not container50hasfocus276 and not container50hasfocus16 and not container50hasfocus260: returned = 'skip'
-	else: returned, value = dialogselect('$LOCALIZE[74433]',list,0)
-	
-	if returned == -1: printpoint = printpoint + "9"
-	elif returned == 0: printpoint = printpoint + "8"
-	else: printpoint = printpoint + "7"
-	
-	if "7" in printpoint:
-		if container50hasfocus210:
-			if value == 'default': setSkinSetting('0', 'IconOverlayButton', "")
-			elif value != "": setSkinSetting('0', 'IconOverlayButton', value)
-			else: value = '40'
-		elif container50hasfocus250:
-			if value == 'default': setSkinSetting('0', 'MainBackgroundOverlay', "")
-			elif value != "": setSkinSetting('0', 'MainBackgroundOverlay', value)
-			else: value = '40'
-		elif container50hasfocus254:
-			if value == 'default': setSkinSetting('0', 'TopInformationOverlay', "")
-			elif value != "": setSkinSetting('0', 'TopInformationOverlay', value)
-			else: value = '70'
-		elif container50hasfocus256:
-			if value == 'default': setSkinSetting('0', 'TopVideoInformationOverlay', "")
-			elif value != "": setSkinSetting('0', 'TopVideoInformationOverlay', value)
-			else: value = '70'
-		elif container50hasfocus265:
-			if value == 'default': setSkinSetting('0', 'TopMainBackgroundOverlay', "")
-			elif value != "": setSkinSetting('0', 'TopMainBackgroundOverlay', value)
-			else: value = '70'
-		elif container50hasfocus270:
-			if value == 'default': setSkinSetting('0', 'LeftMenuOverlay', "")
-			elif value != "": setSkinSetting('0', 'LeftMenuOverlay', value)
-			else: value = '70'
-		elif container50hasfocus273:
-			if value == 'default': setSkinSetting('0', 'BottomMenuOverlay', "")
-			elif value != "": setSkinSetting('0', 'BottomMenuOverlay', value)
-			else: value = '70'
-		elif container50hasfocus276:
-			if value == 'default': setSkinSetting('0', 'CenterMenuOverlay', "")
-			elif value != "": setSkinSetting('0', 'CenterMenuOverlay', value)
-			else: value = '70'
+		if returned == -1: printpoint = printpoint + "9"
+		elif returned == 0: printpoint = printpoint + "8"
+		else: printpoint = printpoint + "7"
 		
-		elif container50hasfocus260:
-			if value == 'default': setSkinSetting('0', 'MenuButtonsOverlay', "")
-			elif value != "": setSkinSetting('0', 'MenuButtonsOverlay', value)
-			else: value = '70'		
+		if "7" in printpoint:
+			if value2 == 'default': setSkinSetting('0', str(value), "")
+			elif value2 != "": setSkinSetting('0', str(value), value2)
+			else: printpoint = printpoint + "8"
 			
-		elif container50hasfocus16:
-			if value == 'default': setSkinSetting('0', 'StartUpVolume', "")
-			elif value != "": setSkinSetting('0', 'StartUpVolume', value)
-			else: value = '70'
-			printpoint = printpoint + "1"
-		
-		if not "1" in printpoint:
-			notification(".","","",1000)
-			xbmc.sleep(200)
-			xbmc.executebuiltin('Action(Back)')
-			xbmc.sleep(200)
-			ReloadSkin(admin)
+			if not "8" in printpoint:
+				notification(".","","",1000)
+				xbmc.sleep(200)
+				xbmc.executebuiltin('Action(Back)')
+				xbmc.sleep(200)
+				ReloadSkin(admin)
 	
-	print printfirst + name + "_LV" + printpoint + space + "list" + space2 + str(list) + space + "returned" + space2 + str(returned) + space + "value" + space2 + str(value)
+	if admin: print printfirst + name + "_LV" + printpoint + space + "list" + space2 + str(list) + space + "returned" + space2 + str(returned) + space + "value" + space2 + str(value) + space + "value2" + space2 + str(value2) + extra
 	'''---------------------------'''
 
+def Custom1000(title="", progress="", comment="", autoclose=""):
+	if libraryisscanningvideo: xbmc.executebuiltin('UpdateLibrary(video)')
+	xbmc.executebuiltin('SetProperty(1000title,'+title+',home)')
+	xbmc.executebuiltin('SetProperty(1000progress,'+str(progress)+',home)')
+	xbmc.executebuiltin('SetProperty(1000comment,'+comment+',home)')
+	custom1000W = xbmc.getCondVisibility('Window.IsVisible(Custom1000.xml)')
+	if not custom1000W:
+		notification_common("2")
+		xbmc.executebuiltin('ActivateWindow(1000)') ; xbmc.sleep(100)
+	
+	if autoclose != "": xbmc.executebuiltin('AlarmClock(timeout,Action(Back),'+str(autoclose)+',silent)')
+	
+	
+	if admin and not admin2: print printfirst + 'Custom1000' + space + 'title' + space2 + str(title)
+	
 def getRandomColors(admin):
 	#colors_file = os.path.join(skin_path, 'media', 'buttons', 'colors', 'colors.xml')
 	#infile_colors_ = read_from_file(colors_file, silent=True)
@@ -2763,7 +2740,7 @@ def mode201(value, admin, name, printpoint):
 	else: list = []
 	
 	if list != []:
-		returned, value = dialogselect(addonString_servicehtpt(31).encode('utf-8'),list,0)
+		returned, value_ = dialogselect(addonString_servicehtpt(31).encode('utf-8'),list,0)
 		
 		if returned == -1: printpoint = printpoint + "9"
 		elif returned == 0: printpoint = printpoint + "8"
@@ -2781,15 +2758,21 @@ def mode201(value, admin, name, printpoint):
 		elif returned == 9: printpoint = printpoint + "I" #RESET BUTTONS PROPERTIES
 		
 		from variables2 import labelT, list1, list0, list0c, list0c2, list0o
+		xbmc.executebuiltin('SetProperty(TEMP,'+name+',home)')
+		xbmc.executebuiltin('SetProperty(TEMP2,This action may take a while be patient!,home)')
 		xbmc.executebuiltin('Dialog.Close(1173)') ; xbmc.sleep(100) ; xbmc.executebuiltin('ActivateWindow(1000)') ; notification_common("2") ; xbmc.sleep(100)
 		'''---------------------------'''
 		
 	if "A" in printpoint:
+		Custom1000(name,20,str(list[returned]),20)
+		xbmc.executebuiltin('SetProperty(1000title,'+name+',home)')
+		xbmc.executebuiltin('SetProperty(1000comment,This action may take a while be patient!,home)')
 		for x in list0: setSkinSetting('0',x,"")
 		for x in list1: setSkinSetting('1',x,"false")
 		'''---------------------------'''
 	
 	if "B" in printpoint:
+		Custom1000(name,30,str(list[returned]),20)
 		for x in list1:
 			returned1, value1 = getRandom("0", min=0, max=100, percent=50)
 			if returned1 == 'ok': value1 = "true"
@@ -2797,6 +2780,7 @@ def mode201(value, admin, name, printpoint):
 			setSkinSetting('1',x,value1)
 		
 	if "C" in printpoint:
+		Custom1000(name,40,str(list[returned]),20)
 		'''RESET-BUTTONS-COLORS'''
 		for i in range(70,129):
 			setSkinSetting('0','color'+str(i),"")
@@ -2804,6 +2788,7 @@ def mode201(value, admin, name, printpoint):
 			'''---------------------------'''
 	
 	if "D" in printpoint:
+		Custom1000(name,50,str(list[returned]),20)
 		value1, value1_, value2, value2_, value3, value3_, value4, value4_, value5, value5_ = getRandomColors(admin)
 		for i in range(70,129):
 			x = labelT.get('label'+str(i))
@@ -2819,12 +2804,14 @@ def mode201(value, admin, name, printpoint):
 				'''---------------------------'''
 	
 	if "E" in printpoint:
+		Custom1000(name,60,str(list[returned]),15)
 		'''RESET-ALL-COLORS'''
 		for x in list0c: setSkinSetting('0',x,"")
 		for x in list0c: setSkinSetting('0',x,"")
 		'''---------------------------'''
 		
 	if "F" in printpoint:
+		Custom1000(name,70,str(list[returned]),15)
 		'''RANDOM-ALL-COLORS'''
 		returned, count = getRandom("0", min=1, max=5, percent=50)
 		for x in list0c:
@@ -2838,11 +2825,13 @@ def mode201(value, admin, name, printpoint):
 			'''---------------------------'''
 		
 	if "G" in printpoint:
+		Custom1000(name,90,str(list[returned]),10)
 		'''RESET-ALL-TRANSPERANCY'''
 		for x in list0o: setSkinSetting('0',x,"")
 		'''---------------------------'''
 		
 	if "H" in printpoint:
+		Custom1000(name,90,str(list[returned]),10)
 		'''RANDOM-ALL-TRANSPERANCY'''
 		returned, value1 = getRandom("0", min=0, max=55, percent=50)
 		returned, value2 = getRandom("0", min=0, max=55, percent=50)
@@ -2883,8 +2872,11 @@ def mode201(value, admin, name, printpoint):
 			'''---------------------------'''
 	
 	if "I" in printpoint:
+		Custom1000(name,"",localize(74536),30)
 		'''RESET BUTTONS PROPERTIES'''
+		count = 0
 		for i in range(70,110):
+			count += 2
 			setSkinSetting('0','id'+str(i),"")
 			setSkinSetting('0','label'+str(i),"")
 			setSkinSetting('0','action'+str(i),"")
@@ -2903,6 +2895,7 @@ def mode201(value, admin, name, printpoint):
 				'''---------------------------'''
 		
 	if ("7" in printpoint or value != "") and not "8" in printpoint and not "9" in printpoint:
+		Custom1000(name,100,'',20)
 		notification(".","","",1000)
 		ReloadSkin(admin)
 		xbmc.executebuiltin('ActivateWindow(Home.xml)') ; xbmc.executebuiltin('ActivateWindow(1117)') ; xbmc.executebuiltin('ActivateWindow(1173)')
@@ -3095,13 +3088,13 @@ def mode203(value, admin, admin3, name, printpoint):
 				
 				if "1" in printpoint:
 					write_to_file(skin_userdata_path + "Skin_SaveDesign1.txt", str(formula), append=False, silent=True, utf8=False)
-					setsetting('Skin_SaveDesign1', str(formula))
+					#setsetting('Skin_SaveDesign1', str(formula))
 				elif "2" in printpoint:
 					write_to_file(skin_userdata_path + "Skin_SaveDesign2.txt", str(formula), append=False, silent=True, utf8=False)
-					setsetting('Skin_SaveDesign2', str(formula))
+					#setsetting('Skin_SaveDesign2', str(formula))
 				elif "3" in printpoint:
 					write_to_file(skin_userdata_path + "Skin_SaveDesign3.txt", str(formula), append=False, silent=True, utf8=False)
-					setsetting('Skin_SaveDesign3', str(formula))
+					#setsetting('Skin_SaveDesign3', str(formula))
 				'''---------------------------'''
 			
 			elif "B" in printpoint or "C" in printpoint:
@@ -3693,7 +3686,7 @@ def mode213(value, admin, name, printpoint):
 	else:
 		pass
 	
-	if "7" in printpoint: ReloadSkin(admin)
+	if "7" in printpoint and not playerhasvideo: ReloadSkin(admin)
 	
 	print printfirst + name + "_LV" + printpoint + space + "value" + space2 + str(value) + space + newline + \
 	"x" + space2 + str(x) + space + "y" + space2 + str(y) + space + newline + \
@@ -3743,7 +3736,7 @@ def mode215(value, admin, name, printpoint):
 				pass
 				
 	
-	notification_common("2")
+	if value != "": notification_common("2")
 	
 	if value == 'MAIN' or value == '_':
 		if 1 + 1 == 3:
@@ -4477,7 +4470,10 @@ def mode218(value, admin, name, printpoint):
 		message = message + newline + "ReloadSkin" + space2 + property_reloadskin
 		message = message + newline + '---------------------------'
 		message = message + newline + "SubMenuTip" + space2 + property_submenutip
-		message = message + newline + "SubtitleButton.Pos" + space2 + property_subtitlebuttonpos
+		message = message + newline + '---------------------------'
+		message = message + newline + "1000progress" + space2 + property_1000progress
+		message = message + newline + "1000title" + space2 + property_1000title
+		message = message + newline + "1000comment" + space2 + property_1000comment
 		
 
 		header = name
@@ -8048,7 +8044,7 @@ def mode519(value, admin, name, printpoint):
 	------------------------------'''
 	if value == '1':
 		addon = 'plugin.video.movixws'
-		if not xbmc.getCondVisibility('System.HasAddon('+ addon +')'): installaddon(admin, addon, update=True)
+		if not xbmc.getCondVisibility('System.HasAddon('+ addon +')'): installaddon(admin, addon, name, update=True)
 		else:
 			url = 'plugin://plugin.video.movixws/?iconimage=http%3a%2f%2ficons.iconarchive.com%2ficons%2faaron-sinuhe%2ftv-movie-folder%2f512%2fDocumentaries-National-Geographic-icon.png&mode=2&name=Documentary%20-%20%d7%93%d7%95%d7%a7%d7%95%d7%9e%d7%a0%d7%98%d7%a8%d7%99&url=http%3a%2f%2fwww.movix.me%2fgenres%2fDocumentary'
 			returned = ActivateWindow("1", addon, url, 0, wait=True)
@@ -8058,7 +8054,7 @@ def mode519(value, admin, name, printpoint):
 				
 	if value == '5':
 		addon = 'plugin.video.sdarot.tv'
-		if not xbmc.getCondVisibility('System.HasAddon('+ addon +')'): installaddon(admin, addon, update=True)
+		if not xbmc.getCondVisibility('System.HasAddon('+ addon +')'): installaddon(admin, addon, name, update=True)
 		else:
 			url = 'plugin://plugin.video.sdarot.tv/?mode=2&module=http%3a%2f%2fwww.sdarot.wf%2fseries%2fgenre%2f11%d7%94%d7%99%d7%a1%d7%98%d7%95%d7%a8%d7%99%d7%94&name=%d7%94%d7%99%d7%a1%d7%98%d7%95%d7%a8%d7%99%d7%94&summary&url=all-heb'
 			returned = ActivateWindow("1", addon, url, 0, wait=True)
@@ -12615,7 +12611,7 @@ def setSubHisotry(admin, DialogSubtitles, DialogSubtitles2):
 	xbmc.sleep(1000)
 	setCurrent_Subtitle(admin)
 	'''---------------------------'''
-
+	
 def setCurrent_Subtitle(admin):
 	dialogsubtitles2 = xbmc.getInfoLabel('Skin.String(DialogSubtitles2)')
 	dialogsubtitlesna1 = xbmc.getInfoLabel('Skin.String(DialogSubtitlesNA1)')
@@ -12650,7 +12646,7 @@ def setCurrent_Subtitle(admin):
 	else:
 		scripthtptrefresh_Current_Subtitle = ""
 		'''---------------------------'''
-		
+	
 	'''------------------------------
 	---PRINT-END---------------------
 	------------------------------'''

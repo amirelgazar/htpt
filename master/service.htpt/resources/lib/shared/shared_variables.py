@@ -301,6 +301,13 @@ if xbmc.getCondVisibility('System.HasAddon('+ addon +')'):
 	getsetting_pluginvideogenesis             = xbmcaddon.Addon(addon).getSetting
 	addonVersion_pluginvideogenesis          = xbmcaddon.Addon(addon).getAddonInfo("version")
 	'''---------------------------'''
+	alluc_user = getsetting_pluginvideogenesis('alluc_user')
+	alluc_password = getsetting_pluginvideogenesis('alluc_password')
+	ororo_user = getsetting_pluginvideogenesis('ororo_user')
+	ororo_password = getsetting_pluginvideogenesis('ororo_password')
+	easynews_user = getsetting_pluginvideogenesis('easynews_user')
+	easynews_password = getsetting_pluginvideogenesis('easynews_password')
+	
 	imdb_user = getsetting_pluginvideogenesis('imdb_user')
 	realdedrid_user = getsetting_pluginvideogenesis('realdedrid_user')
 	realdedrid_password = getsetting_pluginvideogenesis('realdedrid_password')
@@ -343,6 +350,12 @@ else:
 	premiumize_password = ""
 	furk_user = ""
 	furk_password = ""
+	alluc_user = ""
+	alluc_password = ""
+	ororo_user = ""
+	ororo_password = ""
+	easynews_user = ""
+	easynews_password = ""
 	'''---------------------------'''
 	genesis_set1 = ""
 	genesis_set2 = ""
@@ -560,7 +573,6 @@ connected3 = xbmc.getInfoLabel('Skin.HasSetting(Connected3)')
 dialogselectopen = xbmc.getInfoLabel('Skin.HasSetting(DialogSelectOpen)')
 tvshowsep = xbmc.getInfoLabel('Skin.HasSetting(tvshowsep)')
 musicsep = xbmc.getInfoLabel('Skin.HasSetting(musicsep)')
-musicseptip = xbmc.getInfoLabel('Skin.HasSetting(musicseptip)')
 kidsep = xbmc.getInfoLabel('Skin.HasSetting(kidsep)')
 kidseptip = xbmc.getInfoLabel('Skin.HasSetting(kidseptip)')
 
@@ -569,9 +581,9 @@ myhtpt3 = xbmc.getInfoLabel('Skin.HasSetting(myHTPT3)')
 allowdebug = xbmc.getInfoLabel('Skin.HasSetting(AllowDebug)') #TEMP
 realdebrid = xbmc.getInfoLabel('Skin.HasSetting(RealDebrid)') #TEMP
 sdarottv = xbmc.getInfoLabel('Skin.HasSetting(SdarotTV)') #TEMP
-validation = xbmc.getInfoLabel('Skin.HasSetting(VALIDATION)')
-validation2 = xbmc.getInfoLabel('Skin.HasSetting(VALIDATION2)')
-validation5 = xbmc.getInfoLabel('Skin.String(VALIDATION5)')
+validation = xbmc.getInfoLabel('Skin.HasSetting(VALIDATION)') #TEMP
+validation2 = xbmc.getInfoLabel('Skin.HasSetting(VALIDATION2)') #TEMP
+validation5 = xbmc.getInfoLabel('Skin.String(VALIDATION5)') #TEMP
 autoshutdown = xbmc.getInfoLabel('Skin.HasSetting(AutoShutdown)')
 customgui = xbmc.getInfoLabel('Skin.HasSetting(CustomGUI)')
 performance = xbmc.getInfoLabel('Skin.HasSetting(Performance)')
@@ -580,154 +592,6 @@ totalmouse = xbmc.getInfoLabel('Skin.HasSetting(TotalMouse)')
 customas = xbmc.getInfoLabel('Skin.HasSetting(CustomAS)')
 customasources = xbmc.getInfoLabel('Skin.HasSetting(CustomSources)')
 customkeymaps = xbmc.getInfoLabel('Skin.HasSetting(CustomKeymaps)')
-
-if xbmc.getSkinDir() == 'skin.htpt':
-	'''------------------------------
-	---SKIN-DESIGN=------------------
-	------------------------------'''
-	
-	skincurrenttheme = xbmc.getInfoLabel('Skin.CurrentTheme')
-	
-	selectionmarker = xbmc.getInfoLabel('Skin.HasSetting(SelectionMarker)')
-	selectionmarker2 = xbmc.getInfoLabel('Skin.HasSetting(SelectionMarker2)')
-	shadowbutton = xbmc.getInfoLabel('Skin.HasSetting(ShadowButton)')
-	overlaybutton = xbmc.getInfoLabel('Skin.HasSetting(OverlayButton)')
-	
-	background = xbmc.getInfoLabel('Skin.HasSetting(background)')
-	backgroundoverlay = xbmc.getInfoLabel('Skin.String(BackgroundOverlay)')
-	
-	iconoverlaybutton = xbmc.getInfoLabel('Skin.String(IconOverlayButton)')
-	menubuttonsoverlay = xbmc.getInfoLabel('Skin.String(MenuButtonsOverlay)')
-	mainbackgroundoverlay = xbmc.getInfoLabel('Skin.String(MainBackgroundOverlay)')
-	topmainbackgroundoverlay = xbmc.getInfoLabel('Skin.String(TopMainBackgroundOverlay)')
-	leftmenuoverlay = xbmc.getInfoLabel('Skin.String(LeftMenuOverlay)')
-	bottommenuoverlay = xbmc.getInfoLabel('Skin.String(BottomMenuOverlay)')
-	centermenuoverlay = xbmc.getInfoLabel('Skin.String(CenterMenuOverlay)')
-	topvideoinformationoverlay = xbmc.getInfoLabel('Skin.String(TopVideoInformationOverlay)')
-	topinformationoverlay = xbmc.getInfoLabel('Skin.String(TopInformationOverlay)')
-	
-	mainbackgroundtexture = xbmc.getInfoLabel('Skin.String(MainBackgroundTexture)')
-	topbackgroundtexture = xbmc.getInfoLabel('Skin.String(TopBackgroundTexture)')
-	
-	menucolor = xbmc.getInfoLabel('Skin.String(MenuColor)')
-	menucolorname = xbmc.getInfoLabel('Skin.String(MenuColor.name)')
-	mainbackgroundcolor = xbmc.getInfoLabel('Skin.String(MainBackgroundColor)')
-	mainbackgroundcolorname = xbmc.getInfoLabel('Skin.String(MainBackgroundColor.name)')
-	topbackgroundcolor = xbmc.getInfoLabel('Skin.String(TopBackgroundColor)')
-	topbackgroundcolorname = xbmc.getInfoLabel('Skin.String(TopBackgroundColor.name)')
-	topinformationcolor = xbmc.getInfoLabel('Skin.String(TopInformationColor)')
-	topinformationcolorname = xbmc.getInfoLabel('Skin.String(TopInformationColor.name)')
-	topvideoinformationcolor = xbmc.getInfoLabel('Skin.String(TopVideoInformationColor)')
-	topvideoinformationcolorname = xbmc.getInfoLabel('Skin.String(TopVideoInformationColor.name)')
-	iconunfocuscolor = xbmc.getInfoLabel('Skin.String(IconUnFocusColor)')
-	iconunfocuscolorname = xbmc.getInfoLabel('Skin.String(IconUnFocusColor.name)')
-	iconfocuscolor = xbmc.getInfoLabel('Skin.String(IconFocusColor)')
-	iconfocuscolorname = xbmc.getInfoLabel('Skin.String(IconFocusColor.name)')
-	
-	color340 = xbmc.getInfoLabel('Skin.String(color340)')
-	color341 = xbmc.getInfoLabel('Skin.String(color341)')
-	color342 = xbmc.getInfoLabel('Skin.String(color342)')
-	color343 = xbmc.getInfoLabel('Skin.String(color343)')
-	color344 = xbmc.getInfoLabel('Skin.String(color344)')
-	color320 = xbmc.getInfoLabel('Skin.String(color320)')
-	color321 = xbmc.getInfoLabel('Skin.String(color321)')
-	color345 = xbmc.getInfoLabel('Skin.String(color345)')
-	color507 = xbmc.getInfoLabel('Skin.String(color507)')
-	color323 = xbmc.getInfoLabel('Skin.String(color323)')
-	color351 = xbmc.getInfoLabel('Skin.String(color351)')
-	color327 = xbmc.getInfoLabel('Skin.String(color327)')
-	color325 = xbmc.getInfoLabel('Skin.String(color325)')
-	color508 = xbmc.getInfoLabel('Skin.String(color508)')
-	color322 = xbmc.getInfoLabel('Skin.String(color322)')
-	color324 = xbmc.getInfoLabel('Skin.String(color324)')
-	color331 = xbmc.getInfoLabel('Skin.String(color331)')
-	color330 = xbmc.getInfoLabel('Skin.String(color330)')
-	color352 = xbmc.getInfoLabel('Skin.String(color352)')
-	color355 = xbmc.getInfoLabel('Skin.String(color355)')
-	color357 = xbmc.getInfoLabel('Skin.String(color357)')
-	color401 = xbmc.getInfoLabel('Skin.String(color401)')
-	color402 = xbmc.getInfoLabel('Skin.String(color402)')
-	color403 = xbmc.getInfoLabel('Skin.String(color403)')
-	color404 = xbmc.getInfoLabel('Skin.String(color404)')
-	color405 = xbmc.getInfoLabel('Skin.String(color405)')
-	color601 = xbmc.getInfoLabel('Skin.String(color601)')
-	color602 = xbmc.getInfoLabel('Skin.String(color602)')
-	color603 = xbmc.getInfoLabel('Skin.String(color603)')
-	color606 = xbmc.getInfoLabel('Skin.String(color606)')
-	color605 = xbmc.getInfoLabel('Skin.String(color605)')
-	color346 = xbmc.getInfoLabel('Skin.String(color346)')
-	color348 = xbmc.getInfoLabel('Skin.String(color348)')
-	color349 = xbmc.getInfoLabel('Skin.String(color349)')
-	
-	icon340 = xbmc.getInfoLabel('Skin.String(icon340)')
-	icon341 = xbmc.getInfoLabel('Skin.String(icon341)')
-	icon342 = xbmc.getInfoLabel('Skin.String(icon342)')
-	icon343 = xbmc.getInfoLabel('Skin.String(icon343)')
-	icon344 = xbmc.getInfoLabel('Skin.String(icon344)')
-	icon320 = xbmc.getInfoLabel('Skin.String(icon320)')
-	icon321 = xbmc.getInfoLabel('Skin.String(icon321)')
-	icon345 = xbmc.getInfoLabel('Skin.String(icon345)')
-	icon507 = xbmc.getInfoLabel('Skin.String(icon507)')
-	icon323 = xbmc.getInfoLabel('Skin.String(icon323)')
-	icon351 = xbmc.getInfoLabel('Skin.String(icon351)')
-	icon327 = xbmc.getInfoLabel('Skin.String(icon327)')
-	icon325 = xbmc.getInfoLabel('Skin.String(icon325)')
-	icon508 = xbmc.getInfoLabel('Skin.String(icon508)')
-	icon322 = xbmc.getInfoLabel('Skin.String(icon322)')
-	icon324 = xbmc.getInfoLabel('Skin.String(icon324)')
-	icon331 = xbmc.getInfoLabel('Skin.String(icon331)')
-	icon330 = xbmc.getInfoLabel('Skin.String(icon330)')
-	icon352 = xbmc.getInfoLabel('Skin.String(icon352)')
-	icon355 = xbmc.getInfoLabel('Skin.String(icon355)')
-	icon357 = xbmc.getInfoLabel('Skin.String(icon357)')
-	icon401 = xbmc.getInfoLabel('Skin.String(icon401)')
-	icon402 = xbmc.getInfoLabel('Skin.String(icon402)')
-	icon403 = xbmc.getInfoLabel('Skin.String(icon403)')
-	icon404 = xbmc.getInfoLabel('Skin.String(icon404)')
-	icon405 = xbmc.getInfoLabel('Skin.String(icon405)')
-	icon601 = xbmc.getInfoLabel('Skin.String(icon601)')
-	icon602 = xbmc.getInfoLabel('Skin.String(icon602)')
-	icon603 = xbmc.getInfoLabel('Skin.String(icon603)')
-	icon606 = xbmc.getInfoLabel('Skin.String(icon606)')
-	icon605 = xbmc.getInfoLabel('Skin.String(icon605)')
-	icon346 = xbmc.getInfoLabel('Skin.String(icon346)')
-	icon348 = xbmc.getInfoLabel('Skin.String(icon348)')
-	icon349 = xbmc.getInfoLabel('Skin.String(icon349)')
-	
-	background340 = xbmc.getInfoLabel('Skin.String(background340)')
-	background341 = xbmc.getInfoLabel('Skin.String(background341)')
-	background342 = xbmc.getInfoLabel('Skin.String(background342)')
-	background343 = xbmc.getInfoLabel('Skin.String(background343)')
-	background344 = xbmc.getInfoLabel('Skin.String(background344)')
-	background320 = xbmc.getInfoLabel('Skin.String(background320)')
-	background321 = xbmc.getInfoLabel('Skin.String(background321)')
-	background345 = xbmc.getInfoLabel('Skin.String(background345)')
-	background507 = xbmc.getInfoLabel('Skin.String(background507)')
-	background323 = xbmc.getInfoLabel('Skin.String(background323)')
-	background351 = xbmc.getInfoLabel('Skin.String(background351)')
-	background327 = xbmc.getInfoLabel('Skin.String(background327)')
-	background325 = xbmc.getInfoLabel('Skin.String(background325)')
-	background508 = xbmc.getInfoLabel('Skin.String(background508)')
-	background322 = xbmc.getInfoLabel('Skin.String(background322)')
-	background324 = xbmc.getInfoLabel('Skin.String(background324)')
-	background331 = xbmc.getInfoLabel('Skin.String(background331)')
-	background330 = xbmc.getInfoLabel('Skin.String(background330)')
-	background352 = xbmc.getInfoLabel('Skin.String(background352)')
-	background355 = xbmc.getInfoLabel('Skin.String(background355)')
-	background357 = xbmc.getInfoLabel('Skin.String(background357)')
-	background401 = xbmc.getInfoLabel('Skin.String(background401)')
-	background402 = xbmc.getInfoLabel('Skin.String(background402)')
-	background403 = xbmc.getInfoLabel('Skin.String(background403)')
-	background404 = xbmc.getInfoLabel('Skin.String(background404)')
-	background405 = xbmc.getInfoLabel('Skin.String(background405)')
-	background601 = xbmc.getInfoLabel('Skin.String(background601)')
-	background602 = xbmc.getInfoLabel('Skin.String(background602)')
-	background603 = xbmc.getInfoLabel('Skin.String(background603)')
-	background606 = xbmc.getInfoLabel('Skin.String(background606)')
-	background605 = xbmc.getInfoLabel('Skin.String(background605)')
-	background346 = xbmc.getInfoLabel('Skin.String(background346)')
-	background348 = xbmc.getInfoLabel('Skin.String(background348)')
-	background349 = xbmc.getInfoLabel('Skin.String(background349)')
 
 if xbmc.getSkinDir() == 'skin.htpt':
 	'''------------------------------
@@ -750,8 +614,7 @@ macstr = xbmc.getInfoLabel('Skin.String(MAC)')
 mac1str = xbmc.getInfoLabel('Skin.String(MAC1)')
 mac2str = xbmc.getInfoLabel('Skin.String(MAC2)')
 mac3str = xbmc.getInfoLabel('Skin.String(MAC3)')
-mac5str = xbmc.getInfoLabel('Skin.String(MAC5)')
-macbL = ['B8:27:EB:CF:0C:19', 'F8:1A:67:19:EC:34', 'C4:4E:AC:00:99:58', '00:AA:05:01:B4:34']
+macbL = ['B8:27:EB:CF:0C:19', 'F8:1A:67:19:EC:34', 'C4:4E:AC:00:99:58', '00:AA:05:01:B4:34'] #PASS
 messagescustom = xbmc.getInfoLabel('Skin.String(MessagesCustom)')
 
 librarydataremotedatestr = xbmc.getInfoLabel('Skin.String(LibraryData_RemoteDate)')
@@ -779,7 +642,7 @@ skinnamestr = xbmc.getInfoLabel('Skin.String(Skin_Name)')
 ---ID----------------------------
 ------------------------------'''
 '''idstr = USERNAME EN , id1str = USERNAME HE, id2str = INSTALLATION DATE, id3str = WARRENTY END, id4str = ADDRESS, id5str = TELEPHONE NUMBER, id6str = PAYMENT TERMS, id7str = QUESTION, id8str = TECHNICAL NAME, id9str = CODE RED, id10str = HTPT'S MODEL, ID11 = MAC1, ID12 = MAC2'''
-idstr = xbmc.getInfoLabel('Skin.String(ID)')
+idstr = xbmc.getInfoLabel('Skin.String(User_ID)')
 id1str = xbmc.getInfoLabel('Skin.String(ID1)')
 id2str = xbmc.getInfoLabel('Skin.String(ID2)')
 id3str = xbmc.getInfoLabel('Skin.String(ID3)')
@@ -792,8 +655,8 @@ id9str = xbmc.getInfoLabel('Skin.String(ID9)')
 id10str = xbmc.getInfoLabel('Skin.String(ID10)')
 id11str = xbmc.getInfoLabel('Skin.String(ID11)')
 id12str = xbmc.getInfoLabel('Skin.String(ID12)')
-id40str = xbmc.getInfoLabel('Skin.HasSetting(ID40)') #Installed
-id60str = xbmc.getInfoLabel('Skin.String(ID60)')
+id40str = xbmc.getInfoLabel('Skin.HasSetting(ID40)') #TEMP
+id60str = xbmc.getInfoLabel('Skin.String(ID60)') #TEMP
 ''''''
 id2namestr = xbmc.getInfoLabel('$LOCALIZE[70010]') #Installation Date
 id3namestr = xbmc.getInfoLabel('$LOCALIZE[70011]')
@@ -1031,7 +894,6 @@ if xbmc.getSkinDir() == 'skin.htpt':
 	------------------------------'''
 
 	if not admin3: str31407 = xbmc.getInfoLabel('$LOCALIZE[31407]').decode('utf-8') #Please wait
-	str70000 = xbmc.getInfoLabel('$LOCALIZE[70000]') #!
 	todaystr = xbmc.getInfoLabel('$LOCALIZE[33006]') #Today (remove?)
 	id6v1str = xbmc.getInfoLabel('$LOCALIZE[70014]').decode('utf-8') #One-Time
 	id6v2str = xbmc.getInfoLabel('$LOCALIZE[70015]').decode('utf-8') #Per-Month
@@ -1063,61 +925,6 @@ if xbmc.getSkinDir() == 'skin.htpt':
 	str74552 = xbmc.getInfoLabel('$LOCALIZE[74552]').decode('utf-8') #
 	str74553 = xbmc.getInfoLabel('$LOCALIZE[74553]').decode('utf-8') #Unlocking device
 	str74554 = xbmc.getInfoLabel('$LOCALIZE[74554]').decode('utf-8') #Reset skin settings
-	str74555 = xbmc.getInfoLabel('$LOCALIZE[74555]').decode('utf-8') #
-	str74556 = xbmc.getInfoLabel('$LOCALIZE[74556]').decode('utf-8') #
-	str74557 = xbmc.getInfoLabel('$LOCALIZE[74557]').decode('utf-8') #
-	str74558 = xbmc.getInfoLabel('$LOCALIZE[74558]').decode('utf-8') #
-	str74559 = xbmc.getInfoLabel('$LOCALIZE[74559]').decode('utf-8') #
-	str74560 = xbmc.getInfoLabel('$LOCALIZE[74560]').decode('utf-8') #
-	str74561 = xbmc.getInfoLabel('$LOCALIZE[74561]').decode('utf-8') #
-	str74562 = xbmc.getInfoLabel('$LOCALIZE[74562]').decode('utf-8') #
-	str74563 = xbmc.getInfoLabel('$LOCALIZE[74563]').decode('utf-8') #
-	str74564 = xbmc.getInfoLabel('$LOCALIZE[74564]').decode('utf-8') #
-	str74565 = xbmc.getInfoLabel('$LOCALIZE[74565]').decode('utf-8') #
-	str74566 = xbmc.getInfoLabel('$LOCALIZE[74566]').decode('utf-8') #
-	str74567 = xbmc.getInfoLabel('$LOCALIZE[74567]').decode('utf-8') #
-	str74568 = xbmc.getInfoLabel('$LOCALIZE[74568]').decode('utf-8') #
-	str74569 = xbmc.getInfoLabel('$LOCALIZE[74569]').decode('utf-8') #
-	str74570 = xbmc.getInfoLabel('$LOCALIZE[74570]').decode('utf-8') #
-	str74571 = xbmc.getInfoLabel('$LOCALIZE[74571]').decode('utf-8') #
-	str74572 = xbmc.getInfoLabel('$LOCALIZE[74572]').decode('utf-8') #
-	str74573 = xbmc.getInfoLabel('$LOCALIZE[74573]').decode('utf-8') #
-	str74574 = xbmc.getInfoLabel('$LOCALIZE[74574]').decode('utf-8') #
-	str74575 = xbmc.getInfoLabel('$LOCALIZE[74575]').decode('utf-8') #
-	str74576 = xbmc.getInfoLabel('$LOCALIZE[74576]').decode('utf-8') #
-	str74577 = xbmc.getInfoLabel('$LOCALIZE[74577]').decode('utf-8') #
-	str74578 = xbmc.getInfoLabel('$LOCALIZE[74578]').decode('utf-8') #
-	str74579 = xbmc.getInfoLabel('$LOCALIZE[74579]').decode('utf-8') #
-	str74580 = xbmc.getInfoLabel('$LOCALIZE[74580]').decode('utf-8') #
-	str74581 = xbmc.getInfoLabel('$LOCALIZE[74581]').decode('utf-8') #
-	str74582 = xbmc.getInfoLabel('$LOCALIZE[74582]').decode('utf-8') #
-	str74583 = xbmc.getInfoLabel('$LOCALIZE[74583]').decode('utf-8') #
-	str74584 = xbmc.getInfoLabel('$LOCALIZE[74584]').decode('utf-8') #
-	str74585 = xbmc.getInfoLabel('$LOCALIZE[74585]').decode('utf-8') #
-	str74586 = xbmc.getInfoLabel('$LOCALIZE[74586]').decode('utf-8') #
-	str74587 = xbmc.getInfoLabel('$LOCALIZE[74587]').decode('utf-8') #
-	str74588 = xbmc.getInfoLabel('$LOCALIZE[74588]').decode('utf-8') #
-	str74589 = xbmc.getInfoLabel('$LOCALIZE[74589]').decode('utf-8') #
-	str74590 = xbmc.getInfoLabel('$LOCALIZE[74590]').decode('utf-8') #
-	str74591 = xbmc.getInfoLabel('$LOCALIZE[74591]').decode('utf-8') #
-	str74592 = xbmc.getInfoLabel('$LOCALIZE[74592]').decode('utf-8') #
-	str74593 = xbmc.getInfoLabel('$LOCALIZE[74593]').decode('utf-8') #
-	str74594 = xbmc.getInfoLabel('$LOCALIZE[74594]').decode('utf-8') #
-	str74595 = xbmc.getInfoLabel('$LOCALIZE[74595]').decode('utf-8') #
-	str74596 = xbmc.getInfoLabel('$LOCALIZE[74596]').decode('utf-8') #
-	str74597 = xbmc.getInfoLabel('$LOCALIZE[74597]').decode('utf-8') #
-	str74598 = xbmc.getInfoLabel('$LOCALIZE[74598]').decode('utf-8') #
-	str74599 = xbmc.getInfoLabel('$LOCALIZE[74599]').decode('utf-8') #
-	str74600 = xbmc.getInfoLabel('$LOCALIZE[74600]').decode('utf-8') #
-	str74601 = xbmc.getInfoLabel('$LOCALIZE[74601]').decode('utf-8') #
-	str74602 = xbmc.getInfoLabel('$LOCALIZE[74602]').decode('utf-8') #
-	str74603 = xbmc.getInfoLabel('$LOCALIZE[74603]').decode('utf-8') #
-	str74604 = xbmc.getInfoLabel('$LOCALIZE[74604]').decode('utf-8') #
-	str74605 = xbmc.getInfoLabel('$LOCALIZE[74605]').decode('utf-8') #
-	str74606 = xbmc.getInfoLabel('$LOCALIZE[74606]').decode('utf-8') #
-	str74607 = xbmc.getInfoLabel('$LOCALIZE[74607]').decode('utf-8') #
-	str74608 = xbmc.getInfoLabel('$LOCALIZE[74608]').decode('utf-8') #
-	str74609 = xbmc.getInfoLabel('$LOCALIZE[74609]').decode('utf-8') #
 	str75209 = xbmc.getInfoLabel('$LOCALIZE[75209]').decode('utf-8') #Test the fix by adding %s to the library (search/add + menu button)
 	str78971 = xbmc.getInfoLabel('$LOCALIZE[78971]').decode('utf-8') #Doing Manual Fix
 	str78974 = xbmc.getInfoLabel('$LOCALIZE[78974]').decode('utf-8') #Fix failed!
@@ -1219,7 +1026,8 @@ macstr2 = xbmc.getInfoLabel('Network.MacAddress') + " ( " + xbmc.getInfoLabel('S
 '''------------------------------
 ---LIST--------------------------
 ------------------------------'''
-
+ACTION_PREVIOUS_MENU = 10
+ACTION_SELECT_ITEM = 7
 '''---------------------------'''
 
 '''------------------------------
@@ -1318,9 +1126,9 @@ controlgetlabel100 = xbmc.getInfoLabel('Control.GetLabel(100)') #DialogSubtitles
 controlhasfocus10 = xbmc.getCondVisibility('Control.HasFocus(10)') #No button
 controlhasfocus11 = xbmc.getCondVisibility('Control.HasFocus(11)') #Yes button
 controlhasfocus20 = xbmc.getCondVisibility('Control.HasFocus(20)')
-controlisvisible311 = xbmc.getCondVisibility('Control.IsVisible(311)') or xbmc.getCondVisibility('Control.HasFocus(340)')
+controlisvisible311 = xbmc.getCondVisibility('Control.IsVisible(311)') or xbmc.getCondVisibility('Control.HasFocus(70)')
 controlisvisible311S = str(controlisvisible311)
-controlisvisible312 = xbmc.getCondVisibility('Control.IsVisible(312)') or xbmc.getCondVisibility('Control.HasFocus(341)')
+controlisvisible312 = xbmc.getCondVisibility('Control.IsVisible(312)') or xbmc.getCondVisibility('Control.HasFocus(71)')
 controlisvisible312S = str(controlisvisible312)
 
 debugbutton = xbmc.getCondVisibility('Container(50).HasFocus(5)') or (xbmc.getCondVisibility('Window.IsVisible(LoginScreen.xml)') and xbmc.getCondVisibility('Container(50).HasFocus(102)'))
