@@ -45,6 +45,10 @@ def setInfo(admin):
 		try: totalspacegb = int(output) / 1000000
 		except: totalspacegb = 0
 		'''---------------------------'''
+	elif systemplatformandroid:
+		output = terminal("df /storage/emulated/0 | head -2 | awk {'print $2'}")
+		try: totalspacegb = int(output)
+		except: totalspacegb = 0
 	else: totalspacegb = 0
 	
 	
@@ -60,12 +64,16 @@ def setInfo(admin):
 		output = output.replace("  ", " ")
 		setsetting('Info_Model',output)
 		'''---------------------------'''
-	else:
+	elif systemplatformlinux or systemplatformlinuxraspberrypi:
 		output = terminal("cat /proc/cpuinfo | grep -e 'model name' | head -1 | awk {'print $4,$5,$6,$7,$8,$9,$10'}","model name")
 		output = output.replace(' \n',"")
 		setsetting('Info_Model',output)
 		'''---------------------------'''
-	
+	elif systemplatformandroid:
+		output = terminal("cat /proc/cpuinfo | grep -e 'Processor' | head -1 | awk {'print $4,$5,$6,$7,$8,$9,$10'}","model name")
+		output = output.replace(' \n',"")
+		setsetting('Info_Model',output)
+	else: pass
 	if "Intel" in Info_Model: setsetting('Info_Intel',"true")
 	else: setsetting('Info_Intel',"false")
 	'''---------------------------'''

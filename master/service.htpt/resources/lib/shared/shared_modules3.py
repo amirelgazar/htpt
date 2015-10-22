@@ -1072,10 +1072,12 @@ def AdvancedCustom(mode, name, url, thumb, desc, num, viewtype, fanart):
 								x1 = find_string(x, "", "=")
 								x2 = find_string(x, "=", "")
 								x1 = x1.replace("=","")
+								x2 = x2.replace('=&', '&') #CLEAN STRINGS
+								x2 = x2.replace('\n', '') #CLEAN STRINGS
 								if not "_ID" in x:
 									'''Clean values for none ID lines'''
 									x2 = x2.replace("=","")
-									x2 = x2.replace("\n","")
+									#x2 = x2.replace("\n","")
 								
 								if y == "":
 									count = 0

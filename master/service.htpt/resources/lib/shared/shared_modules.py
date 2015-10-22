@@ -1554,15 +1554,15 @@ def installaddon2(admin, addon, version="0.0.0", update=True, silent=True):
 	
 	'''---------------------------'''
 	if addon == 'repository.htpt': version = "1.1.0"
-	elif addon == 'service.htpt': version = "0.1.59"
-	elif addon == 'service.htpt.debug': version = "0.1.37"
-	elif addon == 'service.htpt.fix': version = "0.1.55"
-	elif addon == 'script.htpt.install': version = "0.0.9"
-	elif addon == 'script.htpt.smartbuttons': version = "0.0.25"
-	elif addon == 'script.htpt.remote': version = "0.1.11"
+	elif addon == 'service.htpt': version = "0.1.67"
+	elif addon == 'service.htpt.debug': version = "0.1.41"
+	elif addon == 'service.htpt.fix': version = "0.1.60"
+	elif addon == 'script.htpt.install': version = "0.0.26"
+	elif addon == 'script.htpt.smartbuttons': version = "0.0.30"
+	elif addon == 'script.htpt.remote': version = "0.1.12"
 	elif addon == 'script.htpt.refresh': version = "0.1.32"
 	elif addon == 'script.htpt.widgets': version = "0.1.2"
-	elif addon == 'skin.htpt': version = "0.1.35"
+	elif addon == 'skin.htpt': version = "0.1.38"
 	
 	elif addon == 'metadata.common.impa.com': version = "1.1.3"
 	elif addon == 'metadata.common.movieposterdb.com': version = "1.1.2"
@@ -1904,6 +1904,8 @@ def copyfiles(source, target, chmod="", mount=False):
 			#if not "\\*" in source and source1 == "\\": source = source + '*' ; printpoint = printpoint + "4"
 			if not admin3: terminal('xcopy "'+source+'" "'+target+'" /s /i /y >NUL',name + space2 + source + space5 + target) ; printpoint = printpoint + "5"
 		else: terminal('copy "'+source+'" "'+target+'" /V /Y >NUL',name + space2 + source + space5 + target) ; printpoint = printpoint + "6"
+	elif systemplatformandroid:
+		terminal('cp -rf '+source+' '+target+'',name + space2 + source + space5 + target) ; printpoint = printpoint + "3"
 	else:
 		import shutil
 		shutil.copyfile(source, target)
@@ -2765,9 +2767,9 @@ def killall(admin, custom=""):
 			if "s" in custom: extra = '&& sleep 1 && reboot -p'
 			elif "r" in custom: extra = '&& sleep 1 && reboot'
 			'''---------------------------'''
-			if custom == "": terminal('kill -9 kodi.bin && sleep 1',name + space3 + custom)	
-			elif "1" in custom or "2" in custom or "3" in custom: terminal('kill -9 kodi.bin && cp -rf '+source+' '+target+' '+extra+'',name + space3 + custom)		
-			else: terminal('kill -9 kodi.bin && cp -rf '+source+' '+target+' '+extra+'',name + space3 + custom)
+			if custom == "": terminal('adb shell am force-stop org.xbmc.kodi && sleep 1',name + space3 + custom)	
+			elif "1" in custom or "2" in custom or "3" in custom: terminal('adb shell am force-stop org.xbmc.kodi && cp -rf '+source+' '+target+' '+extra+'',name + space3 + custom)		
+			else: terminal('adb shell am force-stop org.xbmc.kodi && cp -rf '+source+' '+target+' '+extra+'',name + space3 + custom)
 		except: pass
 		
 		try: os.system('killall Kodi')
