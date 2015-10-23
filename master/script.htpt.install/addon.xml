@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<addon id="script.htpt.install" name="HTPT Install" version="0.0.26" provider-name="finalmakerr">
+<addon id="script.htpt.install" name="HTPT Install" version="0.0.27" provider-name="finalmakerr">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
   </requires>

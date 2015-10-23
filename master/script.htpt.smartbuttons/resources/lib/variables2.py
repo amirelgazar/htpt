@@ -1410,7 +1410,7 @@ if property_subbuttonid != "" and property_subbuttonid_ != "" or property_temp !
 	'''---------------------------'''
 	id109_T = { 'id109_90': id109_90, 'id109_91': id109_91, 'id109_92': id109_92, 'id109_93': id109_93, 'id109_94': id109_94, 'id109_95': id109_95, 'id109_96': id109_96, 'id109_97': id109_97, 'id109_98': id109_98, 'id109_99': id109_99, 'id109_100': id109_100, 'id109_101': id109_101, 'id109_102': id109_102, 'id109_103': id109_103, 'id109_104': id109_104, 'id109_105': id109_105, 'id109_106': id109_106, 'id109_107': id109_107, 'id109_108': id109_108, 'id109_109': id109_109 }
 	id_T.update(id109_T)
-	id_T2 = {v: k for k, v in id_T.items()}
+	id_T2 = {v: k for k, v in id_T.items()} #ANDROID ERROR!
 	#id_T2 = {}
 	#for k, v in id_T.iteritems():
 		#id_T2[v] = id_T2.get(v, [])

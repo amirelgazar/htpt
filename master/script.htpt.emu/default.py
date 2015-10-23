@@ -245,7 +245,7 @@ elif mode == 7:
 			xbmc.executebuiltin('ActivateWindow(Home.xml)') ; xbmc.sleep(1000) ; xbmc.executebuiltin('RunAddon(plugin.program.advanced.launcher)')
 			'''---------------------------'''
 		else:
-			mode6('1', admin, name)
+			mode6('0', admin, name)
 			if not os.path.exists(os.path.join(rom_path,'Sega Master System')) and not os.path.exists(os.path.join(rom_path,'TurboGrafx 16')) and not os.path.exists(os.path.join(rom_path,'Sega Genesis')):
 				dialogok("You currently have no games!", "Choose the Advanced Options button (Left Menu), then Choose YES.", "Click once on the Downloading Games button, then Choose Confirm to dow", "")
 			elif scripthtptdebug_Info_Bluetooth == "":
