@@ -10,6 +10,7 @@ from modules import *
 class ResetSettings:
 	setsetting('Addon_ServiceON',"true")
 	setsetting('General_ScriptON',"false")
+	setsetting('General_Terminal',"true")
 	setsetting('Subtitle_Search',"")
 	setsetting('Subtitle_Service',"")
 	'''---------------------------'''

@@ -35,6 +35,7 @@ printfirst = addonName + ": !@# "
 
 Addon_ServiceON = getsetting('Addon_ServiceON')
 General_ScriptON = getsetting('General_ScriptON')
+General_Terminal = getsetting('General_Terminal')
 Current_Input = getsetting('Current_Input')
 Current_Input2 = getsetting('Current_Input2')
 Current_Option = getsetting('Current_Option')

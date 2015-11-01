@@ -149,10 +149,10 @@ class main:
 		
 	elif mode == 15:
 		'''------------------------------
-		---?-----------------------------
+		---CopyFiles-Tweak---------------
 		------------------------------'''
-		name = "?"
-		mode15(admin, name, printpoint)
+		name = "CopyFiles-Tweak"
+		mode15(value, admin, name, printpoint)
 		'''---------------------------'''
 		
 	elif mode == 16:
@@ -359,8 +359,7 @@ class main:
 		'''------------------------------
 		---Network-Settings--------------
 		------------------------------'''
-		if systemplatformwindows: terminal('rundll32.exe van.dll,RunVAN','Network')
-		else: oewindow('Network')
+		mode41(admin, name, printpoint)
 		'''---------------------------'''
 	
 	elif mode == 43:
@@ -466,7 +465,7 @@ class main:
 		---LibraryData-------------------
 		------------------------------'''
 		name = 'LibraryData'
-		mode55(admin, admin3, name, printpoint)
+		mode55(value, admin, admin3, name, printpoint, LibraryData_RemoteMoviesFiles, LibraryData_RemoteTvshowsFiles)
 		'''---------------------------'''
 		
 	elif mode == 56:
@@ -505,9 +504,8 @@ class main:
 		'''------------------------------
 		---Remove-Skin-------------------
 		------------------------------'''
-		dialogok('$LOCALIZE[79595]','$LOCALIZE[79596]','$LOCALIZE[79598]',"")
-		#notification_common("9")
-		#xbmc.executebuiltin('Dialog.Close(selectdialog)')
+		if value == "" or value == '1': dialogok('$LOCALIZE[79595]','$LOCALIZE[79596]','$LOCALIZE[79598]',"")
+		elif value == '2': dialogok('Terminal is blocked by your OS', str(TypeError), "Some special HTPT features will be unavailable", 'Contact us in facebook for support')
 		'''---------------------------'''
 	
 	elif mode == 61:

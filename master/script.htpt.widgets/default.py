@@ -29,42 +29,8 @@ import datetime
 import _strptime
 import urllib
 
-addon = 'service.htpt'
-if not xbmc.getCondVisibility('System.HasAddon('+ addon +')'):
-	printpoint = "" ; count = 0
-	dialogyesnoW = xbmc.getCondVisibility('Window.IsVisible(DialogYesNo.xml)')
-	dialogprogressW = xbmc.getCondVisibility('Window.IsVisible(DialogProgress.xml)')
-	if not dialogyesnoW and not dialogprogressW:
-		printpoint = printpoint + "1"
-		xbmc.executebuiltin('Notification(Required addon is missing!,'+addon+',4000)')
-		xbmc.executebuiltin('ActivateWindow(10025,plugin://'+ addon +'),returned') ; xbmc.sleep(2000)
-		'''---------------------------'''
-		dialogbusyW = xbmc.getCondVisibility('Window.IsVisible(DialogBusy.xml)')
-		while count < 10 and (not xbmc.getCondVisibility('System.HasAddon('+ addon +')') or dialogbusyW) and not xbmc.abortRequested:
-			if count == 0: printpoint = printpoint + "2"
-			count += 1
-			if xbmc.getCondVisibility('System.HasAddon('+ addon +')'): xbmc.executebuiltin('Dialog.Close(busydialog)')
-			xbmc.sleep(500)
-			dialogbusyW = xbmc.getCondVisibility('Window.IsVisible(DialogBusy.xml)')
-			xbmc.sleep(500)
-			'''---------------------------'''
-		if count < 10:
-			printpoint = printpoint + "7"
-			xbmc.executebuiltin('Action(Back)') ; xbmc.executebuiltin('Action(Back)') ; xbmc.sleep(1000)
-			xbmc.executebuiltin('Notification(Required addon installed!,Try again!,4000)')
-			'''---------------------------'''
-		else: printpoint = printpoint + "9"
-		
-	else: printpoint = printpoint + "8"
-	
-	print 'service.htpt_install_LV' + printpoint + " count: " + str(count)
-	sys.exit(1)
-else:
-	servicehtptPath          = xbmcaddon.Addon('service.htpt').getAddonInfo("path")
-	sharedlibDir = os.path.join(servicehtptPath, 'resources', 'lib', 'shared')
-	sys.path.insert(0, sharedlibDir)
-	from shared_variables import *
-	'''---------------------------'''
+from variables import *
+from shared_modules import *
 	
 if sys.version_info < (2, 7):
     try: import simplejson
@@ -82,6 +48,7 @@ __addonversion__ = __addon__.getAddonInfo('version')
 __addonid__      = __addon__.getAddonInfo('id')
 __addonname__    = __addon__.getAddonInfo('name')
 __localize__    = __addon__.getLocalizedString
+
 
 def log(txt):
     message = '%s: %s' % (__addonname__, txt.encode('ascii', 'ignore'))
@@ -240,7 +207,11 @@ class Main:
                     
                     year = str(item['year'])
                     genre = str(item['genre'])
-                    if admin: print "testing_" + str(request) + " year: " + str(year) + " genre: " + str(genre)
+                    try: tagline = str(item['tagline'])
+                    except: tagline = ""
+                    text = str(request) + " year: " + str(year) + " genre: " + str(genre) + " tagline: " + str(tagline)
+                    printlog(title="testing_", text=text, level=0)
+
                     art = item['art']
                     path = media_path(item['file'])
                     play = 'XBMC.RunScript(' + __addonid__ + ',movieid=' + str(item.get('movieid')) + ')'

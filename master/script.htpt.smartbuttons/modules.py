@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+#/usr/bin/python
 #import xbmc, os, subprocess, sys
 #import xbmc, xbmcgui, xbmcaddon
 import xbmc, xbmcgui, xbmcaddon
@@ -12,7 +13,7 @@ def mode0(admin, name, printpoint):
 	---TEST--------------------------
 	------------------------------'''
 	
-	
+	print xbmc_path
 	
 	#notification(xbmc.getInfoLabel('$VAR[label77_91]'),"1","",1000)
 	
@@ -237,7 +238,45 @@ def mode0(admin, name, printpoint):
 	'''---------------------------'''
 	#print printfirst + space + "test2button" + space2 + az
 	'''---------------------------'''
+	#terminal('adb shell am force-stop org.xbmc.kodi && sleep 1','test')
+	#infile = os.path.join('etc','proftpd','proftpd.conf')
+	#read_from_file(infile, silent=True, lines=False)
+	#output = terminal('ping','test')
+	#xbmc.executebuiltin('Action(Quit)')
+	#xbmc.executebuiltin('Quit')
+	#output = terminal("chmod +x /storage/emulated/0/Android/data/org.xbmc.kodi/files/.kodi/",'chmod +x')
+	#output = terminal('ping en.wikipedia.org -n 1',"Connected")
+	#output = call('adb shell am force-stop org.xbmc.kodi', shell=True)
+	#print "output: " + str(output)
 	
+	#copyfiles(os.path.join(htptservicecopy_path,'manual','advancedsettings.xml'), userdata_path)
+	#print output
+	#killall(admin, custom="1")
+	#source = htptservicecopy_path
+	#target = userdata_path
+
+	#xbmc.executebuiltin('RunScript(script.htpt.smartbuttons,,?mode=15&value='+source+'|'+target+')')
+	#xbmc.executebuiltin('RunScript(script.htpt.smartbuttons,,?mode=15&value=123)')
+	#xbmc.executebuiltin('Quit')
+	#xbmc.executebuiltin('RunScript(script.htpt.smartbuttons,,?mode=15&value='+source+'|'+target+')')
+	#killall(admin, custom="1")
+	#path = os.path.join(htptservicecopy_path,'manual','advancedsettings.xml')
+	#removefiles(path)
+	#Clean_Library('1')
+	#output = terminal('echo 123','')
+	#bash_count(packages_path, level=0)
+	#write_to_file(guikeepertxt_file, 'killall -9 kodi.bin', append=False, silent=True , utf8=False) ; xbmc.sleep(20000)
+	#write_to_file(guikeepertxt_file, '', append=False, silent=True , utf8=False)
+	#os.system('sh '+guikeepersh_file+'')
+	installaddonP(admin, 'script.module.requests')
+	#killall(admin, custom="f1")
+	#terminal('cp -rf /storage/emulated/0/Android/data/org.xbmc.kodi/files/.kodi/userdata/addon_data/skin.htpt/userdata/Skin_SaveDesign1.txt /storage/emulated/0/Android/data/org.xbmc.kodi/files/.kodi/userdata/guisettings.xml','')
+	#xbmcexe_path = os.path.join(xbmc_path, 'Kodi.exe')
+	#if os.path.exists(xbmcexe_path): xbmcexe_path = '"' + xbmcexe_path + '"'
+	#print xbmcexe_path
+	#removeaddons(['service.subtitles.torec'],"1")
+	#from variables2 import *
+	notification('test',str(output),'',2000)
 	'''---------------------------'''
 	
 def mode1(admin, name, printpoint):
@@ -729,18 +768,30 @@ def mode13(admin, name, printpoint):
 	
 def mode14(admin, name, printpoint):
 	'''------------------------------
-	---?-----------------------------
+	---setUser_Name------------------
 	------------------------------'''
-	name = "?"
-	mode14(admin, name, printpoint)
-	'''---------------------------'''
+	returned = dialogkeyboard(scripthtptdebug_User_Name,localize(1014),0,"",'User_Name',"")
+	if returned != 'skip':
+		setsetting_custom1('service.htpt.debug','User_Name',str(returned))
+		'''---------------------------'''
 	
-def mode15(admin, name, printpoint):
+def mode15(value, admin, name, printpoint):
 	'''------------------------------
-	---?-----------------------------
+	---CopyFiles-Tweak---------------
 	------------------------------'''
-	name = "?"
-	mode15(admin, name, printpoint)
+	source = "" ; target = ""
+	if '|' in value:
+		source = find_string(value, "", '|')
+		source = source.replace('|',"")
+		target = find_string(value, '|', "")
+		target = target.replace('|',"")
+
+		copyfiles(source, target, chmod="", mount=False)
+		
+	else: pass
+	
+	if admin: print printfirst + name + "_LV" + printpoint + newline + 'source' + space2 + str(source) + newline + 'target' + space2 + str(target)
+	
 	'''---------------------------'''
 	
 def mode16(admin, name, printpoint):
@@ -961,7 +1012,8 @@ def mode39(admin, name, printpoint):
 	------------------------------'''
 	'''tweak and reload the network adapters'''
 	xbmc.executebuiltin('Notification([COLOR Red] $VAR[CurrentMAC][/COLOR] $LOCALIZE[79061],$LOCALIZE[79062],5000)')
-	if systemplatformwindows:
+	if systemplatformandroid: pass
+	elif systemplatformwindows:
 		output = terminal('ipconfig /renew', 'ipconfig /renew')
 		dialogok(name, output, "", "")
 	else:
@@ -1095,10 +1147,11 @@ def mode40(value, admin, name, printpoint):
 		
 def mode41(admin, name, printpoint):
 	'''------------------------------
-	---?-----------------------------
+	---Network-Settings--------------
 	------------------------------'''
-	name = "?"
-	mode41(admin, name, printpoint)
+	if systemplatformandroid: terminal('am start -a android.intent.action.MAIN -n com.android.settings/.Settings',name)
+	elif systemplatformwindows: terminal('rundll32.exe van.dll,RunVAN',name)
+	else: oewindow('Network')
 	'''---------------------------'''
 
 def mode43(admin, name, printpoint):
@@ -1189,29 +1242,22 @@ def mode50(admin, name, printpoint):
 	'''------------------------------
 	---SOFT-RESTART------------------
 	------------------------------'''
-	CloseSession()
-		
-	admin = xbmc.getInfoLabel('Skin.HasSetting(Admin)')
 	setsetting_custom1('service.htpt.debug','General_ScriptON',"true")
 	setsetting_custom1('service.htpt.debug','ModeOn_7',"true")
 	setsetting_custom1('service.htpt.debug','ModeTime_7',datenowS + "__" + timenow2S)
-	killall(admin, custom="1")
-	
-	#xbmc.sleep(5000)
-	#xbmc.executebuiltin('XBMC.Reset()')
+	custom = 'f1'
+	killall(admin, custom)
 	'''---------------------------'''
 
 def mode51(admin, name, printpoint):
 	'''------------------------------
 	---RESTART-----------------------
 	------------------------------'''
-	CloseSession()
 	setsetting_custom1('service.htpt.debug','General_ScriptON',"true")
 	setsetting_custom1('service.htpt.debug','ModeOn_8',"true")
 	setsetting_custom1('service.htpt.debug','ModeTime_8',datenowS + "__" + timenow2S)
-	#xbmc.sleep(1000)
-	#xbmc.executebuiltin('XBMC.Reset()')
-	killall(admin, custom="r")
+	custom = 'r1'
+	killall(admin, custom)
 	'''---------------------------'''
 
 def mode52(admin, name, printpoint):
@@ -1229,34 +1275,25 @@ def mode53(admin, name, printpoint):
 	'''------------------------------
 	---POWEROFF----------------------
 	------------------------------'''
-	CloseSession()
 	setsetting_custom1('service.htpt.debug','ModeOn_10',"true")
 	setsetting_custom1('service.htpt.debug','ModeTime_10',datenowS + "__" + timenow2S)
-	#notification('$LOCALIZE[13016]',addonString_servicehtpt(10),"",4000)
 	notification(startupmessage2,id1str,"",5000)
-	killall(admin, custom="s") ; xbmc.sleep(1000)
-	if not systemplatformwindows: xbmc.executebuiltin('XBMC.Powerdown()')
+	custom = 's1'
+	killall(admin, custom)
 	'''---------------------------'''
 
 def mode54(admin, name, printpoint):
 	'''------------------------------
 	---QUIT--------------------------
 	------------------------------'''
-	CloseSession()
-	#from shared_modules4 import *
-	#setsetting_custom1('service.htpt.debug','ModeTime_10',datenowS + "__" + timenow2S)
-	#xbmc.executebuiltin('RunScript(service.htpt.debug,,?mode=10)')
-	#notification('$LOCALIZE[13016]',addonString_servicehtpt(10),"",4000)
-	#guiset(admin, guiread)
+	custom = 'q1'
 	xbmc.sleep(500)
-	killall(admin, custom="")
-	xbmc.sleep(1000)
-	xbmc.executebuiltin('RestartApp')
+	killall(admin, custom)
 	#notification(startupmessage2,id1str,"",5000)
 	'''---------------------------'''
 
 
-def mode55(admin, admin3, name, printpoint):
+def mode55(value, admin, admin3, name, printpoint, LibraryData_RemoteMoviesFiles, LibraryData_RemoteTvshowsFiles):
 	'''------------------------------
 	---LibraryData-------------------
 	------------------------------'''
@@ -1288,10 +1325,12 @@ def mode55(admin, admin3, name, printpoint):
 			notification(str24068.encode('utf-8') + space5 + datenowS,str79577.encode('utf-8'),"",4000) #Update available, Update Movies and Tvshows library
 			setSkinSetting("0", 'LibraryData_RemoteDate', datenowS)
 			'''---------------------------'''
-		if admin: print printfirst + "LibraryData" + space + "Afolders_count2" + space2 + Afolders_count2 + space + "Bfolders_count2" + space2 + Bfolders_count2 + newline + \
-		"LibraryData_RemoteMoviesFiles/2" + space2 + LibraryData_RemoteMoviesFiles + space4 + LibraryData_RemoteMoviesFiles2 + space + "LibraryData_RemoteTvshowsFiles/2" + space2 + LibraryData_RemoteTvshowsFiles + space4 + LibraryData_RemoteTvshowsFiles2
+		if admin:
+			print printfirst + "LibraryData" + space + "Afolders_count2" + space2 + Afolders_count2 + space + "Bfolders_count2" + space2 + Bfolders_count2 + newline + \
+			"LibraryData_RemoteMoviesFiles/2" + space2 + LibraryData_RemoteMoviesFiles + space4 + LibraryData_RemoteMoviesFiles2 + space + "LibraryData_RemoteTvshowsFiles/2" + space2 + LibraryData_RemoteTvshowsFiles + space4 + LibraryData_RemoteTvshowsFiles2
 
 	xbmc.executebuiltin('RunScript(script.htpt.smartbuttons,,?mode=56)')
+
 	
 def mode56(admin, name, LibraryData_RemoteMoviesFiles, LibraryData_RemoteTvshowsFiles, LibraryData_LocalMoviesFiles, LibraryData_LocalTvshowsFiles, librarydataremotedatestr):
 	'''------------------------------
@@ -1367,6 +1406,7 @@ def mode56(admin, name, LibraryData_RemoteMoviesFiles, LibraryData_RemoteTvshows
 					if str(Remotevslocal1) != "0" or str(Remotevslocal2) != "0" and scripthtptinstall_Skin_FirstBoot != "true": dialogok(localize(79577) + '[CR]' + localize(79072), str79584 % (str(Remotevslocal1),str(Remotevslocal2)), "", "", line1c="Yellow")
 					else: notification(localize(79577), localize(79072), "", 4000)
 					'''---------------------------'''
+					
 				else: notification_common("9")
 			elif not librarydataautoupdate: notification(localize(79577), localize(16039), "", 2000)
 			else: notification(localize(79577) + space + localize(13610), localize(78930), "", 2000) #Update Movies and Tvshows library
@@ -2673,11 +2713,14 @@ def mode200(value, admin, name, printpoint):
 	'''---------------------------'''
 
 def Custom1000(title="", progress="", comment="", autoclose=""):
+	admin = xbmc.getInfoLabel('Skin.HasSetting(Admin)')
+	admin2 = xbmc.getInfoLabel('Skin.HasSetting(Admin2)')
 	if libraryisscanningvideo: xbmc.executebuiltin('UpdateLibrary(video)')
 	xbmc.executebuiltin('SetProperty(1000title,'+title+',home)')
 	xbmc.executebuiltin('SetProperty(1000progress,'+str(progress)+',home)')
 	xbmc.executebuiltin('SetProperty(1000comment,'+comment+',home)')
 	custom1000W = xbmc.getCondVisibility('Window.IsVisible(Custom1000.xml)')
+	xbmc.executebuiltin('Dialog.Close(all,true)')
 	if not custom1000W:
 		notification_common("2")
 		xbmc.executebuiltin('ActivateWindow(1000)') ; xbmc.sleep(100)
@@ -2727,7 +2770,7 @@ def mode201(value, admin, name, printpoint):
 	'''------------------------------
 	---RESET-TO-DEFAULT--------------
 	------------------------------'''
-	from variables2 import *
+	#from variables2 import *
 	returned = ""
 	container50hasfocus390 = xbmc.getCondVisibility('Container(50).HasFocus(390)') #BUTTONS
 	
@@ -2995,7 +3038,8 @@ def mode203(value, admin, admin3, name, printpoint):
 		else: printpoint = printpoint + "7"
 		
 		if "7" in printpoint and not "8" in printpoint and not "9" in printpoint:
-		
+			Custom1000(name,0,str(list[returned2]),5)
+			
 			if returned2 == 1: printpoint = printpoint + "1" #1
 			elif returned2 == 2: printpoint = printpoint + "2" #2
 			elif returned2 == 3: printpoint = printpoint + "3" #3
@@ -3009,6 +3053,7 @@ def mode203(value, admin, admin3, name, printpoint):
 				---Save--------------------------
 				------------------------------'''
 				from variables2 import *
+				Custom1000(name,20,str(list[returned2]),10)
 				formula = ""
 				formula = "Skin.Theme=2" + skincurrenttheme
 				for i in range(70,110):
@@ -3041,6 +3086,7 @@ def mode203(value, admin, admin3, name, printpoint):
 						formula = formula + newline + 'icon'+str(i)+'_'+str(i2)+'=0' + str(x)
 						'''---------------------------'''
 				
+				Custom1000(name,50,str(list[returned2]),5)
 				for y in list1:
 					x = xbmc.getInfoLabel('Skin.HasSetting('+y+')')
 					formula = formula + newline + y+'=1' + str(x)
@@ -3058,6 +3104,7 @@ def mode203(value, admin, admin3, name, printpoint):
 					formula = formula + newline + y+'.name'+'=1' + str(x2)
 					'''---------------------------'''
 				
+				Custom1000(name,70,str(list[returned2]),5)
 				for y in list0c2:
 					x = xbmc.getInfoLabel('Skin.String('+y+')')
 					formula = formula + newline + y+'=0' + str(x)
@@ -3078,6 +3125,7 @@ def mode203(value, admin, admin3, name, printpoint):
 					if filename3 == None: filename = ""
 					else: filename = filename3
 				
+				Custom1000(name,90,str(list[returned2]),5)
 				filename = dialogkeyboard(filename, localize(21821), 0, "", "", "") #Description
 				filename_ = "&name="+str(filename)+"&"
 				formula = filename_ + newline + formula
@@ -3096,7 +3144,8 @@ def mode203(value, admin, admin3, name, printpoint):
 					write_to_file(skin_userdata_path + "Skin_SaveDesign3.txt", str(formula), append=False, silent=True, utf8=False)
 					#setsetting('Skin_SaveDesign3', str(formula))
 				'''---------------------------'''
-			
+				Custom1000(name,100,str(list[returned2]),0)
+				
 			elif "B" in printpoint or "C" in printpoint:
 				'''------------------------------
 				---Load/Templates----------------
@@ -3118,9 +3167,15 @@ def mode203(value, admin, admin3, name, printpoint):
 				else:
 					#formula_ = formula_.split(',')
 					#formula_ = CleanString(formula_, filter=[])
-					xbmc.executebuiltin('ActivateWindow(1000)') ; notification_common("2") ; xbmc.sleep(200)
+					Custom1000(name,20,str(list[returned2]),10)
 					import fileinput
+					count = 0
 					for line in fileinput.input([file]):
+						count += 1
+						if count >= 10:
+							count = 0
+							property_1000progress = xbmc.getInfoLabel('Window(home).Property(1000progress)')
+							Custom1000(name,int(property_1000progress) + 2,str(list[returned2]),10)
 						x = "" ; x1 = "" ; x2 = "" ; x3 = ""
 						if "=0" in line:
 							'''Skin.String'''
@@ -3165,7 +3220,8 @@ def mode203(value, admin, admin3, name, printpoint):
 							
 						if admin3 and admin: extra = extra + newline + space + "line" + space2 + str(line) + space + "x" + space2 + str(x) + space + "x1" + space2 + str(x1) + space + "x2" + space2 + str(x2) + space + "x3" + space2 + str(x3)
 						'''---------------------------'''
-			
+					
+					Custom1000(name,100,str(list[returned2]),5)
 			if not "Q" in printpoint and not "A" in printpoint:
 				xbmc.executebuiltin('Action(Back)') ; xbmc.sleep(200)
 				ReloadSkin(admin)
@@ -3610,7 +3666,7 @@ def mode213(value, admin, name, printpoint):
 	
 	elif value == '1' or value == '2':
 		'''homeW/customhomecustomizerW'''
-		if custom1138W or custom1139W or custom1175W or custom1173W or myvideonavW: printpoint = printpoint + "9"
+		if custom1138W or custom1139W or custom1175W or custom1173W or HomeW: printpoint = printpoint + "9"
 		x = xbmc.getInfoLabel('Container(9000).ListItem('+str(i)+').Label')
 		y = xbmc.getInfoLabel('Container(9000).NumItems')
 
@@ -3621,7 +3677,7 @@ def mode213(value, admin, name, printpoint):
 		y = xbmc.getInfoLabel('Container(51).NumItems')
 	
 	elif value == '4':
-		'''myvideonav'''
+		'''Home'''
 		x = 'N/A'
 		y = 'N/A'
 		
@@ -4091,7 +4147,7 @@ def mode215(value, admin, name, printpoint):
 		x = '80' ; id = idT2.get(x)
 		if id != "" and 1 + 1 == 2:
 			label = labelT.get('label'+str(id)) ; icon = iconT.get('icon'+str(id))
-			if label == "" or label == "..." or value == 'RESET': setSkinSetting('0','label'+id,'מדע וטבע')
+			if label == "" or label == "..." or value == 'RESET': setSkinSetting('0','label'+id,localize(78942))
 			setSkinSetting('0','action'+id,'RunScript(script.htpt.smartbuttons,,?mode=519&value=1)')
 			if icon == "" or value == 'RESET': setSkinSetting('0','icon'+id,'icons/animals.png')
 			'''---------------------------'''
@@ -4312,7 +4368,7 @@ def mode215(value, admin, name, printpoint):
 			label = labelT.get('label'+str(id)) ; icon = iconT.get('icon'+str(id))
 			if label == "" or label == "..." or value == 'RESET': setSkinSetting('0','label'+id,localize(1036))
 			setSkinSetting('0','action'+id,'ActivateWindow(134)') #RunScript(script.htpt.smartbuttons,,?mode=516&value=0)
-			if icon == "" or value == 'RESET': setSkinSetting('0','icon'+id,'icons/favourites.png')
+			if icon == "" or value == 'RESET': setSkinSetting('0','icon'+id,'icons/star.png')
 			'''---------------------------'''	
 		
 	'''מבוגרים'''
@@ -5240,7 +5296,7 @@ def mode303(admin, name, printpoint):
 	elif mymusicnavW:
 		HelpButton_Video_Pic(str2, 'music')
 		'''---------------------------'''
-	elif (myvideonavW and myvideopath):
+	elif (HomeW and myvideopath):
 		HelpButton_Video_Pic(str3, 'videos')
 		'''---------------------------'''
 
@@ -5254,10 +5310,10 @@ def mode304(admin, name, printpoint):
 		path0 = 'special://userdata/library/'
 		pathwin = 'special://home/external/'
 		if xbmc.getCondVisibility('SubString(Container.FolderPath,'+ path0 +')'):
-			if myvideonavW: xbmc.executebuiltin('ActivateWindow(Video,'+ pathwin +'videos/,return)')
+			if HomeW: xbmc.executebuiltin('ActivateWindow(Video,'+ pathwin +'videos/,return)')
 			if mypicsW: xbmc.executebuiltin('ActivateWindow(Pictures,'+ pathwin +'pictures/,return)')
 		if xbmc.getCondVisibility('SubString(Container.FolderPath,'+ pathwin +')'):
-			if myvideonavW: xbmc.executebuiltin('ActivateWindow(Video,'+ path0 +'videos/,return)')
+			if HomeW: xbmc.executebuiltin('ActivateWindow(Video,'+ path0 +'videos/,return)')
 			if mypicsW: xbmc.executebuiltin('ActivateWindow(Pictures,'+ path0 +'pictures/,return)')
 			'''---------------------------'''
 
@@ -5309,7 +5365,7 @@ def mode310(admin, name, printpoint):
 		count = ""
 		systemcurrentcontrol = xbmc.getInfoLabel('System.CurrentControl')
 		returned = ActivateWindow("1", 'plugin.video.vdubt', 'plugin://plugin.video.vdubt/', 0, wait=True)
-		if "ok" in returned:
+		if "ok" in returned and 1 + 1 == 3:
 			printpoint = printpoint + "1"
 			systemcurrentcontrol = findin_systemcurrentcontrol("0","[..]",0,'Action(PageUp)','')
 			systemcurrentcontrol = findin_systemcurrentcontrol("0","[..]",100,'Action(PageUp)','Action(Down)')
@@ -5396,31 +5452,34 @@ def mode311(admin, name, printpoint):
 					DownloadFile("https://www.dropbox.com/s/"+fileID+"/AceEngine.zip?dl=1", file, temp_path, p2pstreams_path, silent=True)
 				else: printpoint = printpoint + "A"
 			
-			returned = ActivateWindow("1", 'plugin.video.p2p-streams', 'plugin://plugin.video.p2p-streams/?iconimage=C%3a%5cUsers%5cgal%5cAppData%5cRoaming%5cKodi%5caddons%5cplugin.video.p2p-streams%5cresources%5ccore%5cparsers%5clivefootballws%5cicon.png&mode=401&name=Livefootball.ws&parser=livefootballws&url=https%3a%2f%2fcode.google.com%2fp%2fp2p-strm%2f', 0, wait=True)
+			url = 'plugin://plugin.video.p2p-streams/?iconimage=C%3a%5cUsers%5cgal%5cAppData%5cRoaming%5cKodi%5caddons%5cplugin.video.p2p-streams%5cresources%5ccore%5cparsers%5carenavision%5cicon.png&mode=401&name=Arenavision.in&parser=arenavision&url=https%3a%2f%2fcode.google.com%2fp%2fp2p-strm%2f'
+			#url = 'plugin://plugin.video.p2p-streams/?iconimage=C%3a%5cUsers%5cgal%5cAppData%5cRoaming%5cKodi%5caddons%5cplugin.video.p2p-streams%5cresources%5ccore%5cparsers%5clivefootballws%5cicon.png&mode=401&name=Livefootball.ws&parser=livefootballws&url=https%3a%2f%2fcode.google.com%2fp%2fp2p-strm%2f'
+			returned = ActivateWindow("1", 'plugin.video.p2p-streams', url, 0, wait=True)
 			
-			if "ok" in returned:
-				printpoint = printpoint + "4"
-				systemcurrentcontrol = xbmc.getInfoLabel('System.CurrentControl')
-				systemcurrentcontrol = findin_systemcurrentcontrol("0","[..]",100,'Action(PageUp)','')
-				systemcurrentcontrol = findin_systemcurrentcontrol("0","[..]",100,'Action(PageUp)','Action(Down)')
-				xbmc.sleep(500)
-				containernumitems = xbmc.getInfoLabel('Container.NumItems')
-				
-				if not "(Online)" in xbmc.getInfoLabel('Container(50).ListItem(0).Label') and not "ONLINE" in xbmc.getInfoLabel('Container(50).ListItem(1).Label'):
-					'''------------------------------
-					---NO-LIVE-MATCHS----------------
-					------------------------------'''
-					dialogok(localize(78918), localize(78916) + space2, localize(78920),"")
-					'''---------------------------'''
-				else:
-					'''------------------------------
-					---LIVE-MATCHS-FOUND!------------
-					------------------------------'''
-					dialogok(addonString(40).encode('utf-8'),localize(78919) + '[CR]' + '[COLOR=Yellow]' + "LIVE FOOTBALL" + '[/COLOR]',"","")
-					'''---------------------------'''
+			if 1 + 1 == 3:
+				if "ok" in returned:
+					printpoint = printpoint + "4"
+					systemcurrentcontrol = xbmc.getInfoLabel('System.CurrentControl')
+					systemcurrentcontrol = findin_systemcurrentcontrol("0","[..]",100,'Action(PageUp)','')
+					systemcurrentcontrol = findin_systemcurrentcontrol("0","[..]",100,'Action(PageUp)','Action(Down)')
+					xbmc.sleep(500)
+					containernumitems = xbmc.getInfoLabel('Container.NumItems')
 					
-			else: printpoint = printpoint + "6"
-			'''---------------------------'''
+					if not "(Online)" in xbmc.getInfoLabel('Container(50).ListItem(0).Label') and not "ONLINE" in xbmc.getInfoLabel('Container(50).ListItem(1).Label'):
+						'''------------------------------
+						---NO-LIVE-MATCHS----------------
+						------------------------------'''
+						dialogok(localize(78918), localize(78916) + space2, localize(78920),"")
+						'''---------------------------'''
+					else:
+						'''------------------------------
+						---LIVE-MATCHS-FOUND!------------
+						------------------------------'''
+						dialogok(addonString(40).encode('utf-8'),localize(78919) + '[CR]' + '[COLOR=Yellow]' + "LIVE FOOTBALL" + '[/COLOR]',"","")
+						'''---------------------------'''
+						
+				else: printpoint = printpoint + "6"
+				'''---------------------------'''
 		else:
 			#if "A" in id10str or "B" in id10str:
 			printpoint = printpoint + "8"
@@ -5757,7 +5816,7 @@ def mode350(admin, name, printpoint):
 		while count < 5 and systemcurrentcontrol != localize(1259) and not xbmc.abortRequested:
 			'''Zeroconf'''
 			if count == 0: printpoint = printpoint + "2"
-			systemcurrentcontrol = findin_systemcurrentcontrol("0",localize(1259),40,'Action(Left)','Action(Down)')
+			systemcurrentcontrol = findin_systemcurrentcontrol("0",localize(1259),40,'Action(Right)','Action(Down)')
 			count += 1
 			'''---------------------------'''
 		count = 0
@@ -5781,12 +5840,12 @@ def mode350(admin, name, printpoint):
 	if sgbserviceszeroconf:
 		printpoint = printpoint + "4"
 		'''---------------------------'''
-		systemcurrentcontrol = findin_systemcurrentcontrol("0",localize(1273),40,'Action(Left)','Action(Down)')
+		systemcurrentcontrol = findin_systemcurrentcontrol("0",localize(1273),40,'Action(Right)','Action(Down)')
 		count = 0
 		while count < 5 and systemcurrentcontrol != localize(1273) and not xbmc.abortRequested:
 			'''AirPlay'''
 			if count == 0: printpoint = printpoint + "5"
-			systemcurrentcontrol = findin_systemcurrentcontrol("0",localize(1273),40,'Action(Left)','Action(Down)')
+			systemcurrentcontrol = findin_systemcurrentcontrol("0",localize(1273),40,'Action(Right)','Action(Down)')
 			count += 1
 			'''---------------------------'''
 		
@@ -7638,37 +7697,37 @@ def externalusb(device, mode):
 			if rowscountN == 0 and myhtpt3: xbmc.executebuiltin('Skin.ToggleSetting(myHTPT3)')
 			if rowscountN > 0 and not myhtpt3: xbmc.executebuiltin('Skin.ToggleSetting(myHTPT3)')
 			'''---------------------------'''
-			#myvideonavW = xbmc.getCondVisibility('Window.IsVisible(MyVideoNav.xml)')
+			#HomeW = xbmc.getCondVisibility('Window.IsVisible(Home.xml)')
 			#mypicsW = xbmc.getCondVisibility('Window.IsVisible(MyPics.xml)')
 			containerfolderpath = xbmc.getInfoLabel('Container.FolderPath')
 			
-			if (myvideonavW or mypicsW) and mode == 304:
+			if (HomeW or mypicsW) and mode == 304:
 				printpoint = printpoint + "5"
 				#xbmc.executebuiltin('Skin.SetString(VarCurrentPicVid,)')
 				#xbmc.executebuiltin('Skin.SetString(VarCurrentPicVidPath,)')
 				if xbmc.getCondVisibility('SubString(Container.FolderPath,'+ path0 +')') and rowscountN > 0:
-					if myvideonavW: xbmc.executebuiltin('ActivateWindow(Video,'+ path1 +'/videos/,return)')
+					if HomeW: xbmc.executebuiltin('ActivateWindow(Video,'+ path1 +'/videos/,return)')
 					if mypicsW: xbmc.executebuiltin('ActivateWindow(Pictures,'+ path1 +'/pictures/,return)')
 					xbmc.executebuiltin('Skin.SetString(VarCurrentPicVid,1)')
 					xbmc.executebuiltin('Skin.SetString(VarCurrentPicVidPath,'+ path1 +')')
 				elif xbmc.getCondVisibility('SubString(Container.FolderPath,'+ path1 +')') and rowscountN > 1:
-					if myvideonavW: xbmc.executebuiltin('ActivateWindow(Video,'+ path2 +'/videos/,return)')
+					if HomeW: xbmc.executebuiltin('ActivateWindow(Video,'+ path2 +'/videos/,return)')
 					if mypicsW: xbmc.executebuiltin('ActivateWindow(Pictures,'+ path2 +'/pictures/,return)')
 					xbmc.executebuiltin('Skin.SetString(VarCurrentPicVid,2)')
 					xbmc.executebuiltin('Skin.SetString(VarCurrentPicVidPath,'+ path2 +')')
 				elif xbmc.getCondVisibility('SubString(Container.FolderPath,'+ path2 +')') and rowscountN > 2:
-					if myvideonavW: xbmc.executebuiltin('ActivateWindow(Video,'+ path3 +'/videos/,return)')
+					if HomeW: xbmc.executebuiltin('ActivateWindow(Video,'+ path3 +'/videos/,return)')
 					if mypicsW: xbmc.executebuiltin('ActivateWindow(Pictures,'+ path3 +'/pictures/,return)')
 					xbmc.executebuiltin('Skin.SetString(VarCurrentPicVid,3)')
 					xbmc.executebuiltin('Skin.SetString(VarCurrentPicVidPath,'+ path3 +')')
 				elif xbmc.getCondVisibility('SubString(Container.FolderPath,'+ path3 +')') and rowscountN > 3:
-					if myvideonavW: xbmc.executebuiltin('ActivateWindow(Video,'+ path4 +'/videos/,return)')
+					if HomeW: xbmc.executebuiltin('ActivateWindow(Video,'+ path4 +'/videos/,return)')
 					if mypicsW: xbmc.executebuiltin('ActivateWindow(Pictures,'+ path4 +'/pictures/,return)')
 					xbmc.executebuiltin('Skin.SetString(VarCurrentPicVid,4)')
 					xbmc.executebuiltin('Skin.SetString(VarCurrentPicVidPath,'+ path4 +')')
 					'''---------------------------'''
 				elif xbmc.getCondVisibility('SubString(Container.FolderPath,'+ path4 +')') and rowscountN > 4:
-					if myvideonavW: xbmc.executebuiltin('ActivateWindow(Video,'+ path5 +'/videos/,return)')
+					if HomeW: xbmc.executebuiltin('ActivateWindow(Video,'+ path5 +'/videos/,return)')
 					if mypicsW: xbmc.executebuiltin('ActivateWindow(Pictures,'+ path5 +'/pictures/,return)')
 					xbmc.executebuiltin('Skin.SetString(VarCurrentPicVid,5)')
 					xbmc.executebuiltin('Skin.SetString(VarCurrentPicVidPath,'+ path5 +')')
@@ -7679,39 +7738,39 @@ def externalusb(device, mode):
 					printpoint = printpoint + "A"
 					if device == "1":
 						notification('$LOCALIZE[74546]', '$LOCALIZE[74547]', '', 2000)
-						if myvideonavW: xbmc.executebuiltin('ActivateWindow(Video,'+ path1 +'/videos/,return)')
+						if HomeW: xbmc.executebuiltin('ActivateWindow(Video,'+ path1 +'/videos/,return)')
 						elif mypicsW: xbmc.executebuiltin('ActivateWindow(Pictures,'+ path1 +'/pictures/,return)')
 						'''---------------------------'''
-					elif myvideonavW: xbmc.executebuiltin('ActivateWindow(Video,'+ path0 +'/videos/,return)')
+					elif HomeW: xbmc.executebuiltin('ActivateWindow(Video,'+ path0 +'/videos/,return)')
 					elif mypicsW: xbmc.executebuiltin('ActivateWindow(Pictures,'+ path0 +'/pictures/,return)')
 				if 1 + 1 == 3:
 					if xbmc.getCondVisibility('SubString(Container.FolderPath,'+ path2 +')') and rowscountN == 2:
 						if device == "1":
-							if myvideonavW: xbmc.executebuiltin('ActivateWindow(Video,'+ path1 +'/videos/,return)')
+							if HomeW: xbmc.executebuiltin('ActivateWindow(Video,'+ path1 +'/videos/,return)')
 							elif mypicsW: xbmc.executebuiltin('ActivateWindow(Pictures,'+ path1 +'/pictures/,return)')
 							'''---------------------------'''
-						elif myvideonavW: xbmc.executebuiltin('ActivateWindow(Video,'+ path0 +'/videos/,return)')
+						elif HomeW: xbmc.executebuiltin('ActivateWindow(Video,'+ path0 +'/videos/,return)')
 						elif mypicsW: xbmc.executebuiltin('ActivateWindow(Pictures,'+ path0 +'/pictures/,return)')
 					elif xbmc.getCondVisibility('SubString(Container.FolderPath,'+ path3 +')') and rowscountN == 3:
 						if device == "1":
-							if myvideonavW: xbmc.executebuiltin('ActivateWindow(Video,'+ path1 +'/videos/,return)')
+							if HomeW: xbmc.executebuiltin('ActivateWindow(Video,'+ path1 +'/videos/,return)')
 							elif mypicsW: xbmc.executebuiltin('ActivateWindow(Pictures,'+ path1 +'/pictures/,return)')
 							'''---------------------------'''
-						elif myvideonavW: xbmc.executebuiltin('ActivateWindow(Video,'+ path0 +'/videos/,return)')
+						elif HomeW: xbmc.executebuiltin('ActivateWindow(Video,'+ path0 +'/videos/,return)')
 						elif mypicsW: xbmc.executebuiltin('ActivateWindow(Pictures,'+ path0 +'/pictures/,return)')
 					elif xbmc.getCondVisibility('SubString(Container.FolderPath,'+ path4 +')') and rowscountN == 4:
 						if device == "1":
-							if myvideonavW: xbmc.executebuiltin('ActivateWindow(Video,'+ path1 +'/videos/,return)')
+							if HomeW: xbmc.executebuiltin('ActivateWindow(Video,'+ path1 +'/videos/,return)')
 							elif mypicsW: xbmc.executebuiltin('ActivateWindow(Pictures,'+ path1 +'/pictures/,return)')
 							'''---------------------------'''
-						elif myvideonavW: xbmc.executebuiltin('ActivateWindow(Video,'+ path0 +'/videos/,return)')
+						elif HomeW: xbmc.executebuiltin('ActivateWindow(Video,'+ path0 +'/videos/,return)')
 						elif mypicsW: xbmc.executebuiltin('ActivateWindow(Pictures,'+ path0 +'/pictures/,return)')
 					elif xbmc.getCondVisibility('SubString(Container.FolderPath,'+ path5 +')') and rowscountN == 5:
 						if device == "1":
-							if myvideonavW: xbmc.executebuiltin('ActivateWindow(Video,'+ path1 +'/videos/,return)')
+							if HomeW: xbmc.executebuiltin('ActivateWindow(Video,'+ path1 +'/videos/,return)')
 							elif mypicsW: xbmc.executebuiltin('ActivateWindow(Pictures,'+ path1 +'/pictures/,return)')
 							'''---------------------------'''
-						elif myvideonavW: xbmc.executebuiltin('ActivateWindow(Video,'+ path0 +'/videos/,return)')
+						elif HomeW: xbmc.executebuiltin('ActivateWindow(Video,'+ path0 +'/videos/,return)')
 						elif mypicsW: xbmc.executebuiltin('ActivateWindow(Pictures,'+ path0 +'/pictures/,return)')
 						'''---------------------------'''
 				xbmc.sleep(20)
@@ -7729,7 +7788,7 @@ def externalusb(device, mode):
 					setSkinSetting("0",'VarCurrentPicVid', "")
 					setSkinSetting("0",'VarCurrentPicVidPath', "")
 			
-			if admin: print printfirst + name + "_LV" + printpoint + space + "mypicsW" + space2 + str(mypicsW) + space + "myvideonavW" + space2 + str(myvideonavW) + space + "containerfolderpath" + space2 + str(containerfolderpath) + space + "device" + space2 + str(device) + newline + "path1" + space2 + path1 + space + "rowscountN" + space2 + str(rowscountN) + newline + space
+			if admin: print printfirst + name + "_LV" + printpoint + space + "mypicsW" + space2 + str(mypicsW) + space + "HomeW" + space2 + str(HomeW) + space + "containerfolderpath" + space2 + str(containerfolderpath) + space + "device" + space2 + str(device) + newline + "path1" + space2 + path1 + space + "rowscountN" + space2 + str(rowscountN) + newline + space
 	setSkinSetting("1",'AutoViewoff',"false")
 	
 def HelpButton_Video_Pic(name, path2):
@@ -7846,6 +7905,7 @@ def mode512(value, admin, name, printpoint):
 	if value == '0':
 		name = localize(443)
 		if systemplatformwindows: terminal('start /max www.google.co.il','')
+		elif systemplatformandroid: terminal('adb shell am start -a android.intent.action.VIEW -d http://www.google.co.il','')
 		else:
 			returned = supportcheck(name, ["A","B"], 1, Intel=True, platform="456")
 			if returned == "ok":
@@ -12368,6 +12428,8 @@ def setAutoSettings(custom, addonid2=""):
 			addon = 'repository.unofficial.addon.pro'
 			if not xbmc.getCondVisibility('System.HasAddon('+ addon +')') and not os.path.exists(os.path.join(addons_path, addon)): installaddon(admin, addon, "", update=False)
 		
+		addon = 'script.module.unidecode'
+		if not xbmc.getCondVisibility('System.HasAddon('+ addon +')'): installaddonP(admin, addon, "", update=False)
 		
 		addon = 'service.subtitles.opensubtitles'
 		if xbmc.getCondVisibility('System.HasAddon('+ addon +')') and os.path.exists(os.path.join(addons_path, addon)):
@@ -12501,6 +12563,17 @@ def setAutoSettings(custom, addonid2=""):
 				addonsettings2(addon,'kodion.content.max_per_page',"7",'',"",'',"",'',"",'',"")
 				path = os.path.join(addondata_path, addon, 'kodion', 'cache.sqlite')
 				removefiles(path)
+				'''---------------------------'''
+		
+		addon = 'plugin.video.dailymotion_com'
+		if xbmc.getCondVisibility('System.HasAddon('+ addon +')'):
+			if addonid2 == "" or addonid2 == addon:
+				if countrystr == "Israel": pass #setsetting_custom1(addon, 'language',"0")
+				elif countrystr == "": pass
+				elif "Foreign" in countrystr: setsetting_custom1(addon, 'language',"0")
+				addonsettings2(addon,'itemsPerPage',"0",'maxVideoQuality',"2",'downloadDir',"special://userdata/library/downloads/",'forceViewModeNew',"true",'viewModeNew',"50")
+				#path = os.path.join(addondata_path, addon, 'kodion', 'cache.sqlite')
+				#removefiles(path)
 				'''---------------------------'''
 		
 		addon = 'plugin.video.sdarot.tv'

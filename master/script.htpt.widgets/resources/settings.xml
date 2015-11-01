@@ -2,6 +2,7 @@
 <settings>
     <category label="32012">
         <setting label="32013" type="bool" id="plot_enable" default="true"/>
+		<setting label="debug" type="bool" id="debug" default="false"/>
     </category>
     <category label="32001">
         <setting label="32001" type="bool" id="recommended_enable" default="true"/>

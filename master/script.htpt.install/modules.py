@@ -78,7 +78,10 @@ def setUserID(admin, addonID, User_ID, User_ID2, htpt_a1, htpt_a2):
 	User_ID_len = len(User_ID)
 	User_ID2_len = len(User_ID2)
 
-	if 'finalmakerr' in User_ID or admin3: pass
+	if User_ID == 'finalmakerr' or admin3:
+		setSkinSetting('0','User_ID','finalmakerr')
+		setsetting_custom1('service.htpt.debug','User_ID','finalmakerr')
+		
 	elif 'htpt' in User_ID and User_ID_len == 11:
 		setsetting_custom1('service.htpt.debug','User_ID',User_ID)
 		setSkinSetting('0','User_ID',User_ID)
@@ -250,14 +253,14 @@ def mode20(name, printpoint, backupname, backuppath):
 					setsetting_custom1('service.htpt.fix','Fix_101',"true")
 					#setsetting_custom1('service.htpt','Skin_Name',"skin.htpt")
 					'''---------------------------'''
-					if xbmc.getSkinDir() != 'skin.htpt':
-						xbmc.executebuiltin('ReplaceWindow(0)')
-						xbmc.sleep(1000)
-						dialogok(addonString(91), addonString(92) % (htptversion), "", "")
-						#xbmc.sleep(1000)
-						guikeeper(admin, guicheck="", guiread="") #GAL TEST THIS
-						#xbmc.sleep(1000)
-						#killall(admin, custom="1")
+					#if xbmc.getSkinDir() != 'skin.htpt':
+					xbmc.executebuiltin('ReplaceWindow(0)')
+					xbmc.sleep(1000)
+					dialogok(addonString(91), addonString(92) % (htptversion), "", "")
+					#xbmc.sleep(1000)
+					guikeeper(admin, guicheck="", guiread="") #GAL TEST THIS
+					#xbmc.sleep(1000)
+					#killall(admin, custom="1")
 					#os.system('sh /storage/.kodi/addons/service.htpt/specials/scripts/copyskin.sh')
 					'''---------------------------'''
 					#xbmc.sleep(1000)
