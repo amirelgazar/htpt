@@ -477,28 +477,56 @@ def setAddon_UpdateLog(admin, Addon_Version, Addon_UpdateDate, Addon_ShowLog, Ad
 	"Addon_UpdateLog" + space2 + Addon_UpdateLog + space + "Addon_ShowLog" + space2 + str(Addon_ShowLog) + space + "Addon_ShowLog2" + space2 + str(Addon_ShowLog2) + extra
 	'''---------------------------'''
 
+
 def terminal(command,desc):
 	import subprocess
 	customhomecustomizerW = xbmc.getCondVisibility('Window.IsVisible(CustomHomeCustomizer.xml)')
-	admin = xbmc.getInfoLabel('Skin.HasSetting(Admin)') ; admin2 = xbmc.getInfoLabel('Skin.HasSetting(Admin2)') ; admin3 = xbmc.getInfoLabel('Skin.HasSetting(Admin3)') ; TypeError = "" ; extra = "" ; output = ""
-	
+	admin = xbmc.getInfoLabel('Skin.HasSetting(Admin)') ; admin2 = xbmc.getInfoLabel('Skin.HasSetting(Admin2)') ; admin3 = xbmc.getInfoLabel('Skin.HasSetting(Admin3)') ; printpoint = "" ; TypeError = "" ; extra = "" ; output = ""
+	#print command
 	try:
-		#process = subprocess.Popen(command.split(), stdout=subprocess.PIPE)
-		process = subprocess.Popen(command,stdout=subprocess.PIPE,shell=True)
-		output = process.communicate()[0]
-		'''---------------------------'''
+		if systemplatformandroid:
+			#process = subprocess.Popen(x, stdout=subprocess.PIPE)
+			#process = subprocess.Popen(x, stderr=subprocess.STDOUT)
+			
+			process = subprocess.Popen(command,stdout=subprocess.PIPE,shell=False)
+			#process = subprocess.Popen(command,stderr=subprocess.STDOUT,shell=False)
+			output = process.communicate()[0]
+			'''---------------------------'''
+		else:
+			process = subprocess.Popen(command,stdout=subprocess.PIPE,shell=True)
+			output = process.communicate()[0]
+			'''---------------------------'''
 	except Exception, TypeError: extra = extra + newline + "TypeError" + space2 + str(TypeError)
 	
-	#try: output = output.encode('utf-8')
-	#except: output = "?"
+	if 'Permission denied' in TypeError:
+		printpoint = printpoint + '9'
+		if scripthtptsmartbuttons_General_Terminal == 'true':
+			setsetting_custom1('script.htpt.smartbuttons','General_Terminal',"false")
+			if xbmc.getSkinDir() == 'skin.htpt':
+				xbmc.executebuiltin('RunScript(script.htpt.smartbuttons,,?mode=60&value=2)')
+				'''---------------------------'''
+				if systemplatformandroid:
+					write_to_file(guikeepertxt_file, 'adb kill-server', append=False, silent=True , utf8=False) ; xbmc.sleep(10) ; os.system('sh '+guikeepersh_file+'')
+					write_to_file(guikeepertxt_file, 'adb start-server', append=False, silent=True , utf8=False) ; xbmc.sleep(10) ; os.system('sh '+guikeepersh_file+'')
+					write_to_file(guikeepertxt_file, 'adb devices', append=False, silent=True , utf8=False) ; xbmc.sleep(10) ; os.system('sh '+guikeepersh_file+'')
+					write_to_file(guikeepertxt_file, "", append=False, silent=True , utf8=False)
+					'''---------------------------'''
+			
+	if output == "":
+		printpoint = printpoint + '5'
+		if systemplatformandroid:
+			write_to_file(guikeepertxt_file, command, append=False, silent=True , utf8=False) ; xbmc.sleep(10) ; os.system('sh '+guikeepersh_file+'')
+			write_to_file(guikeepertxt_file, "", append=False, silent=True , utf8=False)
+			'''---------------------------'''
+			
 	'''------------------------------
 	---PRINT-END---------------------
 	------------------------------'''
-	if (admin and admin2 and admin3 or extra != "") and not customhomecustomizerW:
-		try: print printfirst + "terminal" + space + desc + space2 + str(output) + extra
+	if ((admin and admin2 and admin3 or extra != "") or TypeError != "") and not customhomecustomizerW and scripthtptsmartbuttons_General_Terminal == 'true' or 'killall' in command or 'TASKKILL' in command:
+		try: print printfirst + "terminal_LV" + printpoint + space + desc + space2 + str(output) + extra
 		except Exception, TypeError:
 			extra = extra + newline + "TypeError" + space2 + str(TypeError)
-			print printfirst + "terminal" + space + "desc" + space2 + str(desc) + extra
+			print printfirst + "terminal_LV" + printpoint + space + "desc" + space2 + str(desc) + extra
 		'''---------------------------'''
 	return output
 
@@ -647,26 +675,56 @@ def calculate(addon, set1, custom, opt):
 	else: return set1v
 	'''---------------------------'''
 
-def bash_count(path):
-	admin = xbmc.getInfoLabel('Skin.HasSetting(Admin)') ; folders_count = 0 ; folders_count2 = 0 ; files_count = 0
-	if systemplatformlinux or systemplatformlinuxraspberrypi:
-		folders_count = terminal('find '+ path +' -type d | wc -l', "folders_count")
-		folders_count2 = terminal('find '+ path +' -type d -prune | wc -l', "folders_count")
-		files_count = terminal('find '+ path +' -type f | wc -l', "files_count")
+def bash_count(path_, level=0):
+	admin = xbmc.getInfoLabel('Skin.HasSetting(Admin)') ; folders_count = 0 ; subdir_count = 0 ; files_count = 0 ; list_count = [[],'']
+	printpoint = ""
+	if systemplatformandroid:
+		import os
+		if '*' in path_:
+			printpoint = printpoint + '0'
+			path_ = path_.replace('*',"")
+				
+		for dirname, subdirs, files in os.walk(path_):
+			subdir = dirname.replace(path_, "")
+			
+			if systemplatformwindows:
+				try: subdir2 = find_string(subdir, subdir[:1], "\\") ; subdir2 = subdir2.replace("\\","")
+				except: subdir2 = "?"
+				subdir_level = subdir.count("\\")
+				'''---------------------------'''
+			else:
+				try: subdir2 = find_string(subdir, subdir[:1], "/") ; subdir2 = subdir2.replace("/","")
+				except: subdir2 = "?"
+				subdir_level = subdir.count("/")
+				'''---------------------------'''
+				
+			if subdir_level <= level:
+				if not dirname in list_count: list_count.append(dirname) ; folders_count += 1
+				if not subdir in list_count: list_count.append(subdir) ; subdir_count += 1
+				if not files in list_count: list_count.append(files) ; files_count += 1
+				
+		
+		#folders_count = terminal('find '+ path_ +' -type d | wc -l', "folders_count")
+		#subdir_count = terminal('find '+ path_ +' -type d -prune | wc -l', "folders_count")
+		#files_count = terminal('find '+ path_ +' -type f | wc -l', "files_count")
+	elif systemplatformlinux or systemplatformlinuxraspberrypi:
+		folders_count = terminal('find '+ path_ +' -type d | wc -l', "folders_count")
+		subdir_count = terminal('find '+ path_ +' -type d -prune | wc -l', "folders_count")
+		files_count = terminal('find '+ path_ +' -type f | wc -l', "files_count")
 		'''---------------------------'''
 	elif systemplatformwindows:
-		#folders_count = terminal('dir /AD /B '+ path +' | find /C /V "<DIR>"', "folders_count") #GAL CHECK THIS!
-		folders_count2 = terminal('dir /AD /B "'+ path +'" | find /C /V "<DIR>"', "folders_count") 
-		files_count = terminal('dir /A-D /B /S "'+ path +'" | find /C /V "File(s)"', "folders_count")
+		#folders_count = terminal('dir /AD /B '+ path_ +' | find /C /V "<DIR>"', "folders_count") #GAL CHECK THIS!
+		subdir_count = terminal('dir /AD /B "'+ path_ +'" | find /C /V "<DIR>"', "folders_count") 
+		files_count = terminal('dir /A-D /B /S "'+ path_ +'" | find /C /V "File(s)"', "folders_count")
 		#files_count = int(files_count)
 		#if files_count > 0: files_count = int(files_count) - 1
 		'''---------------------------'''
 		
-	#print "path" + space2 + path + newline + "folders_count" + space2 + str(folders_count)
+	#print "path_" + space2 + path_ + newline + "folders_count" + space2 + str(folders_count)
 	try: folders_count = int(folders_count) ; folders_count = str(folders_count)
 	except: folders_count = "0"
-	try: folders_count2 = int(folders_count2) ; folders_count2 = str(folders_count2)
-	except: folders_count2 = "0"
+	try: subdir_count = int(subdir_count) ; subdir_count = str(subdir_count)
+	except: subdir_count = "0"
 	try: files_count = int(files_count) ; files_count = str(files_count)
 	except: files_count = "0"
 	
@@ -677,11 +735,14 @@ def bash_count(path):
 	'''------------------------------
 	---PRINT-END---------------------
 	------------------------------'''	
-	if admin and not admin2 and admin3: print printfirst + "bash_count" + space + "path" + space2 + path + space + "folders_count" + space2 + folders_count + space + "folders_count2" + space2 + folders_count2 + space + "files_count" + space2 + files_count
-	'''---------------------------'''
+	if admin and not admin2 and admin3 or (folders_count == "0" and subdir_count == "0" and files_count == "0"):
+		print printfirst + "bash_count_LV" + printpoint + space + "path_" + space2 + path_ + newline + \
+		"folders_count" + space2 + folders_count + space + "subdir_count" + space2 + subdir_count + space + "files_count" + space2 + files_count + newline + \
+		'list_count' + space2 + str(list_count)
+		'''---------------------------'''
 	
 	'''---------------------------'''
-	return folders_count, folders_count2, files_count
+	return folders_count, subdir_count, files_count
 	
 def Clean_Library(type):
 	'''---------------------------'''
@@ -705,12 +766,12 @@ def Clean_Library(type):
 	
 	if foldername == "": path = ""
 	elif type == "9": path = library_path #"/" + foldername + "/"
-	elif type == "3" and (systemplatformlinux or systemplatformlinuxraspberrypi): path = os.path.join(foldername, '')
+	elif type == "3" and (systemplatformlinux or systemplatformlinuxraspberrypi) and not systemplatformandroid: path = os.path.join(foldername, '')
 	elif type != "3": path = os.path.join(library_path, foldername, '')
 	else: printpoint = printpoint + "9"
 	'''---------------------------'''
 	
-	if path != "" and not systemplatformandroid:
+	if path != "":
 		printpoint = printpoint + "1"
 		if not os.path.exists(path):
 			printpoint = printpoint + "3"
@@ -1525,6 +1586,7 @@ def installaddonP(admin, addon, update=True):
 		if not xbmc.getCondVisibility('System.HasAddon('+ addon +')') or not os.path.exists(addons_path + addon) and not "9" in printpoint:
 			fileID = getfileID(addon+".zip")
 			DownloadFile("https://github.com/marcelveldt/script.skin.helper.service/archive/master.zip", addon + "-master.zip", packages_path, addons_path, silent=True)
+			movefiles(os.path.join(addons_path, 'script.skin.helper.service-master'), os.path.join(addons_path, addon))
 			if os.path.exists(addons_path + addon + "-master") or os.path.exists(addons_path + addon): printpoint = printpoint + "5"
 			else: printpoint = printpoint + "9"
 		elif "9" in printpoint: pass
@@ -1534,11 +1596,40 @@ def installaddonP(admin, addon, update=True):
 		if not xbmc.getCondVisibility('System.HasAddon('+ addon +')') or not os.path.exists(addons_path + addon) and not "9" in printpoint:
 			fileID = getfileID(addon+".zip")
 			DownloadFile("https://github.com/BigNoid/script.skinshortcuts/archive/master.zip", addon + "-master.zip", packages_path, addons_path, silent=True)
+			movefiles(os.path.join(addons_path, 'script.skinshortcuts-master'), os.path.join(addons_path, addon))
 			if os.path.exists(addons_path + addon + "-master") or os.path.exists(addons_path + addon): printpoint = printpoint + "5"
 			else: printpoint = printpoint + "9"
 		elif "9" in printpoint: pass
 		else: printpoint = printpoint + "7"
-		
+	
+	elif addon == 'script.module.unidecode':
+		if not xbmc.getCondVisibility('System.HasAddon('+ addon +')') or not os.path.exists(addons_path + addon) and not "9" in printpoint:
+			fileID = getfileID(addon+".zip")
+			DownloadFile("https://www.dropbox.com/s/"+fileID+"/"+addon+".zip?dl=1", addon + ".zip", packages_path, addons_path, silent=True)
+			if os.path.exists(addons_path + addon): printpoint = printpoint + "5"
+			else: printpoint = printpoint + "9"
+		elif "9" in printpoint: pass
+		else: printpoint = printpoint + "7"
+	
+	elif addon == 'plugin.video.dailymotion_com':
+		if not xbmc.getCondVisibility('System.HasAddon('+ addon +')') or not os.path.exists(addons_path + addon) and not "9" in printpoint:
+			fileID = getfileID(addon+".zip")
+			DownloadFile("https://www.dropbox.com/s/"+fileID+"/"+addon+".zip?dl=1", addon + ".zip", packages_path, addons_path, silent=True)
+			if os.path.exists(addons_path + addon): printpoint = printpoint + "5"
+			else: printpoint = printpoint + "9"
+		elif "9" in printpoint: pass
+		else: printpoint = printpoint + "7"
+	
+	elif addon == 'script.module.requests': #FIXED PATH
+		if not xbmc.getCondVisibility('System.HasAddon('+ addon +')') or not os.path.exists(addons_path + addon) and not "9" in printpoint or 1 + 1 == 2:
+			DownloadFile("https://github.com/beenje/script.module.requests/archive/gotham.zip", addon + ".zip", packages_path, addons_path, silent=True)
+			#os.rename(os.path.join(addons_path, 'script.module.requests-gotham'), 'script.module.requests')
+			movefiles(os.path.join(addons_path, 'script.module.requests-gotham'), os.path.join(addons_path, addon))
+			if os.path.exists(addons_path + addon): printpoint = printpoint + "5"
+			else: printpoint = printpoint + "9"
+		elif "9" in printpoint: pass
+		else: printpoint = printpoint + "7"
+	
 	if "5" in printpoint:
 		if update == True:
 			xbmc.executebuiltin("UpdateLocalAddons")
@@ -1574,8 +1665,8 @@ def installaddon2(admin, addon, version="0.0.0", update=True, silent=True):
 	
 	elif addon == 'metadata.common.imdb.com': version = "2.7.6"
 	elif addon == 'repository.xbmcadult': version = "1.0.6"
-	elif addon == 'repository.xbmc-israel': version = "1.0.4" #https://github.com/cubicle-vdo/xbmc-israel/raw/master/repo/repository.xbmc-israel/repository.xbmc-israel-1.0.4.zip
-	
+	elif addon == 'repository.xbmc-israel': version = "1.0.4"
+	elif addon == 'program.plexus': version = "0.1.4"
 	'''---------------------------'''
 	
 	'''---------------------------'''
@@ -1584,6 +1675,7 @@ def installaddon2(admin, addon, version="0.0.0", update=True, silent=True):
 		if os.path.exists(addons_path + addon): removeaddons(addon, "123")
 		if addon == 'repository.xbmcadult': url, printpoint2 = findVersion(gh1+gh3+addon+'/'+addon+'-', Ver=version)
 		elif addon == 'repository.xbmc-israel': url, printpoint2 = findVersion(gh1+gh4+addon+'/'+addon+'-', Ver=version)
+		elif addon == 'program.plexus': url, printpoint2 = findVersion(gh10+gh11+addon+'/'+addon+'-', Ver=version)
 		else: url, printpoint2 = findVersion(gh1+gh2+addon+'/'+addon+'-', Ver=version)
 		'''---------------------------'''
 		if url != "" and "7" in printpoint2:
@@ -1801,114 +1893,164 @@ def notification(heading, message, icon, time):
 		'''---------------------------'''
 		
 def removeaddons(addons, custom):
-	
-	forceL = ['plugin.video.p2p-streams', 'script.htpt.smartbuttons', 'script.htpt.emu', 'skin.htpt']
+	Afolders_count = 0 ; Afiles_count = 0 ; Bfolders_count = 0 ; Bfiles_count = 0 ; Cfolders_count = 0 ; Cfiles_count = 0 ; printpoint = ""
+	forceL = ['plugin.video.p2p-streams', 'program.plexus', 'script.htpt.smartbuttons', 'script.htpt.emu', 'skin.htpt']
 	output = ""
 	output2 = ""
 	i = 0
 	returned = get_types(addons)
-	if not "list" in returned: addons = [addons] #addons.append(addons)
-	for addon in addons:
-		i += 1
-			
-		path = ""
-		path2 = ""
-		path3 = ""
-		if "1" in custom: path = os.path.join(addons_path, addon, '')
-		if "2" in custom: path2 = os.path.join(addondata_path, addon, '')
-		if "3" in custom: path3 = os.path.join(packages_path, addon + '*.zip')
-		'''---------------------------'''
-		
-		if path != "": Afolders_count, Afolders_count2, Afiles_count = bash_count(path+'*')
-		else:
-			Afolders_count = 0
-			Afiles_count = 0
-			'''---------------------------'''
-		if path2 != "": Bfolders_count, Bfolders_count2, Bfiles_count = bash_count(path2+'*')
-		else:
-			Bfolders_count = 0
-			Bfiles_count = 0
-			'''---------------------------'''
-		if path3 != "": Cfolders_count, Cfolders_count2, Cfiles_count = bash_count(path3)
-		else:
-			Cfolders_count = 0
-			Cfiles_count = 0
-			'''---------------------------'''
-		
-		try:
-			if os.listdir(path) == []: path_emptyfolder = "true"
-			else: path_emptyfolder = "false"
-			path_exist = "true"
-			'''---------------------------'''
-		except: path_exist = "false"
-		try:
-			if os.listdir(path2) == []: path2_emptyfolder = "true"
-			else: path2_emptyfolder = "false"
-			path2_exist = "true"
-			'''---------------------------'''
-		except: path2_exist = "false"
-		
-		if path != addons_path and path != addondata_path and path2 != addons_path and path2 != addondata_path and path3 != addons_path and path3 != addondata_path and (int(Afiles_count) < 1000 and int(Bfiles_count) < 1000 and int(Cfiles_count) < 100 or addon in forceL):
-			if int(Afiles_count) > 0 or path_exist == "true":
-				output = output + newline + str(i) + space2 + Afiles_count + space + "DELETED FROM" + space + path
-				removefiles(path)
-				'''---------------------------'''
-			if int(Bfiles_count) > 0 or path2_exist == "true":
-				output = output + newline + str(i) + space2 + Bfiles_count + space + "DELETED FROM" + space + path2
-				removefiles(path2)
-				'''---------------------------'''
-			if int(Cfiles_count) > 0:
-				output = output + newline + str(i) + space2 + Cfiles_count + space + "DELETED FROM" + space + path3
-				removefiles(path3)
-				'''---------------------------'''
-		else:
-			output2 = output2 + newline + str(i) + space2 + "addon" + space2 + addon + space + "IGNORE"
 	
-	xbmc.sleep(500)
-	xbmc.executebuiltin("UpdateLocalAddons")
-	xbmc.sleep(500)
+	if custom == "": printpoint = printpoint + '9'
+	else:
+		if not "list" in returned: addons = [addons] #addons.append(addons)
+		
+		for addon in addons:
+			i += 1
+			path = "" ; path2 = "" ; path3 = ""
+			if "1" in custom:
+				for file in os.listdir(addons_path):
+					if addon in file:
+						path = os.path.join(addons_path, file)
+						Afiles_count += 1
+						break
+						'''---------------------------'''
+						
+			if "2" in custom:
+				for file in os.listdir(addondata_path):
+					if addon in file:
+						path2 = os.path.join(addondata_path, file)
+						Bfiles_count += 1
+						break
+						'''---------------------------'''
+						
+			if "3" in custom:					
+				for file in os.listdir(packages_path):
+					if addon in file and file.endswith(".zip"):
+						path3 = os.path.join(packages_path, file)
+						Cfiles_count += 1
+						break
+						'''---------------------------'''
+			
+			if path != addons_path and path != addondata_path and path2 != addons_path and path2 != addondata_path and path3 != addons_path and path3 != addondata_path and (int(Afiles_count) < 1000 and int(Bfiles_count) < 1000 and int(Cfiles_count) < 100 or addon in forceL):
+				if int(Afiles_count) > 0:
+					output = output + newline + str(i) + space2 + str(Afiles_count) + space + "DELETED FROM" + space + path
+					removefiles(path)
+					'''---------------------------'''
+				if int(Bfiles_count) > 0:
+					output = output + newline + str(i) + space2 + str(Bfiles_count) + space + "DELETED FROM" + space + path2
+					removefiles(path2)
+					'''---------------------------'''
+				if int(Cfiles_count) > 0:
+					output = output + newline + str(i) + space2 + str(Cfiles_count) + space + "DELETED FROM" + space + path3
+					removefiles(path3)
+					'''---------------------------'''
+			else:
+				output2 = output2 + newline + str(i) + space2 + "addon" + space2 + addon + space + "IGNORE"
+		
+		xbmc.sleep(500)
+		xbmc.executebuiltin("UpdateLocalAddons")
+		xbmc.sleep(500)
 	'''---------------------------'''
 	print printfirst + "removeaddons" + space + "addons" + space2 + str(addons) + space + "custom" + space2 + custom + space + "output" + space2 + output + newline + output2
 	'''---------------------------'''
 
 def removefiles(path):
 	name = 'removefiles' ; printpoint = "" ; path1 = path[-1:]
-	if not os.path.exists(path) and not systemplatformwindows and "*" in path: path = path.replace("*","")
-	if os.path.exists(path):
-		printpoint = printpoint + "0"
-		if (systemplatformlinux or systemplatformlinuxraspberrypi): terminal('rm -rf '+path+'',name + space2 + path) ; printpoint = printpoint + "1"
-		elif systemplatformwindows and (not admin3 or scripthtptdebug_Info_SystemName != 'GAL-PC' or path == guisettings_file or "settings.xml" in path):
+	if 1 + 1 == 2:
+		if "*" in path: path = path.replace("*","")
+		if os.path.exists(path):
+			import shutil
 			if os.path.isdir(path) == True or "\*" in path:
-				if "*" in path and path1 == "*": path = path[:-1] ; printpoint = printpoint + "3"
-				terminal('RD "'+path+'" /S /Q',name + space2 + path) ; printpoint = printpoint + "4"
-			else: terminal('DEL "'+path+'" /Q /F',name + space2 + path) ; printpoint = printpoint + "5"
-		else: pass ; printpoint = printpoint + "9"
-	
-	else: printpoint = printpoint + "8"
+				shutil.rmtree(path)
+				printpoint = printpoint + "7"
+			else:
+				os.remove(path)
+				printpoint = printpoint + "7"
+		else: printpoint = printpoint + "8"
+	else:
+		if not os.path.exists(path) and not systemplatformwindows and "*" in path: path = path.replace("*","")
+		if os.path.exists(path):
+			printpoint = printpoint + "0"
+			if systemplatformandroid:
+				import shutil
+				if os.path.isdir(path) == True or "\*" in path:
+					shutil.rmtree(path)
+				else:
+					os.remove(path)
+			elif (systemplatformlinux or systemplatformlinuxraspberrypi): terminal('rm -rf '+path+'',name + space2 + path) ; printpoint = printpoint + "1"
+			elif systemplatformwindows and (not admin3 or scripthtptdebug_Info_SystemName != 'GAL-PC' or path == guisettings_file or "settings.xml" in path):
+				if os.path.isdir(path) == True or "\*" in path:
+					if "*" in path and path1 == "*": path = path[:-1] ; printpoint = printpoint + "3"
+					terminal('RD "'+path+'" /S /Q',name + space2 + path) ; printpoint = printpoint + "4"
+				else: terminal('DEL "'+path+'" /Q /F',name + space2 + path) ; printpoint = printpoint + "5"
+			else: pass ; printpoint = printpoint + "9"
+		
+		else: printpoint = printpoint + "8"
 	
 	if "0" in printpoint or admin3: print printfirst + name + "_LV" + printpoint + space + "path" + space2 + str(path)
 
-	
+		
+def copytree(source, target, symlinks=False, ignore=None):
+	import shutil
+	for item in os.listdir(source):
+		s = os.path.join(source, item)
+		t = os.path.join(target, item)
+		
+		if os.path.isdir(s):
+			if os.path.exists(t):
+				copytree(s, t, symlinks, ignore)
+			else: shutil.copytree(s,t, symlinks, ignore)
+		else:
+			shutil.copy(s,t)
+		
+		#print "item" + space2 + str(item)
+
+def movefiles(source, target):
+	import shutil
+	if os.path.exists(target):
+		copyfiles(source, target, chmod="", mount=False)
+		removefiles(source)
+	else:
+		shutil.move(source, target)
 def copyfiles(source, target, chmod="", mount=False):
-	name = 'copyfiles' ; printpoint = "" ; source1 = source[-1:]
-	if (systemplatformlinux or systemplatformlinuxraspberrypi) and mount == True: #GAL TEST THIS!
+	name = 'copyfiles' ; printpoint = "" ; source1 = source[-1:] ; TypeError = "" ; extra = ""
+	
+	if systemplatformandroid: pass
+	elif (systemplatformlinux or systemplatformlinuxraspberrypi) and mount == True: #GAL TEST THIS!
 		printpoint = printpoint + "1"
 		if target[:1] == '/':
 			printpoint = printpoint + "2"
 			target2 = target[:-1]
 			terminal('mount -o remount,rw '+target2+'','mount' + space2 + target2)
 	
-	if (systemplatformlinux or systemplatformlinuxraspberrypi): terminal('cp -rf '+source+' '+target+'',name + space2 + source + space5 + target) ; printpoint = printpoint + "3"
+	if systemplatformandroid:
+		import shutil
+		try:
+			if '*' in source: source = source.replace('*',"") ; printpoint = printpoint + "0"
+			if os.path.isdir(source) == True:
+				printpoint = printpoint + "1"
+				copytree(source, target, symlinks=False, ignore=None)
+			elif os.path.isfile(source) == True:
+				printpoint = printpoint + "2"
+				shutil.copy(source, target)
+				#shutil.copyfile(source, target)
+			else:
+				printpoint = printpoint + "3"
+				shutil.copy(source, target)
+				#terminal('cp -rf '+source+' '+target+'',name + space2 + source + space5 + target) ; printpoint = printpoint + "3"
+				
+		except Exception, TypeError: extra = extra + newline + "TypeError" + space2 + str(TypeError)
+		
+	elif (systemplatformlinux or systemplatformlinuxraspberrypi):
+		terminal('cp -rf '+source+' '+target+'',name + space2 + source + space5 + target) ; printpoint = printpoint + "3"
 	elif systemplatformwindows and 1 + 1 == 2:
 		if os.path.isdir(source) == True or "\*" in source:
 			#if not "\\*" in source and source1 == "\\": source = source + '*' ; printpoint = printpoint + "4"
 			if not admin3: terminal('xcopy "'+source+'" "'+target+'" /s /i /y >NUL',name + space2 + source + space5 + target) ; printpoint = printpoint + "5"
 		else: terminal('copy "'+source+'" "'+target+'" /V /Y >NUL',name + space2 + source + space5 + target) ; printpoint = printpoint + "6"
-	elif systemplatformandroid:
-		terminal('cp -rf '+source+' '+target+'',name + space2 + source + space5 + target) ; printpoint = printpoint + "3"
 	else:
 		import shutil
-		shutil.copyfile(source, target)
+		shutil.copy(source, target)
 	
 	if not systemplatformwindows and chmod != "": terminal('chmod '+chmod+' '+target+'','chmod' + space2 + target) ; printpoint = printpoint + "C" #GAL TEST THIS! 
 	
@@ -1925,8 +2067,8 @@ def copyfiles(source, target, chmod="", mount=False):
 		else:
 			returned = "skip"
 	
-	if admin and not admin2 and admin3:
-		print printfirst + name + "_LV" + printpoint + space + "source" + space2 + str(source) + space + "target" + space2 + str(target) + space + "source1" + space2 + str(source1)
+	if admin and not admin2 and admin3 or TypeError != "":
+		print printfirst + name + "_LV" + printpoint + space + "source" + space2 + str(source) + space + "target" + space2 + str(target) + space + "source1" + space2 + str(source1) + extra
 	
 	return returned
 	
@@ -2009,26 +2151,39 @@ def write_to_file(path, content, append=False, silent=True , utf8=False): #UNUSE
 			print("Could not write to " + path)
 		return False
 
-def read_from_file(infile, silent=True, lines=False):
+def read_from_file(infile, silent=True, lines=False, retry=True, printpoint="", addlines=""):
 	name = 'read_from_file' ; printpoint = "" ; returned = "" ; TypeError = "" ; extra = "" ; l = []
 	try:
-		infile_ = open(infile, 'rb')
-		if lines == True:
-			for line in infile_.readlines():
-				l.append(line)
-			returned = l
-		else:
-			r = infile_.read()
-			returned = str(r)
-		infile_.close()
+		if os.path.exists(infile):
+			printpoint = printpoint + "1"
+			infile_ = open(infile, 'rb')
+			if lines == True:
+				printpoint = printpoint + "2"
+				for line in infile_.readlines():
+					if addlines != "":
+						line = CleanString(line, filter=[])
+						l.append(str(addlines) + line)
+					else: l.append(line)
+				returned = l
+			else:
+				printpoint = printpoint + "3"
+				r = infile_.read()
+				returned = str(r)
+			infile_.close()
 		
-	except Exception, TypeError: extra = extra + newline + "TypeError" + space2 + str(TypeError)
+		if (returned == "" or returned == None) and retry == True:
+			printpoint = printpoint + "6"
+			xbmc.sleep(2000)
+			read_from_file(infile, silent=silent, lines=lines, retry=False, printpoint=printpoint)
+			
+	except Exception, TypeError: extra = extra + newline + "TypeError" + space2 + str(TypeError) ; printpoint = printpoint + "9"
 	
-	if admin and admin2 and admin3 and 1 + 1 == 3:
-		print printfirst + name + "_LV" + printpoint + space + "infile" + space2 + str(infile) + space + "lines" + space2 + str(lines) + newline + \
-		"returned" + space2 + str(returned) + extra
-	
-	return returned
+	if returned != "" or (returned == None or returned == "") and retry == False:
+		if admin and admin2 and admin3 or retry == False:
+			print printfirst + name + "_LV" + printpoint + space + "infile" + space2 + str(infile) + space + "lines" + space2 + str(lines) + newline + \
+			"returned[:10]" + space2 + str(returned[:10]) + extra
+		
+		return str(returned)
 		
 def regex_from_to(text, from_string, to_string, excluding=True):
     import re
@@ -2070,12 +2225,13 @@ def regex_get_all(text, start_with, end_with): #UNUSED
 def replace_word(infile,old_word,new_word, infile_="", LineR=False , LineClean=False):
 	printpoint = "" ; extra = "" ; TypeError = "" ; value = ""
 
-	if not os.path.isfile(infile): printpoint = printpoint + "8" #(infile_ == "" or LineR == True) and
+	if not os.path.isfile(infile): printpoint = printpoint + "9a" #(infile_ == "" or LineR == True) and
+	elif old_word == None or new_word == None: printpoint = printpoint + "9b"
 	else:
 		if LineR == False:
 			'''replace all'''
 			printpoint = printpoint + "2"
-			if infile_ == "": infile_ = read_from_file(infile, lines=False)
+			if infile_ == "" or infile_ == None: infile_ = read_from_file(infile, lines=False)
 			value=infile_.replace(old_word,new_word)
 			'''---------------------------'''
 		else:
@@ -2111,7 +2267,7 @@ def replace_word(infile,old_word,new_word, infile_="", LineR=False , LineClean=F
 		infile__.close()
 		'''---------------------------'''
 		
-	if admin and admin2 and admin3:
+	if admin and admin2 and admin3 or '9' in printpoint:
 		print printfirst + "replace_word_LV" + printpoint + space + "infile" + space2 + str(infile) + space + newline + \
 		"old_word" + space2 + str(old_word) + newline + \
 		"new_word" + space2 + str(new_word) + newline + \
@@ -2473,6 +2629,8 @@ def getfileID(file):
 	elif file == "script.openelec.rpi.config.zip": fileID = "r98gcue3e3p3pr4" #htpthtpt
 	elif file == "plugin.program.advanced.launcher.zip": fileID = "hnclp7yn4ea5433" #htpthtpt
 	elif file == "repository.lambda.zip": fileID = "bnn0fua0tganq6a" #htpthtpt
+	elif file == "script.module.unidecode.zip": fileID = "fojosavj4hvwgxe" #htpthtpt
+	elif file == "plugin.video.dailymotion_com.zip": fileID = "fffcc2barlwyeuo" #htpthtpt
 	
 	elif file == "AceEngine.zip": fileID = "drh8nac0awpmxc4" #htpthtpt
 	elif file == "emu_htpt.zip": fileID = "x1802zw4fhgcp44" #htpthtpt
@@ -2699,15 +2857,31 @@ def ViewSetFocus(admin):
 	
 	if admin: print printfirst + "ViewSetFocus" + space + "containerviewmode" + space2 + containerviewmode + space + "viewmode" + space2 + str(viewmode)
 
+
+def printlog(title="", printpoint="", text="", level=0, option=""):
+	exe = ""
+	admin = xbmc.getInfoLabel('Skin.HasSetting(Admin)')
+	admin2 = xbmc.getInfoLabel('Skin.HasSetting(Admin2)')
+	admin3 = xbmc.getInfoLabel('Skin.HasSetting(Admin3)')
+	if level == 0:
+		if admin and not admin2 and admin3: exe = 0
+	elif level == 1:
+		if admin and admin2 and admin3: exe = 1
+	elif level == 2:
+		if admin and not admin2: exe = 2
+	elif level == 3:
+		if admin: exe = 3
+	
+	if exe != "":
+		print printfirst + title + '_LV' + printpoint + space + str(text)
+
 def killall(admin, custom=""):
+	customgui = xbmc.getInfoLabel('Skin.HasSetting(CustomGUI)')
 	CloseSession()
 	'''custom: ""=Just kill | "1"=Reload | "2"=Restore from gui1 | "3"=Restore from gui2'''
-	name = 'killall' ; extra = ""
+	name = 'killall' ; extra = "" ; TypeError = ""
 	target = guisettings_file
-	if custom == "": source = ""
-	elif "2" in custom: source = guisettings2_file
-	elif "3" in custom: source = guisettings3_file
-	else:
+	if "1" in custom and not customgui:
 		import shutil
 		from shared_modules4 import *
 		x = os.path.join(addondata_path,'skin.htpt', '')
@@ -2717,37 +2891,75 @@ def killall(admin, custom=""):
 		shutil.copyfile(guisettings_file, source)
 		guiset(admin, guiread="")
 		'''---------------------------'''
+	elif "2" in custom: source = guisettings2_file
+	elif "3" in custom: source = guisettings3_file
+	else:
+		source = ""
+		
 	
-	if systemplatformlinux or systemplatformlinuxraspberrypi:
+	if systemplatformandroid:
 		try:
-			if "s" in custom: extra = '&& sleep 1 && poweroff'
-			elif "r" in custom: extra = '&& sleep 1 && reboot'
+			if "1" in custom or "2" in custom or "3" in custom: extra = ''+extra+' & cp -rf '+source+' '+target+'' ; notification('1','2','',3000)
 			'''---------------------------'''
-			if custom == "": terminal('killall -9 kodi.bin && sleep 1',name + space3 + custom)	
-			elif "1" in custom or "2" in custom or "3" in custom: terminal('killall -9 kodi.bin && cp -rf '+source+' '+target+' '+extra+'',name + space3 + custom)		
-			else: terminal('killall -9 kodi.bin && cp -rf '+source+' '+target+' '+extra+'',name + space3 + custom)
-		except: pass
-		#terminal('pgrep kodi.bin | xargs kill -SIGSTOP && killall -9 kodi.bin && sleep 1 && pgrep kodi.bin | xargs kill -SIGCONT',"SOFT-RESTART")
+			if "f" in custom:
+				xbmcexe_path = 'adb shell am start -a org.xbmc.kodi'
+				extra = ''+extra+' & sleep 1 & '+xbmcexe_path+''
+			elif "r" in custom: extra = ''+extra+' & sleep1 & reboot' #am broadcast android.intent.action.ACTION_SHUTDOWN 
+			elif "s" in custom: extra = ''+extra+' & sleep1 & reboot -p'
+			'''---------------------------'''
+			#killc = "adb shell ps | grep org.xbmc | awk '{print $2}' | xargs adb shell kill"
+			killc = "adb shell ps | grep org.xbmc | awk '{print $2}' | xargs adb shell killall -9"
+			#terminal(''+killc+' '+extra+'',name + space3 + custom) #adb shell am force-stop org.xbmc.kodi
+			terminal('killall -9 org.xbmc.kodi '+extra+'',name + space3 + custom) #adb shell am force-stop org.xbmc.kodi
+			
+		except Exception, TypeError: print printfirst + 'killall' + space + "TypeError" + space2 + str(TypeError)
+		if 1 + 1 == 3:
+			
+			#os.chdir('/storage/emulated/0/Android/data/org.xbmc.kodi/')
+			#os.system('adb shell am force-stop org.xbmc.kodi')
+			#try: os.system('adb shell am force-stop org.xbmc.kodi')
+			#except: pass
+			try: os.system('killall Kodi')
+			except: pass
+			try: os.system('killall -9 kodi.bin')
+			except: pass
+			try: os.system('killall XBMC')
+			except: pass
+			try: os.system('killall -9 xbmc.bin')
+			except: pass
+			
+	elif systemplatformlinux or systemplatformlinuxraspberrypi:
+		try:
+			if "1" in custom or "2" in custom or "3" in custom: extra = '& sleep 1 & cp -rf '+source+' '+target+''
+			'''---------------------------'''
+			if "f" in custom: pass
+			elif "r" in custom: extra = ''+extra+' && sleep 2 && reboot'
+			elif "s" in custom: extra = ''+extra+' && sleep 2 && poweroff'
+			'''---------------------------'''
+			terminal('killall -9 kodi.bin '+extra+'',name + space3 + custom)
+		except Exception, TypeError: print printfirst + 'killall' + space + "TypeError" + space2 + str(TypeError)
 	
 	elif systemplatformwindows:
-		xbmcexe_path = os.path.join(xbmc_path, 'Kodi.exe')
-		if os.path.exists(xbmcexe_path): xbmcexe_path = '"' + xbmcexe_path + '"'
-		else: xbmcexe_path = '"C:\Program Files (x86)\Kodi\Kodi.exe"'
-		
 		try:
-			if "s" in custom:
-				if admin3: extra = '&& timeout 1 && shutdown -s && shutdown -a'
-				else: extra = '&& timeout 1 && shutdown -s'
-				'''---------------------------'''
+			if '1' in custom or '2' in custom or '3' in custom: extra = '& copy "'+source+'" "'+target+'" /V /Y >NUL'
+			'''---------------------------'''
+			if "f" in custom:
+				xbmcexe_path = os.path.join(xbmc_path, 'Kodi.exe')
+				if os.path.exists(xbmcexe_path): xbmcexe_path = '"' + xbmcexe_path + '"'
+				else: xbmcexe_path = '"C:\Program Files (x86)\Kodi\Kodi.exe"'
+				extra = ''+extra+' & timeout 1 & '+xbmcexe_path+''
 			elif "r" in custom:
-				if admin3: extra = '&& timeout 1 && shutdown -r && shutdown -a'
-				else: extra = '&& timeout 1 && shutdown -r'
+				if admin3: extra = ''+extra+' && timeout 1 && shutdown -r & shutdown -a'
+				else: extra = ''+extra+' & timeout 1 & shutdown -r'
 				'''---------------------------'''
-			if custom == "": terminal('TASKKILL /im Kodi.exe /f && timeout 1',name + space3 + custom)	
-			elif "1" in custom or "2" in custom or "3" in custom: terminal('TASKKILL /im Kodi.exe /f && copy "'+source+'" "'+target+'" /V /Y >NUL && '+xbmcexe_path+'',name + space3 + custom)		
-			else: terminal('TASKKILL /im Kodi.exe /f && copy "'+source+'" "'+target+'" /V /Y >NUL '+extra+'',name + space3 + custom)
-			
-		except: pass
+			elif "s" in custom:
+				if admin3: extra = ''+extra+' & timeout 1 & shutdown -s & shutdown -a'
+				else: extra = ''+extra+' & timeout 1 & shutdown -s'
+				'''---------------------------'''
+			terminal('TASKKILL /im Kodi.exe /f '+extra+'',name + space3 + custom)
+		except Exception, TypeError: print printfirst + 'killall' + space + "TypeError" + space2 + str(TypeError)
+		
+		
 		try:
 			os.system('@ECHO off')
 			os.system('tskill XBMC.exe')
@@ -2761,31 +2973,20 @@ def killall(admin, custom=""):
 			os.system('@ECHO off')
 			os.system('TASKKILL /im XBMC.exe /f')
 		except: pass
-		
-	elif systemplatformandroid:
-		try:
-			if "s" in custom: extra = '&& sleep 1 && reboot -p'
-			elif "r" in custom: extra = '&& sleep 1 && reboot'
-			'''---------------------------'''
-			if custom == "": terminal('adb shell am force-stop org.xbmc.kodi && sleep 1',name + space3 + custom)	
-			elif "1" in custom or "2" in custom or "3" in custom: terminal('adb shell am force-stop org.xbmc.kodi && cp -rf '+source+' '+target+' '+extra+'',name + space3 + custom)		
-			else: terminal('adb shell am force-stop org.xbmc.kodi && cp -rf '+source+' '+target+' '+extra+'',name + space3 + custom)
-		except: pass
-		
-		try: os.system('killall Kodi')
-		except: pass
-		try: os.system('killall -9 kodi.bin')
-		except: pass
-		try: os.system('killall XBMC')
-		except: pass
-		try: os.system('killall -9 xbmc.bin')
-		except: pass
-
+				
 	elif systemplatformosx:
 		try: os.system('killall -9 XBMC')
 		except: pass
 		try: os.system('killall -9 Kodi')
 		except: pass
+	
+	
+	if 'q' in custom: pass#xbmc.executebuiltin('Quit')
+	elif 'f' in custom: xbmc.executebuiltin('RestartApp')
+	elif 's' in custom:
+		if not admin3: xbmc.executebuiltin('XBMC.Powerdown()')
+	elif 'r' in custom:
+		xbmc.executebuiltin('XBMC.Reset()')
 
 def CloseSession():
 	libraryisscanningvideo = xbmc.getCondVisibility('Library.IsScanningVideo')

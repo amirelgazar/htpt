@@ -75,6 +75,7 @@ elif mode == 1 and ModeOn_1 == "false":
 					returned = dialogkeyboard(User_Issue,addonString(79058).encode("utf-8"),0,'1','User_Issue', 'service.htpt.debug')
 					if returned == 'skip': notification_common("3")
 					else:
+						setsetting('User_Issue',str(returned))
 						'''send debug prompt'''
 						returned = dialogyesno(addonString(79219), addonString(79059))
 						if returned == 'skip': notification('$LOCALIZE[257]',addonString_servicehtpt(10).encode('utf-8'),"",2000)
@@ -83,7 +84,7 @@ elif mode == 1 and ModeOn_1 == "false":
 							---RERUN-SCRIPT-WITH-NEW-VAR-----
 							------------------------------'''
 							setsetting('ModeOn_1',"true")
-							setsetting('General_ScriptON',"false") ; xbmc.sleep(200) ; printpoint = printpoint + "x"
+							setsetting('General_ScriptON',"false") ; printpoint = printpoint + "x"
 							xbmc.executebuiltin('RunScript(service.htpt.debug,,?mode=1)')
 							#if None in [subject, content, file]: subject, content, file = getAll(mode)
 							#if not None in [mode, subject, content, file]: SendDebug(mode, subject, content, file)

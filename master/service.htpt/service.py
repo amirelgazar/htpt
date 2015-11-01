@@ -11,8 +11,8 @@ class resetsettings:
 	setsetting_custom1('service.htpt','Time_Delay',"0")
 	setsetting_custom1('service.htpt','Time_Pass',"0")
 	setsetting_custom1('service.htpt','Time_Shutdown',"")
-	setsetting_custom1('service.htpt','General_Timer',"0")
 	setsetting_custom1('service.htpt','General_ScriptON',"false")
+	setsetting_custom1('service.htpt','General_Timer',"0")
 	setsetting_custom1('service.htpt','Skin_UpdateCount',"0")
 	setsetting_custom1('service.htpt','Skin_UpdateCount2',"0")
 	setsetting_custom1('service.htpt','Skin_UpdateTimer',"0")
@@ -109,10 +109,10 @@ class main:
 				---count-------------------------
 				------------------------------'''
 				
-				if not systemplatformwindows and (not systemidle300 or General_TimerN in A10): xbmc.sleep(50)
-				elif systemplatformwindows and (not systemidle300 or General_TimerN in A10): xbmc.sleep(800)
-				else: xbmc.sleep(1000)
-				if performance: xbmc.sleep(2000)
+				if Ping_Connected == 'false' or performance: xbmc.sleep(10000)
+				elif not systemplatformwindows and (not systemidle300 or General_TimerN in A10): xbmc.sleep(100)
+				elif systemplatformwindows and (not systemidle300 or General_TimerN in A10): xbmc.sleep(1600)
+				else: xbmc.sleep(2000)
 				'''---------------------------'''
 				
 				'''------------------------------
@@ -124,7 +124,7 @@ class main:
 				'''------------------------------
 				---setTime_Delay-----------------
 				------------------------------'''
-				setTime_Delay(admin, admin2, Time_Delay, count, systemidle3, playerhasvideo, playerhasmedia, playerpaused, performance)
+				setTime_Delay(admin, admin2, Time_Delay, count, systemidle3, playerhasvideo, playerhasmedia, playerpaused, performance, Ping_Connected)
 				'''---------------------------'''
 				
 				#if admin and General_TimerN in A10: print printfirst + "VARCHECK2" + space2 + "Skin_UpdateLog" + space2 + Skin_UpdateLog + space + "Time_Pass" + space2 + Time_Pass + space + "General_Timer" + space2 + General_Timer
@@ -269,13 +269,13 @@ class main:
 					if Time_DelayN > 540 and Time_DelayN < 600: #systemidle540 and not systemidle600:
 						pass
 						'''---------------------------'''
-					elif Time_DelayN > 590 and Time_DelayN < 610: #systemidle600 and not systemidle900:
-						if count in A10: screensaver(admin, playerhasvideo)
+					elif Time_DelayN > 600 and Time_DelayN < 710: #systemidle600 and not systemidle900:
+						screensaver(admin, playerhasvideo)
 						'''---------------------------'''
-					elif Time_DelayN == 700:
-						if count in A10: xbmc.executebuiltin('RunScript(service.htpt.fix,,?mode=12)')
+					elif Time_DelayN > 710 and Time_DelayN < 820:
+						xbmc.executebuiltin('RunScript(service.htpt.fix,,?mode=12)')
 						'''---------------------------'''
-					elif Time_DelayN == 900: #systemidle900 and not systemidle1200:
+					elif Time_DelayN > 830 and Time_DelayN < 940: #systemidle900 and not systemidle1200:
 						LibraryUpdate(admin, Library_CleanDate, Library_UpdateDate)
 						'''---------------------------'''
 						

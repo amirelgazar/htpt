@@ -242,12 +242,12 @@ msgid "Your input is empty!"
 msgstr "הכנסת נתון ריק!"
 
 msgctxt "#61
-msgid ""
-msgstr ""
+msgid "Choose this option to play contents in sequence"
+msgstr "בחר באפשרות זו בכדי לנגן תכנים ברצף!"
 
 msgctxt "#62
-msgid ""
-msgstr ""
+msgid "Note: Random play isn't enabled!"
+msgstr "לתשומת לבך: האפשרות לניגון אקראי אינה מופעלת!"
 
 msgctxt "#63
 msgid ""

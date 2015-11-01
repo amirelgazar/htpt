@@ -65,7 +65,7 @@ def addDir(name, url, mode, iconimage, desc, num, viewtype, fanart=""):
 	if addonID == 'script.htpt.install':
 		ok=xbmcplugin.addDirectoryItem(handle=int(sys.argv[1]),url=u,listitem=liz,isFolder=False)
 		returned = ok
-	elif mode == 4 or mode == 3:
+	elif mode == 2 or mode == 4 or mode == 3:
 		'''------------------------------
 		---play_video/2------------------
 		------------------------------'''
@@ -223,6 +223,10 @@ def addLink(name, url, iconimage="", desc="", viewtype=""):
 	if "plugin://plugin.video.youtube/playlist/" in url:
 		ok=xbmcplugin.addDirectoryItem(handle=int(sys.argv[1]),url=url,listitem=liz,isFolder=True)
 		printpoint = printpoint + "1"
+	elif '&dailymotion_id' in url:
+		url = url.replace("&dailymotion_id=","")
+		url = 'http://www.dailymotion.com/video/x3bik3i'
+		ok=xbmcplugin.addDirectoryItem(handle=int(sys.argv[1]),url=url,listitem=liz,isFolder=False)
 	else:
 		ok=xbmcplugin.addDirectoryItem(handle=int(sys.argv[1]),url=url,listitem=liz,isFolder=False)
 		printpoint = printpoint + "2"
@@ -310,7 +314,6 @@ def clean_commonsearch(x):
 		y = y.replace("commonsearch111", space + commonsearch111)
 		y = y.replace("commonsearch112", space + commonsearch112)
 		y = y.replace("commonsearch114", space + commonsearch114)
-		y = y.replace(" ","%20")
 	
 	if "[COLOR" in y or "[/COLOR" in y:
 		y = y.replace("[COLOR=Green]", "")
@@ -318,9 +321,18 @@ def clean_commonsearch(x):
 		y = y.replace("[COLOR=White]", "")
 		y = y.replace("[/COLOR]", "")
 	
+	y = y.replace(" ","%20")
+	
 	if admin: print printfirst + "clean_commonsearch" + space + "x" + str(x) + space + "y" + space2 + str(y)
 	return y
-	
+
+def LocalSearch(mode, name, url, iconimage, desc, num, viewtype):
+	printpoint = "" ; admin = xbmc.getInfoLabel('Skin.HasSetting(Admin)') ; value = "" ; url2 = ""
+	url2 = read_from_file(url, silent=True, lines=True, retry=True, printpoint="", addlines='&custom_se=')
+	text = 'url2' + space2 + str(url2)
+	printlog(title='LocalSearch' + space + name, printpoint=printpoint, text=text, level=0, option="")
+	TvMode2(mode, name, url2, iconimage, desc, num, viewtype)
+		
 def YoutubeSearch(name, url, desc, viewtype):
 	printpoint = "" ; admin = xbmc.getInfoLabel('Skin.HasSetting(Admin)') ; value = "" ; url2 = ""
 
@@ -396,6 +408,31 @@ def play_video(url):
 def play_video2(url):
 	
 	if 'plugin.video.wallaNew.video' in url: xbmc.executebuiltin('PlayMedia('+ url +')')
+	elif '&dailymotion_id' in url:
+		addon = "plugin.video.dailymotion_com"
+		if not xbmc.getCondVisibility('System.HasAddon('+ addon +')') or not os.path.exists(os.path.join(addons_path, addon)):
+			installaddonP(admin, addon) ; xbmc.sleep(1000)
+			
+		url = url.replace("&dailymotion_id=","")
+		xbmc.executebuiltin('PlayMedia(plugin://plugin.video.dailymotion_com/?url='+url+'&mode=playVideo)')
+		
+		if 1 + 1 == 3:
+			url = 'https://api.dailymotion.com/video/'+ url +''
+			link = OPEN_URL(url)
+			prms=json.loads(link)
+			
+			title = str(prms['title'].encode('utf-8'))#.decode('utf-8')
+			id = str(prms['id'].encode('utf-8'))#.decode('utf-8')
+			channel = str(prms['channel'].encode('utf-8'))#.decode('utf-8')
+			#name = str(prms['feed'][u'entry'][i][ u'media$group'][u'media$title'][u'$t'].encode('utf-8')).decode('utf-8')
+			finalurl='http://www.dailymotion.com/video/'+id+'_'+title+'_'+channel
+			finalurl = finalurl.replace(space,"-")
+			finalurl = 'http://www.dailymotion.com/video/x3bik3i_atlas-unfolded-new-york-city_music'
+			print 'link :' + str(link) + newline + 'prms:' + str(prms) + newline + 'title:' + str(title) + newline + 'id' + space2 + str(id) + newline + 'finalurl' + space2 + str(finalurl)
+	
+	elif '&youtube_id' in url:
+		url = url.replace("&youtube_id=","")
+		xbmc.executebuiltin('PlayMedia(plugin://plugin.video.youtube/play/?video_id='+ url +')')
 	else:
 		xbmc.executebuiltin('PlayMedia(plugin://plugin.video.youtube/play/?video_id='+ url +')')
 	
@@ -423,7 +460,6 @@ def MultiVideos(mode, name, url, iconimage, desc, num, viewtype):
 	pl.clear()
 	playlist = []
 	
-	
 	url2 = url.replace("['","")
 	url2 = url2.replace("']","")
 	url2 = url2.replace("'","")
@@ -433,19 +469,18 @@ def MultiVideos(mode, name, url, iconimage, desc, num, viewtype):
 	url2 = url2.replace("&amp;", "&")
 	
 	url2 = url2.replace(" &custom","&custom")
-	url2 = url2.replace(" &wallaNew2","&wallaNew2")
-	url2 = url2.replace(" &wallaNew","&wallaNew")
-	
+	url2 = url2.replace(" &custom_se","&custom_se")
+	url2 = url2.replace(" &dailymotion_id=","&dailymotion_id=")
+	url2 = url2.replace(" &hotVOD","&hotVOD")
 	url2 = url2.replace(" &sdarot","&sdarot")
 	url2 = url2.replace(" &seretil","&seretil")
-	url2 = url2.replace(" &hotVOD","&hotVOD")
+	url2 = url2.replace(" &wallaNew2","&wallaNew2")
+	url2 = url2.replace(" &wallaNew","&wallaNew")
 	
 	url2 = url2.replace(" &youtube_ch","&youtube_ch")
 	url2 = url2.replace(" &youtube_pl","&youtube_pl")
 	url2 = url2.replace(" &youtube_id","&youtube_id")
 	url2 = url2.replace(" &youtube_se","&youtube_se")
-	
-	#url2 = url2.replace(",","")
 	
 	url2a = url2
 	url2 = url2.split(',')
@@ -457,6 +492,7 @@ def MultiVideos(mode, name, url, iconimage, desc, num, viewtype):
 	returned = get_types(url)
 	for x in url2:
 		x = str(x) ; finalurl = "" ; finalurlL = [] ; numOfItems2 = 0
+		print "aab" + space + x + newline +str(playlist)
 		x = x.replace("[","")
 		x = x.replace(",","")
 		x = x.replace("'","")
@@ -468,6 +504,22 @@ def MultiVideos(mode, name, url, iconimage, desc, num, viewtype):
 					x = x.replace("&custom=","")
 					finalurl=x
 					'''---------------------------'''
+				elif "&dailymotion_id=" in x:
+					x = x.replace("&dailymotion_id=","")
+					finalurl='plugin://plugin.video.dailymotion_com/?url='+x+'&mode=playVideo'
+				elif "&hotVOD=" in x:
+					x = x.replace("&hotVOD=","")
+					if "FCmmAppVideoApi_AjaxItems" in x:
+						finalurl="plugin://plugin.video.hotVOD.video/?url="+x+"&mode=4"
+						'''---------------------------'''
+				elif "&sdarot=" in x:
+					x = x.replace("&sdarot=","")
+					#finalurl="plugin://plugin.video.sdarot.tv/?mode=4&"+x
+					'''---------------------------'''
+				elif "&seretil=" in x:
+					x = x.replace("&seretil=","")
+					#finalurl="plugin://plugin.video.sdarot.tv/?mode=4&"+x
+					'''---------------------------'''
 				elif "&wallaNew=" in x:
 					x = x.replace("&wallaNew=","")
 					if "item_id" in x: finalurl="plugin://plugin.video.wallaNew.video/?url="+x+"&mode=10&module=wallavod"
@@ -477,19 +529,6 @@ def MultiVideos(mode, name, url, iconimage, desc, num, viewtype):
 					#z = '1'
 					#addDir(name + space + str(i), "plugin://plugin.video.wallaNew.video/?url="+x+"&mode="+z+"&module=nickjr", 8, iconimage, desc, num, viewtype)
 					'''---------------------------'''
-				elif "&sdarot=" in x:
-					x = x.replace("&sdarot=","")
-					#finalurl="plugin://plugin.video.sdarot.tv/?mode=4&"+x
-					'''---------------------------'''
-				elif "&seretil=" in x:
-					x = x.replace("&seretil=","")
-					#finalurl="plugin://plugin.video.sdarot.tv/?mode=4&"+x
-					'''---------------------------'''
-				elif "&hotVOD=" in x:
-					x = x.replace("&hotVOD=","")
-					if "FCmmAppVideoApi_AjaxItems" in x:
-						finalurl="plugin://plugin.video.hotVOD.video/?url="+x+"&mode=4"
-						'''---------------------------'''
 				elif "&youtube_ch=" in x:
 					#i2 += 1
 					x = x.replace("&youtube_ch=","")
@@ -506,11 +545,12 @@ def MultiVideos(mode, name, url, iconimage, desc, num, viewtype):
 					x = x.replace("&youtube_id=","")
 					finalurl="plugin://plugin.video.youtube/play/?video_id="+x+"&hd=1"
 					'''---------------------------'''
-				elif "&youtube_se=" in x:
+				elif "&youtube_se=" in x or "&custom_se=" in x:
 					#try: str(name).encode('utf-8')
 					#except: str(name)
 					#x = x.replace("&youtube_se=","")
-					x = x + space + str(name)
+					if '&youtube_se=' in x: x = x + space + str(name)
+					
 					finalurlL, numOfItems2 = youtube_pl_to_youtube_id(x, playlist)
 					#except Exception, TypeError: extra = extra + newline + "TypeError" + space2 + str(TypeError) ; printpoint = printpoint + "6"
 					#finalurl="plugin://plugin.video.youtube/play/?video_id="+x+"&hd=1"
@@ -540,12 +580,15 @@ def MultiVideos(mode, name, url, iconimage, desc, num, viewtype):
 									printpoint = printpoint + "3"
 									xbmc.Player(xbmc.PLAYER_CORE_MPLAYER).play(pl) ; xbmc.sleep(2000)
 									'''---------------------------'''
+								#else:
+								print "aaa " + "y" + space2 + str(y) + space + "playist" + space2 + str(playlist)
 								
 								
 								if count >= numOfItems2: break
-								if admin: print printfirst + "MultiVideos" + space + "i" + space2 + str(i) + space + "y" + space2 + str(y) + space + "count" + space2 + str(count) + newline + "finalurlL" + space2 + str(finalurlL) #+ newline + "finalurlL2" + space2 + str(finalurlL2)
+								if admin: print printfirst + "MultiVideos" + space + "i" + space2 + str(i) + space + "y" + space2 + str(y) + space + "count" + space2 + str(count) + newline + "finalurlL" + space2 + str(finalurlL) + newline + 'numOfItems2' + space2 + str(numOfItems2)
 							
 					elif finalurl != "" and 'str' in returned:	
+						#if not y in playlist:
 						pl.add(finalurl)
 						playlist.append(finalurl)
 						if not "3" in printpoint:
@@ -557,8 +600,12 @@ def MultiVideos(mode, name, url, iconimage, desc, num, viewtype):
 					if admin: print printfirst + "MultiVideos___" + space + "i" + space2 + str(i) + space + "count" + space2 + str(count) + space + "playlist" + space2 + str(playlist)
 					
 			elif mode == 6:
-					
-				if "&youtube_ch=" in x:
+				
+				if "&dailymotion_id=" in x:
+					#x = x.replace("&dailymotion_id=","")
+					addDir(name + space + str(i), x, 4, iconimage, desc, num, viewtype)
+					'''---------------------------'''
+				elif "&youtube_ch=" in x:
 					x = x.replace("&youtube_ch=","")
 					if "/playlists" in x: pass
 					addDir(name + space + str(i), x, 9, iconimage, desc, num, viewtype) #addonString(192).encode('utf-8')
@@ -569,10 +616,10 @@ def MultiVideos(mode, name, url, iconimage, desc, num, viewtype):
 					addDir(name + space + str(i), x, 13, iconimage, desc, num, viewtype) #addonString(192).encode('utf-8')
 					'''---------------------------'''
 				elif "&youtube_id=" in x:
-					x = x.replace("&youtube_id=","")
+					#x = x.replace("&youtube_id=","")
 					addDir(name + space + str(i), x, 4, iconimage, desc, num, viewtype)
 					'''---------------------------'''
-				elif "&youtube_se=" in x:
+				elif "&youtube_se=" in x or "&custom_se=" in x:
 					#try: str(name).encode('utf-8')
 					#except: str(name)
 					x = x.replace("&youtube_se=","")
@@ -650,14 +697,14 @@ def MultiVideos(mode, name, url, iconimage, desc, num, viewtype):
 	'''------------------------------
 	---PRINT-END---------------------
 	------------------------------'''
-	if admin or extra != "":
-		print printfirst + "MultiVideos_LV" + printpoint + space + "mode" + space2 + str(mode) + space + "i" + space2 + str(i) + space + newline + \
-		"url " + space2 + str(url) + newline + \
-		"url2" + space2 + str(url2) + newline + \
-		"pl" + space2 + str(pl) + space + "playlist" + space2 + str(playlist) + newline + \
-		"finalurl" + space2 + str(finalurl) + space + "finalurlL" + space2 + str(finalurlL) + space + newline + \
-		extra
-		'''---------------------------'''
+	text = "mode" + space2 + str(mode) + space + "i" + space2 + str(i) + space + newline + \
+	"url " + space2 + str(url) + newline + \
+	"url2" + space2 + str(url2) + newline + \
+	"pl" + space2 + str(pl) + space + "playlist" + space2 + str(playlist) + newline + \
+	"finalurl" + space2 + str(finalurl) + space + "finalurlL" + space2 + str(finalurlL) + space + newline + extra
+	printlog(title="MultiVideos", printpoint=printpoint, text=text, level=2, option="")
+	'''---------------------------'''
+		
 	
 def PlayPlayList(playlistid):
 	printpoint = ""
@@ -740,7 +787,8 @@ def PlayPlayList2(playlistid):
 	'''------------------------------
 	---PRINT-END---------------------
 	------------------------------'''
-	if admin: print printfirst + "PlayPlayList2" + space + "playlistid" + space2 + str(playlistid)
+	text = "playlistid" + space2 + str(playlistid)
+	printlog(title="PlayPlayList2", printpoint=printpoint, text=text, level=2, option="")
 	'''---------------------------'''
 
 def PlayPlayList3(playlistid):
@@ -763,7 +811,8 @@ def getCustom_Playlist(admin):
 	elif Custom_Playlist9_ID  == "": returned = 'Custom_Playlist9_ID'
 	elif Custom_Playlist10_ID  == "": returned = 'Custom_Playlist10_ID'
 	'''---------------------------'''
-	if admin and not admin2 and admin3: print printfirst + "getCustom_Playlist_LV" + printpoint + space + "returned" + space2 + str(returned) + space + "Custom_Playlist1_ID" + space2 + str(Custom_Playlist1_ID)
+	text = "returned" + space2 + str(returned) + space + "Custom_Playlist1_ID" + space2 + str(Custom_Playlist1_ID)
+	printlog(title="getCustom_Playlist", printpoint=printpoint, text=text, level=2, option="")
 	return returned
 
 def setCustom_Playlist_ID(Custom_Playlist_ID, New_ID, mode, url, name, viewtype):
@@ -822,10 +871,9 @@ def setCustom_Playlist_ID(Custom_Playlist_ID, New_ID, mode, url, name, viewtype)
 
 	else: notification_common("17")
 	
-	if admin and not admin2 and admin3:
-		print printfirst + "setCustom_Playlist_ID_LV" + printpoint + space + "name" + space2 + str(name) + newline + \
-		"New_Type" + space2 + str(New_Type) + space + "New_ID" + space2 + str(New_ID) + space + "New_ID_" + space2 + str(New_ID_) + space
-		'''---------------------------'''
+	text = "name" + space2 + str(name) + newline + "New_Type" + space2 + str(New_Type) + space + "New_ID" + space2 + str(New_ID) + space + "New_ID_" + space2 + str(New_ID_)
+	printlog(title="setCustom_Playlist_ID", printpoint=printpoint, text=text, level=2, option="")
+	'''---------------------------'''
 
 def AdvancedCustom(mode, name, url, thumb, desc, num, viewtype, fanart):
 	'''------------------------------
@@ -1150,16 +1198,15 @@ def AdvancedCustom(mode, name, url, thumb, desc, num, viewtype, fanart):
 			notification("..","","",1000)
 			update_view(url, viewtype)
 			'''---------------------------'''
-			
-	if admin and not admin2 and admin3:
-		print printfirst + 'AdvancedCustom' + space2 + 'name_' + space2 + name + "_LV" + printpoint + space + newline + \
-		"path" + space2 + str(path) + newline + \
-		"file1" + space2 + str(file1) + newline + \
-		"file2" + space2 + str(file2) + newline + \
-		"file3" + space2 + str(file3) + newline + \
-		"formula" + space2 + str(formula) + space + "formula_" + space2 + str(formula_) + newline + \
-		"extra" + space2 + str(extra)
-		#"Addon_SavedButtons1" + space2 + str(Addon_SavedButtons1) + newline + \
+	
+	text = 'name_' + space2 + name + "_LV" + printpoint + space + newline + \
+	"path" + space2 + str(path) + newline + \
+	"file1" + space2 + str(file1) + newline + \
+	"file2" + space2 + str(file2) + newline + \
+	"file3" + space2 + str(file3) + newline + \
+	"formula" + space2 + str(formula) + space + "formula_" + space2 + str(formula_) + newline + \
+	"extra" + space2 + str(extra)
+	printlog(title="AdvancedCustom", printpoint=printpoint, text=text, level=2, option="")
 		
 def AddCustom(mode, name, url, iconimage, desc, num, viewtype):
 	'''------------------------------
@@ -1175,7 +1222,8 @@ def AddCustom(mode, name, url, iconimage, desc, num, viewtype):
 			New_Name = dialogkeyboard("My Music", "Button Name", 0, "",Custom_Playlist_Name, "0")
 			setCustom_Playlist_ID(Custom_Playlist_ID, New_ID, mode, url, New_Name, viewtype)
 				
-	if admin and not admin2 and admin3: print printfirst + "AddCustom_LV" + printpoint + space + "name" + space2 + str(name)
+	text = "name" + space2 + str(name)
+	printlog(title="AddCustom", printpoint=printpoint, text=text, level=2, option="")
 	'''---------------------------'''
 	
 def CheckMoveCustom(name, num):
@@ -1290,8 +1338,8 @@ def CheckMoveCustom(name, num):
 		elif Custom_PlaylistL[0] != "": up = "1"
 		'''---------------------------'''
 	
-	if admin and not admin2 and admin3:
-		print printfirst + "CheckMoveCustom_LV" + printpoint + space + "name" + space2 + str(name) + space + "num" + space2 + str(num) + space + "down" + space2 + str(down) + space + "up" + space2 + str(up)
+	text = "name" + space2 + str(name) + space + "num" + space2 + str(num) + space + "down" + space2 + str(down) + space + "up" + space2 + str(up)
+	printlog(title="CheckMoveCustom", printpoint=printpoint, text=text, level=2, option="")
 		
 	return up, down
 
@@ -1305,12 +1353,11 @@ def cleanfanartCustom(fanart):
 		printpoint = printpoint + "7"
 		fanart = "" # or not os.path.exists(fanart)
 	
-	if admin and not admin2 and admin3:
-		print printfirst + "cleanfanartCustom_LV" + printpoint + newline + \
-		"fanart" + space2 + str(fanart) + newline + \
-		"fanart2" + space2 + str(fanart2) + newline + \
-		"addonFanart" + space2 + str(addonFanart) + newline + \
-		"addonFanart2" + space2 + str(addonFanart2)
+	text = "fanart" + space2 + str(fanart) + newline + \
+	"fanart2" + space2 + str(fanart2) + newline + \
+	"addonFanart" + space2 + str(addonFanart) + newline + \
+	"addonFanart2" + space2 + str(addonFanart2)
+	printlog(title="cleanfanartCustom", printpoint=printpoint, text=text, level=2, option="")
 	return fanart
 	
 def MoveCustom(mode, name, url, iconimage, desc, num, viewtype, fanart):
@@ -1364,8 +1411,8 @@ def MoveCustom(mode, name, url, iconimage, desc, num, viewtype, fanart):
 		'''---------------------------'''
 		update_view(url, viewtype)
 	
-	if admin and not admin2 and admin3:
-		print printfirst + "MoveCustom_LV" + printpoint + space + "url" + space2 + str(url) + space + "num" + space2 + str(num)
+	text = "url" + space2 + str(url) + space + "num" + space2 + str(num)
+	printlog(title="MoveCustom", printpoint=printpoint, text=text, level=2, option="")
 		
 def ManageCustom(mode, name, url, thumb, desc, num, viewtype, fanart):
 	extra = "" ; printpoint = "" ; New_ID = ""
@@ -1649,20 +1696,21 @@ def ManageCustom(mode, name, url, thumb, desc, num, viewtype, fanart):
 		update_view(url, viewtype)
 		#xbmcplugin.endOfDirectory(int(sys.argv[1]))
 		
-	if admin and not admin2 and admin3:
-		print printfirst + "ManageCustom_LV" + printpoint + space + "name" + space2 + str(name) + newline + \
-		"Custom_Playlist_ID" + space2 + str(Custom_Playlist_ID) + newline + \
-		"Custom_Playlist_Name" + space2 + str(Custom_Playlist_Name) + newline + \
-		"Custom_Playlist_Thumb" + space2 + str(Custom_Playlist_Thumb) + newline + \
-		"thumb" + space2 + str(thumb) + newline + \
-		"Custom_Playlist_Description" + space2 + str(Custom_Playlist_Description) + newline + \
-		"Custom_Playlist_Fanart" + space2 + str(Custom_Playlist_Fanart) + newline + \
-		"fanart" + space2 + str(fanart) + newline + \
-		"New_ID" + space2 + str(New_ID) + newline + \
-		"url" + space2 + str(url) + newline
-		'''---------------------------'''
+	text = "name" + space2 + str(name) + newline + \
+	"Custom_Playlist_ID" + space2 + str(Custom_Playlist_ID) + newline + \
+	"Custom_Playlist_Name" + space2 + str(Custom_Playlist_Name) + newline + \
+	"Custom_Playlist_Thumb" + space2 + str(Custom_Playlist_Thumb) + newline + \
+	"thumb" + space2 + str(thumb) + newline + \
+	"Custom_Playlist_Description" + space2 + str(Custom_Playlist_Description) + newline + \
+	"Custom_Playlist_Fanart" + space2 + str(Custom_Playlist_Fanart) + newline + \
+	"fanart" + space2 + str(fanart) + newline + \
+	"New_ID" + space2 + str(New_ID) + newline + \
+	"url" + space2 + str(url) + newline
+	'''---------------------------'''
+	printlog(title="ManageCustom", printpoint=printpoint, text=text, level=2, option="")
 		
 def youtube_pl_to_youtube_id(x, playlist=[]):
+	admin = xbmc.getInfoLabel('Skin.HasSetting(Admin)') ; playlist2 = []
 	printpoint = "" ; TypeError = "" ; extra = "" ; page = 1 ; pagesize = 40
 	valid_ = "" ; invalid_ = 0 ; invalid__ = "" ; duplicates_ = 0 ; duplicates__ = "" ; except_ = 0 ; except__ = ""
 	
@@ -1676,6 +1724,11 @@ def youtube_pl_to_youtube_id(x, playlist=[]):
 		printpoint = printpoint + "2"
 		x = x.replace("&youtube_se=","")
 		x = clean_commonsearch(x)
+	elif "&custom_se=" in x:
+		printpoint = printpoint + "3"
+		x = x.replace("&custom_se=","")
+		x = clean_commonsearch(x)
+		#print "qwewqeqwe" + x
 		
 	
 	
@@ -1683,11 +1736,15 @@ def youtube_pl_to_youtube_id(x, playlist=[]):
 	elif "2" in printpoint:
 		url = 'https://www.googleapis.com/youtube/v3/search?q='+x+'&key=AIzaSyASEuRNOghvziOY_8fWSbKGKTautNkAYz4&safeSearch=moderate&type=video&part=snippet&maxResults=40&pageToken='
 		#url = url.decode('utf-8')
+	elif "3" in printpoint:
+		pagesize = 1
+		url = 'https://www.googleapis.com/youtube/v3/search?q='+x+'&key=AIzaSyASEuRNOghvziOY_8fWSbKGKTautNkAYz4&safeSearch=moderate&type=video&part=snippet&maxResults=1&pageToken='
+		#url = url.decode('utf-8')
 	else: printpoint = printpoint + "8"
 	if admin and 1 + 1 == 2:
 		pass
-		print "123test" + space2 + str(x)
-		print "123test" + space2 + str(url) + newline
+		#print "123test" + space2 + str(x)
+		#print "123test" + space2 + str(url) + newline
 		
 	link = OPEN_URL(url)
 	prms=json.loads(link)
@@ -1701,13 +1758,14 @@ def youtube_pl_to_youtube_id(x, playlist=[]):
 	totalpagesN = (totalResults / pagesize) + 1
 	'''---------------------------'''
 
-	i = 0
-	while i < pagesize and not i > totalResults and not "8" in printpoint and not xbmc.abortRequested: #h<totalResults
-		try:
+	i = 0 ; count = 0
+	while i < pagesize and not i > totalResults and not "8" in printpoint and count < (pagesize + 20) and not xbmc.abortRequested: #h<totalResults
+		#try:
+		if 1 + 1 == 2:
 			#print "i" + space2 + str(i) + space + "duplicatesN" + space2 + str(duplicatesN)
 			id = "" ; finalurl = ""
 			if "1" in printpoint: id=str(prms['items'][i][u'snippet'][u'resourceId'][u'videoId']) #Video ID (Playlist)
-			elif "2" in printpoint: id=str(prms['items'][i][u'id'][u'videoId']) #Video ID (Search)
+			elif "2" in printpoint or "3" in printpoint: id=str(prms['items'][i][u'id'][u'videoId']) #Video ID (Search)
 			if id != "":
 				finalurl="plugin://plugin.video.youtube/play/?video_id="+id+"&hd=1"
 				title=str(prms['items'][i][u'snippet'][u'title'].encode('utf-8'))
@@ -1719,7 +1777,14 @@ def youtube_pl_to_youtube_id(x, playlist=[]):
 				#ok, liz = addLink(title,finalurl, thumb, desc)
 				#name, url, mode, iconimage='DefaultFolder.png', desc="", num="", viewtype=""
 				#playlist.append((finalurl ,liz))
+				if (commonsearch104 in x or commonsearch114 in x):
+					for filterx in sefilter:
+						if filterx in title:
+							error
+							break
+
 				playlist.append(finalurl)
+				playlist2.append(finalurl)
 				'''---------------------------'''
 			else:
 				if "Deleted video" in title or "Private video" in title:
@@ -1728,7 +1793,7 @@ def youtube_pl_to_youtube_id(x, playlist=[]):
 				elif finalurl in playlist:
 					duplicates_ += 1
 					duplicates__ = "i" + space2 + str(i) + space + "id" + space2 + str(id)
-					
+		try: pass		
 		except Exception, TypeError:
 			except_ += 1
 			except__ = "i" + space2 + str(i) + space + "id" + space2 + str(id)
@@ -1737,8 +1802,11 @@ def youtube_pl_to_youtube_id(x, playlist=[]):
 			'''---------------------------'''
 		
 		i += 1
-	numOfItems2 = totalResults - invalid_ - duplicates_ - except_
-	if numOfItems2 > pagesize: numOfItems2 = 40
+		count += 1
+		
+	numOfItems2 = len(playlist2)
+	#numOfItems2 = totalResults - invalid_ - duplicates_ - except_
+	#if numOfItems2 > pagesize: numOfItems2 = 40
 	totalpages = (numOfItems2 / pagesize) + 1
 
 	nextpage = page + 1
@@ -1758,7 +1826,7 @@ def youtube_pl_to_youtube_id(x, playlist=[]):
 		"x" + space2 + x + space + "page" + space2 + str(page) + " / " + str(totalpages) + space + "pagesize" + space2 + str(pagesize) + newline + \
 		"extra" + space2 + str(extra)
 		'''---------------------------'''
-	return playlist, numOfItems2
+	return playlist2, numOfItems2
 	
 def PlaylistsFromUser(user):
 	admin = xbmc.getInfoLabel('Skin.HasSetting(Admin)')
@@ -1951,12 +2019,13 @@ def TvMode2(mode, name, url, iconimage, desc, num, viewtype):
 		'''Empty button'''
 		notification("no valid URL founds!", "...", "", 2000)
 	else:
-		if General_TVModeDialog == "true":
+		if General_TVModeDialog == "true" or mode == 2:
 			if General_TVModeShuffle == "true": extra = addonString_servicehtpt(8).encode('utf-8')
 			else: extra = addonString_servicehtpt(61).encode('utf-8') + '[CR]' + addonString_servicehtpt(62).encode('utf-8')
-			returned = dialogyesno(addonString_servicehtpt(7).encode('utf-8'), extra)
-		
-		if returned == "ok": mode = 5
+			if mode == 2: returned = 'ok'
+			else: returned = dialogyesno(addonString_servicehtpt(7).encode('utf-8'), extra)
+			
+		if returned == 'ok': mode = 5
 		else: mode = 6
 		
 		MultiVideos(mode, name, url, iconimage, desc, num, viewtype)
@@ -2064,7 +2133,7 @@ def unescape(text):
 
 	return text
 
-def urlcheck(url, ping=False):
+def urlcheck(url, ping=False, timeout=7):
 	import urllib2
 	admin = xbmc.getInfoLabel('Skin.HasSetting(Admin)')
 	name = "urlcheck" ; printpoint = "" ; returned = "" ; extra = ""
@@ -2073,7 +2142,7 @@ def urlcheck(url, ping=False):
 	try:
 		#urllib2.urlopen(url)
 		request = urllib2.Request(url)
-		response = urllib2.urlopen(request, timeout=7)
+		response = urllib2.urlopen(request, timeout=timeout)
 		#content = response.read()
 		#f = urllib2.urlopen(url)
 		#f.fp._sock.recv=None # hacky avoidance
@@ -2100,11 +2169,11 @@ def urlcheck(url, ping=False):
 	
 	if "UKY3scPIMd8" in url: printpoint = printpoint + "6"
 	elif "7" in printpoint: returned = "ok"
-	
+	else: returned = 'error'
 	'''------------------------------
 	---PRINT-END---------------------
 	------------------------------'''
-	if admin or addonID == 'script.htpt.install': print printfirst + name + "_LV" + printpoint + space + "url" + space2 + url + space + "ping" + space2 + str(ping) + space + extra
+	if admin or addonID == 'script.htpt.install' or not "7" in printpoint: print printfirst + name + "_LV" + printpoint + space + "url" + space2 + url + space + "ping" + space2 + str(ping) + space + extra
 	'''---------------------------'''
 	return returned
 	
@@ -2235,77 +2304,84 @@ def setaddonFanart(fanart, Fanart_Enable, Fanart_EnableCustom):
 		"fanart" + space2 + str(fanart) + extra
 	return returned
 
-def getAddonFanart(category):
+def getAddonFanart(category, custom=""):
 	#admin = xbmc.getInfoLabel('Skin.HasSetting(Admin)')
 	#admin2 = xbmc.getInfoLabel('Skin.HasSetting(Admin2)')
 	#admin3 = xbmc.getInfoLabel('Skin.HasSetting(Admin3)')
 	returned = "" ; category_path = "" ; printpoint = "" ; extra = ""
-	if category == 100: category_path = Fanart_Custom100
-	elif category == 101: category_path = Fanart_Custom101
-	elif category == 102: category_path = Fanart_Custom102
-	elif category == 103: category_path = Fanart_Custom103
-	elif category == 104: category_path = Fanart_Custom104
-	elif category == 105: category_path = Fanart_Custom105
-	elif category == 106: category_path = Fanart_Custom106
-	elif category == 107: category_path = Fanart_Custom107
-	elif category == 108: category_path = Fanart_Custom108
-	elif category == 109: category_path = Fanart_Custom109
-	elif category == 110: category_path = Fanart_Custom110
-	elif category == 111: category_path = Fanart_Custom111
-	elif category == 112: category_path = Fanart_Custom112
-	elif category == 113: category_path = Fanart_Custom113
-	elif category == 114: category_path = Fanart_Custom114
-	elif category == 115: category_path = Fanart_Custom115
-	elif category == 116: category_path = Fanart_Custom116
-	elif category == 117: category_path = Fanart_Custom117
-	elif category == 118: category_path = Fanart_Custom118
-	elif category == 119: category_path = Fanart_Custom119
-	elif category == 120: category_path = Fanart_Custom120
-	elif category == 121: category_path = Fanart_Custom121
-	elif category == 122: category_path = Fanart_Custom122
-	elif category == 123: category_path = Fanart_Custom123
-	elif category == 124: category_path = Fanart_Custom124
-	elif category == 125: category_path = Fanart_Custom125
-	elif category == 126: category_path = Fanart_Custom126
-	elif category == 127: category_path = Fanart_Custom127
-	elif category == 128: category_path = Fanart_Custom128
-	elif category == 129: category_path = Fanart_Custom129
-	elif category == 130: category_path = Fanart_Custom130
 	
-	else:
-		try:
-			if "Custom_Playlist" in category:
-				if category == "Custom_Playlist1": category_path = Custom_Playlist1_Fanart
-				elif category == "Custom_Playlist2": category_path = Custom_Playlist2_Fanart
-				elif category == "Custom_Playlist3": category_path = Custom_Playlist3_Fanart
-				elif category == "Custom_Playlist4": category_path = Custom_Playlist4_Fanart
-				elif category == "Custom_Playlist5": category_path = Custom_Playlist5_Fanart
-				elif category == "Custom_Playlist6": category_path = Custom_Playlist6_Fanart
-				elif category == "Custom_Playlist7": category_path = Custom_Playlist7_Fanart
-				elif category == "Custom_Playlist8": category_path = Custom_Playlist8_Fanart
-				elif category == "Custom_Playlist9": category_path = Custom_Playlist9_Fanart
-				elif category == "Custom_Playlist10": category_path = Custom_Playlist10_Fanart
-				else: printpoint = printpoint + "8"
-		except Exception, TypeError:
-			extra = extra + newline + "TypeError" + space2 + str(TypeError)
-			printpoint = printpoint + "8"
-	
-	
-	if category_path != "":
-		if "http://" in category_path or "www." in category_path:
-			printpoint = printpoint + "5"
-			returned = category_path
-			#valid = urlcheck(value, ping=False)
-		elif os.path.exists(category_path):
+	if custom != "":
+		valid = urlcheck(custom, ping=False, timeout=1)
+		if 'ok' in valid:
 			printpoint = printpoint + "7"
-			category_path = os.path.join(xbmc.translatePath(category_path).decode("utf-8"))
-			try: category_path.encode('utf-8')
-			except: pass
-			returned = category_path
+			returned = custom
+	if returned == "":
+		if category == 100: category_path = Fanart_Custom100
+		elif category == 101: category_path = Fanart_Custom101
+		elif category == 102: category_path = Fanart_Custom102
+		elif category == 103: category_path = Fanart_Custom103
+		elif category == 104: category_path = Fanart_Custom104
+		elif category == 105: category_path = Fanart_Custom105
+		elif category == 106: category_path = Fanart_Custom106
+		elif category == 107: category_path = Fanart_Custom107
+		elif category == 108: category_path = Fanart_Custom108
+		elif category == 109: category_path = Fanart_Custom109
+		elif category == 110: category_path = Fanart_Custom110
+		elif category == 111: category_path = Fanart_Custom111
+		elif category == 112: category_path = Fanart_Custom112
+		elif category == 113: category_path = Fanart_Custom113
+		elif category == 114: category_path = Fanart_Custom114
+		elif category == 115: category_path = Fanart_Custom115
+		elif category == 116: category_path = Fanart_Custom116
+		elif category == 117: category_path = Fanart_Custom117
+		elif category == 118: category_path = Fanart_Custom118
+		elif category == 119: category_path = Fanart_Custom119
+		elif category == 120: category_path = Fanart_Custom120
+		elif category == 121: category_path = Fanart_Custom121
+		elif category == 122: category_path = Fanart_Custom122
+		elif category == 123: category_path = Fanart_Custom123
+		elif category == 124: category_path = Fanart_Custom124
+		elif category == 125: category_path = Fanart_Custom125
+		elif category == 126: category_path = Fanart_Custom126
+		elif category == 127: category_path = Fanart_Custom127
+		elif category == 128: category_path = Fanart_Custom128
+		elif category == 129: category_path = Fanart_Custom129
+		elif category == 130: category_path = Fanart_Custom130
+		
+		else:
+			try:
+				if "Custom_Playlist" in category:
+					if category == "Custom_Playlist1": category_path = Custom_Playlist1_Fanart
+					elif category == "Custom_Playlist2": category_path = Custom_Playlist2_Fanart
+					elif category == "Custom_Playlist3": category_path = Custom_Playlist3_Fanart
+					elif category == "Custom_Playlist4": category_path = Custom_Playlist4_Fanart
+					elif category == "Custom_Playlist5": category_path = Custom_Playlist5_Fanart
+					elif category == "Custom_Playlist6": category_path = Custom_Playlist6_Fanart
+					elif category == "Custom_Playlist7": category_path = Custom_Playlist7_Fanart
+					elif category == "Custom_Playlist8": category_path = Custom_Playlist8_Fanart
+					elif category == "Custom_Playlist9": category_path = Custom_Playlist9_Fanart
+					elif category == "Custom_Playlist10": category_path = Custom_Playlist10_Fanart
+					else: printpoint = printpoint + "8"
+			except Exception, TypeError:
+				extra = extra + newline + "TypeError" + space2 + str(TypeError)
+				printpoint = printpoint + "8"
+	
+	
+		if category_path != "":
+			if "http://" in category_path or "www." in category_path:
+				printpoint = printpoint + "5"
+				returned = category_path
+				#valid = urlcheck(value, ping=False)
+			elif os.path.exists(category_path):
+				printpoint = printpoint + "7"
+				category_path = os.path.join(xbmc.translatePath(category_path).decode("utf-8"))
+				try: category_path.encode('utf-8')
+				except: pass
+				returned = category_path
+			else:
+				printpoint = printpoint + "9"
 		else:
 			printpoint = printpoint + "9"
-	else:
-		printpoint = printpoint + "9"
 			
 	if "9" in printpoint or "8" in printpoint:
 		try:
@@ -2407,7 +2483,7 @@ def pluginend(admin):
 	elif mode == 1:
 		pass
 	elif mode == 2:
-		pass
+		LocalSearch(mode, name, url, iconimage, desc, num, viewtype)
 	elif mode == 3:
 		YoutubeSearch(name, url, desc, viewtype)
 	elif mode == 4:

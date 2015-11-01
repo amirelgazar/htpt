@@ -709,6 +709,7 @@ def doFix_2(printpoint):
 	addonsL.append('plugin.video.howstuffworks_com-2.0.4')
 	addonsL.append('plugin.video.GoProCamera')
 	addonsL.append('plugin.video.MikeysKaraoke')
+	#addonsL.append('plugin.video.p2p-streams')
 	addonsL.append('plugin.video.testtube')
 	addonsL.append('plugin.video.the666sicco')
 	addonsL.append('repository.pulsarunofficial')
@@ -721,7 +722,6 @@ def doFix_2(printpoint):
 	#addonsL.append('script.module.pil')
 	#addonsL.append('script.module.simple.downloader')
 	#addonsL.append('script.module.TheYid.common')
-	#addonsL.append('script.module.unidecode')
 	#addonsL.append('script.module.youtube.dl')
 	#addonsL.append('script.toolbox')
 	'''---------------------------'''
@@ -730,12 +730,13 @@ def doFix_2(printpoint):
 		pass
 		#addonsL.append('plugin.program.advanced.launcher')
 		#addonsL.append('script.htpt.emu')
-		#addonsL.append('plugin.video.p2p-streams')
 		'''---------------------------'''
 		
 	'''---------------------------'''
 	removeaddons(addonsL,"12")
 	'''---------------------------'''
+	movefiles(os.path.join(addons_path, 'script.skin.helper.service-master'), os.path.join(addons_path, 'script.skin.helper.service'))
+	movefiles(os.path.join(addons_path, 'script.skinshortcuts-master'), os.path.join(addons_path, 'script.skinshortcuts'))
 	
 	#setSkinSetting("1",'YouTube.23',"true")
 	'''---------------------------'''
@@ -836,7 +837,7 @@ def Execute_Fix(admin, Fix_Done, Fix_L, Fix_1, Fix_2, Fix_3, Fix_4, Fix_5, Fix_6
 				---REMOVE-ADDONS-----------------
 				------------------------------'''
 				doFix_2(printpoint2)
-				dialogok(str78986.encode('utf-8') + '[CR]' + '[COLOR=Yellow]' + str74555.encode('utf-8') + '[/COLOR]', '$LOCALIZE[78989]', "", '$LOCALIZE[78984]')
+				dialogok(str78986.encode('utf-8') + '[CR]' + '[COLOR=Yellow]' + localize(74555) + '[/COLOR]', '$LOCALIZE[78989]', "", '$LOCALIZE[78984]')
 				Fix_Done = Fix_Done + space4 + 'Fix_2'
 				setsetting_custom1('service.htpt.fix','Fix_2',"false")
 				#setsetting('Fix_2',"false")
@@ -846,7 +847,7 @@ def Execute_Fix(admin, Fix_Done, Fix_L, Fix_1, Fix_2, Fix_3, Fix_4, Fix_5, Fix_6
 				---SET-FILES-AND-FOLDERS---------
 				------------------------------'''
 				doFix_3(printpoint2)
-				dialogok(str78986.encode('utf-8') + '[CR]' + '[COLOR=Yellow]' + str74552.encode('utf-8') + '[/COLOR]', '$LOCALIZE[78989]', "", '$LOCALIZE[78984]')
+				dialogok(str78986.encode('utf-8') + '[CR]' + '[COLOR=Yellow]' + localize(74552) + '[/COLOR]', '$LOCALIZE[78989]', "", '$LOCALIZE[78984]')
 				Fix_Done = Fix_Done + space4 + 'Fix_3'
 				setsetting_custom1('service.htpt.fix','Fix_3',"false")
 				'''---------------------------'''

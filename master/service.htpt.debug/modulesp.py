@@ -758,7 +758,7 @@ def getAll(mode):
 	
 	'''---------------------------'''
 	return subject, content, file
-	
+
 def SendDebug(mode, subject, content, file):
 	printpoint = "" ; TypeError = "" ; TypeError2 = ""
 	admin = xbmc.getInfoLabel('Skin.HasSetting(Admin)')

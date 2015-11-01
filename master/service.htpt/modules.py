@@ -20,8 +20,9 @@ def doAutoShutdown(admin, Time_Shutdown, Time_DelayN):
 		if Time_Shutdown == "0":
 			addon = 'script.htpt.smartbuttons'
 			if xbmc.getCondVisibility('System.HasAddon('+ addon +')'):
-				if not systemplatformwindows: xbmc.executebuiltin('RunScript(script.htpt.smartbuttons,,?mode=53)')
-				else: xbmc.executebuiltin('RunScript(script.htpt.smartbuttons,,?mode=52)')
+				if systemplatformwindows or systemplatformandroid: xbmc.executebuiltin('RunScript(script.htpt.smartbuttons,,?mode=52)')
+				else: xbmc.executebuiltin('RunScript(script.htpt.smartbuttons,,?mode=53)')
+ 
 			if playerhasmedia: xbmc.executebuiltin('Action(Stop)')
 			xbmc.sleep(5000)
 			scripthtptdebug_General_ScriptON = getsetting_scripthtptdebug('General_ScriptON')
@@ -249,31 +250,42 @@ def connectioncheck(admin, admin2, count, systemidle3, Ping_Now, Ping_Connected)
 	
 	if Ping_Connected != "true" and (not count in count10 or count == 0):
 		if Ping_Now == 'None':
-			setSkinSetting("1","Connected","true")
-			setSkinSetting("1","Connected2","true")
-			setSkinSetting("1","Connected3","true")
+			if networkipaddress == "" or networkipaddress == None:
+				setSkinSetting("1","Connected2","false")
+				setSkinSetting("1","Connected3","false")
+			else:
+				setSkinSetting("1","Connected2","true")
+				setSkinSetting("1","Connected3","true")
+			
+			if "169.254." in networkipaddress:
+				setSkinSetting("1","Connected","false")
+			else:
+				setSkinSetting("1","Connected","true")
+			
 		printpoint = printpoint + "9"
 	else: pass
-	
-	#if not netsettingsbutton:
 	
 	if ((count in count10 or count == 0) or mainwindow or ((not connected and (connected2 or connected3)) or (connected and not connected2 and not connected3))) and not "9" in printpoint:
 		'''------------------------------
 		---Connected2-(WLAN)-------------
 		------------------------------'''
-		if systemplatformwindows: output = terminal('netsh wlan show interfaces',"Connected2")
-		elif systemplatformlinux or systemplatformlinuxraspberrypi or systemplatformandroid: output = terminal('ifconfig wlan0',"Connected2")
+		if systemplatformandroid:
+			output = terminal('ifconfig wlan0',"Connected2")
+		elif systemplatformwindows: output = terminal('netsh wlan show interfaces',"Connected2")
+		elif systemplatformlinux or systemplatformlinuxraspberrypi: output = terminal('ifconfig wlan0',"Connected2")
 		else: output = terminal('ifconfig wlan0',"Connected2")
 		
 		if networkipaddress != "" and networkipaddress != None and not "169.254." in networkipaddress:
-			if systemplatformlinux or systemplatformlinuxraspberrypi:
+			if systemplatformandroid:
+				if not "Cannot assign" in output and "up broadcast" in output: printpoint = printpoint + "1"
+				elif output == "": printpoint = printpoint + "Q"
+			elif systemplatformlinux or systemplatformlinuxraspberrypi:
 				if not "packets:0" in output and "inet addr" in output: printpoint = printpoint + "1"			
 			elif systemplatformwindows:
 				if not "disconnected" in output and "connected" in output: printpoint = printpoint + "1"
 				elif "disconnected" in output: printpoint = printpoint + "2"
 				elif "netsh" in output and "is not recognized" in output: printpoint = printpoint + "Q"
-			elif systemplatformandroid:
-				if not "Cannot assign" in output and "up broadcast" in output: printpoint = printpoint + "1"
+			else: printpoint = printpoint + "1"
 				
 		else: printpoint = printpoint + "2"
 		
@@ -283,8 +295,7 @@ def connectioncheck(admin, admin2, count, systemidle3, Ping_Now, Ping_Connected)
 			#if not connected2: xbmc.executebuiltin('Skin.ToggleSetting(Connected2)')
 		elif "Q" in printpoint:
 			'''DEMI CONNECTED'''
-			pass
-			#if not connected2: xbmc.executebuiltin('Skin.ToggleSetting(Connected2)')
+			if not connected2: xbmc.executebuiltin('Skin.ToggleSetting(Connected2)')
 		else:
 			'''NOT CONNECTED'''
 			setSkinSetting('1','Connected2','false')
@@ -293,20 +304,21 @@ def connectioncheck(admin, admin2, count, systemidle3, Ping_Now, Ping_Connected)
 		'''------------------------------
 		---Connected3-(LAN)--------------
 		------------------------------'''
-		if systemplatformwindows: output = terminal('netsh lan show interfaces',"Connected3")
-		elif systemplatformlinux or systemplatformlinuxraspberrypi or systemplatformandroid: output = terminal('ifconfig eth0',"Connected2")
+		if systemplatformandroid: output = terminal('ifconfig eth0',"Connected2")
+		elif systemplatformwindows: output = terminal('netsh lan show interfaces',"Connected3")
+		elif systemplatformlinux or systemplatformlinuxraspberrypi: output = terminal('ifconfig eth0',"Connected2")
 		else: output = terminal('ifconfig eth0',"Connected2")
 		
-		if networkipaddress != "" and not "169.254." in networkipaddress:
-			if systemplatformlinux or systemplatformlinuxraspberrypi:
+		if networkipaddress != "" and networkipaddress != None and not "169.254." in networkipaddress:
+			if systemplatformandroid:
+				if not "down broadcast" in output and "up broadcast" in output: printpoint = printpoint + "3"
+				else: printpoint = printpoint + "Q"
+			elif systemplatformlinux or systemplatformlinuxraspberrypi:
 				if not "packets:0" in output and "inet addr" in output: printpoint = printpoint + "3"
 			elif systemplatformwindows:
 				if ("Enabled" in output and "Wired LAN" in output) or "is not running" in output: printpoint = printpoint + "3"
 				elif "disconnected" in output: printpoint = printpoint + "4"
 				elif "netsh" in output and "is not recognized" in output: printpoint = printpoint + "Q"
-			elif systemplatformandroid:
-				if not "down broadcast" in output and "up broadcast" in output: printpoint = printpoint + "3"
-				else: printpoint = printpoint + "Q"
 			else: printpoint = printpoint + "Q"
 		
 		else: printpoint = printpoint + "4"
@@ -327,65 +339,66 @@ def connectioncheck(admin, admin2, count, systemidle3, Ping_Now, Ping_Connected)
 		'''------------------------------
 		---Connected-(INTERNET)----------
 		------------------------------'''
-		if connected and (count in count10):
-			if systemplatformwindows: output = terminal('ping en.wikipedia.org -n 1',"Connected")
-			elif systemplatformlinux or systemplatformlinuxraspberrypi: output = terminal('ping -W 1 -w 1 -4 -q en.wikipedia.org',"Connected")
-			elif systemplatformandroid: output = terminal('ping -W 1 -w 1 -c 1 en.wikipedia.org',"Connected")
-			else: output = ""
-		else:
-			if systemplatformwindows: output = terminal('ping www.google.co.il -n 1',"Connected")
-			elif systemplatformlinux or systemplatformlinuxraspberrypi: output = terminal('ping -W 1 -w 1 -4 -q www.google.co.il',"Connected")
-			elif systemplatformandroid: output = terminal('ping -W 1 -w 1 -c 1 www.google.co.il',"Connected")
-			else: output = ""
-			
-		if output != "" and not "could not find" in output and not "Netwok is unreachable" in output:
-			if systemplatformlinux or systemplatformlinuxraspberrypi:
-				if "1 packets received" in output or not "100% packet loss" in output: printpoint = printpoint + "5"			
-			elif systemplatformwindows:
-				if "Received = 1" in output or not "100% loss" in output: printpoint = printpoint + "5"
-			elif systemplatformandroid:
-				if not "down broadcast" in output and "up broadcast" in output: printpoint = printpoint + "5"
-		else:
-			printpoint = printpoint + "Z"
-			#extra = extra + newline + "output" + space2 + str(output)
-			
-		if not "5" in printpoint and not "6" in printpoint:
-			'''Try another host'''
-			if systemplatformwindows: output = terminal('ping www.facebook.com -n 1',"Connected")
-			elif systemplatformlinux or systemplatformlinuxraspberrypi: output = terminal('ping -W 1 -w 1 -4 -q www.facebook.com',"Connected")
-			elif systemplatformandroid: output = terminal('ping -W 1 -w 1 -c 1 www.facebook.com',"Connected")
-			else: output = ""
-			
+		if not "Q" in printpoint:
+			if connected and (count in count10):
+				if systemplatformwindows: output = terminal('ping en.wikipedia.org -n 1',"Connected")
+				elif systemplatformlinux or systemplatformlinuxraspberrypi: output = terminal('ping -W 1 -w 1 -4 -q en.wikipedia.org',"Connected")
+				elif systemplatformandroid: output = terminal('ping -W 1 -w 1 -c 1 en.wikipedia.org',"Connected")
+				else: output = ""
+			else:
+				if systemplatformwindows: output = terminal('ping www.google.co.il -n 1',"Connected")
+				elif systemplatformlinux or systemplatformlinuxraspberrypi: output = terminal('ping -W 1 -w 1 -4 -q www.google.co.il',"Connected")
+				elif systemplatformandroid: output = terminal('ping -W 1 -w 1 -c 1 www.google.co.il',"Connected")
+				else: output = ""
+				
 			if output != "" and not "could not find" in output and not "Netwok is unreachable" in output:
 				if systemplatformlinux or systemplatformlinuxraspberrypi:
-					if "1 packets received" in output or not "100% packet loss" in output: printpoint = printpoint + "5"
-					elif "bad address" in output or output == None: printpoint = printpoint + "6"
+					if "1 packets received" in output or not "100% packet loss" in output: printpoint = printpoint + "5"			
 				elif systemplatformwindows:
 					if "Received = 1" in output or not "100% loss" in output: printpoint = printpoint + "5"
 				elif systemplatformandroid:
 					if not "down broadcast" in output and "up broadcast" in output: printpoint = printpoint + "5"
-			elif output != "" and "Q" in printpoint: pass
-			else: printpoint = printpoint + "6"
-		
-		if "5" in printpoint:
-			'''CONNECTED'''
-			setSkinSetting('1','Connected','true')
-			if not connected: printpoint = printpoint + "_UP_"
-			else: printpoint = printpoint + "7"
-		elif "6" in printpoint:
-			'''NOT CONNECTED'''
-			setSkinSetting('1','Connected','false')
-			if connected: printpoint = printpoint + "_DOWN_"
-			printpoint = printpoint + "9"
-		else:
-			'''SEMI CONNECTED'''
-			printpoint = printpoint + "Q"
+			else:
+				printpoint = printpoint + "Z"
+				#extra = extra + newline + "output" + space2 + str(output)
+				
+			if not "5" in printpoint and not "6" in printpoint:
+				'''Try another host'''
+				if systemplatformwindows: output = terminal('ping www.facebook.com -n 1',"Connected")
+				elif systemplatformlinux or systemplatformlinuxraspberrypi: output = terminal('ping -W 1 -w 1 -4 -q www.facebook.com',"Connected")
+				elif systemplatformandroid: output = terminal('ping -W 1 -w 1 -c 1 www.facebook.com',"Connected")
+				else: output = ""
+				
+				if output != "" and not "could not find" in output and not "Netwok is unreachable" in output:
+					if systemplatformlinux or systemplatformlinuxraspberrypi:
+						if "1 packets received" in output or not "100% packet loss" in output: printpoint = printpoint + "5"
+						elif "bad address" in output or output == None: printpoint = printpoint + "6"
+					elif systemplatformwindows:
+						if "Received = 1" in output or not "100% loss" in output: printpoint = printpoint + "5"
+					elif systemplatformandroid:
+						if not "down broadcast" in output and "up broadcast" in output: printpoint = printpoint + "5"
+				elif output != "" and "Q" in printpoint: pass
+				else: printpoint = printpoint + "6"
+			
+			if "5" in printpoint:
+				'''CONNECTED'''
+				setSkinSetting('1','Connected','true')
+				if not connected: printpoint = printpoint + "_UP_"
+				else: printpoint = printpoint + "7"
+			elif "6" in printpoint:
+				'''NOT CONNECTED'''
+				setSkinSetting('1','Connected','false')
+				if connected: printpoint = printpoint + "_DOWN_"
+				printpoint = printpoint + "9"
+			else:
+				'''SEMI CONNECTED'''
+				printpoint = printpoint + "Q"
 
-		'''---------------------------'''
-		'''1 packets transmitted, 0 packets received, 100% packet loss'''
-		'''1 packets transmitted, 1 packets received, 0% packet loss
-		   round-trip min/avg/max = 70.325/70.325/70.325 ms'''
-		'''---------------------------'''
+			'''---------------------------'''
+			'''1 packets transmitted, 0 packets received, 100% packet loss'''
+			'''1 packets transmitted, 1 packets received, 0% packet loss
+			   round-trip min/avg/max = 70.325/70.325/70.325 ms'''
+			'''---------------------------'''
 
 		if not "9" in printpoint and not "Q" in printpoint:
 			'''------------------------------
@@ -539,14 +552,14 @@ def setSkin_Name(Skin_Name):
 	'''---------------------------'''
 	return Skin_Name2
 	
-def setTime_Delay(admin, admin2, Time_Delay, count, systemidle3, playerhasvideo, playerhasmedia, playerpaused, performance):
+def setTime_Delay(admin, admin2, Time_Delay, count, systemidle3, playerhasvideo, playerhasmedia, playerpaused, performance, Ping_Connected):
 	#from variable import A10
 	
 	if count in A10:
 		name = 'setTime_Delay' ; Time_Delay2 = Time_Delay ; playerfilename = xbmc.getInfoLabel('Player.Filename')
 		
-		if performance: value = 20
-		else: value = 10
+		if performance or Ping_Connected == 'false': value = 100
+		else: value = 20
 		
 		if not systemidle3:
 			setsetting('Time_Delay', "0")
@@ -745,7 +758,7 @@ def setSkin_UpdateLog(admin, Skin_Version, Skin_UpdateDate, datenowS, Skin_Name)
 			message3S = str(message3)
 			if header != "": diaogtextviewer(header, message2)
 			'''---------------------------'''
-			setSkinSetting("0", 'MessagesChangeLog', message3S)
+			#setSkinSetting("0", 'MessagesChangeLog', message3S)
 			setsetting('Skin_UpdateLog',"false")
 			'''---------------------------'''
 			
@@ -757,7 +770,7 @@ def setSkin_UpdateLog(admin, Skin_Version, Skin_UpdateDate, datenowS, Skin_Name)
 	'''---------------------------'''
 
 def startup(admin):
-	xbmc.sleep(5000)
+	xbmc.sleep(5500)
 	
 	if os.path.exists(skin_path) and xbmc.getCondVisibility('System.HasAddon(skin.htpt)'):
 		from shared_modules4 import *

@@ -14,7 +14,7 @@
 		
 		<setting type="lsep" label=""/>
 		<setting id="General_ScriptON" type="bool" default="false" label="General_ScriptON" visible="false"/>
-		<setting id="General_Timer" type="text" default="" label="Timer" visible="false"/>
+		<setting id="General_Timer" type="text" default="" label="General_Timer" visible="false"/>
 		<setting id="Time_Delay" type="text" default="0" label="Time_Delay" visible="false"/>
 		<setting id="Time_Start" type="text" default="0" label="Time_Start" visible="false"/>
 		<setting id="Time_Pass" type="text" default="0" label="Time_Pass" visible="false"/>

@@ -327,7 +327,8 @@ elif mode == 11:
 	'''------------------------------
 	---autoshutdown------------------
 	------------------------------'''
-	dialogok(localize(79532), localize(79533), localize(79534), "")
+	if systemplatformwindows or systemplatformandroid: dialogok(localize(79532), localize(79533), localize(79534), "")
+	else: dialogok(localize(79532), localize(79537), localize(79534), "")
 	'''---------------------------'''
 	
 elif mode == 12:

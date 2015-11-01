@@ -22,6 +22,11 @@ systemplatformwindows = xbmc.getCondVisibility('System.Platform.Windows')
 systemplatformlinux = xbmc.getCondVisibility('System.Platform.Linux')
 systemplatformlinuxraspberrypi = xbmc.getCondVisibility('System.Platform.Linux.RaspberryPi')
 systemplatformandroid = xbmc.getCondVisibility('System.Platform.Android')
+
+if systemplatformandroid:
+	pass
+	from shared_subprocess import *
+	
 systemplatformosx = xbmc.getCondVisibility('System.Platform.OSX')
 systemplatformios = xbmc.getCondVisibility('System.Platform.IOS')
 
@@ -41,8 +46,9 @@ gh1 = 'https://github.com/'
 gh2 = 'htpthtpt/htpt/raw/master/'
 gh3 = 'xbmc-adult/xbmc-adult/raw/ghmaster/'
 gh4 = 'cubicle-vdo/xbmc-israel/raw/master/repo/'
+gh10 = 'https://offshoregit.com/'
+gh11 = 'xbmchub/xbmc-hub-repo/raw/master/'
 '''---------------------------'''
-
 
 
 
@@ -81,6 +87,7 @@ if xbmc.getCondVisibility('System.HasAddon('+ addon +')'):
 	setsetting_scripthtptsmartbuttons         = xbmcaddon.Addon(addon).setSetting
 	'''---------------------------'''
 	scripthtptsmartbuttons_General_ScriptON = getsetting_scripthtptsmartbuttons('General_ScriptON')
+	scripthtptsmartbuttons_General_Terminal = getsetting_scripthtptsmartbuttons('General_Terminal')
 	scripthtptsmartbuttonsLibraryData_LocalMoviesFiles = getsetting_scripthtptsmartbuttons('LibraryData_LocalMoviesFiles')
 	scripthtptsmartbuttonsLibraryData_LocalTvshowsFiles = getsetting_scripthtptsmartbuttons('LibraryData_LocalTvshowsFiles')
 	'''---------------------------'''
@@ -88,6 +95,7 @@ else:
 	scripthtptsmartbuttonsLibraryData_LocalMoviesFiles = "0"
 	scripthtptsmartbuttonsLibraryData_LocalTvshowsFiles = "0"
 	scripthtptsmartbuttons_General_ScriptON = ""
+	scripthtptsmartbuttons_General_Terminal = "true"
 	'''---------------------------'''
 	
 addon = 'script.htpt.install'
@@ -416,7 +424,7 @@ mainwindowW = xbmc.getCondVisibility('Window.IsVisible(mainWindow.xml)') #OpenEL
 mypicsW = xbmc.getCondVisibility('Window.IsVisible(MyPics.xml)')
 myprogramsW = xbmc.getCondVisibility('Window.IsVisible(MyPrograms.xml)')
 mymusicnavW = xbmc.getCondVisibility('Window.IsVisible(MyMusicNav.xml)')
-myvideonavW = xbmc.getCondVisibility('Window.IsVisible(MyVideoNav.xml)')
+HomeW = xbmc.getCondVisibility('Window.IsVisible(Home.xml)')
 myweatherW = xbmc.getCondVisibility('Window.IsVisible(MyWeather.xml)')
 videoosdW = xbmc.getCondVisibility('Window.IsVisible(VideoOSD.xml)')
 videoosdsettingsW = xbmc.getCondVisibility('Window.IsVisible(VideoOSDSettings.xml)')
@@ -811,6 +819,8 @@ guisettings_file = os.path.join(userdata_path, 'guisettings.xml')
 guisettings2_file = os.path.join(skin_userdata_path, 'guisettings.xml')
 guisettings3_file = os.path.join(skin_userdata_path, 'guisettings2.xml')
 guisettings4_file = os.path.join(skin_userdata_path, 'guisettings_.xml')
+guikeepersh_file = os.path.join(htptservice_path, 'specials', 'scripts', 'guikeeper.sh')
+guikeepertxt_file = os.path.join(home_path, 'guikeeper.txt')
 '''---------------------------'''
 
 '''------------------------------
@@ -841,7 +851,8 @@ if xbmc.getSkinDir() == 'skin.htpt':
 	topvideoinformation4var = xbmc.getInfoLabel('$VAR[TopVideoInformation4]') #Poster+
 	topvideoinformation5var = xbmc.getInfoLabel('$VAR[TopVideoInformation5]') #Plot
 	topvideoinformation6var = xbmc.getInfoLabel('$VAR[TopVideoInformation6]') #Genre
-	topvideoinformation7var = xbmc.getInfoLabel('$VAR[TopVideoInformation7]') #Tag+
+	try: topvideoinformation7var = xbmc.getInfoLabel('$VAR[TopVideoInformation7]') #Tag+
+	except Exception, TypeError: print printfirst + "shared_variables_TypeError:" + str(TypeError)
 	topvideoinformation8var = xbmc.getInfoLabel('$VAR[TopVideoInformation8]') #Title
 	topvideoinformation9var = xbmc.getInfoLabel('$VAR[TopVideoInformation9]') #Episode Thumb
 	'''---------------------------'''
@@ -922,7 +933,6 @@ if xbmc.getSkinDir() == 'skin.htpt':
 	str74549 = xbmc.getInfoLabel('$LOCALIZE[74549]').decode('utf-8') #
 	str74550 = xbmc.getInfoLabel('$LOCALIZE[74550]').decode('utf-8') #Add %s to library
 	str74551 = xbmc.getInfoLabel('$LOCALIZE[74551]').decode('utf-8') #
-	str74552 = xbmc.getInfoLabel('$LOCALIZE[74552]').decode('utf-8') #
 	str74553 = xbmc.getInfoLabel('$LOCALIZE[74553]').decode('utf-8') #Unlocking device
 	str74554 = xbmc.getInfoLabel('$LOCALIZE[74554]').decode('utf-8') #Reset skin settings
 	str75209 = xbmc.getInfoLabel('$LOCALIZE[75209]').decode('utf-8') #Test the fix by adding %s to the library (search/add + menu button)
@@ -1108,7 +1118,7 @@ controlhasfocus699 = ""
 '''------------------------------
 ---CONTROL-----------------------
 ------------------------------'''
-autoplaypausebutton = (xbmc.getCondVisibility('Window.IsVisible(Home.xml)') and xbmc.getCondVisibility('Control.HasFocus(9093)')) or (xbmc.getCondVisibility('Window.IsVisible(MyVideoNav.xml)') and xbmc.getCondVisibility('Control.HasFocus(111)'))
+autoplaypausebutton = (xbmc.getCondVisibility('Window.IsVisible(Home.xml)') and xbmc.getCondVisibility('Control.HasFocus(9093)')) or (xbmc.getCondVisibility('Window.IsVisible(Home.xml)') and xbmc.getCondVisibility('Control.HasFocus(111)'))
 subtitleosdbutton = xbmc.getCondVisibility('Control.HasFocus(703)') #subtitleosdbutton
 volumeosdbutton = xbmc.getCondVisibility('Control.HasFocus(707)') #volumeosdbutton
 
