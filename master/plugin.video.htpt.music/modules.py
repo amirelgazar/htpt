@@ -53,8 +53,6 @@ def CATEGORIES100(admin):
 	'''רשימת השמעה 10'''
 	if Custom_Playlist10_ID != "": addDir(Custom_Playlist10_Name,Custom_Playlist10_ID,18,Custom_Playlist10_Thumb,Custom_Playlist10_Description,'10',50, getAddonFanart("Custom_Playlist10"))
 	
-	addDir('easy-listening-love-songs-bellads',templates2_path + 'easy-listening-love-songs-bellads.txt',2,'','','1',50, getAddonFanart("")) #TEST
-	
 def CATEGORIES101(admin):
 	'''------------------------------
 	---Israeli-Music-----------------
@@ -375,16 +373,7 @@ def CATEGORIES104(admin):
 	'''אייל גולן'''
 	list = []
 	list.append('&youtube_se='+commonsearch+'')
-	list.append('&youtube_id=81Vh9FriKfc')
-	list.append('&youtube_pl=PLB781B8A94339CC67')
-	list.append('&youtube_id=RqLn1vCQVMo')
-	list.append('&youtube_id=fTTsZ1OGZV8')
-	list.append('&youtube_id=hqnv8qVOqLY')
-	list.append('&youtube_id=9GdWNAXvd0g')
-	list.append('&youtube_id=uhDjEYmF-oo')
-	list.append('&youtube_pl=PL2l4T5NjtOsrGnFacKHUc1m7F1Kojuisq')
-	list.append('&youtube_id=bI85XpkVTHg')
-	addDir(addonString(10103).encode('utf-8'),list, + \
+	addDir(addonString(10103).encode('utf-8'),['&youtube_id=81Vh9FriKfc', '&youtube_pl=PLB781B8A94339CC67', '&youtube_id=RqLn1vCQVMo', '&youtube_id=fTTsZ1OGZV8', '&youtube_id=hqnv8qVOqLY', '&youtube_id=9GdWNAXvd0g', '&youtube_id=uhDjEYmF-oo', '&youtube_pl=PL2l4T5NjtOsrGnFacKHUc1m7F1Kojuisq', '&youtube_id=bI85XpkVTHg'], + \
 	17,'http://www.atzuma.co.il/uploaded/13112175e8e2be3e53e7dc74153479b3a0c726.jpg',addonString(101030).encode('utf-8'),'1',"", getAddonFanart(background))
 	
 	'''איתי לוי'''
@@ -615,156 +604,164 @@ def CATEGORIES111(admin):
 	'''הכל'''
 	addDir(localize(593),'UC-9-kyTW8ZkZNDHQJ6FgpwQ',9,"http://markharai.com/wp-content/uploads/2010/11/megaphone.png.scaled980-300x300.png","",'1',"", getAddonFanart(background))
 	
-	'''מייקל ג'קסון'''
-	addDir(addonString(11101).encode('utf-8'),'plugin://plugin.video.youtube/channel/UCulYu1HEIa7f70L2lYZWHOw/',8,"http://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Michael_Jackson_in_1988.jpg/375px-Michael_Jackson_in_1988.jpg",addonString(111010).encode('utf-8'),'1',"", getAddonFanart(background))
+	'''Ariana Grande'''	
+	if admin: addDir(addonString(11105).encode('utf-8'),'ArianaGrandeVevo',9,"https://yt3.ggpht.com/-u_W-R7bGk1c/AAAAAAAAAAI/AAAAAAAAAAA/u6lamzb3BPc/s100-c-k-no/photo.jpg",addonString(111050).encode('utf-8'),'1',"", getAddonFanart(background))
 	
-	'''ביונסה'''
-	addDir(addonString(11102).encode('utf-8'),'beyonceVEVO',9,"https://yt3.ggpht.com/-wMF30gprRJ8/AAAAAAAAAAI/AAAAAAAAAAA/Va4UZN_Vnw8/s100-c-k-no/photo.jpg",addonString(111020).encode('utf-8'),'1',"", getAddonFanart(background))
+	'''Aretha Franklin'''
+	list = []
+	list.append('&youtube_ch=ArethaFranklinVEVO')
+	list.append('&youtube_pl=-aVCoKV6XpVJ8U1wNNOkbo6BzgCdf83m')
+	addDir(addonString(11126).encode('utf-8'),list,17,"http://sandiegofreepress.org/wp-content/uploads/2013/01/ARETHA-FRANKLIN-QUEEN-OF-SOUL.jpg",addonString(111260).encode('utf-8'),'1',"", getAddonFanart(background))
 	
-	'''ריהאנה'''
-	addDir(addonString(11103).encode('utf-8'),'RihannaVEVO',9,"https://yt3.ggpht.com/-7iKcy1xQesU/AAAAAAAAAAI/AAAAAAAAAAA/AqQs92Q0Y8w/s100-c-k-no/photo.jpg",addonString(111030).encode('utf-8'),'1',"", getAddonFanart(background))
+	'''Beyonce'''
+	addDir(addonString(11102).encode('utf-8'),'beyonceVEVO',9,"http://factmag-images.s3.amazonaws.com/wp-content/uploads/2013/05/beyonce-5.13.20132.jpg",addonString(111020).encode('utf-8'),'1',"", getAddonFanart(background))
 	
-	'''טיילור סוויפט'''
-	addDir(addonString(11104).encode('utf-8'),'TaylorSwiftVEVO',9,"http://upload.wikimedia.org/wikipedia/he/5/58/Taylor_Swift_-_Taylor_Swift_Album_Cover.png",addonString(111040).encode('utf-8'),'1',"", getAddonFanart(background))
+	'''Bob Marley'''
+	addDir(addonString(11122).encode('utf-8'),'plugin://plugin.video.youtube/channel/UCbvZKpr1g-6S0QuP4OmCabw/',8,"http://imgc.allpostersimages.com/images/P-473-488-90/65/6544/ATK4100Z/posters/bob-marley-colors.jpg/300px-Bob-Marley-in-Concert_Zurich_05-30-80.jpg",addonString(111220).encode('utf-8'),'1',"", getAddonFanart(background))
 	
-	'''אריאנה גרנדה'''
-	addDir(addonString(11105).encode('utf-8'),'ArianaGrandeVevo',9,"https://yt3.ggpht.com/-u_W-R7bGk1c/AAAAAAAAAAI/AAAAAAAAAAA/u6lamzb3BPc/s100-c-k-no/photo.jpg",addonString(111050).encode('utf-8'),'1',"", getAddonFanart(background))
+	'''Bob Dylan'''
+	addDir(addonString(11123).encode('utf-8'),'plugin://plugin.video.youtube/channel/UCBqkojCXby4zGkWX86FEY7Q/',8,"http://www.rockbandaide.com/wp-content/uploads/2014/02/Bob-Dylan-Times-are-Changing-C10113356.jpg",addonString(111230).encode('utf-8'),'1',"", getAddonFanart(background))
 	
-	'''קייט פרי'''
-	addDir(addonString(11106).encode('utf-8'),'KatyPerryVEVO',9,"http://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Katy_Perry_NRJ_2014_3.jpg/375px-Katy_Perry_NRJ_2014_3.jpg",addonString(111060).encode('utf-8'),'1',"", getAddonFanart(background))
+	'''Bruno Marc'''
+	if admin: addDir(addonString(11128).encode('utf-8'),'ElektraRecords',9,"https://yt3.ggpht.com/-Ymp7v1ycCBA/AAAAAAAAAAI/AAAAAAAAAAA/-R7WfWSAkag/s100-c-k-no/photo.jpg",addonString(111280).encode('utf-8'),'1',"", getAddonFanart(background))
 	
-	'''שקירה'''
-	addDir(addonString(11107).encode('utf-8'),'shakiraVEVO',9,"https://yt3.ggpht.com/-Kcd3KMxoqzw/AAAAAAAAAAI/AAAAAAAAAAA/EvhGpQ4rsh8/s100-c-k-no/photo.jpg",addonString(111070).encode('utf-8'),'1',"", getAddonFanart(background))
-	
-	'''פטיבול'''
-	addDir(addonString(11108).encode('utf-8'),'PitbullVEVO',9,"https://yt3.ggpht.com/-7iKcy1xQesU/AAAAAAAAAAI/AAAAAAAAAAA/AqQs92Q0Y8w/s100-c-k-no/photo.jpg",addonString(111080).encode('utf-8'),'1',"", getAddonFanart(background))
-	
-	'''אנריקה איגלסיאס'''
-	addDir(addonString(11109).encode('utf-8'),'EnriqueIglesiasVEVO',9,"https://yt3.ggpht.com/-qsK10MKa204/AAAAAAAAAAI/AAAAAAAAAAA/pWY83V_O3Rg/s100-c-k-no/photo.jpg",addonString(111090).encode('utf-8'),'1',"", getAddonFanart(background))
-	
-	'''רומאו סנטוס'''
-	addDir(addonString(11110).encode('utf-8'),'RomeoSantosVEVO',9,"https://yt3.ggpht.com/-8GYqAYiRP-Y/AAAAAAAAAAI/AAAAAAAAAAA/-Yiqfr7HCEc/s100-c-k-no/photo.jpg",addonString(111100).encode('utf-8'),'1',"", getAddonFanart(background))
-	
-	'''מדונה'''
-	addDir(addonString(11111).encode('utf-8'),'MADONNAVEVO',9,"http://images.nana10.co.il/upload/mediastock/img/16/0/114/114613.jpg",addonString(111110).encode('utf-8'),'1',"", getAddonFanart(background))
-	
-	'''ריהאנה'''
-	addDir(addonString(11112).encode('utf-8'),'CelineDionVEVO',9,"http://img2.tapuz.co.il/resimg.aspx?&image=/forums/1_164107102.jpg&pw=200",addonString(111120).encode('utf-8'),'1',"", getAddonFanart(background))
-	
-	'''מריה קארי'''
-	addDir(addonString(11113).encode('utf-8'),'MariahCareyVEVO',9,"http://upload.wikimedia.org/wikipedia/commons/thumb/2/21/MariahGMA.jpg/330px-MariahGMA.jpg",addonString(111130).encode('utf-8'),'1',"", getAddonFanart(background))
-	
-	'''ויטני יוסטון'''
-	addDir(addonString(11114).encode('utf-8'),'whitneyhoustonVEVO',9,"https://yt3.ggpht.com/-e9iexwsu5Io/AAAAAAAAAAI/AAAAAAAAAAA/-9c9CTpeeL0/s100-c-k-no/photo.jpg",addonString(111140).encode('utf-8'),'1',"", getAddonFanart(background))
-	
-	'''אשר ריימונד'''
-	addDir(addonString(11115).encode('utf-8'),'UsherVEVO',9,"https://yt3.ggpht.com/-C06mEbaNuu0/AAAAAAAAAAI/AAAAAAAAAAA/jbTafR-3eZs/s100-c-k-no/photo.jpg",addonString(111150).encode('utf-8'),'1',"", getAddonFanart(background))
-	
-	'''כריס בראון'''
-	addDir(addonString(11116).encode('utf-8'),'ChrisBrownVEVO',9,"https://yt3.ggpht.com/-txJgdnOn1Lk/AAAAAAAAAAI/AAAAAAAAAAA/Aa5bxv14OSI/s100-c-k-no/photo.jpg",addonString(111160).encode('utf-8'),'1',"", getAddonFanart(background))
-	
-	'''טריי סונגז'''
-	addDir(addonString(11117).encode('utf-8'),'TreySongzVideos',9,"http://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Trey_Songz_SummerJam.jpg/375px-Trey_Songz_SummerJam.jpg",addonString(111170).encode('utf-8'),'1',"", getAddonFanart(background))
-	
-	'''ג'ניפר לופז'''
-	addDir(addonString(11118).encode('utf-8'),'JenniferLopezVEVO',9,"http://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Jennifer_Lopez_GLAAD_2014.jpg/375px-Jennifer_Lopez_GLAAD_2014.jpg",addonString(111180).encode('utf-8'),'1',"", getAddonFanart(background))
-	
-	'''מארק אנטוני'''
-	addDir(addonString(11119).encode('utf-8'),'marcanthonyVEVO',9,"https://yt3.ggpht.com/-CJIy_bXsp8g/AAAAAAAAAAI/AAAAAAAAAAA/oNaF1LsUhq4/s100-c-k-no/photo.jpg",addonString(111190).encode('utf-8'),'1',"", getAddonFanart(background))
-	
-	'''אלביס פרסלי'''
-	addDir(addonString(11120).encode('utf-8'),'ElvisPresleyVEVO',9,"http://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Elvis_Presley_promoting_Jailhouse_Rock.jpg/375px-Elvis_Presley_promoting_Jailhouse_Rock.jpg",addonString(111200).encode('utf-8'),'1',"", getAddonFanart(background))
-	
-	'''גנגנם סטייל'''
-	addDir(addonString(11121).encode('utf-8'),'officialpsy',9,"https://yt3.ggpht.com/-0Xgl841SU7Y/AAAAAAAAAAI/AAAAAAAAAAA/_bKTxRDm1kw/s100-c-k-no/photo.jpg",addonString(111210).encode('utf-8'),'1',"", getAddonFanart(background))
-	
-	'''בוב מארלי'''
-	addDir(addonString(11122).encode('utf-8'),'plugin://plugin.video.youtube/channel/UCbvZKpr1g-6S0QuP4OmCabw/',8,"http://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Bob-Marley-in-Concert_Zurich_05-30-80.jpg/300px-Bob-Marley-in-Concert_Zurich_05-30-80.jpg",addonString(111220).encode('utf-8'),'1',"", getAddonFanart(background))
-	
-	'''בוב דילן'''
-	addDir(addonString(11123).encode('utf-8'),'plugin://plugin.video.youtube/channel/UCBqkojCXby4zGkWX86FEY7Q/',8,"https://i.ytimg.com/i/BqkojCXby4zGkWX86FEY7Q/mq1.jpg",addonString(111230).encode('utf-8'),'1',"", getAddonFanart(background))
-	
-	'''אריק קלפטון'''
-	addDir(addonString(11124).encode('utf-8'),'plugin://plugin.video.youtube/channel/UCXmEE051j5RhUENn7saUF3g/',8,"http://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Clapton2342.jpg/330px-Clapton2342.jpg",addonString(111240).encode('utf-8'),'1',"", getAddonFanart(background))
-	
-	'''מארון 5'''
-	addDir(addonString(11125).encode('utf-8'),'Maroon5VEVO',9,"http://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Maroon_5%2C_2011.jpg/390px-Maroon_5%2C_2011.jpg",addonString(111250).encode('utf-8'),'1',"", getAddonFanart(background))
-	
-	'''אריתה פרנקלין'''
-	addDir(addonString(11126).encode('utf-8'),'ArethaFranklinVEVO',9,"https://yt3.ggpht.com/-f31iKi983jA/AAAAAAAAAAI/AAAAAAAAAAA/ER4TEVl8WEA/s100-c-k-no/photo.jpg",addonString(111260).encode('utf-8'),'1',"", getAddonFanart(background))
-	
-	'''פלו ריידה'''
-	addDir(addonString(11127).encode('utf-8'),'officialflo',9,"https://yt3.ggpht.com/-03upv5VWDpQ/AAAAAAAAAAI/AAAAAAAAAAA/ufkXZipfRQ0/s100-c-k-no/photo.jpg",addonString(111270).encode('utf-8'),'1',"", getAddonFanart(background))
-	
-	'''ברונו מארס'''
-	addDir(addonString(11128).encode('utf-8'),'ElektraRecords',9,"https://yt3.ggpht.com/-Ymp7v1ycCBA/AAAAAAAAAAI/AAAAAAAAAAA/-R7WfWSAkag/s100-c-k-no/photo.jpg",addonString(111280).encode('utf-8'),'1',"", getAddonFanart(background))
-	
-	'''קולדפליי'''
-	addDir(addonString(11129).encode('utf-8'),'ColdplayVEVO',9,"http://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Coldplay-3.jpg/429px-Coldplay-3.jpg",addonString(111290).encode('utf-8'),'1',"", getAddonFanart(background))
-	
-	'''ג'סטין ביבר'''
-	addDir(addonString(11130).encode('utf-8'),'JustinBieberVEVO',9,"http://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Believe_Tour_7%2C_2012.jpg/375px-Believe_Tour_7%2C_2012.jpg",addonString(111300).encode('utf-8'),'1',"", getAddonFanart(background))
-	
-	'''ואן דיירקשן'''
-	addDir(addonString(11131).encode('utf-8'),'OneDirectionVEVO',9,"https://yt3.ggpht.com/-QRypZt--uYA/AAAAAAAAAAI/AAAAAAAAAAA/Y8-NLYzQzZc/s100-c-k-no/photo.jpg",addonString(111310).encode('utf-8'),'1',"", getAddonFanart(background))
-	
-	'''5 שניות של קיץ'''
-	addDir(addonString(11132).encode('utf-8'),'5sosvevo',9,"https://yt3.ggpht.com/-y-nmdZcJTz4/AAAAAAAAAAI/AAAAAAAAAAA/yAqkAfvvrkI/s100-c-k-no/photo.jpg",addonString(111320).encode('utf-8'),'1',"", getAddonFanart(background))
-	
-	'''סם סמית'''
-	addDir(addonString(11133).encode('utf-8'),'SamSmithWorldVEVO',9,"https://yt3.ggpht.com/-9z_bFRPDMYQ/AAAAAAAAAAI/AAAAAAAAAAA/czjhAF4k4aw/s100-c-k-no/photo.jpg",addonString(111330).encode('utf-8'),'1',"", getAddonFanart(background))
-	
-	'''אלי גולדינג'''
-	addDir(addonString(11134).encode('utf-8'),'EllieGouldingVEVO',9,"http://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Ellie_Goulding_March_18%2C_2014_%28cropped%29.jpg/375px-Ellie_Goulding_March_18%2C_2014_%28cropped%29.jpg",addonString(111340).encode('utf-8'),'1',"", getAddonFanart(background))
-	
-	'''סלינה גומז'''
-	addDir(addonString(11135).encode('utf-8'),'SelenaGomezVEVO',9,"https://yt3.ggpht.com/-hI_B55kfWg4/AAAAAAAAAAI/AAAAAAAAAAA/YLLvtATyko8/s100-c-k-no/photo.jpg",addonString(111350).encode('utf-8'),'1',"", getAddonFanart(background))
-	
-	'''דמי לובאטו'''
-	addDir(addonString(11136).encode('utf-8'),'DemiLovatoVEVO',9,"http://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/Demi_Lovato_2%2C_2013.jpg/375px-Demi_Lovato_2%2C_2013.jpg",addonString(111360).encode('utf-8'),'1',"", getAddonFanart(background))
-	
-	'''ויז קאליפה'''
-	addDir(addonString(11137).encode('utf-8'),'taylorgangent',9,"http://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Wiz_Khalifa_7%2C_2012.jpg/300px-Wiz_Khalifa_7%2C_2012.jpg",addonString(111370).encode('utf-8'),'1',"", getAddonFanart(background))
-	
-	'''אמינם'''
-	addDir(addonString(11138).encode('utf-8'),'EminemVEVO',9,"http://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Eminem_performing_live_at_dj_hero_party.jpg/375px-Eminem_performing_live_at_dj_hero_party.jpg",addonString(111380).encode('utf-8'),'1',"", getAddonFanart(background))
-	
-	'''דרייק'''
-	addDir(addonString(11139).encode('utf-8'),'DrakeVEVO',9,"http://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Drake_at_Bun-B_Concert_2011.jpg/375px-Drake_at_Bun-B_Concert_2011.jpg",addonString(111390).encode('utf-8'),'1',"", getAddonFanart(background))
-	
-	'''קניה וסט'''
-	addDir(addonString(11140).encode('utf-8'),'KanyeWestVEVO',9,"http://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Kanye_West_SWU_Music_%26_Arts_Festival_2011_%28crop%29.jpg/375px-Kanye_West_SWU_Music_%26_Arts_Festival_2011_%28crop%29.jpg",addonString(111400).encode('utf-8'),'1',"", getAddonFanart(background))
-	
-	'''דאפט פאנק'''
-	addDir(addonString(11141).encode('utf-8'),'DaftPunkVEVO',9,"http://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Daftpunklapremiere2010.jpg/375px-Daftpunklapremiere2010.jpg",addonString(111410).encode('utf-8'),'1',"", getAddonFanart(background))
-	
-	'''מארק רונסון'''
-	addDir(addonString(11142).encode('utf-8'),'MarkRonsonVEVO',9,"http://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Mark-Ronson.jpg/330px-Mark-Ronson.jpg",addonString(111420).encode('utf-8'),'1',"", getAddonFanart(background))
-	
-	'''מייגן טריינור'''
-	addDir(addonString(11143).encode('utf-8'),'MeghanTrainorVEVO',9,"http://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Meghan_Trainor_2014.jpg/375px-Meghan_Trainor_2014.jpg",addonString(111430).encode('utf-8'),'1',"", getAddonFanart(background))
-	
-	'''אד שירן'''
-	addDir(addonString(11144).encode('utf-8'),'EdSheeran',9,"http://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Ed_Sheeran_2013.jpg/375px-Ed_Sheeran_2013.jpg",addonString(111440).encode('utf-8'),'1',"", getAddonFanart(background))
-	
-	'''ג'ייסון דירולו'''
-	addDir(addonString(11145).encode('utf-8'),'JasonDerulo',9,"http://upload.wikimedia.org/wikipedia/commons/thumb/d/de/Jason-Derulo_by-Adam-Bielawski_2010-01-12.jpg/375px-Jason-Derulo_by-Adam-Bielawski_2010-01-12.jpg",addonString(111450).encode('utf-8'),'1',"", getAddonFanart(background))
-	
-	'''דייוויד גטה'''
-	addDir(addonString(11146).encode('utf-8'),'davidguettavevo',9,"http://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/David_Guetta_2012.jpg/375px-David_Guetta_2012.jpg",addonString(111460).encode('utf-8'),'1',"", getAddonFanart(background))
-	
-	'''הארדוול'''
-	addDir(addonString(11147).encode('utf-8'),'robberthardwell',9,"http://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Hardwell.jpg/375px-Hardwell.jpg",addonString(111470).encode('utf-8'),'1',"", getAddonFanart(background))
-	
-	'''ביג שון'''
-	addDir(addonString(11148).encode('utf-8'),'BigSeanVEVO',9,"http://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/BigSean2009.jpg/220px-BigSean2009.jpg",addonString(111480).encode('utf-8'),'1',"", getAddonFanart(background))
-	
-	'''Fetty Wap'''
-	addDir(addonString(11149).encode('utf-8'),'harlemfetty',9,"https://yt3.ggpht.com/-z9iYN3U1TOk/AAAAAAAAAAI/AAAAAAAAAAA/IpV26AosUEw/s100-c-k-no/photo.jpg",addonString(111490).encode('utf-8'),'1',"", getAddonFanart(background))
+	'''Big Sean'''
+	if admin: addDir(addonString(11148).encode('utf-8'),'BigSeanVEVO',9,"http://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/BigSean2009.jpg/220px-BigSean2009.jpg",addonString(111480).encode('utf-8'),'1',"", getAddonFanart(background))
 	
 	'''Britney Spears'''
-	addDir(addonString(11150).encode('utf-8'),'UCZijND2e2tPp2AQL8Go2YSg',9,"http://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Britney_Spears_2013.jpg/250px-Britney_Spears_2013.jpg",addonString(111500).encode('utf-8'),'1',"", getAddonFanart(background))
+	addDir(addonString(11150).encode('utf-8'),'BritneySpearsVEVO',9,"http://guardianlv.com/wp-content/uploads/2013/12/Britney-Spears-Hits-Vegas-With-Piece-of-Me-Concert-Series-e1388228163153.jpg",addonString(111500).encode('utf-8'),'1',"", getAddonFanart(background))
 	
+	'''Celine Dion'''
+	
+	'''Coldplay'''
+	addDir(addonString(11129).encode('utf-8'),'ColdplayVEVO',9,"http://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Coldplay-3.jpg/429px-Coldplay-3.jpg",addonString(111290).encode('utf-8'),'1',"", getAddonFanart(background))
+	
+	'''Chris" Brown'''
+	addDir(addonString(11116).encode('utf-8'),'ChrisBrownVEVO',9,"http://factmag-images.s3.amazonaws.com/wp-content/uploads/2015/09/chris_brown270915.jpg",addonString(111160).encode('utf-8'),'1',"", getAddonFanart(background))
+	
+	'''David Bowie'''
+	list = []
+	list.append('&youtube_ch=DavidBowieVEVO')
+	list.append('&youtube_pl=PLD23E32ADB777242D')
+	addDir(addonString(11151).encode('utf-8'),list,17,"https://wallpaperscraft.com/image/david_bowie_face_fist_sweater_look_3332_1920x1080.jpg",addonString(111510).encode('utf-8'),'1',"", getAddonFanart(background,'https://wallpaperscraft.com/image/david_bowie_face_fist_sweater_look_3332_1920x1080.jpg'))
+	
+	'''david guetta'''
+	if admin: addDir(addonString(11146).encode('utf-8'),'davidguettavevo',9,"https://wallpaperscraft.com/image/david_bowie_face_fist_sweater_look_3332_1920x1080.jpg",addonString(111460).encode('utf-8'),'1',"", getAddonFanart(background))
+	
+	'''Demi Lovato'''
+	if admin: addDir(addonString(11136).encode('utf-8'),'DemiLovatoVEVO',9,"http://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/Demi_Lovato_2%2C_2013.jpg/375px-Demi_Lovato_2%2C_2013.jpg",addonString(111360).encode('utf-8'),'1',"", getAddonFanart(background))
+	
+	'''Daft Punk'''
+	if admin: addDir(addonString(11141).encode('utf-8'),'DaftPunkVEVO',9,"http://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Daftpunklapremiere2010.jpg/375px-Daftpunklapremiere2010.jpg",addonString(111410).encode('utf-8'),'1',"", getAddonFanart(background))
+	
+	'''Drake'''
+	if admin: addDir(addonString(11139).encode('utf-8'),'DrakeVEVO',9,"http://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Drake_at_Bun-B_Concert_2011.jpg/375px-Drake_at_Bun-B_Concert_2011.jpg",addonString(111390).encode('utf-8'),'1',"", getAddonFanart(background))
+	
+	'''Enrique Iglesias'''
+	if admin: addDir(addonString(11109).encode('utf-8'),'EnriqueIglesiasVEVO',9,"https://yt3.ggpht.com/-qsK10MKa204/AAAAAAAAAAI/AAAAAAAAAAA/pWY83V_O3Rg/s100-c-k-no/photo.jpg",addonString(111090).encode('utf-8'),'1',"", getAddonFanart(background))
+	
+	'''Elvis Presley'''
+	addDir(addonString(11120).encode('utf-8'),'ElvisPresleyVEVO',9,"http://static.europosters.cz/image/750/plakatok/elvis-presley-portrait-i9038.jpg/375px-Elvis_Presley_promoting_Jailhouse_Rock.jpg",addonString(111200).encode('utf-8'),'1',"", getAddonFanart(background))
+	
+	'''Eric Clapton'''
+	addDir(addonString(11124).encode('utf-8'),'plugin://plugin.video.youtube/channel/UCXmEE051j5RhUENn7saUF3g/',8,"http://rock.amazingradios.com/wp-content/uploads/2014/10/eric-clapton-9.jpg",addonString(111240).encode('utf-8'),'1',"", getAddonFanart(background))
+	
+	'''Ellie Goulding'''
+	if admin: addDir(addonString(11134).encode('utf-8'),'EllieGouldingVEVO',9,"http://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Ellie_Goulding_March_18%2C_2014_%28cropped%29.jpg/375px-Ellie_Goulding_March_18%2C_2014_%28cropped%29.jpg",addonString(111340).encode('utf-8'),'1',"", getAddonFanart(background))
+	
+	'''Eminem'''
+	if admin: addDir(addonString(11138).encode('utf-8'),'EminemVEVO',9,"http://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Eminem_performing_live_at_dj_hero_party.jpg/375px-Eminem_performing_live_at_dj_hero_party.jpg",addonString(111380).encode('utf-8'),'1',"", getAddonFanart(background))
+	
+	'''Ed Sheeran'''
+	if admin: addDir(addonString(11144).encode('utf-8'),'EdSheeran',9,"http://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Ed_Sheeran_2013.jpg/375px-Ed_Sheeran_2013.jpg",addonString(111440).encode('utf-8'),'1',"", getAddonFanart(background))
+	
+	'''Fetty Wap'''
+	if admin: addDir(addonString(11149).encode('utf-8'),'harlemfetty',9,"https://yt3.ggpht.com/-z9iYN3U1TOk/AAAAAAAAAAI/AAAAAAAAAAA/IpV26AosUEw/s100-c-k-no/photo.jpg",addonString(111490).encode('utf-8'),'1',"", getAddonFanart(background))
+	
+	'''flo'''
+	if admin: addDir(addonString(11127).encode('utf-8'),'officialflo',9,"https://yt3.ggpht.com/-03upv5VWDpQ/AAAAAAAAAAI/AAAAAAAAAAA/ufkXZipfRQ0/s100-c-k-no/photo.jpg",addonString(111270).encode('utf-8'),'1',"", getAddonFanart(background))
+	
+	'''Jennifer Lopez'''
+	addDir(addonString(11118).encode('utf-8'),'JenniferLopezVEVO',9,"http://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Jennifer_Lopez_GLAAD_2014.jpg/375px-Jennifer_Lopez_GLAAD_2014.jpg",addonString(111180).encode('utf-8'),'1',"", getAddonFanart(background))
+	
+	'''Justin Bieber'''
+	if admin: addDir(addonString(11130).encode('utf-8'),'JustinBieberVEVO',9,"http://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Believe_Tour_7%2C_2012.jpg/375px-Believe_Tour_7%2C_2012.jpg",addonString(111300).encode('utf-8'),'1',"", getAddonFanart(background))
+	
+	'''Jason Derulo'''
+	if admin: addDir(addonString(11145).encode('utf-8'),'JasonDerulo',9,"http://upload.wikimedia.org/wikipedia/commons/thumb/d/de/Jason-Derulo_by-Adam-Bielawski_2010-01-12.jpg/375px-Jason-Derulo_by-Adam-Bielawski_2010-01-12.jpg",addonString(111450).encode('utf-8'),'1',"", getAddonFanart(background))
+ 
+	'''Hardwell'''
+	if admin: addDir(addonString(11147).encode('utf-8'),'robberthardwell',9,"http://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Hardwell.jpg/375px-Hardwell.jpg",addonString(111470).encode('utf-8'),'1',"", getAddonFanart(background))
+
+	'''Kanye West'''
+	if admin: addDir(addonString(11140).encode('utf-8'),'KanyeWestVEVO',9,"http://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Kanye_West_SWU_Music_%26_Arts_Festival_2011_%28crop%29.jpg/375px-Kanye_West_SWU_Music_%26_Arts_Festival_2011_%28crop%29.jpg",addonString(111400).encode('utf-8'),'1',"", getAddonFanart(background))
+	
+	'''Katy Perry'''
+	if admin: addDir(addonString(11106).encode('utf-8'),'KatyPerryVEVO',9,"http://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Katy_Perry_NRJ_2014_3.jpg/375px-Katy_Perry_NRJ_2014_3.jpg",addonString(111060).encode('utf-8'),'1',"", getAddonFanart(background))
+	
+	'''Michael Jackson'''
+	addDir(addonString(11101).encode('utf-8'),'plugin://plugin.video.youtube/channel/UCulYu1HEIa7f70L2lYZWHOw/',8,"http://factmag-images.s3.amazonaws.com/wp-content/uploads/2013/05/beyonce-5.13.20132.jpg/375px-Michael_Jackson_in_1988.jpg",addonString(111010).encode('utf-8'),'1',"", getAddonFanart(background))
+	
+	'''Maddona'''
+	addDir(addonString(11111).encode('utf-8'),'MADONNAVEVO',9,"http://g04.a.alicdn.com/kf/HTB1jqmjIVXXXXbSapXXq6xXFXXX4/%D7%AA%D7%90%D7%A8%D7%99%D7%9A-%D7%94%D7%9E%D7%A1%D7%AA%D7%95%D7%A8%D7%99%D7%9F-%D7%A9%D7%97%D7%A7%D7%A0%D7%99%D7%AA-%D7%A7%D7%95%D7%9C%D7%A0%D7%95%D7%A2-%D7%9E%D7%93%D7%95%D7%A0%D7%94-ciccone-%D7%A4%D7%95%D7%A1%D7%98%D7%A8-%D7%A6%D7%99%D7%95%D7%A8-%D7%93%D7%A7%D7%95%D7%A8%D7%98%D7%99%D7%91%D7%99-%D7%9C%D7%91%D7%99%D7%AA-%D7%91%D7%93-%D7%9E%D7%A9%D7%99-%D7%94%D7%93%D7%A4%D7%A1%D7%94.jpg",addonString(111110).encode('utf-8'),'1',"", getAddonFanart(background))
+	
+	'''Mariah Carey'''
+	addDir(addonString(11113).encode('utf-8'),'MariahCareyVEVO',9,"http://www.studentsoftheworld.info/sites/musique/img/2827_Maria_Carey_1.jpg",addonString(111130).encode('utf-8'),'1',"", getAddonFanart(background))
+	
+	'''Marc anthony'''
+	if admin: addDir(addonString(11119).encode('utf-8'),'marcanthonyVEVO',9,"https://yt3.ggpht.com/-CJIy_bXsp8g/AAAAAAAAAAI/AAAAAAAAAAA/oNaF1LsUhq4/s100-c-k-no/photo.jpg",addonString(111190).encode('utf-8'),'1',"", getAddonFanart(background))
+	
+	'''Maroon5'''
+	if admin: addDir(addonString(11125).encode('utf-8'),'Maroon5VEVO',9,"http://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Maroon_5%2C_2011.jpg/390px-Maroon_5%2C_2011.jpg",addonString(111250).encode('utf-8'),'1',"", getAddonFanart(background))
+	
+	'''Mark Ronson'''
+	if admin: addDir(addonString(11142).encode('utf-8'),'MarkRonsonVEVO',9,"http://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Mark-Ronson.jpg/330px-Mark-Ronson.jpg",addonString(111420).encode('utf-8'),'1',"", getAddonFanart(background))
+	
+	'''Meghan Trainor'''
+	if admin: addDir(addonString(11143).encode('utf-8'),'MeghanTrainorVEVO',9,"http://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Meghan_Trainor_2014.jpg/375px-Meghan_Trainor_2014.jpg",addonString(111430).encode('utf-8'),'1',"", getAddonFanart(background))
+	
+	'''One Direction'''
+	if admin: addDir(addonString(11131).encode('utf-8'),'OneDirectionVEVO',9,"https://yt3.ggpht.com/-QRypZt--uYA/AAAAAAAAAAI/AAAAAAAAAAA/Y8-NLYzQzZc/s100-c-k-no/photo.jpg",addonString(111310).encode('utf-8'),'1',"", getAddonFanart(background))
+	
+	'''psy '''
+	if admin: addDir(addonString(11121).encode('utf-8'),'officialpsy',9,"https://yt3.ggpht.com/-0Xgl841SU7Y/AAAAAAAAAAI/AAAAAAAAAAA/_bKTxRDm1kw/s100-c-k-no/photo.jpg",addonString(111210).encode('utf-8'),'1',"", getAddonFanart(background))
+	
+	'''Pitbull'''
+	if admin: addDir(addonString(11108).encode('utf-8'),'PitbullVEVO',9,"http://i.telegraph.co.uk/multimedia/archive/02446/bowie2_2446365b.jpg",addonString(111080).encode('utf-8'),'1',"", getAddonFanart(background))
+	
+	'''Roy Orbison'''
+	addDir(addonString(11110).encode('utf-8'),'http://www.songs-tube.net/12664-Roy%20Orbison.html',9,"http://www.billboard.com/files/styles/promo_650/public/stylus/1077939-roy-orbison-617-409.jpg",addonString(111100).encode('utf-8'),'1',"", getAddonFanart(background))
+	
+	'''Rihanna'''
+	addDir(addonString(11103).encode('utf-8'),'RihannaVEVO',9,"http://static1.1.sqspcdn.com/static/f/610086/15180915/1321583897117/Rihanna.jpg?token=kZt1lYEul%2FfTahdORTKehFd28NI%3D/site1/20091127/0023ae9885da0c7990e10d.jpg&pw=200",addonString(111030).encode('utf-8'),'1',"", getAddonFanart(background))
+	
+	'''Shakira '''
+	if admin: addDir(addonString(11107).encode('utf-8'),'shakiraVEVO',9,"https://yt3.ggpht.com/-Kcd3KMxoqzw/AAAAAAAAAAI/AAAAAAAAAAA/EvhGpQ4rsh8/s100-c-k-no/photo.jpg",addonString(111070).encode('utf-8'),'1',"", getAddonFanart(background))
+	
+	'''Sam Smith'''
+	if admin: addDir(addonString(11133).encode('utf-8'),'SamSmithWorldVEVO',9,"https://yt3.ggpht.com/-9z_bFRPDMYQ/AAAAAAAAAAI/AAAAAAAAAAA/czjhAF4k4aw/s100-c-k-no/photo.jpg",addonString(111330).encode('utf-8'),'1',"", getAddonFanart(background))
+	
+	'''Selena Gomez'''
+	if admin: addDir(addonString(11135).encode('utf-8'),'SelenaGomezVEVO',9,"https://yt3.ggpht.com/-hI_B55kfWg4/AAAAAAAAAAI/AAAAAAAAAAA/YLLvtATyko8/s100-c-k-no/photo.jpg",addonString(111350).encode('utf-8'),'1',"", getAddonFanart(background))
+	
+	'''Taylor Swift'''
+	if admin: aaddDir(addonString(11104).encode('utf-8'),'TaylorSwiftVEVO',9,"http://upload.wikimedia.org/wikipedia/he/5/58/Taylor_Swift_-_Taylor_Swift_Album_Cover.png",addonString(111040).encode('utf-8'),'1',"", getAddonFanart(background))
+	
+	'''Usher'''
+	addDir(addonString(11115).encode('utf-8'),'UsherVEVO',9,"http://www.usherdaily.com/wp-content/uploads/2015/02/usher-2014-cover-bb36-01-650.jpg",addonString(111150).encode('utf-8'),'1',"", getAddonFanart(background))
+	
+	'''Trey Songz'''
+	if admin: addDir(addonString(11117).encode('utf-8'),'TreySongzVideos',9,"http://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Trey_Songz_SummerJam.jpg/375px-Trey_Songz_SummerJam.jpg",addonString(111170).encode('utf-8'),'1',"", getAddonFanart(background))
+	
+	'''Whitney Houston'''
+	addDir(addonString(11114).encode('utf-8'),'whitneyhoustonVEVO',9,"http://img2.timeinc.net/people/i/2012/specials/yearend/obits/whitney-houston-1435.jpg",addonString(111140).encode('utf-8'),'1',"", getAddonFanart(background))
+	
+	'''‎5 Seconds of Summer'''
+	if admin: addDir(addonString(11132).encode('utf-8'),'5sosvevo',9,"https://yt3.ggpht.com/-y-nmdZcJTz4/AAAAAAAAAAI/AAAAAAAAAAA/yAqkAfvvrkI/s100-c-k-no/photo.jpg",addonString(111320).encode('utf-8'),'1',"", getAddonFanart(background))
+
+
+	
+
 	
 	#notification(addonID,"","",1000)
 	
@@ -826,7 +823,10 @@ def CATEGORIES114(admin):
 	
 	'''קריוקי ישראלי 1'''
 	#addDir(addonString(102).encode('utf-8') + space + "1",'PL5MV8_qxHC5ufNt9OV-lyMTm_WU-xUFWV',13,'special://skin/media/misc/help/hebflag.png',addonString(399).encode('utf-8'),'1',"", getAddonFanart(background))
-		
+	
+	
+	
+	
 def CATEGORIES115(admin):
 	'''------------------------------
 	---Foregin-Djs-------------------
