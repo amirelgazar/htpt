@@ -51,6 +51,7 @@
 	
 	<category label="$LOCALIZE[559] $LOCALIZE[20190]" description="רשימת ניגון מותאם אישית">
 		<setting type="lsep" label="13" visible="true"/>
+		<setting type="action" label="My Music" action="RunScript(plugin.video.htpt.music,,?mode=100&amp;url=11&amp;name=1&amp;fanart=1&amp;&name=1&amp;iconimage=1&amp;num=1&amp;viewtype=50)" visible="false"/>
 		<setting id="Custom_Playlist1_ID" type="text" default="" label="$LOCALIZE[559] 1 (URL)" description="רשימת ניגון 1 (לינק)" visible="false"/>
 		<setting id="Custom_Playlist1_Name" type="text" default="" label="$LOCALIZE[559] 1 (NAME)" description="רשימת ניגון 1 (שם)" visible="false"/>
 		<setting id="Custom_Playlist1_Thumb" type="text" default="" label="$LOCALIZE[559] 1 (Thumb)" description="רשימת ניגון 1 (תמונה)" visible="false"/>

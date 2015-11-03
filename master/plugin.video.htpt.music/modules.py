@@ -53,6 +53,8 @@ def CATEGORIES100(admin):
 	'''רשימת השמעה 10'''
 	if Custom_Playlist10_ID != "": addDir(Custom_Playlist10_Name,Custom_Playlist10_ID,18,Custom_Playlist10_Thumb,Custom_Playlist10_Description,'10',50, getAddonFanart("Custom_Playlist10"))
 	
+	addDir('easy-listening-love-songs-bellads',templates2_path + 'easy-listening-love-songs-bellads.txt',2,'','','1',50, getAddonFanart("")) #TEST
+	
 def CATEGORIES101(admin):
 	'''------------------------------
 	---Israeli-Music-----------------
@@ -373,7 +375,16 @@ def CATEGORIES104(admin):
 	'''אייל גולן'''
 	list = []
 	list.append('&youtube_se='+commonsearch+'')
-	addDir(addonString(10103).encode('utf-8'),['&youtube_id=81Vh9FriKfc', '&youtube_pl=PLB781B8A94339CC67', '&youtube_id=RqLn1vCQVMo', '&youtube_id=fTTsZ1OGZV8', '&youtube_id=hqnv8qVOqLY', '&youtube_id=9GdWNAXvd0g', '&youtube_id=uhDjEYmF-oo', '&youtube_pl=PL2l4T5NjtOsrGnFacKHUc1m7F1Kojuisq', '&youtube_id=bI85XpkVTHg'], + \
+	list.append('&youtube_id=81Vh9FriKfc')
+	list.append('&youtube_pl=PLB781B8A94339CC67')
+	list.append('&youtube_id=RqLn1vCQVMo')
+	list.append('&youtube_id=fTTsZ1OGZV8')
+	list.append('&youtube_id=hqnv8qVOqLY')
+	list.append('&youtube_id=9GdWNAXvd0g')
+	list.append('&youtube_id=uhDjEYmF-oo')
+	list.append('&youtube_pl=PL2l4T5NjtOsrGnFacKHUc1m7F1Kojuisq')
+	list.append('&youtube_id=bI85XpkVTHg')
+	addDir(addonString(10103).encode('utf-8'),list, + \
 	17,'http://www.atzuma.co.il/uploaded/13112175e8e2be3e53e7dc74153479b3a0c726.jpg',addonString(101030).encode('utf-8'),'1',"", getAddonFanart(background))
 	
 	'''איתי לוי'''
@@ -815,10 +826,7 @@ def CATEGORIES114(admin):
 	
 	'''קריוקי ישראלי 1'''
 	#addDir(addonString(102).encode('utf-8') + space + "1",'PL5MV8_qxHC5ufNt9OV-lyMTm_WU-xUFWV',13,'special://skin/media/misc/help/hebflag.png',addonString(399).encode('utf-8'),'1',"", getAddonFanart(background))
-	
-	
-	
-	
+		
 def CATEGORIES115(admin):
 	'''------------------------------
 	---Foregin-Djs-------------------

@@ -308,12 +308,13 @@ def ListLive(url):
 def clean_commonsearch(x):
 	y = x
 	if "commonsearch" in y:
-		y = y.replace("commonsearch101", space + commonsearch101)
-		y = y.replace("commonsearch102", space + commonsearch102)
-		y = y.replace("commonsearch104", space + commonsearch104)
-		y = y.replace("commonsearch111", space + commonsearch111)
-		y = y.replace("commonsearch112", space + commonsearch112)
-		y = y.replace("commonsearch114", space + commonsearch114)
+		if addonID == 'plugin.video.htpt.music':
+			y = y.replace("commonsearch101", space + commonsearch101)
+			y = y.replace("commonsearch102", space + commonsearch102)
+			y = y.replace("commonsearch104", space + commonsearch104)
+			y = y.replace("commonsearch111", space + commonsearch111)
+			y = y.replace("commonsearch112", space + commonsearch112)
+			y = y.replace("commonsearch114", space + commonsearch114)
 	
 	if "[COLOR" in y or "[/COLOR" in y:
 		y = y.replace("[COLOR=Green]", "")
@@ -492,7 +493,8 @@ def MultiVideos(mode, name, url, iconimage, desc, num, viewtype):
 	returned = get_types(url)
 	for x in url2:
 		x = str(x) ; finalurl = "" ; finalurlL = [] ; numOfItems2 = 0
-		print "aab" + space + x + newline +str(playlist)
+		
+		#print "aab" + space + "x" + space2 + str(x) + newline + "playlist" + space + str(playlist) + newline + "finalurl" + space2 + str(finalurl) + space + "finalurlL" + space2 + str(finalurlL)
 		x = x.replace("[","")
 		x = x.replace(",","")
 		x = x.replace("'","")
@@ -537,6 +539,7 @@ def MultiVideos(mode, name, url, iconimage, desc, num, viewtype):
 				elif "&youtube_pl=" in x:
 					#i2 += 1
 					#x = x.replace("&youtube_pl=","")
+					#finalurlL, numOfItems2 = youtube_pl_to_youtube_id(x, playlist)
 					try: finalurlL, numOfItems2 = youtube_pl_to_youtube_id(x, playlist)
 					except Exception, TypeError: extra = extra + newline + "TypeError" + space2 + str(TypeError) ; printpoint = printpoint + "6"
 					#finalurl="plugin://plugin.video.youtube/play/?playlist_id="+x+""
@@ -1759,10 +1762,10 @@ def youtube_pl_to_youtube_id(x, playlist=[]):
 	'''---------------------------'''
 
 	i = 0 ; count = 0
-	while i < pagesize and not i > totalResults and not "8" in printpoint and count < (pagesize + 20) and not xbmc.abortRequested: #h<totalResults
+	while i < pagesize and i < totalResults and not "8" in printpoint and count < (pagesize + 20) and not xbmc.abortRequested: #h<totalResults
 		#try:
 		if 1 + 1 == 2:
-			#print "i" + space2 + str(i) + space + "duplicatesN" + space2 + str(duplicatesN)
+			print "i" + space2 + str(i) + space + "duplicates__" + space2 + str(duplicates__) + "totalResults" + space2 + str(totalResults)
 			id = "" ; finalurl = ""
 			if "1" in printpoint: id=str(prms['items'][i][u'snippet'][u'resourceId'][u'videoId']) #Video ID (Playlist)
 			elif "2" in printpoint or "3" in printpoint: id=str(prms['items'][i][u'id'][u'videoId']) #Video ID (Search)
@@ -1777,7 +1780,7 @@ def youtube_pl_to_youtube_id(x, playlist=[]):
 				#ok, liz = addLink(title,finalurl, thumb, desc)
 				#name, url, mode, iconimage='DefaultFolder.png', desc="", num="", viewtype=""
 				#playlist.append((finalurl ,liz))
-				if (commonsearch104 in x or commonsearch114 in x):
+				if addonID == 'plugin.video.htpt.music' and (commonsearch104 in x or commonsearch114 in x):
 					for filterx in sefilter:
 						if filterx in title:
 							error

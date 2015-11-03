@@ -36,7 +36,10 @@ else:
 	servicehtptPath          = xbmcaddon.Addon('service.htpt').getAddonInfo("path")
 	sharedlibDir = os.path.join(servicehtptPath, 'resources', 'lib', 'shared')
 	sys.path.insert(0, sharedlibDir)
-	from shared_variables import *
+	try:
+		from shared_variables import *
+		'''---------------------------'''
+	except Exception, TypeError: notification('HTPT SERVICE ADDON ERROR', 'Solution: Reinstall the addon', '', 2000)
 	'''---------------------------'''
 
 '''------------------------------

@@ -97,7 +97,7 @@ def CATEGORIES102(admin):
 	addDir(localize(22082),list,17,addonMediaPath + 'buttonadd.png',addonString(102000).encode('utf-8'),'1',50, getAddonFanart(background))
 	
 	'''101 כלבים דלמטים'''
-	YOULink(addonString(10202).encode('utf-8'), '020c8c5ebfe70', 'http://www.pashbar.co.il/pictures/show_big_0712083001297352431.jpg',addonString(102020).encode('utf-8'))
+	YOULink(addonString(10202).encode('utf-8'), 'RxMNt87ghsQ', 'http://www.pashbar.co.il/pictures/show_big_0712083001297352431.jpg',addonString(102020).encode('utf-8'))
 	
 	'''אי המטמון'''
 	YOULink(addonString(10204).encode('utf-8'), 'Cmd0VxJmmBA', 'http://images.mouse.co.il/storage/0/e/ggg--Matmon.jpg',addonString(102040).encode('utf-8'))
@@ -109,8 +109,11 @@ def CATEGORIES102(admin):
 	YOULink(addonString(10207).encode('utf-8'), 'sHMEnVpDJR8', 'http://i.ytimg.com/vi/2mxOiPccxOs/maxresdefault.jpg',addonString(102070).encode('utf-8'))
 	
 	'''גאליס המופע'''
-	YOULink(addonString(10209).encode('utf-8'), 'a6f7eacf00f28', 'http://up389.siz.co.il/up1/znmi3xqzndjg.jpg',addonString(102090).encode('utf-8'))
-	
+	list = []
+	list.append('&dailymotion_id=x2aps1v')
+	list.append('&dailymotion_id=x2apt79')
+	addDir(addonString(10209).encode('utf-8'), list,17, 'http://up389.siz.co.il/up1/znmi3xqzndjg.jpg',addonString(102090).encode('utf-8'),'1',50, getAddonFanart(background))
+
 	'''גיבורי האור'''
 	YOULink(addonString(10211).encode('utf-8'), 'nwlo00FHCRc', 'http://www.booknet.co.il/imgs/site/prod/7294276219850b.jpg',addonString(102110).encode('utf-8'))
 	
@@ -435,7 +438,9 @@ def CATEGORIES106(admin):
 	'''גילגולון'''
 	
 	'''דובים ונהנים'''
-	addDir('דובים ונהנים',['&youtube_pl=PLTleo-h9TFqIaAW5pDJO8ThJ_rrohsRLE'],17,'http://luli.tv/Img/Albums/556/medium/%D7%93%D7%95%D7%91%D7%99%D7%9D-%D7%95%D7%A0%D7%94%D7%A0%D7%99%D7%9D3.jpg',addonString(110).encode('utf-8'),'1',50, getAddonFanart(background))
+	list = []
+	list.append('&youtube_pl=PLTleo-h9TFqIaAW5pDJO8ThJ_rrohsRLE')
+	addDir('דובים ונהנים',list,17,'http://luli.tv/Img/Albums/556/medium/%D7%93%D7%95%D7%91%D7%99%D7%9D-%D7%95%D7%A0%D7%94%D7%A0%D7%99%D7%9D3.jpg',addonString(110).encode('utf-8'),'1',50, getAddonFanart(background))
 	
 	'''דרקו'''
 	

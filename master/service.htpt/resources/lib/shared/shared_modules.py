@@ -2230,8 +2230,8 @@ def replace_word(infile,old_word,new_word, infile_="", LineR=False , LineClean=F
 	else:
 		if LineR == False:
 			'''replace all'''
-			printpoint = printpoint + "2"
-			if infile_ == "" or infile_ == None: infile_ = read_from_file(infile, lines=False)
+			printpoint = printpoint + "2" #if infile_ == "" or infile_ == None: 
+			infile_ = read_from_file(infile, lines=False)
 			value=infile_.replace(old_word,new_word)
 			'''---------------------------'''
 		else:
@@ -2239,7 +2239,7 @@ def replace_word(infile,old_word,new_word, infile_="", LineR=False , LineClean=F
 			printpoint = printpoint + "3"
 			import fileinput, re
 			infile_ = read_from_file(infile, lines=True)
-			print infile_
+			#print infile_
 			for line in infile_:
 				print line
 				if LineClean == True and re.match(r'^\s*$', line): line = "" #line.replace('\n\n','\n') #re.match(r'^\s*$', line)
@@ -2267,11 +2267,12 @@ def replace_word(infile,old_word,new_word, infile_="", LineR=False , LineClean=F
 		infile__.close()
 		'''---------------------------'''
 		
-	if admin and admin2 and admin3 or '9' in printpoint:
+	if admin and admin2 and admin3 or '9' in printpoint or 1 + 1 == 2:
 		print printfirst + "replace_word_LV" + printpoint + space + "infile" + space2 + str(infile) + space + newline + \
 		"old_word" + space2 + str(old_word) + newline + \
 		"new_word" + space2 + str(new_word) + newline + \
-		"value" + space2 + str(value) + extra
+		extra
+		#"value" + space2 + str(value) + extra
 
 def ReloadSkin(admin):
 	if property_reloadskin == "":
@@ -2895,7 +2896,9 @@ def killall(admin, custom=""):
 	elif "3" in custom: source = guisettings3_file
 	else:
 		source = ""
-		
+	
+	print printfirst + name + '_LV' + space + 'custom' + space2 + str(custom) + space + 'customgui' + space2 + str(customgui) + newline +\
+	'target' + space2 + str(target)
 	
 	if systemplatformandroid:
 		try:
@@ -2981,7 +2984,7 @@ def killall(admin, custom=""):
 		except: pass
 	
 	
-	if 'q' in custom: pass#xbmc.executebuiltin('Quit')
+	if 'q' in custom: xbmc.executebuiltin('Quit')
 	elif 'f' in custom: xbmc.executebuiltin('RestartApp')
 	elif 's' in custom:
 		if not admin3: xbmc.executebuiltin('XBMC.Powerdown()')

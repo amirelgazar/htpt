@@ -38,8 +38,10 @@ else:
 	servicehtptPath          = xbmcaddon.Addon('service.htpt').getAddonInfo("path")
 	sharedlibDir = os.path.join(servicehtptPath, 'resources', 'lib', 'shared')
 	sys.path.insert(0, sharedlibDir)
-	from shared_variables import *
-	'''---------------------------'''
+	try:
+		from shared_variables import *
+		'''---------------------------'''
+	except Exception, TypeError: notification('HTPT SERVICE ADDON ERROR', 'Solution: Reinstall the addon', '', 2000)
 
 '''------------------------------
 ---plugin.video.htpt.music-------
@@ -57,7 +59,7 @@ addonVersion          = xbmcaddon.Addon().getAddonInfo("version")
 addonName2 = str2 + space + "HTPT"
 printfirst = addonName + ": !@# "
 '''---------------------------'''
-
+templates2_path = os.path.join(addonPath, 'resources', 'templates2', '')
 #libDir = os.path.join(xbmc.translatePath("special://home/addons/"), addonID, 'resources', 'lib')
 #libDir = os.path.join(addonPath, 'resources', 'lib')
 #sys.path.insert(0, libDir)
@@ -174,3 +176,4 @@ commonsearch104 = "הופעה"
 commonsearch111 = "Singer"
 commonsearch112 = "Karaoke"
 commonsearch114 = "LiveShow"
+sefilter = ['עונת ההופעות']

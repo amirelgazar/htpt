@@ -573,7 +573,7 @@ adult2 = xbmc.getInfoLabel('Skin.HasSetting(Adult2)')
 autoplay_hd = xbmc.getInfoLabel('Skin.HasSetting(AutoPlay_HD)')
 autoplaysd = xbmc.getInfoLabel('Skin.HasSetting(AutoPlaySD)')
 autoplaypause = xbmc.getInfoLabel('Skin.HasSetting(AutoPlay_Pause)')
-autoview = xbmc.getInfoLabel('!Skin.HasSetting(AutoView)')
+autoview = xbmc.getInfoLabel('Skin.HasSetting(AutoView)')
 autoviewoff = xbmc.getInfoLabel('Skin.HasSetting(AutoViewoff)')
 connected = xbmc.getInfoLabel('Skin.HasSetting(Connected)')
 connected2 = xbmc.getInfoLabel('Skin.HasSetting(Connected2)')
@@ -605,7 +605,7 @@ if xbmc.getSkinDir() == 'skin.htpt':
 	'''------------------------------
 	---SKIN-STRINGS------------------
 	------------------------------'''
-	startupmusic = xbmc.getInfoLabel('!Skin.HasSetting(StartUpMusic)')
+	startupmusic = xbmc.getInfoLabel('Skin.HasSetting(StartUpMusic)')
 	startupmusicstr = xbmc.getInfoLabel('Skin.String(StartUpMusic)')
 	startupvolumestr = xbmc.getInfoLabel('Skin.String(StartUpVolume)')
 
@@ -627,7 +627,7 @@ messagescustom = xbmc.getInfoLabel('Skin.String(MessagesCustom)')
 
 librarydataremotedatestr = xbmc.getInfoLabel('Skin.String(LibraryData_RemoteDate)')
 librarydatalocaldatestr = xbmc.getInfoLabel('Skin.String(LibraryData_LocalDate)')
-librarydataautoupdate = xbmc.getInfoLabel('!Skin.HasSetting(LibraryData_AutoUpdate)')
+librarydataautoupdate = xbmc.getInfoLabel('Skin.HasSetting(LibraryData_AutoUpdate)')
 
 moviesestartup = xbmc.getInfoLabel('Skin.String(moviesestartup)')
 musiclinkstr = xbmc.getInfoLabel('Skin.String(MusicLink)')

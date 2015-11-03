@@ -892,23 +892,24 @@ def Execute_Fix(admin, Fix_Done, Fix_L, Fix_1, Fix_2, Fix_3, Fix_4, Fix_5, Fix_6
 						xbmc.executebuiltin('RunScript(script.htpt.smartbuttons,,?mode=203&value=Templates)') #xbmc.executebuiltin('Dialog.Close(1173)')
 						dialogok(localize(76196), localize(76198), localize(74444), localize(74448)) ; xbmc.sleep(5000) #Skin Design Save and Load your skin design.
 						dialogok(localize(74444), localize(76180) + space + localize(480) + space + localize(636) + " + " + localize(74449), "", "")
-					
-						returned = dialogyesno(localize(74460), localize(78022) + space + localize(74460))  #Themes
-						if returned == 'ok':
-							'''------------------------------
-							---Skin-Theme--------------------
-							------------------------------'''
-							printpoint2 = printpoint2 + "3"
-							while returned == 'ok' and not xbmc.abortRequested:
-								skincurrenttheme = xbmc.getInfoLabel('Skin.CurrentTheme')
-								notification(localize(21895) + space2 + skincurrenttheme, localize(31407), "", 1000) ; xbmc.sleep(1000)
-								xbmc.executebuiltin('Skin.Theme(-1)') ; xbmc.sleep(4000)
-								skincurrenttheme = xbmc.getInfoLabel('Skin.CurrentTheme')
-								notification(localize(21895) + space2 + skincurrenttheme, ".", "", 1000) ; xbmc.sleep(1000)
-								notification(localize(21895) + space2 + skincurrenttheme, "..", "", 1000) ; xbmc.sleep(1000)
-								notification(localize(21895) + space2 + skincurrenttheme, "...", "", 1000) ; xbmc.sleep(1000)
-								returned = dialogyesno(localize(74460), localize(78022) + space + localize(74460))  #Themes
-								'''---------------------------'''
+						
+						if 1 + 1 == 3:
+							returned = dialogyesno(localize(74460), localize(78022) + space + localize(74460))  #Themes
+							if returned == 'ok':
+								'''------------------------------
+								---Skin-Theme--------------------
+								------------------------------'''
+								printpoint2 = printpoint2 + "3"
+								while returned == 'ok' and not xbmc.abortRequested:
+									skincurrenttheme = xbmc.getInfoLabel('Skin.CurrentTheme')
+									notification(localize(21895) + space2 + skincurrenttheme, localize(31407), "", 1000) ; xbmc.sleep(1000)
+									xbmc.executebuiltin('Skin.Theme(-1)') ; xbmc.sleep(4000)
+									skincurrenttheme = xbmc.getInfoLabel('Skin.CurrentTheme')
+									notification(localize(21895) + space2 + skincurrenttheme, ".", "", 1000) ; xbmc.sleep(1000)
+									notification(localize(21895) + space2 + skincurrenttheme, "..", "", 1000) ; xbmc.sleep(1000)
+									notification(localize(21895) + space2 + skincurrenttheme, "...", "", 1000) ; xbmc.sleep(1000)
+									returned = dialogyesno(localize(74460), localize(78022) + space + localize(74460))  #Themes
+									'''---------------------------'''
 						
 						returned = dialogyesno(localize(10035) + space + localize(10507), localize(78022) + space + localize(76196) + space + localize(409))  #Themes
 						if returned == 'ok':

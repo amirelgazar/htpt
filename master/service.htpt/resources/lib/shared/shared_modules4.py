@@ -167,7 +167,8 @@ def guikeeper(admin, guicheck="", guiread=""):
 def guiset(admin, guiread=""):
 	name = 'guiset' ; printpoint = "" ; TypeError = "" ; extra = ""
 	
-	if guiread == "":
+	if guiread == "" or guiread == None:
+		printpoint = printpoint + "0"
 		guisettings_file_ = read_from_file(guisettings4_file, silent=True)
 		if admin and not admin2: xbmc.sleep(2000)
 	else: guisettings_file_ = guiread
@@ -178,14 +179,14 @@ def guiset(admin, guiread=""):
 		printpoint = printpoint + "1"
 		if (scripthtptinstall_Skin_Installed != "true" and scripthtptinstall_Skin_FirstBoot != "true" and scripthtptinstall_User_ID != "" and scripthtptinstall_User_ID != "New"):
 			printpoint = printpoint + "2"
-			guiset_appearance(admin, guisettings_file, guisettings_file_)
-			guiset_videos(admin, guisettings_file, guisettings_file_)
-			guiset_music(admin, guisettings_file, guisettings_file_)
-			guiset_livetv(admin, guisettings_file, guisettings_file_)
-			guiset_pictures(admin, guisettings_file, guisettings_file_)
-			guiset_weather(admin, guisettings_file, guisettings_file_)
-			guiset_services(admin, guisettings_file, guisettings_file_)
-			guiset_system(admin, guisettings_file, guisettings_file_)
+			guiset_appearance(admin, guisettings4_file, guisettings_file_)
+			guiset_videos(admin, guisettings4_file, guisettings_file_)
+			guiset_music(admin, guisettings4_file, guisettings_file_)
+			guiset_livetv(admin, guisettings4_file, guisettings_file_)
+			guiset_pictures(admin, guisettings4_file, guisettings_file_)
+			guiset_weather(admin, guisettings4_file, guisettings_file_)
+			guiset_services(admin, guisettings4_file, guisettings_file_)
+			guiset_system(admin, guisettings4_file, guisettings_file_)
 	
 	elif not customgui: extra = newline + "xbmc.getSkinDir()" + space2 + xbmc.getSkinDir()
 	'''---------------------------'''
@@ -193,21 +194,21 @@ def guiset(admin, guiread=""):
 	old_word = regex_from_to(guisettings_file_, '<'+x+'>', '</'+x+'>', excluding=False)
 	if old_word == '<'+x+'></'+x+'>': old_word = regex_from_to(guisettings_file_, '<'+x+' default="true">', '</'+x+'>', excluding=False)
 	new_word = '<'+x+'>false</'+x+'>'
-	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings_file,old_word,new_word,guisettings_file_)
+	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings4_file,old_word,new_word,guisettings_file_)
 	'''---------------------------'''
 	x = 'addonupdates' 
 	old_word = regex_from_to(guisettings_file_, '<'+x+'>', '</'+x+'>', excluding=False)
 	new_word = '<'+x+'>0</'+x+'>'
-	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings_file,old_word,new_word,guisettings_file_)
+	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings4_file,old_word,new_word,guisettings_file_)
 	'''---------------------------'''
 	x = 'addonforeignfilter' 
 	old_word = regex_from_to(guisettings_file_, '<'+x+'>', '</'+x+'>', excluding=False)
 	new_word = '<'+x+'>false</'+x+'>'
-	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings_file,old_word,new_word,guisettings_file_)
+	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings4_file,old_word,new_word,guisettings_file_)
 	'''---------------------------'''
 	
 	
-	print printfirst + name + "_LV" + printpoint + space + extra
+	print printfirst + name + "_LV" + printpoint + newline + 'guisettings_file' + space2 + str(guisettings_file) + newline + 'guisettings4_file' + space2 + str(guisettings4_file) + newline + extra
 
 def guiset_appearance(admin, guisettings_file, guisettings_file_):
 	'''------------------------------
@@ -217,46 +218,46 @@ def guiset_appearance(admin, guisettings_file, guisettings_file_):
 	old_word = regex_from_to(guisettings_file_, '<'+x+'>', '</'+x+'>', excluding=False)
 	if old_word == '<'+x+'></'+x+'>': old_word = regex_from_to(guisettings_file_, '<'+x+' default="true">', '</'+x+'>', excluding=False)
 	new_word = '<'+x+'>skin.htpt</'+x+'>'
-	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings_file,old_word,new_word,guisettings_file_)
+	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings4_file,old_word,new_word,guisettings_file_)
 	'''---------------------------'''
 	x = 'skintheme' #THEME
 	old_word = regex_from_to(guisettings_file_, '<'+x+'>', '</'+x+'>', excluding=False)
 	if old_word == '<'+x+'></'+x+'>': old_word = regex_from_to(guisettings_file_, '<'+x+' default="true">', '</'+x+'>', excluding=False)
 	new_word = '<'+x+'>N/A</'+x+'>'
-	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings_file,old_word,new_word,guisettings_file_)
+	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings4_file,old_word,new_word,guisettings_file_)
 	'''---------------------------'''
 	x = 'skintheme' #COLOURS
 	old_word = regex_from_to(guisettings_file_, '<'+x+'>', '</'+x+'>', excluding=False)
 	if old_word == '<'+x+'></'+x+'>': old_word = regex_from_to(guisettings_file_, '<'+x+' default="true">', '</'+x+'>', excluding=False)
 	new_word = '<'+x+'>N/A</'+x+'>'
-	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings_file,old_word,new_word,guisettings_file_)
+	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings4_file,old_word,new_word,guisettings_file_)
 	'''---------------------------'''
 	x = 'font' #FONTS
 	old_word = regex_from_to(guisettings_file_, '<'+x+'>', '</'+x+'>', excluding=False)
 	if old_word == '<'+x+'></'+x+'>': old_word = regex_from_to(guisettings_file_, '<'+x+' default="true">', '</'+x+'>', excluding=False)
 	if countrystr == "Israel": new_word = '<'+x+'>Arial</'+x+'>'
 	else: new_word = '<'+x+'>N/A</'+x+'>'
-	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings_file,old_word,new_word,guisettings_file_)
+	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings4_file,old_word,new_word,guisettings_file_)
 	'''---------------------------'''
 	x = 'skinzoom' #ZOOM
 	old_word = regex_from_to(guisettings_file_, '<'+x+'>', '</'+x+'>', excluding=False)
 	if old_word == '<'+x+'></'+x+'>': old_word = regex_from_to(guisettings_file_, '<'+x+' default="true">', '</'+x+'>', excluding=False)
 	if scripthtptinstall_Skin_FirstBoot == "true": new_word = '<'+x+'>0</'+x+'>'
 	else: new_word = '<'+x+'>N/A</'+x+'>'
-	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings_file,old_word,new_word,guisettings_file_)
+	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings4_file,old_word,new_word,guisettings_file_)
 	'''---------------------------'''
 	x = 'startupwindow' #STARTUP WINDOW
 	old_word = regex_from_to(guisettings_file_, '<'+x+'>', '</'+x+'>', excluding=False)
 	if old_word == '<'+x+'></'+x+'>': old_word = regex_from_to(guisettings_file_, '<'+x+' default="true">', '</'+x+'>', excluding=False)
 	new_word = '<'+x+'>N/A</'+x+'>'
-	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings_file,old_word,new_word,guisettings_file_)
+	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings4_file,old_word,new_word,guisettings_file_)
 	'''---------------------------'''
 	x = 'soundskin' #NAVIGATION SOUNDS
 	old_word = regex_from_to(guisettings_file_, '<'+x+'>', '</'+x+'>', excluding=False)
 	if old_word == '<'+x+'></'+x+'>': old_word = regex_from_to(guisettings_file_, '<'+x+' default="true">', '</'+x+'>', excluding=False)
 	if not id40str or scripthtptinstall_Skin_FirstBoot == "true": new_word = '<'+x+'>SKINDEFAULT</'+x+'>'
 	else: new_word = '<'+x+'>N/A</'+x+'>'
-	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings_file,old_word,new_word,guisettings_file_)
+	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings4_file,old_word,new_word,guisettings_file_)
 	'''---------------------------'''
 	
 	'''------------------------------
@@ -266,21 +267,21 @@ def guiset_appearance(admin, guisettings_file, guisettings_file_):
 	old_word = regex_from_to(guisettings_file_, '<'+x+'>', '</'+x+'>', excluding=False)
 	if old_word == '<'+x+'></'+x+'>': old_word = regex_from_to(guisettings_file_, '<'+x+' default="true">', '</'+x+'>', excluding=False)
 	new_word = '<'+x+'>N/A</'+x+'>'
-	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings_file,old_word,new_word,guisettings_file_)
+	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings4_file,old_word,new_word,guisettings_file_)
 	'''---------------------------'''
 	x = 'country' 
 	old_word = regex_from_to(guisettings_file_, '<'+x+'>', '</'+x+'>', excluding=False)
 	if old_word == '<'+x+'></'+x+'>': old_word = regex_from_to(guisettings_file_, '<'+x+' default="true">', '</'+x+'>', excluding=False)
 	if (countrystr == "Israel" and (scripthtptinstall_Skin_Installed == "true" or scripthtptinstall_Skin_FirstBoot == "true")): new_word = '<'+x+'>ISRAEL (24h)</'+x+'>'
 	else: new_word = '<'+x+'>N/A</'+x+'>'
-	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings_file,old_word,new_word,guisettings_file_)
+	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings4_file,old_word,new_word,guisettings_file_)
 	'''---------------------------'''
 	x = 'charset'  #(DUPLICATED! CANT USE THAT!)
 	old_word = regex_from_to(guisettings_file_, '<'+x+'>', '</'+x+'>', excluding=False)
 	if old_word == '<'+x+'></'+x+'>': old_word = regex_from_to(guisettings_file_, '<'+x+' default="true">', '</'+x+'>', excluding=False)
 	new_word = '<'+x+'>DEFAULT</'+x+'>'
 	print "ahh" + space + new_word
-	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings_file,old_word,new_word,guisettings_file_)
+	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings4_file,old_word,new_word,guisettings_file_)
 	'''---------------------------'''
 	x = 'keyboardlayouts' 
 	old_word = regex_from_to(guisettings_file_, '<'+x+'>', '</'+x+'>', excluding=False)
@@ -288,7 +289,7 @@ def guiset_appearance(admin, guisettings_file, guisettings_file_):
 	if countrystr == "Israel": new_word = '<'+x+'>English ABC|Hebrew ABC</'+x+'>'
 	else: new_word = '<'+x+'>N/A</'+x+'>'
 	print "ahh" + space + new_word
-	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings_file,old_word,new_word,guisettings_file_)
+	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings4_file,old_word,new_word,guisettings_file_)
 	'''---------------------------'''
 	
 	'''------------------------------
@@ -298,38 +299,38 @@ def guiset_appearance(admin, guisettings_file, guisettings_file_):
 	old_word = regex_from_to(guisettings_file_, '<'+x+'>', '</'+x+'>', excluding=False)
 	if old_word == '<'+x+'></'+x+'>': old_word = regex_from_to(guisettings_file_, '<'+x+' default="true">', '</'+x+'>', excluding=False)
 	new_word = '<'+x+'>true</'+x+'>'
-	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings_file,old_word,new_word,guisettings_file_)
+	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings4_file,old_word,new_word,guisettings_file_)
 	'''---------------------------'''
 	x = 'showextensions' #SHOW FILE EXTENSIONS
 	old_word = regex_from_to(guisettings_file_, '<'+x+'>', '</'+x+'>', excluding=False)
 	if old_word == '<'+x+'></'+x+'>': old_word = regex_from_to(guisettings_file_, '<'+x+' default="true">', '</'+x+'>', excluding=False)
 	new_word = '<'+x+'>true</'+x+'>'
-	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings_file,old_word,new_word,guisettings_file_)
+	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings4_file,old_word,new_word,guisettings_file_)
 	'''---------------------------'''
 	x = 'ignorethewhensorting' #IGNORE ARTICALES WHEN SORTING
 	old_word = regex_from_to(guisettings_file_, '<'+x+'>', '</'+x+'>', excluding=False)
 	if old_word == '<'+x+'></'+x+'>': old_word = regex_from_to(guisettings_file_, '<'+x+' default="true">', '</'+x+'>', excluding=False)
 	new_word = '<'+x+'>true</'+x+'>'
-	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings_file,old_word,new_word,guisettings_file_)
+	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings4_file,old_word,new_word,guisettings_file_)
 	'''---------------------------'''
 	x = 'allowfiledeletion' #ALLOW FILE RENAMING AND DELETION
 	old_word = regex_from_to(guisettings_file_, '<'+x+'>', '</'+x+'>', excluding=False)
 	if old_word == '<'+x+'></'+x+'>': old_word = regex_from_to(guisettings_file_, '<'+x+' default="true">', '</'+x+'>', excluding=False)
 	new_word = '<'+x+'>true</'+x+'>'
-	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings_file,old_word,new_word,guisettings_file_)
+	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings4_file,old_word,new_word,guisettings_file_)
 	'''---------------------------'''
 	x = 'showaddsourcebuttons' #SHOW ADD SOURCE BUTTON IN FILE LISTS
 	old_word = regex_from_to(guisettings_file_, '<'+x+'>', '</'+x+'>', excluding=False)
 	if old_word == '<'+x+'></'+x+'>': old_word = regex_from_to(guisettings_file_, '<'+x+' default="true">', '</'+x+'>', excluding=False)
 	new_word = '<'+x+'>true</'+x+'>'
-	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings_file,old_word,new_word,guisettings_file_)
+	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings4_file,old_word,new_word,guisettings_file_)
 	'''---------------------------'''
 	x = 'showhidden' #SHOW HIDDEN FILES AND DIRECTORIES
 	old_word = regex_from_to(guisettings_file_, '<'+x+'>', '</'+x+'>', excluding=False)
 	if old_word == '<'+x+'></'+x+'>': old_word = regex_from_to(guisettings_file_, '<'+x+' default="true">', '</'+x+'>', excluding=False)
 	if not id40str or scripthtptinstall_Skin_FirstBoot == "true": new_word = '<'+x+'>false</'+x+'>'
 	else: new_word = '<'+x+'>N/A</'+x+'>'
-	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings_file,old_word,new_word,guisettings_file_)
+	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings4_file,old_word,new_word,guisettings_file_)
 	'''---------------------------'''
 	
 	'''------------------------------
@@ -339,25 +340,25 @@ def guiset_appearance(admin, guisettings_file, guisettings_file_):
 	old_word = regex_from_to(guisettings_file_, '<'+x+'>', '</'+x+'>', excluding=False)
 	if old_word == '<'+x+'></'+x+'>': old_word = regex_from_to(guisettings_file_, '<'+x+' default="true">', '</'+x+'>', excluding=False)
 	new_word = '<'+x+'></'+x+'>'
-	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings_file,old_word,new_word,guisettings_file_)
+	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings4_file,old_word,new_word,guisettings_file_)
 	'''---------------------------'''
 	x = 'time' #SCRENSAVER TIME
 	old_word = regex_from_to(guisettings_file_, '<'+x+'>', '</'+x+'>', excluding=False)
 	if old_word == '<'+x+'></'+x+'>': old_word = regex_from_to(guisettings_file_, '<'+x+' default="true">', '</'+x+'>', excluding=False)
 	new_word = '<'+x+'>60</'+x+'>'
-	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings_file,old_word,new_word,guisettings_file_)
+	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings4_file,old_word,new_word,guisettings_file_)
 	'''---------------------------'''
 	x = 'usedimonpause' #USE DIM IF PAUSED DURING VIDEO PLAYBACK
 	old_word = regex_from_to(guisettings_file_, '<'+x+'>', '</'+x+'>', excluding=False)
 	if old_word == '<'+x+'></'+x+'>': old_word = regex_from_to(guisettings_file_, '<'+x+' default="true">', '</'+x+'>', excluding=False)
 	new_word = '<'+x+'>false</'+x+'>'
-	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings_file,old_word,new_word,guisettings_file_)
+	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings4_file,old_word,new_word,guisettings_file_)
 	'''---------------------------'''
 	x = 'usemusicvisinstead' #USE DIM IF PAUSED DURING VIDEO PLAYBACK
 	old_word = regex_from_to(guisettings_file_, '<'+x+'>', '</'+x+'>', excluding=False)
 	if old_word == '<'+x+'></'+x+'>': old_word = regex_from_to(guisettings_file_, '<'+x+' default="true">', '</'+x+'>', excluding=False)
 	new_word = '<'+x+'>N/A</'+x+'>'
-	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings_file,old_word,new_word,guisettings_file_)
+	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings4_file,old_word,new_word,guisettings_file_)
 	'''---------------------------'''
 		
 def guiset_videos(admin, guisettings_file, guisettings_file_):
@@ -368,44 +369,44 @@ def guiset_videos(admin, guisettings_file, guisettings_file_):
 	old_word = regex_from_to(guisettings_file_, '<'+x+'>', '</'+x+'>', excluding=False)
 	if old_word == '<'+x+'></'+x+'>': old_word = regex_from_to(guisettings_file_, '<'+x+' default="true">', '</'+x+'>', excluding=False)
 	new_word = '<'+x+'>true</'+x+'>'
-	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings_file,old_word,new_word,guisettings_file_)
+	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings4_file,old_word,new_word,guisettings_file_)
 	'''---------------------------'''
 	x = 'actorthumbs' #DOWNLOAD ACTOR THUMBNAILS WHEN ADDING TO LIBRARY
 	old_word = regex_from_to(guisettings_file_, '<'+x+'>', '</'+x+'>', excluding=False)
 	if old_word == '<'+x+'></'+x+'>': old_word = regex_from_to(guisettings_file_, '<'+x+' default="true">', '</'+x+'>', excluding=False)
 	if scripthtptdebug_Info_TotalSpace > 10: new_word = '<'+x+'>true</'+x+'>'
 	else: new_word = '<'+x+'>false</'+x+'>'
-	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings_file,old_word,new_word,guisettings_file_)
+	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings4_file,old_word,new_word,guisettings_file_)
 	'''---------------------------'''
 	x = 'flatten' #FLATTEN LIBRARY HIERARCHY
 	old_word = regex_from_to(guisettings_file_, '<'+x+'>', '</'+x+'>', excluding=False)
 	if old_word == '<'+x+'></'+x+'>': old_word = regex_from_to(guisettings_file_, '<'+x+' default="true">', '</'+x+'>', excluding=False)
 	new_word = '<'+x+'>false</'+x+'>'
-	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings_file,old_word,new_word,guisettings_file_)
+	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings4_file,old_word,new_word,guisettings_file_)
 	'''---------------------------'''
 	x = 'flattentvshows' #FLATTEN TVSHOW SEASONS
 	old_word = regex_from_to(guisettings_file_, '<'+x+'>', '</'+x+'>', excluding=False)
 	if old_word == '<'+x+'></'+x+'>': old_word = regex_from_to(guisettings_file_, '<'+x+' default="true">', '</'+x+'>', excluding=False)
 	new_word = '<'+x+'>1</'+x+'>'
-	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings_file,old_word,new_word,guisettings_file_)
+	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings4_file,old_word,new_word,guisettings_file_)
 	'''---------------------------'''
 	x = 'groupmoviesets' #GROUP MOVIES IN SETS
 	old_word = regex_from_to(guisettings_file_, '<'+x+'>', '</'+x+'>', excluding=False)
 	if old_word == '<'+x+'></'+x+'>': old_word = regex_from_to(guisettings_file_, '<'+x+' default="true">', '</'+x+'>', excluding=False)
 	new_word = '<'+x+'>true</'+x+'>'
-	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings_file,old_word,new_word,guisettings_file_)
+	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings4_file,old_word,new_word,guisettings_file_)
 	'''---------------------------'''
 	x = '' #UPDATELIBRARY ON STARTUP
 	old_word = regex_from_to(guisettings_file_, '<'+x+'>', '</'+x+'>', excluding=False)
 	if old_word == '<'+x+'></'+x+'>': old_word = regex_from_to(guisettings_file_, '<'+x+' default="true">', '</'+x+'>', excluding=False)
 	new_word = '<'+x+'>N/A</'+x+'>'
-	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings_file,old_word,new_word,guisettings_file_)
+	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings4_file,old_word,new_word,guisettings_file_)
 	'''---------------------------'''
 	x = 'backgroundupdate' #HIDE PROGRESS OF LIBRARY UPDATES
 	old_word = regex_from_to(guisettings_file_, '<'+x+'>', '</'+x+'>', excluding=False)
 	if old_word == '<'+x+'></'+x+'>': old_word = regex_from_to(guisettings_file_, '<'+x+' default="true">', '</'+x+'>', excluding=False)
 	new_word = '<'+x+'>false</'+x+'>'
-	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings_file,old_word,new_word,guisettings_file_)
+	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings4_file,old_word,new_word,guisettings_file_)
 	'''---------------------------'''
 	
 	'''------------------------------
@@ -416,73 +417,73 @@ def guiset_videos(admin, guisettings_file, guisettings_file_):
 	if old_word == '<'+x+'></'+x+'>': old_word = regex_from_to(guisettings_file_, '<'+x+' default="true">', '</'+x+'>', excluding=False)
 	if not id40str: new_word = '<'+x+'>original</'+x+'>'
 	else: new_word = '<'+x+'>N/A</'+x+'>'
-	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings_file,old_word,new_word,guisettings_file_)
+	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings4_file,old_word,new_word,guisettings_file_)
 	'''---------------------------'''
 	x = 'autoplaynextitem' #PLAY THE NEXT VIDEO AUTOMATICALLY
 	old_word = regex_from_to(guisettings_file_, '<'+x+'>', '</'+x+'>', excluding=False)
 	if old_word == '<'+x+'></'+x+'>': old_word = regex_from_to(guisettings_file_, '<'+x+' default="true">', '</'+x+'>', excluding=False)
 	new_word = '<'+x+'>0</'+x+'>'
-	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings_file,old_word,new_word,guisettings_file_)
+	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings4_file,old_word,new_word,guisettings_file_)
 	'''---------------------------'''
 	x = 'adjustrefreshrate' #ADJUST DISPLAY REFRESH RATE TO MATCH VIDEO
 	old_word = regex_from_to(guisettings_file_, '<'+x+'>', '</'+x+'>', excluding=False)
 	if old_word == '<'+x+'></'+x+'>': old_word = regex_from_to(guisettings_file_, '<'+x+' default="true">', '</'+x+'>', excluding=False)
 	new_word = '<'+x+'>0</'+x+'>'
-	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings_file,old_word,new_word,guisettings_file_)
+	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings4_file,old_word,new_word,guisettings_file_)
 	'''---------------------------'''
 	x = 'pauseafterrefreshchange' #PAUSE DURING REFRESH RATE CHANGE
 	old_word = regex_from_to(guisettings_file_, '<'+x+'>', '</'+x+'>', excluding=False)
 	if old_word == '<'+x+'></'+x+'>': old_word = regex_from_to(guisettings_file_, '<'+x+' default="true">', '</'+x+'>', excluding=False)
 	new_word = '<'+x+'>0</'+x+'>'
-	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings_file,old_word,new_word,guisettings_file_)
+	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings4_file,old_word,new_word,guisettings_file_)
 	'''---------------------------'''
 	x = 'usedisplayasclock' #SYNC PLAYBACK TO DISPLAY
 	old_word = regex_from_to(guisettings_file_, '<'+x+'>', '</'+x+'>', excluding=False)
 	if old_word == '<'+x+'></'+x+'>': old_word = regex_from_to(guisettings_file_, '<'+x+' default="true">', '</'+x+'>', excluding=False)
 	new_word = '<'+x+'>true</'+x+'>'
-	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings_file,old_word,new_word,guisettings_file_)
+	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings4_file,old_word,new_word,guisettings_file_)
 	'''---------------------------'''
 	x = 'synctype' #A/V SYNC METHOD
 	old_word = regex_from_to(guisettings_file_, '<'+x+'>', '</'+x+'>', excluding=False)
 	if old_word == '<'+x+'></'+x+'>': old_word = regex_from_to(guisettings_file_, '<'+x+' default="true">', '</'+x+'>', excluding=False)
 	new_word = '<'+x+'>1</'+x+'>'
-	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings_file,old_word,new_word,guisettings_file_)
+	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings4_file,old_word,new_word,guisettings_file_)
 	'''---------------------------'''
 	x = 'errorinaspect' #ALLOWD ERROR IN ASPECT RATIO TO MINIMISE BLACK BARS
 	old_word = regex_from_to(guisettings_file_, '<'+x+'>', '</'+x+'>', excluding=False)
 	if old_word == '<'+x+'></'+x+'>': old_word = regex_from_to(guisettings_file_, '<'+x+' default="true">', '</'+x+'>', excluding=False)
 	new_word = '<'+x+'>0</'+x+'>'
-	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings_file,old_word,new_word,guisettings_file_)
+	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings4_file,old_word,new_word,guisettings_file_)
 	'''---------------------------'''
 	x = 'stretch43' #DISPLAY 4:3 VIDEOS AS
 	old_word = regex_from_to(guisettings_file_, '<'+x+'>', '</'+x+'>', excluding=False)
 	if old_word == '<'+x+'></'+x+'>': old_word = regex_from_to(guisettings_file_, '<'+x+' default="true">', '</'+x+'>', excluding=False)
 	new_word = '<'+x+'>3</'+x+'>'
-	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings_file,old_word,new_word,guisettings_file_)
+	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings4_file,old_word,new_word,guisettings_file_)
 	'''---------------------------'''
 	x = '' #ACTIVATE TELETEXT
 	old_word = regex_from_to(guisettings_file_, '<'+x+'>', '</'+x+'>', excluding=False)
 	if old_word == '<'+x+'></'+x+'>': old_word = regex_from_to(guisettings_file_, '<'+x+' default="true">', '</'+x+'>', excluding=False)
 	new_word = '<'+x+'>N/A</'+x+'>'
-	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings_file,old_word,new_word,guisettings_file_)
+	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings4_file,old_word,new_word,guisettings_file_)
 	'''---------------------------'''
 	x = '' #SCALE TELETEXT TO 4:3
 	old_word = regex_from_to(guisettings_file_, '<'+x+'>', '</'+x+'>', excluding=False)
 	if old_word == '<'+x+'></'+x+'>': old_word = regex_from_to(guisettings_file_, '<'+x+' default="true">', '</'+x+'>', excluding=False)
 	new_word = '<'+x+'>N/A</'+x+'>'
-	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings_file,old_word,new_word,guisettings_file_)
+	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings4_file,old_word,new_word,guisettings_file_)
 	'''---------------------------'''
 	x = '' #PLAYBACK MODE OF STEREOSCOPIC 3D VIDEOS
 	old_word = regex_from_to(guisettings_file_, '<'+x+'>', '</'+x+'>', excluding=False)
 	if old_word == '<'+x+'></'+x+'>': old_word = regex_from_to(guisettings_file_, '<'+x+' default="true">', '</'+x+'>', excluding=False)
 	new_word = '<'+x+'>N/A</'+x+'>'
-	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings_file,old_word,new_word,guisettings_file_)
+	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings4_file,old_word,new_word,guisettings_file_)
 	'''---------------------------'''
 	x = 'quitstereomodeonstop' #DISABLE STEREOSCOPIC 3D MODE WHEN PLAYBACK ENDED
 	old_word = regex_from_to(guisettings_file_, '<'+x+'>', '</'+x+'>', excluding=False)
 	if old_word == '<'+x+'></'+x+'>': old_word = regex_from_to(guisettings_file_, '<'+x+' default="true">', '</'+x+'>', excluding=False)
 	new_word = '<'+x+'>true</'+x+'>'
-	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings_file,old_word,new_word,guisettings_file_)
+	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings4_file,old_word,new_word,guisettings_file_)
 	'''---------------------------'''
 	
 	'''------------------------------
@@ -492,19 +493,19 @@ def guiset_videos(admin, guisettings_file, guisettings_file_):
 	old_word = regex_from_to(guisettings_file_, '<'+x+'>', '</'+x+'>', excluding=False)
 	if old_word == '<'+x+'></'+x+'>': old_word = regex_from_to(guisettings_file_, '<'+x+' default="true">', '</'+x+'>', excluding=False)
 	new_word = '<'+x+'>0</'+x+'>'
-	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings_file,old_word,new_word,guisettings_file_)
+	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings4_file,old_word,new_word,guisettings_file_)
 	'''---------------------------'''
 	x = 'hqscalers' #ENABLE HQ SCALERS FOR SCALINGS ABOVE
 	old_word = regex_from_to(guisettings_file_, '<'+x+'>', '</'+x+'>', excluding=False)
 	if old_word == '<'+x+'></'+x+'>': old_word = regex_from_to(guisettings_file_, '<'+x+' default="true">', '</'+x+'>', excluding=False)
 	new_word = '<'+x+'>0</'+x+'>'
-	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings_file,old_word,new_word,guisettings_file_)
+	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings4_file,old_word,new_word,guisettings_file_)
 	'''---------------------------'''
 	x = 'decodingmethod' #DECODING METHOD
 	old_word = regex_from_to(guisettings_file_, '<'+x+'>', '</'+x+'>', excluding=False)
 	if old_word == '<'+x+'></'+x+'>': old_word = regex_from_to(guisettings_file_, '<'+x+' default="true">', '</'+x+'>', excluding=False)
 	new_word = '<'+x+'>1</'+x+'>'
-	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings_file,old_word,new_word,guisettings_file_)
+	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings4_file,old_word,new_word,guisettings_file_)
 	'''---------------------------'''
 	
 	
@@ -513,53 +514,53 @@ def guiset_videos(admin, guisettings_file, guisettings_file_):
 	old_word = regex_from_to(guisettings_file_, '<'+x+'>', '</'+x+'>', excluding=False)
 	if old_word == '<'+x+'></'+x+'>': old_word = regex_from_to(guisettings_file_, '<'+x+' default="true">', '</'+x+'>', excluding=False)
 	new_word = '<'+x+'>0</'+x+'>' #GAL TEST THIS!
-	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings_file,old_word,new_word,guisettings_file_)
+	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings4_file,old_word,new_word,guisettings_file_)
 	'''---------------------------'''
 	x = 'usevdpau' #ALLOW HARDWARE ACCELERATION (VDPAU) -NVIDIA/AMD*
 	old_word = regex_from_to(guisettings_file_, '<'+x+'>', '</'+x+'>', excluding=False)
 	if old_word == '<'+x+'></'+x+'>': old_word = regex_from_to(guisettings_file_, '<'+x+' default="true">', '</'+x+'>', excluding=False)
 	new_word = '<'+x+'>N/A</'+x+'>'
-	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings_file,old_word,new_word,guisettings_file_)
+	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings4_file,old_word,new_word,guisettings_file_)
 	'''---------------------------'''
 	x = 'usevdpaumixer' #PREFER VDPAU VIDEO MIXER
 	old_word = regex_from_to(guisettings_file_, '<'+x+'>', '</'+x+'>', excluding=False)
 	if old_word == '<'+x+'></'+x+'>': old_word = regex_from_to(guisettings_file_, '<'+x+' default="true">', '</'+x+'>', excluding=False)
 	new_word = '<'+x+'>N/A</'+x+'>'
-	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings_file,old_word,new_word,guisettings_file_)
+	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings4_file,old_word,new_word,guisettings_file_)
 	'''---------------------------'''
 	x = 'usevaapi' #ALLOW HARDWARE ACCELERATION (VAAPI) -INTEL
 	old_word = regex_from_to(guisettings_file_, '<'+x+'>', '</'+x+'>', excluding=False)
 	if old_word == '<'+x+'></'+x+'>': old_word = regex_from_to(guisettings_file_, '<'+x+' default="true">', '</'+x+'>', excluding=False)
 	new_word = '<'+x+'>false</'+x+'>'
-	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings_file,old_word,new_word,guisettings_file_)
+	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings4_file,old_word,new_word,guisettings_file_)
 	'''---------------------------'''
 	x = 'usevaapimpeg2' #USE MPEG-2 VAAPI
 	old_word = regex_from_to(guisettings_file_, '<'+x+'>', '</'+x+'>', excluding=False)
 	if old_word == '<'+x+'></'+x+'>': old_word = regex_from_to(guisettings_file_, '<'+x+' default="true">', '</'+x+'>', excluding=False)
 	if not id40str or scripthtptinstall_Skin_FirstBoot == "true": new_word = '<'+x+'>false</'+x+'>'
 	else: new_word = '<'+x+'>N/A</'+x+'>'
-	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings_file,old_word,new_word,guisettings_file_)
+	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings4_file,old_word,new_word,guisettings_file_)
 	'''---------------------------'''
 	x = 'usevaapimpeg4' #USE MPEG-4 VAAPI
 	old_word = regex_from_to(guisettings_file_, '<'+x+'>', '</'+x+'>', excluding=False)
 	if old_word == '<'+x+'></'+x+'>': old_word = regex_from_to(guisettings_file_, '<'+x+' default="true">', '</'+x+'>', excluding=False)
 	if not id40str or scripthtptinstall_Skin_FirstBoot == "true": new_word = '<'+x+'>true</'+x+'>'
 	else: new_word = '<'+x+'>N/A</'+x+'>'
-	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings_file,old_word,new_word,guisettings_file_)
+	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings4_file,old_word,new_word,guisettings_file_)
 	'''---------------------------'''
 	x = 'usevaapivc1' #USE VC-1 VAAPI
 	old_word = regex_from_to(guisettings_file_, '<'+x+'>', '</'+x+'>', excluding=False)
 	if old_word == '<'+x+'></'+x+'>': old_word = regex_from_to(guisettings_file_, '<'+x+' default="true">', '</'+x+'>', excluding=False)
 	if not id40str: new_word = '<'+x+'>false</'+x+'>'
 	else: new_word = '<'+x+'>N/A</'+x+'>'
-	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings_file,old_word,new_word,guisettings_file_)
+	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings4_file,old_word,new_word,guisettings_file_)
 	'''---------------------------'''
 	x = '' #PREFER VAAPI RENDER METHOD
 	old_word = regex_from_to(guisettings_file_, '<'+x+'>', '</'+x+'>', excluding=False)
 	if old_word == '<'+x+'></'+x+'>': old_word = regex_from_to(guisettings_file_, '<'+x+' default="true">', '</'+x+'>', excluding=False)
 	if not id40str: new_word = '<'+x+'>false</'+x+'>'
 	else: new_word = '<'+x+'>N/A</'+x+'>'
-	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings_file,old_word,new_word,guisettings_file_)
+	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings4_file,old_word,new_word,guisettings_file_)
 	'''---------------------------'''
 	
 	
@@ -570,7 +571,7 @@ def guiset_videos(admin, guisettings_file, guisettings_file_):
 	old_word = regex_from_to(guisettings_file_, '<'+x+'>', '</'+x+'>', excluding=False)
 	if old_word == '<'+x+'></'+x+'>': old_word = regex_from_to(guisettings_file_, '<'+x+' default="true">', '</'+x+'>', excluding=False)
 	new_word = '<'+x+'>N/A</'+x+'>'
-	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings_file,old_word,new_word,guisettings_file_)
+	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings4_file,old_word,new_word,guisettings_file_)
 	'''---------------------------'''
 	
 	'''------------------------------
@@ -580,26 +581,26 @@ def guiset_videos(admin, guisettings_file, guisettings_file_):
 	old_word = regex_from_to(guisettings_file_, '<'+x+'>', '</'+x+'>', excluding=False)
 	if old_word == '<'+x+'></'+x+'>': old_word = regex_from_to(guisettings_file_, '<'+x+' default="true">', '</'+x+'>', excluding=False)
 	new_word = '<'+x+'>1</'+x+'>'
-	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings_file,old_word,new_word,guisettings_file_)
+	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings4_file,old_word,new_word,guisettings_file_)
 	'''---------------------------'''
 	x = 'extractthumb' #EXTRACT THUMBNAILS AND VIDEO INFORMATION
 	old_word = regex_from_to(guisettings_file_, '<'+x+'>', '</'+x+'>', excluding=False)
 	if old_word == '<'+x+'></'+x+'>': old_word = regex_from_to(guisettings_file_, '<'+x+' default="true">', '</'+x+'>', excluding=False)
 	if scripthtptdebug_Info_TotalSpace > 10: new_word = '<'+x+'>true</'+x+'>'
 	else: new_word = '<'+x+'>false</'+x+'>'
-	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings_file,old_word,new_word,guisettings_file_)
+	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings4_file,old_word,new_word,guisettings_file_)
 	'''---------------------------'''
 	x = 'replacelabels' #REPLACE FILE NAMES WITH LIBRARY TITLES
 	old_word = regex_from_to(guisettings_file_, '<'+x+'>', '</'+x+'>', excluding=False)
 	if old_word == '<'+x+'></'+x+'>': old_word = regex_from_to(guisettings_file_, '<'+x+' default="true">', '</'+x+'>', excluding=False)
 	new_word = '<'+x+'>true</'+x+'>'
-	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings_file,old_word,new_word,guisettings_file_)
+	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings4_file,old_word,new_word,guisettings_file_)
 	'''---------------------------'''
 	x = 'stackvideos' #COMBINE SPLIT VIDEO ITEMS
 	old_word = regex_from_to(guisettings_file_, '<'+x+'>', '</'+x+'>', excluding=False)
 	if old_word == '<'+x+'></'+x+'>': old_word = regex_from_to(guisettings_file_, '<'+x+' default="true">', '</'+x+'>', excluding=False)
 	new_word = '<'+x+'>true</'+x+'>'
-	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings_file,old_word,new_word,guisettings_file_)
+	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings4_file,old_word,new_word,guisettings_file_)
 	'''---------------------------'''
 	
 	'''------------------------------
@@ -609,73 +610,73 @@ def guiset_videos(admin, guisettings_file, guisettings_file_):
 	old_word = regex_from_to(guisettings_file_, '<'+x+'>', '</'+x+'>', excluding=False)
 	if old_word == '<'+x+'></'+x+'>': old_word = regex_from_to(guisettings_file_, '<'+x+' default="true">', '</'+x+'>', excluding=False)
 	new_word = '<'+x+'>original</'+x+'>'
-	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings_file,old_word,new_word,guisettings_file_)
+	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings4_file,old_word,new_word,guisettings_file_)
 	'''---------------------------'''
 	x = 'align' #SUBTITLE POSITION ON SCREEN
 	old_word = regex_from_to(guisettings_file_, '<'+x+'>', '</'+x+'>', excluding=False)
 	if old_word == '<'+x+'></'+x+'>': old_word = regex_from_to(guisettings_file_, '<'+x+' default="true">', '</'+x+'>', excluding=False)
 	new_word = '<'+x+'>0</'+x+'>'
-	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings_file,old_word,new_word,guisettings_file_)
+	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings4_file,old_word,new_word,guisettings_file_)
 	'''---------------------------'''
 	x = 'stereoscopicdepth' #STEREOSCOPIC 3D DEPTH OF SUBTITLES
 	old_word = regex_from_to(guisettings_file_, '<'+x+'>', '</'+x+'>', excluding=False)
 	if old_word == '<'+x+'></'+x+'>': old_word = regex_from_to(guisettings_file_, '<'+x+' default="true">', '</'+x+'>', excluding=False)
 	new_word = '<'+x+'>0</'+x+'>'
-	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings_file,old_word,new_word,guisettings_file_)
+	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings4_file,old_word,new_word,guisettings_file_)
 	'''---------------------------'''
 	x = 'font' #FONT TO USE FOR TEXT SUBTITLES
 	old_word = regex_from_to(guisettings_file_, '<'+x+'>', '</'+x+'>', excluding=False)
 	if old_word == '<'+x+'></'+x+'>': old_word = regex_from_to(guisettings_file_, '<'+x+' default="true">', '</'+x+'>', excluding=False)
 	#new_word = '<'+x+'>arial.ttf</'+x+'>'
 	new_word = '<'+x+'>N/A</'+x+'>'
-	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings_file,old_word,new_word,guisettings_file_)
+	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings4_file,old_word,new_word,guisettings_file_)
 	'''---------------------------'''
 	x = 'height' #SIZE
 	old_word = regex_from_to(guisettings_file_, '<'+x+'>', '</'+x+'>', excluding=False)
 	if old_word == '<'+x+'></'+x+'>': old_word = regex_from_to(guisettings_file_, '<'+x+' default="true">', '</'+x+'>', excluding=False)
 	if not id40str or scripthtptinstall_Skin_FirstBoot == "true": new_word = '<'+x+'>32</'+x+'>'
 	else: new_word = '<'+x+'>N/A</'+x+'>'
-	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings_file,old_word,new_word,guisettings_file_)
+	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings4_file,old_word,new_word,guisettings_file_)
 	'''---------------------------'''
 	x = 'style' #STYLE
 	old_word = regex_from_to(guisettings_file_, '<'+x+'>', '</'+x+'>', excluding=False)
 	if old_word == '<'+x+'></'+x+'>': old_word = regex_from_to(guisettings_file_, '<'+x+' default="true">', '</'+x+'>', excluding=False)
 	if not id40str or scripthtptinstall_Skin_FirstBoot == "true": new_word = '<'+x+'>1</'+x+'>'
 	else: new_word = '<'+x+'>N/A</'+x+'>'
-	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings_file,old_word,new_word,guisettings_file_)
+	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings4_file,old_word,new_word,guisettings_file_)
 	'''---------------------------'''
 	x = 'color' #COLOUR
 	old_word = regex_from_to(guisettings_file_, '<'+x+'>', '</'+x+'>', excluding=False)
 	if old_word == '<'+x+'></'+x+'>': old_word = regex_from_to(guisettings_file_, '<'+x+' default="true">', '</'+x+'>', excluding=False)
 	if not id40str or scripthtptinstall_Skin_FirstBoot == "true": new_word = '<'+x+'>1</'+x+'>'
 	else: new_word = '<'+x+'>N/A</'+x+'>'
-	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings_file,old_word,new_word,guisettings_file_)
+	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings4_file,old_word,new_word,guisettings_file_)
 	'''---------------------------'''
 	x = 'charset' #CHARACTER SET (DUPLICATED! CANT USE THAT!)
 	old_word = regex_from_to(guisettings_file_, '<'+x+'>', '</'+x+'>', excluding=False)
 	if old_word == '<'+x+'></'+x+'>': old_word = regex_from_to(guisettings_file_, '<'+x+' default="true">', '</'+x+'>', excluding=False)
 	new_word = '<'+x+'>N/A</'+x+'>'
-	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings_file,old_word,new_word,guisettings_file_)
+	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings4_file,old_word,new_word,guisettings_file_)
 	'''---------------------------'''
 	x = 'languages' #LANGUAGES TO DOWNLOAD SUBTITLES FOR
 	old_word = regex_from_to(guisettings_file_, '<'+x+'>', '</'+x+'>', excluding=False)
 	if old_word == '<'+x+'></'+x+'>': old_word = regex_from_to(guisettings_file_, '<'+x+' default="true">', '</'+x+'>', excluding=False)
 	if countrystr == "Israel" or not id40str: new_word = '<'+x+'>English,Hebrew</'+x+'>'
 	else: new_word = '<'+x+'>N/A</'+x+'>'
-	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings_file,old_word,new_word,guisettings_file_)
+	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings4_file,old_word,new_word,guisettings_file_)
 	'''---------------------------'''
 	x = 'pauseonsearch' #PAUSE WHEN SEARCHING FOR SUBTITLES
 	old_word = regex_from_to(guisettings_file_, '<'+x+'>', '</'+x+'>', excluding=False)
 	if old_word == '<'+x+'></'+x+'>': old_word = regex_from_to(guisettings_file_, '<'+x+' default="true">', '</'+x+'>', excluding=False)
 	if not id40str or scripthtptinstall_Skin_FirstBoot == "true": new_word = '<'+x+'>true</'+x+'>'
 	else: new_word = '<'+x+'>N/A</'+x+'>'
-	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings_file,old_word,new_word,guisettings_file_)
+	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings4_file,old_word,new_word,guisettings_file_)
 	'''---------------------------'''
 	x = 'downloadfirst' #AUTO DOWNLOAD FIRST SUBTITLE
 	old_word = regex_from_to(guisettings_file_, '<'+x+'>', '</'+x+'>', excluding=False)
 	if old_word == '<'+x+'></'+x+'>': old_word = regex_from_to(guisettings_file_, '<'+x+' default="true">', '</'+x+'>', excluding=False)
 	new_word = '<'+x+'>false</'+x+'>'
-	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings_file,old_word,new_word,guisettings_file_)
+	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings4_file,old_word,new_word,guisettings_file_)
 	'''---------------------------'''	
 	x = 'tv' #DEFAULT TV SERVICE
 	old_word = regex_from_to(guisettings_file_, '<'+x+'>', '</'+x+'>', excluding=False)
@@ -683,7 +684,7 @@ def guiset_videos(admin, guisettings_file, guisettings_file_):
 	if countrystr == "Israel": new_word = '<'+x+'>service.subtitles.subscenter</'+x+'>'
 	elif "Foreign" in countrystr: new_word = '<'+x+'>service.subtitles.opensubtitles</'+x+'>'
 	else: new_word = '<'+x+'>service.subtitles.opensubtitles</'+x+'>'
-	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings_file,old_word,new_word,guisettings_file_)
+	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings4_file,old_word,new_word,guisettings_file_)
 	'''---------------------------'''
 	x = 'movie' #DEFAULT MOVIE SERVICE
 	old_word = regex_from_to(guisettings_file_, '<'+x+'>', '</'+x+'>', excluding=False)
@@ -691,7 +692,7 @@ def guiset_videos(admin, guisettings_file, guisettings_file_):
 	if countrystr == "Israel": new_word = '<'+x+'>service.subtitles.subscenter</'+x+'>'
 	elif "Foreign" in countrystr: new_word = '<'+x+'>service.subtitles.opensubtitles</'+x+'>'
 	else: new_word = '<'+x+'>service.subtitles.opensubtitles</'+x+'>'
-	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings_file,old_word,new_word,guisettings_file_)
+	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings4_file,old_word,new_word,guisettings_file_)
 	'''---------------------------'''
 
 	'''------------------------------
@@ -701,7 +702,7 @@ def guiset_videos(admin, guisettings_file, guisettings_file_):
 	old_word = regex_from_to(guisettings_file_, '<'+x+'>', '</'+x+'>', excluding=False)
 	if old_word == '<'+x+'></'+x+'>': old_word = regex_from_to(guisettings_file_, '<'+x+' default="true">', '</'+x+'>', excluding=False)
 	new_word = '<'+x+'>N/A</'+x+'>'
-	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings_file,old_word,new_word,guisettings_file_)
+	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings4_file,old_word,new_word,guisettings_file_)
 	'''---------------------------'''
 
 def guiset_music(admin, guisettings_file, guisettings_file_):
@@ -712,7 +713,7 @@ def guiset_music(admin, guisettings_file, guisettings_file_):
 	old_word = regex_from_to(guisettings_file_, '<'+x+'>', '</'+x+'>', excluding=False)
 	if old_word == '<'+x+'></'+x+'>': old_word = regex_from_to(guisettings_file_, '<'+x+' default="true">', '</'+x+'>', excluding=False)
 	new_word = '<'+x+'>N/A</'+x+'>'
-	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings_file,old_word,new_word,guisettings_file_)
+	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings4_file,old_word,new_word,guisettings_file_)
 	'''---------------------------'''
 	
 	'''------------------------------
@@ -723,19 +724,19 @@ def guiset_music(admin, guisettings_file, guisettings_file_):
 	old_word = regex_from_to(guisettings_file_, '<'+x+'>', '</'+x+'>', excluding=False)
 	if old_word == '<'+x+'></'+x+'>': old_word = regex_from_to(guisettings_file_, '<'+x+' default="true">', '</'+x+'>', excluding=False)
 	new_word = '<'+x+'>N/A</'+x+'>'
-	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings_file,old_word,new_word,guisettings_file_)
+	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings4_file,old_word,new_word,guisettings_file_)
 	'''---------------------------'''
 	x = 'queuebydefault' #QUEUE SONGS ON SELECTION
 	old_word = regex_from_to(guisettings_file_, '<'+x+'>', '</'+x+'>', excluding=False)
 	if old_word == '<'+x+'></'+x+'>': old_word = regex_from_to(guisettings_file_, '<'+x+' default="true">', '</'+x+'>', excluding=False)
 	new_word = '<'+x+'>N/A</'+x+'>'
-	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings_file,old_word,new_word,guisettings_file_)
+	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings4_file,old_word,new_word,guisettings_file_)
 	'''---------------------------'''
 	x = 'visualisation' #VISUALISATION
 	old_word = regex_from_to(guisettings_file_, '<'+x+'>', '</'+x+'>', excluding=False)
 	if old_word == '<'+x+'></'+x+'>': old_word = regex_from_to(guisettings_file_, '<'+x+' default="true">', '</'+x+'>', excluding=False)
 	new_word = '<'+x+'></'+x+'>'
-	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings_file,old_word,new_word,guisettings_file_)
+	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings4_file,old_word,new_word,guisettings_file_)
 	'''---------------------------'''
 	
 	'''------------------------------
@@ -745,7 +746,7 @@ def guiset_music(admin, guisettings_file, guisettings_file_):
 	old_word = regex_from_to(guisettings_file_, '<'+x+'>', '</'+x+'>', excluding=False)
 	if old_word == '<'+x+'></'+x+'>': old_word = regex_from_to(guisettings_file_, '<'+x+' default="true">', '</'+x+'>', excluding=False)
 	new_word = '<'+x+'>N/A</'+x+'>'
-	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings_file,old_word,new_word,guisettings_file_)
+	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings4_file,old_word,new_word,guisettings_file_)
 	'''---------------------------'''
 	
 	'''------------------------------
@@ -755,7 +756,7 @@ def guiset_music(admin, guisettings_file, guisettings_file_):
 	old_word = regex_from_to(guisettings_file_, '<'+x+'>', '</'+x+'>', excluding=False)
 	if old_word == '<'+x+'></'+x+'>': old_word = regex_from_to(guisettings_file_, '<'+x+' default="true">', '</'+x+'>', excluding=False)
 	new_word = '<'+x+'>N/A</'+x+'>'
-	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings_file,old_word,new_word,guisettings_file_)
+	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings4_file,old_word,new_word,guisettings_file_)
 	'''---------------------------'''
 	
 	'''------------------------------
@@ -765,7 +766,7 @@ def guiset_music(admin, guisettings_file, guisettings_file_):
 	old_word = regex_from_to(guisettings_file_, '<'+x+'>', '</'+x+'>', excluding=False)
 	if old_word == '<'+x+'></'+x+'>': old_word = regex_from_to(guisettings_file_, '<'+x+' default="true">', '</'+x+'>', excluding=False)
 	new_word = '<'+x+'>N/A</'+x+'>'
-	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings_file,old_word,new_word,guisettings_file_)
+	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings4_file,old_word,new_word,guisettings_file_)
 	'''---------------------------'''
 	
 def guiset_livetv(admin, guisettings_file, guisettings_file_):
@@ -776,31 +777,31 @@ def guiset_livetv(admin, guisettings_file, guisettings_file_):
 	old_word = regex_from_to(guisettings_file_, '<'+x+'>', '</'+x+'>', excluding=False)
 	if old_word == '<'+x+'></'+x+'>': old_word = regex_from_to(guisettings_file_, '<'+x+' default="true">', '</'+x+'>', excluding=False)
 	new_word = '<'+x+'>N/A</'+x+'>'
-	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings_file,old_word,new_word,guisettings_file_)
+	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings4_file,old_word,new_word,guisettings_file_)
 	'''---------------------------'''
 	x = '' #DO NOT SHOW CONNECTION LOST WARNINGS
 	old_word = regex_from_to(guisettings_file_, '<'+x+'>', '</'+x+'>', excluding=False)
 	if old_word == '<'+x+'></'+x+'>': old_word = regex_from_to(guisettings_file_, '<'+x+' default="true">', '</'+x+'>', excluding=False)
 	new_word = '<'+x+'>N/A</'+x+'>'
-	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings_file,old_word,new_word,guisettings_file_)
+	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings4_file,old_word,new_word,guisettings_file_)
 	'''---------------------------'''
 	x = '' #SYNCHRONISE CHANNEL GROUPS WITH BACKEND(S)
 	old_word = regex_from_to(guisettings_file_, '<'+x+'>', '</'+x+'>', excluding=False)
 	if old_word == '<'+x+'></'+x+'>': old_word = regex_from_to(guisettings_file_, '<'+x+' default="true">', '</'+x+'>', excluding=False)
 	new_word = '<'+x+'>N/A</'+x+'>'
-	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings_file,old_word,new_word,guisettings_file_)
+	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings4_file,old_word,new_word,guisettings_file_)
 	'''---------------------------'''
 	x = '' #ALWAYS USE THE CHANNEL ORDER FROM BACKEND(S)
 	old_word = regex_from_to(guisettings_file_, '<'+x+'>', '</'+x+'>', excluding=False)
 	if old_word == '<'+x+'></'+x+'>': old_word = regex_from_to(guisettings_file_, '<'+x+' default="true">', '</'+x+'>', excluding=False)
 	new_word = '<'+x+'>N/A</'+x+'>'
-	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings_file,old_word,new_word,guisettings_file_)
+	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings4_file,old_word,new_word,guisettings_file_)
 	'''---------------------------'''
 	x = '' #USE BACKEND CHANNELS NUMBERS
 	old_word = regex_from_to(guisettings_file_, '<'+x+'>', '</'+x+'>', excluding=False)
 	if old_word == '<'+x+'></'+x+'>': old_word = regex_from_to(guisettings_file_, '<'+x+' default="true">', '</'+x+'>', excluding=False)
 	new_word = '<'+x+'>N/A</'+x+'>'
-	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings_file,old_word,new_word,guisettings_file_)
+	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings4_file,old_word,new_word,guisettings_file_)
 	'''---------------------------'''
 	
 	'''------------------------------
@@ -810,7 +811,7 @@ def guiset_livetv(admin, guisettings_file, guisettings_file_):
 	old_word = regex_from_to(guisettings_file_, '<'+x+'>', '</'+x+'>', excluding=False)
 	if old_word == '<'+x+'></'+x+'>': old_word = regex_from_to(guisettings_file_, '<'+x+' default="true">', '</'+x+'>', excluding=False)
 	new_word = '<'+x+'>N/A</'+x+'>'
-	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings_file,old_word,new_word,guisettings_file_)
+	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings4_file,old_word,new_word,guisettings_file_)
 	'''---------------------------'''
 	
 	'''------------------------------
@@ -820,7 +821,7 @@ def guiset_livetv(admin, guisettings_file, guisettings_file_):
 	old_word = regex_from_to(guisettings_file_, '<'+x+'>', '</'+x+'>', excluding=False)
 	if old_word == '<'+x+'></'+x+'>': old_word = regex_from_to(guisettings_file_, '<'+x+' default="true">', '</'+x+'>', excluding=False)
 	new_word = '<'+x+'>N/A</'+x+'>'
-	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings_file,old_word,new_word,guisettings_file_)
+	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings4_file,old_word,new_word,guisettings_file_)
 	'''---------------------------'''
 	
 	'''------------------------------
@@ -830,7 +831,7 @@ def guiset_livetv(admin, guisettings_file, guisettings_file_):
 	old_word = regex_from_to(guisettings_file_, '<'+x+'>', '</'+x+'>', excluding=False)
 	if old_word == '<'+x+'></'+x+'>': old_word = regex_from_to(guisettings_file_, '<'+x+' default="true">', '</'+x+'>', excluding=False)
 	new_word = '<'+x+'>N/A</'+x+'>'
-	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings_file,old_word,new_word,guisettings_file_)
+	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings4_file,old_word,new_word,guisettings_file_)
 	'''---------------------------'''
 	
 	'''------------------------------
@@ -840,7 +841,7 @@ def guiset_livetv(admin, guisettings_file, guisettings_file_):
 	old_word = regex_from_to(guisettings_file_, '<'+x+'>', '</'+x+'>', excluding=False)
 	if old_word == '<'+x+'></'+x+'>': old_word = regex_from_to(guisettings_file_, '<'+x+' default="true">', '</'+x+'>', excluding=False)
 	new_word = '<'+x+'>N/A</'+x+'>'
-	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings_file,old_word,new_word,guisettings_file_)
+	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings4_file,old_word,new_word,guisettings_file_)
 	'''---------------------------'''
 	
 	'''------------------------------
@@ -850,7 +851,7 @@ def guiset_livetv(admin, guisettings_file, guisettings_file_):
 	old_word = regex_from_to(guisettings_file_, '<'+x+'>', '</'+x+'>', excluding=False)
 	if old_word == '<'+x+'></'+x+'>': old_word = regex_from_to(guisettings_file_, '<'+x+' default="true">', '</'+x+'>', excluding=False)
 	new_word = '<'+x+'>N/A</'+x+'>'
-	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings_file,old_word,new_word,guisettings_file_)
+	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings4_file,old_word,new_word,guisettings_file_)
 	'''---------------------------'''
 	
 	'''------------------------------
@@ -860,7 +861,7 @@ def guiset_livetv(admin, guisettings_file, guisettings_file_):
 	old_word = regex_from_to(guisettings_file_, '<'+x+'>', '</'+x+'>', excluding=False)
 	if old_word == '<'+x+'></'+x+'>': old_word = regex_from_to(guisettings_file_, '<'+x+' default="true">', '</'+x+'>', excluding=False)
 	new_word = '<'+x+'>N/A</'+x+'>'
-	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings_file,old_word,new_word,guisettings_file_)
+	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings4_file,old_word,new_word,guisettings_file_)
 	'''---------------------------'''
 	
 def guiset_pictures(admin, guisettings_file, guisettings_file_):
@@ -868,25 +869,25 @@ def guiset_pictures(admin, guisettings_file, guisettings_file_):
 	old_word = regex_from_to(guisettings_file_, '<'+x+'>', '</'+x+'>', excluding=False)
 	if old_word == '<'+x+'></'+x+'>': old_word = regex_from_to(guisettings_file_, '<'+x+' default="true">', '</'+x+'>', excluding=False)
 	new_word = '<'+x+'>true</'+x+'>'
-	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings_file,old_word,new_word,guisettings_file_)
+	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings4_file,old_word,new_word,guisettings_file_)
 	'''---------------------------'''
 	x = 'generatethumbs' #AUTOMATICALLY GENERATE THUMBNAILS
 	old_word = regex_from_to(guisettings_file_, '<'+x+'>', '</'+x+'>', excluding=False)
 	if old_word == '<'+x+'></'+x+'>': old_word = regex_from_to(guisettings_file_, '<'+x+' default="true">', '</'+x+'>', excluding=False)
 	new_word = '<'+x+'>true</'+x+'>'
-	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings_file,old_word,new_word,guisettings_file_)
+	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings4_file,old_word,new_word,guisettings_file_)
 	'''---------------------------'''
 	x = 'useexifrotation' #ROTATE PICTURES USING EXIF INFORMATION
 	old_word = regex_from_to(guisettings_file_, '<'+x+'>', '</'+x+'>', excluding=False)
 	if old_word == '<'+x+'></'+x+'>': old_word = regex_from_to(guisettings_file_, '<'+x+' default="true">', '</'+x+'>', excluding=False)
 	new_word = '<'+x+'>true</'+x+'>'
-	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings_file,old_word,new_word,guisettings_file_)
+	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings4_file,old_word,new_word,guisettings_file_)
 	'''---------------------------'''
 	x = 'showvideos' #SHOW VIDEO FILES IN LISTINGS
 	old_word = regex_from_to(guisettings_file_, '<'+x+'>', '</'+x+'>', excluding=False)
 	if old_word == '<'+x+'></'+x+'>': old_word = regex_from_to(guisettings_file_, '<'+x+' default="true">', '</'+x+'>', excluding=False)
 	new_word = '<'+x+'>false</'+x+'>'
-	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings_file,old_word,new_word,guisettings_file_)
+	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings4_file,old_word,new_word,guisettings_file_)
 	'''---------------------------'''
 	
 def guiset_weather(admin, guisettings_file, guisettings_file_):
@@ -894,7 +895,7 @@ def guiset_weather(admin, guisettings_file, guisettings_file_):
 	old_word = regex_from_to(guisettings_file_, '<'+x+'>', '</'+x+'>', excluding=False)
 	if old_word == '<'+x+'></'+x+'>': old_word = regex_from_to(guisettings_file_, '<'+x+' default="true">', '</'+x+'>', excluding=False)
 	new_word = '<'+x+'>weather.yahoo</'+x+'>'
-	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings_file,old_word,new_word,guisettings_file_)
+	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings4_file,old_word,new_word,guisettings_file_)
 	'''---------------------------'''
 	
 def guiset_services(admin, guisettings_file, guisettings_file_):
@@ -905,7 +906,7 @@ def guiset_services(admin, guisettings_file, guisettings_file_):
 	old_word = regex_from_to(guisettings_file_, '<'+x+'>', '</'+x+'>', excluding=False)
 	if old_word == '<'+x+'></'+x+'>': old_word = regex_from_to(guisettings_file_, '<'+x+' default="true">', '</'+x+'>', excluding=False)
 	new_word = '<'+x+'>HTPT</'+x+'>'
-	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings_file,old_word,new_word,guisettings_file_)
+	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings4_file,old_word,new_word,guisettings_file_)
 	'''---------------------------'''
 	
 	'''------------------------------
@@ -915,7 +916,7 @@ def guiset_services(admin, guisettings_file, guisettings_file_):
 	old_word = regex_from_to(guisettings_file_, '<'+x+'>', '</'+x+'>', excluding=False)
 	if old_word == '<'+x+'></'+x+'>': old_word = regex_from_to(guisettings_file_, '<'+x+' default="true">', '</'+x+'>', excluding=False)
 	new_word = '<'+x+'>N/A</'+x+'>'
-	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings_file,old_word,new_word,guisettings_file_)
+	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings4_file,old_word,new_word,guisettings_file_)
 	'''---------------------------'''
 	
 	'''------------------------------
@@ -925,28 +926,28 @@ def guiset_services(admin, guisettings_file, guisettings_file_):
 	old_word = regex_from_to(guisettings_file_, '<'+x+'>', '</'+x+'>', excluding=False)
 	if old_word == '<'+x+'></'+x+'>': old_word = regex_from_to(guisettings_file_, '<'+x+' default="true">', '</'+x+'>', excluding=False)
 	new_word = '<'+x+'>true</'+x+'>'
-	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings_file,old_word,new_word,guisettings_file_)
+	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings4_file,old_word,new_word,guisettings_file_)
 	'''---------------------------'''
 	x = 'webserverport' 
 	old_word = regex_from_to(guisettings_file_, '<'+x+'>', '</'+x+'>', excluding=False)
 	if old_word == '<'+x+'></'+x+'>': old_word = regex_from_to(guisettings_file_, '<'+x+' default="true">', '</'+x+'>', excluding=False)
 	if not id40str or scripthtptinstall_Skin_FirstBoot == "true": new_word = '<'+x+'>8080</'+x+'>'
 	else: new_word = "N/A"
-	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings_file,old_word,new_word,guisettings_file_)
+	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings4_file,old_word,new_word,guisettings_file_)
 	'''---------------------------'''
 	x = 'webserverusername' 
 	old_word = regex_from_to(guisettings_file_, '<'+x+'>', '</'+x+'>', excluding=False)
 	if old_word == '<'+x+'></'+x+'>': old_word = regex_from_to(guisettings_file_, '<'+x+' default="true">', '</'+x+'>', excluding=False)
 	if not id40str or scripthtptinstall_Skin_FirstBoot == "true": new_word = '<'+x+'>HTPT</'+x+'>'
 	else: new_word = "N/A"
-	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings_file,old_word,new_word,guisettings_file_)
+	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings4_file,old_word,new_word,guisettings_file_)
 	'''---------------------------'''
 	x = 'webserverpassword' 
 	old_word = regex_from_to(guisettings_file_, '<'+x+'>', '</'+x+'>', excluding=False)
 	if old_word == '<'+x+'></'+x+'>': old_word = regex_from_to(guisettings_file_, '<'+x+' default="true">', '</'+x+'>', excluding=False)
 	if not id40str or scripthtptinstall_Skin_FirstBoot == "true": new_word = '<'+x+'></'+x+'>'
 	else: new_word = "N/A"
-	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings_file,old_word,new_word,guisettings_file_)
+	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings4_file,old_word,new_word,guisettings_file_)
 	'''---------------------------'''
 	
 	'''------------------------------
@@ -956,13 +957,13 @@ def guiset_services(admin, guisettings_file, guisettings_file_):
 	old_word = regex_from_to(guisettings_file_, '<'+x+'>', '</'+x+'>', excluding=False)
 	if old_word == '<'+x+'></'+x+'>': old_word = regex_from_to(guisettings_file_, '<'+x+' default="true">', '</'+x+'>', excluding=False)
 	new_word = '<'+x+'>true</'+x+'>'
-	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings_file,old_word,new_word,guisettings_file_)
+	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings4_file,old_word,new_word,guisettings_file_)
 	'''---------------------------'''
 	x = 'esallinterfaces' 
 	old_word = regex_from_to(guisettings_file_, '<'+x+'>', '</'+x+'>', excluding=False)
 	if old_word == '<'+x+'></'+x+'>': old_word = regex_from_to(guisettings_file_, '<'+x+' default="true">', '</'+x+'>', excluding=False)
 	new_word = '<'+x+'>true</'+x+'>'
-	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings_file,old_word,new_word,guisettings_file_)
+	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings4_file,old_word,new_word,guisettings_file_)
 	'''---------------------------'''
 	
 	'''------------------------------
@@ -972,7 +973,7 @@ def guiset_services(admin, guisettings_file, guisettings_file_):
 	old_word = regex_from_to(guisettings_file_, '<'+x+'>', '</'+x+'>', excluding=False)
 	if old_word == '<'+x+'></'+x+'>': old_word = regex_from_to(guisettings_file_, '<'+x+' default="true">', '</'+x+'>', excluding=False)
 	new_word = '<'+x+'>true</'+x+'>'
-	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings_file,old_word,new_word,guisettings_file_)
+	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings4_file,old_word,new_word,guisettings_file_)
 	'''---------------------------'''
 	
 	'''------------------------------
@@ -984,26 +985,26 @@ def guiset_services(admin, guisettings_file, guisettings_file_):
 	if performance and ("C" in id10str or "D" in id10str): new_word = '<'+x+'>false</'+x+'>'
 	elif not id40str or scripthtptinstall_Skin_FirstBoot == "true": new_word = '<'+x+'>true</'+x+'>'
 	else: new_word = '<'+x+'>N/A</'+x+'>'
-	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings_file,old_word,new_word,guisettings_file_)
+	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings4_file,old_word,new_word,guisettings_file_)
 	'''---------------------------'''
 	x = 'airplaypassword' 
 	old_word = regex_from_to(guisettings_file_, '<'+x+'>', '</'+x+'>', excluding=False)
 	if old_word == '<'+x+'></'+x+'>': old_word = regex_from_to(guisettings_file_, '<'+x+' default="true">', '</'+x+'>', excluding=False)
 	if not id40str: new_word = '<'+x+'></'+x+'>'
 	else: new_word = '<'+x+'>N/A</'+x+'>'
-	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings_file,old_word,new_word,guisettings_file_)
+	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings4_file,old_word,new_word,guisettings_file_)
 	'''---------------------------'''
 	x = 'airplayvolumecontrol' 
 	old_word = regex_from_to(guisettings_file_, '<'+x+'>', '</'+x+'>', excluding=False)
 	if old_word == '<'+x+'></'+x+'>': old_word = regex_from_to(guisettings_file_, '<'+x+' default="true">', '</'+x+'>', excluding=False)
 	new_word = '<'+x+'>true</'+x+'>'
-	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings_file,old_word,new_word,guisettings_file_)
+	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings4_file,old_word,new_word,guisettings_file_)
 	'''---------------------------'''
 	x = 'useairplaypassword' 
 	old_word = regex_from_to(guisettings_file_, '<'+x+'>', '</'+x+'>', excluding=False)
 	if old_word == '<'+x+'></'+x+'>': old_word = regex_from_to(guisettings_file_, '<'+x+' default="true">', '</'+x+'>', excluding=False)
 	new_word = '<'+x+'>false</'+x+'>'
-	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings_file,old_word,new_word,guisettings_file_)
+	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings4_file,old_word,new_word,guisettings_file_)
 	'''---------------------------'''
 	
 	'''------------------------------
@@ -1014,7 +1015,7 @@ def guiset_services(admin, guisettings_file, guisettings_file_):
 	if old_word == '<'+x+'></'+x+'>': old_word = regex_from_to(guisettings_file_, '<'+x+' default="true">', '</'+x+'>', excluding=False)
 	if not id40str or scripthtptinstall_Skin_FirstBoot == "true": new_word = '<'+x+'>MSHTPT</'+x+'>'
 	else: new_word = '<'+x+'>N/A</'+x+'>'
-	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings_file,old_word,new_word,guisettings_file_)
+	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings4_file,old_word,new_word,guisettings_file_)
 	'''---------------------------'''
 	
 def guiset_system(admin, guisettings_file, guisettings_file_):
@@ -1026,20 +1027,20 @@ def guiset_system(admin, guisettings_file, guisettings_file_):
 	if old_word == '<'+x+'></'+x+'>': old_word = regex_from_to(guisettings_file_, '<'+x+' default="true">', '</'+x+'>', excluding=False)
 	if not id40str and systemplatformlinux: new_word = '<'+x+'>00192001080060.00000pstd</'+x+'>'
 	else: new_word = '<'+x+'>N/A</'+x+'>'
-	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings_file,old_word,new_word,guisettings_file_)
+	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings4_file,old_word,new_word,guisettings_file_)
 	'''---------------------------'''
 	x = 'resolution' 
 	old_word = regex_from_to(guisettings_file_, '<'+x+'>', '</'+x+'>', excluding=False)
 	if old_word == '<'+x+'></'+x+'>': old_word = regex_from_to(guisettings_file_, '<'+x+' default="true">', '</'+x+'>', excluding=False)
 	if not id40str and systemplatformlinux: new_word = '<'+x+'>18</'+x+'>'
 	else: new_word = '<'+x+'>N/A</'+x+'>'
-	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings_file,old_word,new_word,guisettings_file_)
+	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings4_file,old_word,new_word,guisettings_file_)
 	'''---------------------------'''
 	x = 'vsync' 
 	old_word = regex_from_to(guisettings_file_, '<'+x+'>', '</'+x+'>', excluding=False)
 	if old_word == '<'+x+'></'+x+'>': old_word = regex_from_to(guisettings_file_, '<'+x+' default="true">', '</'+x+'>', excluding=False)
 	new_word = '<'+x+'>2</'+x+'>'
-	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings_file,old_word,new_word,guisettings_file_)
+	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings4_file,old_word,new_word,guisettings_file_)
 	'''---------------------------'''
 	
 	'''------------------------------
@@ -1050,7 +1051,7 @@ def guiset_system(admin, guisettings_file, guisettings_file_):
 	if old_word == '<'+x+'></'+x+'>': old_word = regex_from_to(guisettings_file_, '<'+x+' default="true">', '</'+x+'>', excluding=False)
 	if not id40str or xbmc.getCondVisibility('System.HasAddon(script.htpt.emu)'): new_word = '<'+x+'>0</'+x+'>'
 	else: new_word = '<'+x+'>N/A</'+x+'>'
-	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings_file,old_word,new_word,guisettings_file_)
+	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings4_file,old_word,new_word,guisettings_file_)
 	'''---------------------------'''
 	x = 'guisoundmode' #PLAY GUI SOUNDS
 	old_word = regex_from_to(guisettings_file_, '<'+x+'>', '</'+x+'>', excluding=False)
@@ -1058,7 +1059,7 @@ def guiset_system(admin, guisettings_file, guisettings_file_):
 	if not id40str or xbmc.getCondVisibility('System.HasAddon(script.htpt.emu)'): new_word = '<'+x+'>0</'+x+'>'
 	elif scripthtptinstall_Skin_FirstBoot == "true": new_word = '<'+x+'>1</'+x+'>'
 	else: new_word = '<'+x+'>N/A</'+x+'>'
-	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings_file,old_word,new_word,guisettings_file_)
+	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings4_file,old_word,new_word,guisettings_file_)
 	'''---------------------------'''
 	x = 'processquality' #PLAY GUI SOUNDS
 	old_word = regex_from_to(guisettings_file_, '<'+x+'>', '</'+x+'>', excluding=False)
@@ -1066,7 +1067,7 @@ def guiset_system(admin, guisettings_file, guisettings_file_):
 	if performance and not "A" in id10str and not "B" in id10str: new_word = '<'+x+'>20</'+x+'>'
 	elif not "A" in id10str and not "B" in id10str: new_word = '<'+x+'>30</'+x+'>'
 	else: new_word = '<'+x+'>50</'+x+'>'
-	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings_file,old_word,new_word,guisettings_file_)
+	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings4_file,old_word,new_word,guisettings_file_)
 	'''---------------------------'''
 	
 	
@@ -1077,7 +1078,7 @@ def guiset_system(admin, guisettings_file, guisettings_file_):
 	old_word = regex_from_to(guisettings_file_, '<'+x+'>', '</'+x+'>', excluding=False)
 	if old_word == '<'+x+'></'+x+'>': old_word = regex_from_to(guisettings_file_, '<'+x+' default="true">', '</'+x+'>', excluding=False)
 	new_word = '<'+x+'>N/A</'+x+'>'
-	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings_file,old_word,new_word,guisettings_file_)
+	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings4_file,old_word,new_word,guisettings_file_)
 	'''---------------------------'''
 	x = 'enablejoystick' #ENABLE JOYSTICK AND GAMEPAD SUPPORT
 	old_word = regex_from_to(guisettings_file_, '<'+x+'>', '</'+x+'>', excluding=False)
@@ -1085,7 +1086,7 @@ def guiset_system(admin, guisettings_file, guisettings_file_):
 	if not id40str or xbmc.getCondVisibility('System.HasAddon(script.htpt.emu)'): new_word = '<'+x+'>true</'+x+'>'
 	elif scripthtptinstall_Skin_FirstBoot == "true": new_word = '<'+x+'>false</'+x+'>'
 	else: new_word = '<'+x+'>N/A</'+x+'>'
-	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings_file,old_word,new_word,guisettings_file_)
+	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings4_file,old_word,new_word,guisettings_file_)
 	'''---------------------------'''
 	
 	'''------------------------------
@@ -1101,25 +1102,25 @@ def guiset_system(admin, guisettings_file, guisettings_file_):
 	old_word = regex_from_to(guisettings_file_, '<'+x+'>', '</'+x+'>', excluding=False)
 	if old_word == '<'+x+'></'+x+'>': old_word = regex_from_to(guisettings_file_, '<'+x+' default="true">', '</'+x+'>', excluding=False)
 	new_word = '<'+x+'>0</'+x+'>'
-	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings_file,old_word,new_word,guisettings_file_)
+	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings4_file,old_word,new_word,guisettings_file_)
 	'''---------------------------'''
 	x = 'shutdownstate' #SHUTDOWN FUNCTION TIMER
 	old_word = regex_from_to(guisettings_file_, '<'+x+'>', '</'+x+'>', excluding=False)
 	if old_word == '<'+x+'></'+x+'>': old_word = regex_from_to(guisettings_file_, '<'+x+' default="true">', '</'+x+'>', excluding=False)
 	new_word = '<'+x+'>0</'+x+'>'
-	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings_file,old_word,new_word,guisettings_file_)
+	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings4_file,old_word,new_word,guisettings_file_)
 	'''---------------------------'''
 	x = 'shutdowntime' #SHUTDOWN FUNCTION
 	old_word = regex_from_to(guisettings_file_, '<'+x+'>', '</'+x+'>', excluding=False)
 	if old_word == '<'+x+'></'+x+'>': old_word = regex_from_to(guisettings_file_, '<'+x+' default="true">', '</'+x+'>', excluding=False)
 	new_word = '<'+x+'>0</'+x+'>'
-	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings_file,old_word,new_word,guisettings_file_)
+	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings4_file,old_word,new_word,guisettings_file_)
 	'''---------------------------'''
 	x = 'wakeonaccess' #TRY TO WAKE REMOTE SERVERS ON ACCESS
 	old_word = regex_from_to(guisettings_file_, '<'+x+'>', '</'+x+'>', excluding=False)
 	if old_word == '<'+x+'></'+x+'>': old_word = regex_from_to(guisettings_file_, '<'+x+' default="true">', '</'+x+'>', excluding=False)
 	new_word = '<'+x+'>N/A</'+x+'>'
-	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings_file,old_word,new_word,guisettings_file_)
+	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings4_file,old_word,new_word,guisettings_file_)
 	'''---------------------------'''
 	
 	'''------------------------------
@@ -1129,7 +1130,7 @@ def guiset_system(admin, guisettings_file, guisettings_file_):
 	old_word = regex_from_to(guisettings_file_, '<'+x+'>', '</'+x+'>', excluding=False)
 	if old_word == '<'+x+'></'+x+'>': old_word = regex_from_to(guisettings_file_, '<'+x+' default="true">', '</'+x+'>', excluding=False)
 	new_word = '<'+x+'>N/A</'+x+'>'
-	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings_file,old_word,new_word,guisettings_file_)
+	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings4_file,old_word,new_word,guisettings_file_)
 	'''---------------------------'''
 	x = 'screenshotpath' 
 	screenshot_path = os.path.join(pictures_path, 'screenshots', '')
@@ -1137,19 +1138,19 @@ def guiset_system(admin, guisettings_file, guisettings_file_):
 	old_word = regex_from_to(guisettings_file_, '<'+x+'>', '</'+x+'>', excluding=False)
 	if old_word == '<'+x+'></'+x+'>': old_word = regex_from_to(guisettings_file_, '<'+x+' default="true">', '</'+x+'>', excluding=False)
 	new_word = '<'+x+'>'+screenshot_path.encode('utf-8')+'</'+x+'>'
-	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings_file,old_word,new_word,guisettings_file_)
+	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings4_file,old_word,new_word,guisettings_file_)
 	'''---------------------------'''
 	x = 'setextraloglevel' 
 	old_word = regex_from_to(guisettings_file_, '<'+x+'>', '</'+x+'>', excluding=False)
 	if old_word == '<'+x+'></'+x+'>': old_word = regex_from_to(guisettings_file_, '<'+x+' default="true">', '</'+x+'>', excluding=False)
 	new_word = '<'+x+'>N/A</'+x+'>'
-	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings_file,old_word,new_word,guisettings_file_)
+	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings4_file,old_word,new_word,guisettings_file_)
 	'''---------------------------'''
 	x = 'showloginfo' 
 	old_word = regex_from_to(guisettings_file_, '<'+x+'>', '</'+x+'>', excluding=False)
 	if old_word == '<'+x+'></'+x+'>': old_word = regex_from_to(guisettings_file_, '<'+x+' default="true">', '</'+x+'>', excluding=False)
 	new_word = '<'+x+'>N/A</'+x+'>'
-	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings_file,old_word,new_word,guisettings_file_)
+	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings4_file,old_word,new_word,guisettings_file_)
 	'''---------------------------'''
 	
 	'''------------------------------
@@ -1159,12 +1160,12 @@ def guiset_system(admin, guisettings_file, guisettings_file_):
 	old_word = regex_from_to(guisettings_file_, '<'+x+'>', '</'+x+'>', excluding=False)
 	if old_word == '<'+x+'></'+x+'>': old_word = regex_from_to(guisettings_file_, '<'+x+' default="true">', '</'+x+'>', excluding=False)
 	new_word = '<'+x+'>N/A</'+x+'>'
-	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings_file,old_word,new_word,guisettings_file_)
+	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings4_file,old_word,new_word,guisettings_file_)
 	'''---------------------------'''
 	x = 'startuplock' 
 	old_word = regex_from_to(guisettings_file_, '<'+x+'>', '</'+x+'>', excluding=False)
 	if old_word == '<'+x+'></'+x+'>': old_word = regex_from_to(guisettings_file_, '<'+x+' default="true">', '</'+x+'>', excluding=False)
 	new_word = '<'+x+'>N/A</'+x+'>'
-	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings_file,old_word,new_word,guisettings_file_)
+	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings4_file,old_word,new_word,guisettings_file_)
 	'''---------------------------'''
 	

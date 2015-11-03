@@ -359,6 +359,7 @@ class main:
 		'''------------------------------
 		---Network-Settings--------------
 		------------------------------'''
+		name = 'Network-Settings'
 		mode41(admin, name, printpoint)
 		'''---------------------------'''
 	

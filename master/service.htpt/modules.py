@@ -780,7 +780,7 @@ def startup(admin):
 	
 	if xbmc.getSkinDir() == 'skin.htpt':
 		connectioncheck(admin, admin2, 0, systemidle3, Ping_Now, Ping_Connected) ; xbmc.sleep(1000)
-		if startupmusic:
+		if not startupmusic:
 			if os.path.exists(skin_music_path + "playHTPT2.flac") and not startupmusicstr:
 				xbmc.executebuiltin('PlayMedia('+skin_music_path+'playHTPT2.flac)')
 			else:

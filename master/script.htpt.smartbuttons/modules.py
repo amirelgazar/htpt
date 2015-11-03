@@ -268,7 +268,7 @@ def mode0(admin, name, printpoint):
 	#write_to_file(guikeepertxt_file, 'killall -9 kodi.bin', append=False, silent=True , utf8=False) ; xbmc.sleep(20000)
 	#write_to_file(guikeepertxt_file, '', append=False, silent=True , utf8=False)
 	#os.system('sh '+guikeepersh_file+'')
-	installaddonP(admin, 'script.module.requests')
+	#installaddonP(admin, 'script.module.requests')
 	#killall(admin, custom="f1")
 	#terminal('cp -rf /storage/emulated/0/Android/data/org.xbmc.kodi/files/.kodi/userdata/addon_data/skin.htpt/userdata/Skin_SaveDesign1.txt /storage/emulated/0/Android/data/org.xbmc.kodi/files/.kodi/userdata/guisettings.xml','')
 	#xbmcexe_path = os.path.join(xbmc_path, 'Kodi.exe')
@@ -277,6 +277,14 @@ def mode0(admin, name, printpoint):
 	#removeaddons(['service.subtitles.torec'],"1")
 	#from variables2 import *
 	notification('test',str(output),'',2000)
+	
+	guisettings_file_ = read_from_file(guisettings4_file, silent=True)
+	x = 'groupmoviesets' #GROUP MOVIES IN SETS
+	old_word = regex_from_to(guisettings_file_, '<'+x+'>', '</'+x+'>', excluding=False)
+	if old_word == '<'+x+'></'+x+'>': old_word = regex_from_to(guisettings_file_, '<'+x+' default="true">', '</'+x+'>', excluding=False)
+	new_word = '<'+x+'>true</'+x+'>'
+	if not "N/A" in new_word and new_word != old_word: replace_word(guisettings4_file,old_word,new_word,guisettings_file_)
+	else: notification('ohhh','','',2000)
 	'''---------------------------'''
 	
 def mode1(admin, name, printpoint):
@@ -1143,8 +1151,7 @@ def mode40(value, admin, name, printpoint):
 
 	if admin and not admin2 and admin3:
 		print printfirst + name + "_LV" + printpoint + space + extra2
-		
-		
+			
 def mode41(admin, name, printpoint):
 	'''------------------------------
 	---Network-Settings--------------
@@ -1386,7 +1393,7 @@ def mode56(admin, name, LibraryData_RemoteMoviesFiles, LibraryData_RemoteTvshows
 				xbmc.sleep(2500)
 				dialogyesnoW = xbmc.getCondVisibility('Window.IsVisible(DialogYesNo.xml)')
 				xbmc.sleep(2500)
-			if librarydataautoupdate or scripthtptinstall_Skin_FirstBoot == "true" or scripthtptinstall_Skin_Installed == "true" or not libraryhascontentmovies or not libraryhascontenttvshows:
+			if not librarydataautoupdate or scripthtptinstall_Skin_FirstBoot == "true" or scripthtptinstall_Skin_Installed == "true" or not libraryhascontentmovies or not libraryhascontenttvshows:
 				returned = dialogyesno('[COLOR=Yellow]' + str79577.encode('utf-8') + '[/COLOR]',str24068.encode('utf-8') + ', ' + localize(12354) + '[CR]' + option)
 				if "ok" in returned:
 					'''------------------------------
@@ -1408,7 +1415,7 @@ def mode56(admin, name, LibraryData_RemoteMoviesFiles, LibraryData_RemoteTvshows
 					'''---------------------------'''
 					
 				else: notification_common("9")
-			elif not librarydataautoupdate: notification(localize(79577), localize(16039), "", 2000)
+			elif librarydataautoupdate: notification(localize(79577), localize(16039), "", 2000)
 			else: notification(localize(79577) + space + localize(13610), localize(78930), "", 2000) #Update Movies and Tvshows library
 	
 	'''------------------------------
@@ -7139,7 +7146,7 @@ def mode501(value, admin, name, printpoint):
 		if libraryhascontentmovies:
 			if admin: xbmc.executebuiltin('Notification(Admin,moviesbutton,1000)')
 			xbmc.executebuiltin('ActivateWindow(Videos,MovieTitles,return)')
-			if not autoview:
+			if autoview:
 				xbmc.sleep(2000)
 				if xbmc.getCondVisibility('System.IdleTime(2)'): notification(localize(98) + space + localize(1223), localize(79534), "", 4000)
 		else:
@@ -7193,7 +7200,7 @@ def mode502(value, admin, name, printpoint):
 		if libraryhascontenttvshows:
 			if admin: xbmc.executebuiltin('Notification(Admin,tvshowsbutton,1000)')
 			xbmc.executebuiltin('ActivateWindow(VideoLibrary,TVShowTitles,return)')
-			if not autoview:
+			if autoview:
 				xbmc.sleep(2000)
 				if xbmc.getCondVisibility('System.IdleTime(2)'): notification(localize(98) + space + localize(1223), localize(79534), "", 4000)
 		else:
@@ -12429,7 +12436,7 @@ def setAutoSettings(custom, addonid2=""):
 			if not xbmc.getCondVisibility('System.HasAddon('+ addon +')') and not os.path.exists(os.path.join(addons_path, addon)): installaddon(admin, addon, "", update=False)
 		
 		addon = 'script.module.unidecode'
-		if not xbmc.getCondVisibility('System.HasAddon('+ addon +')'): installaddonP(admin, addon, "", update=False)
+		if not xbmc.getCondVisibility('System.HasAddon('+ addon +')'): installaddonP(admin, addon, update=False)
 		
 		addon = 'service.subtitles.opensubtitles'
 		if xbmc.getCondVisibility('System.HasAddon('+ addon +')') and os.path.exists(os.path.join(addons_path, addon)):
