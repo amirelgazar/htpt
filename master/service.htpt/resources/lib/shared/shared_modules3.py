@@ -2271,7 +2271,7 @@ def YOUList(name, url, iconimage, desc, num):
 		if admin: print printfirst + "YOUList" + space + "match" + space2 + str(match)
 		#if admin: print printfirst + "YOUList" + space + "nurl" + space2 + str(nurl) + space + "desc" + space2 + str(desc) + space + "thumb" + space2 + str(thumb) + space + "rname" + space2 + str(rname)
 
-def setaddonFanart(fanart, Fanart_Enable, Fanart_EnableCustom):
+def setaddonFanart(fanart, Fanart_Enable, Fanart_EnableCustom): #Fanart_EnableExtra
 	#admin = xbmc.getInfoLabel('Skin.HasSetting(Admin)')
 	#admin2 = xbmc.getInfoLabel('Skin.HasSetting(Admin2)')
 	#admin3 = xbmc.getInfoLabel('Skin.HasSetting(Admin3)')
@@ -2283,10 +2283,7 @@ def setaddonFanart(fanart, Fanart_Enable, Fanart_EnableCustom):
 	
 	if Fanart_Enable == "true" and extra == "":
 		printpoint = printpoint + "1"
-		if Fanart_EnableCustom != "true":
-			returned = addonFanart
-			printpoint = printpoint + "3"
-		elif fanart != "":
+		if fanart != "":
 			try:
 				if os.path.exists(fanart):
 					printpoint = printpoint + "4"
@@ -2295,7 +2292,7 @@ def setaddonFanart(fanart, Fanart_Enable, Fanart_EnableCustom):
 					printpoint = printpoint + "5"
 					returned = fanart
 				else: pass
-			except Exception, TypeError: pass
+			except Exception, TypeError: extra = extra + newline + "TypeError" + space2 + str(TypeError)
 			
 			printpoint = printpoint + "2"
 			
@@ -2319,7 +2316,10 @@ def getAddonFanart(category, custom=""):
 			printpoint = printpoint + "7"
 			returned = custom
 	if returned == "":
-		if category == 100: category_path = Fanart_Custom100
+		if Fanart_EnableCustom != "true":
+			returned = addonFanart
+			printpoint = printpoint + "8"
+		elif category == 100: category_path = Fanart_Custom100
 		elif category == 101: category_path = Fanart_Custom101
 		elif category == 102: category_path = Fanart_Custom102
 		elif category == 103: category_path = Fanart_Custom103
@@ -2395,9 +2395,10 @@ def getAddonFanart(category, custom=""):
 			returned = ""
 	
 	if admin and not admin2 and admin3:
-		print printfirst + "getAddonFanart_LV" + printpoint + space + "category" + space2 + str(category) + space + "returned" + space2 + str(returned) + newline + \
+		print printfirst + "getAddonFanart_LV" + printpoint + space + "category" + space2 + str(category) + space + "custom" + space2 + str(custom) + newline + \
+		"returned" + space2 + str(returned) + newline + \
 		"category_path" + space2 + str(category_path) + extra
-	return returned	
+	return returned
 	
 def pluginend(admin):
 	try: from modules import *

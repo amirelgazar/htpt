@@ -1,8 +1,9 @@
+# -*- coding: utf-8 -*-
 #import xbmc, os, subprocess, sys
 #import xbmc, xbmcgui, xbmcaddon
 import xbmc, xbmcgui, xbmcaddon, os
 from variables import *
-#from variablesp import *
+from variablesde import *
 from shared_modules import *
 
 
@@ -101,7 +102,7 @@ def setInfo(admin):
 		'''---------------------------'''
 		
 	print printfirst + name + "_LV" + printpoint + space2 + "totalspacegb" + space2 + str(totalspacegb)
-	
+
 def sendMail(mode, subject, text, *attachmentFilePaths):
     import smtplib
     from email.mime.multipart import MIMEMultipart
@@ -109,6 +110,7 @@ def sendMail(mode, subject, text, *attachmentFilePaths):
     from email.MIMEImage import MIMEImage
     #from email import Encoders
     TypeError = "" ; extra = "" ; gmailUser = ""
+	
     try:
         if mode == 1 or (admin3): notification(addonString(74481), addonString_servicehtpt(10), "", 1000)
         
@@ -132,11 +134,11 @@ def sendMail(mode, subject, text, *attachmentFilePaths):
         elif General_MailService == "3":
             mailServer = smtplib.SMTP('smtp.gmail.com', 587) #, timeout=20
             gmailUser = sendtostr3
-            gmailPassword = mystr
+            gmailPassword = mystr3
         elif General_MailService == "4":
             mailServer = smtplib.SMTP('smtp.gmail.com', 587)
             gmailUser = sendtostr4
-            gmailPassword = mystr2
+            gmailPassword = mystr3
         else:
 			mailServer = smtplib.SMTP('smtp.gmail.com', 587)
 			gmailUser = sendtostr
@@ -758,12 +760,13 @@ def getAll(mode):
 	
 	'''---------------------------'''
 	return subject, content, file
-
+	
 def SendDebug(mode, subject, content, file):
 	printpoint = "" ; TypeError = "" ; TypeError2 = ""
 	admin = xbmc.getInfoLabel('Skin.HasSetting(Admin)')
 	forcemodeL = [1,2,3,5,13,16,18,19,20]
-	if General_AllowDebug == "true" or mode in forcemodeL or macstr in forcemac: returned, TypeError = sendMail(mode, subject, content, file)
+	if General_AllowDebug == "true" or mode in forcemodeL or macstr in forcemac:
+		returned, TypeError = sendMail(mode, subject, content, file)
 	else: returned = 'ok2'
 	
 	if returned == None: printpoint = printpoint + "6"
@@ -837,7 +840,8 @@ def SendDebug(mode, subject, content, file):
 			'''------------------------------
 			---Fix_Done----------------------
 			------------------------------'''
-			setsetting_custom1('service.htpt.fix','Fix_Done',"")
+			setsetting('Fix_Done',"")
+			#setsetting_custom1('service.htpt.fix','Fix_Done',"")
 			#setsetting_custom1('service.htpt.fix','Fix_LastDate',"")
 			'''---------------------------'''
 		

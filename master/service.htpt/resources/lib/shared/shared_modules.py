@@ -1312,7 +1312,7 @@ def findin_systemcurrentcontrol(custom,what,sleep,action,action2):
 	if admin and not admin2 and admin3: print printfirst + "findin_systemcurrentcontrol" + space + "custom" + space2 + custom + space + "what" + space2 + str(what) + space + "systemcurrentcontrol/2" + space2 + str(systemcurrentcontrol) + space5 + str(systemcurrentcontrol2)
 	'''---------------------------'''
 	return systemcurrentcontrol2
-
+	
 def get_types(value):
 	import types
 	returned = str(type(value))
@@ -1488,6 +1488,16 @@ def installaddonP(admin, addon, update=True):
 		elif "9" in printpoint: pass
 		else: printpoint = printpoint + "7"
 		
+		if 1 + 1 == 3:
+			file = "metadata.tvdb.com"
+			if not os.path.exists(addons_path + file) and not "9" in printpoint:
+				fileID = getfileID(file+".zip")
+				DownloadFile("https://www.dropbox.com/s/"+fileID+"/"+file+".zip?dl=1", file + ".zip", packages_path, addons_path, silent=True)
+				if os.path.exists(addons_path + file): printpoint = printpoint + "5"
+				else: printpoint = printpoint + "9"
+			elif "9" in printpoint: pass
+			else: printpoint = printpoint + "7"
+		
 		file = "metadata.common.impa.com"
 		if not xbmc.getCondVisibility('System.HasAddon('+ file +')') or not os.path.exists(addons_path + file) and not "9" in printpoint:
 			fileID = getfileID(file+".zip")
@@ -1645,15 +1655,15 @@ def installaddon2(admin, addon, version="0.0.0", update=True, silent=True):
 	
 	'''---------------------------'''
 	if addon == 'repository.htpt': version = "1.1.0"
-	elif addon == 'service.htpt': version = "0.1.67"
+	elif addon == 'service.htpt': version = "0.1.70"
 	elif addon == 'service.htpt.debug': version = "0.1.41"
 	elif addon == 'service.htpt.fix': version = "0.1.60"
 	elif addon == 'script.htpt.install': version = "0.0.26"
-	elif addon == 'script.htpt.smartbuttons': version = "0.0.30"
+	elif addon == 'script.htpt.smartbuttons': version = "0.0.31"
 	elif addon == 'script.htpt.remote': version = "0.1.12"
 	elif addon == 'script.htpt.refresh': version = "0.1.32"
-	elif addon == 'script.htpt.widgets': version = "0.1.2"
-	elif addon == 'skin.htpt': version = "0.1.38"
+	elif addon == 'script.htpt.widgets': version = "0.1.3"
+	elif addon == 'skin.htpt': version = "0.1.41"
 	
 	elif addon == 'metadata.common.impa.com': version = "1.1.3"
 	elif addon == 'metadata.common.movieposterdb.com': version = "1.1.2"

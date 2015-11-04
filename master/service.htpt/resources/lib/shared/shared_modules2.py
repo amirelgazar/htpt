@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import xbmc, xbmcgui, xbmcaddon
 import xbmcplugin
 import os, subprocess, sys

@@ -392,7 +392,7 @@ def doFix_100_0(printpoint, custom):
 	xbmc.sleep(500)
 	'''---------------------------'''
 	if custom == "100": list = [os.path.exists(addons_path + 'metadata.universal'), os.path.exists(addons_path + 'metadata.common.impa.com'), os.path.exists(addons_path + 'metadata.common.port.hu'), os.path.exists(addons_path + 'metadata.common.movieposterdb.com'), os.path.exists(addons_path + 'metadata.common.rt.com'), os.path.exists(addons_path + 'metadata.common.trakt.tv')]
-	elif custom == "101": list = [os.path.exists(addons_path + 'metadata.tvdb.com'), os.path.exists(addons_path + 'metadata.common.imdb.com')]
+	elif custom == "101": list = [os.path.exists(addons_path + 'metadata.common.imdb.com')]
 	listS = str(list)
 	'''---------------------------'''
 	if printpoint == "remove" or (("False" in listS and "True" in listS) and scripthtptinstall_Skin_Installed != "true" and scripthtptinstall_Skin_FirstBoot != "true"):
@@ -412,7 +412,7 @@ def doFix_100_0(printpoint, custom):
 			addonsL.append('metadata.universal')
 			'''---------------------------'''
 		elif custom == "101":
-			addonsL.append('metadata.tvdb.com')
+			#addonsL.append('metadata.tvdb.com')
 			addonsL.append('metadata.common.imdb.com')
 			'''---------------------------'''
 		removeaddons(addonsL,"13")

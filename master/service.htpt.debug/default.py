@@ -1,4 +1,3 @@
-#!/usr/bin/python
 import xbmc, os, subprocess, sys
 import xbmcgui, xbmcaddon
 

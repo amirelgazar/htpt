@@ -1041,33 +1041,6 @@ ACTION_SELECT_ITEM = 7
 '''---------------------------'''
 
 '''------------------------------
----DEBUG-------------------------
-------------------------------'''
-ap = "r"
-bp = "o"
-cp = "m"
-dp = "1"
-ep = "2"
-fp = "3"
-gp = "4"
-hp = "5"
-hi = "6"
-ip = "d"
-jp = "D"
-kp = "#"
-sendtostr = "htptdebugout@gmail.com"
-sendtostr1 = "htptdebugout@mail.com"
-sendtostr2 = "htptdebugout2@gmail.com"
-sendtostr3 = "htptdebugout3@gmail.com"
-sendtostr4 = "htptdebugout4@gmail.com"
-sendtostr5 = "htptdebugout@outlook.com"
-sendtostr14 = "htptdebugout@yahoo.com"
-recipientstr = "fixhtpt@gmail.com"
-mystr = ap + bp + cp + dp + ep + fp + gp + hp + hi
-mystr2 = ap + bp + cp + dp + ep + fp + gp + hp
-'''---------------------------'''
-
-'''------------------------------
 ---Window(Home).Property(key)----
 ------------------------------'''
 windowhomeproperty_moviescount = xbmc.getInfoLabel('Window(Home).Property(Movies.Count)')
