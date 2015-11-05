@@ -615,7 +615,7 @@ def CATEGORIES111(admin):
 	addDir(localize(137),commonsearch,3,htptservicemedia_path + "se.png",addonString_servicehtpt(23) % (commonsearch111),'1',"", getAddonFanart(background, custom=""))
 	
 	'''הכל'''
-	addDir(localize(593),'UC-9-kyTW8ZkZNDHQJ6FgpwQ',9,htptservicemedia_path + "singers.png","",'1',"", getAddonFanart(background, custom=""))
+	#addDir(localize(593),'UC-9-kyTW8ZkZNDHQJ6FgpwQ',9,htptservicemedia_path + "singers.png","",'1',"", getAddonFanart(background, custom=""))
 	
 	'''Ariana Grande'''	
 	if General_OnlyPopular != "true": addDir(addonString(11105).encode('utf-8'),'ArianaGrandeVevo',9,"https://yt3.ggpht.com/-u_W-R7bGk1c/AAAAAAAAAAI/AAAAAAAAAAA/u6lamzb3BPc/s100-c-k-no/photo.jpg",addonString(111050).encode('utf-8'),'1',"", getAddonFanart(background, custom=""))
@@ -627,7 +627,7 @@ def CATEGORIES111(admin):
 	addDir(addonString(11126).encode('utf-8'),list,17,"http://sandiegofreepress.org/wp-content/uploads/2013/01/ARETHA-FRANKLIN-QUEEN-OF-SOUL.jpg",addonString(111260).encode('utf-8'),'1',"", getAddonFanart(background, custom=""))
 	
 	'''Beyonce'''
-	addDir(addonString(11102).encode('utf-8'),'beyonceVEVO',9,"http://factmag-images.s3.amazonaws.com/wp-content/uploads/2013/05/beyonce-5.13.20132.jpg",addonString(111020).encode('utf-8'),'1',"", getAddonFanart(background, custom=""))
+	addDir(addonString(11102).encode('utf-8'),'PLarPDo5YMm5RA7XMeJtn5HFDdXPed4A-X',9,"http://factmag-images.s3.amazonaws.com/wp-content/uploads/2013/05/beyonce-5.13.20132.jpg",addonString(111020).encode('utf-8'),'1',"", getAddonFanart(background, custom=""))
 	
 	'''Bob Marley'''
 	addDir(addonString(11122).encode('utf-8'),'plugin://plugin.video.youtube/channel/UCbvZKpr1g-6S0QuP4OmCabw/',8,"http://imgc.allpostersimages.com/images/P-473-488-90/65/6544/ATK4100Z/posters/bob-marley-colors.jpg/300px-Bob-Marley-in-Concert_Zurich_05-30-80.jpg",addonString(111220).encode('utf-8'),'1',"", getAddonFanart(background, custom=""))
