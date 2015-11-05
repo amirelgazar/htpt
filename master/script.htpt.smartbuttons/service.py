@@ -2,10 +2,11 @@ import xbmc, xbmcgui, xbmcaddon
 import os, sys
 #import subprocess
 
-xbmc.sleep(10000)
+xbmc.sleep(1000)
 
 from variables import *
 from modules import *
+setAutoSettings("1")
 
 class ResetSettings:
 	setsetting('Addon_ServiceON',"true")

@@ -756,6 +756,7 @@ def Clean_Library(type):
 	if type == "1": foldername = 'movies'
 	elif type == "2": foldername = 'tvshows'
 	elif type == "3": foldername = 'storage'
+	elif type == "4": foldername = 'temp'
 	elif type == "9": foldername = 'library'
 	elif type == "10": foldername = 'downloads'
 	elif type == "11": foldername = 'music'
@@ -767,6 +768,7 @@ def Clean_Library(type):
 	if foldername == "": path = ""
 	elif type == "9": path = library_path #"/" + foldername + "/"
 	elif type == "3" and (systemplatformlinux or systemplatformlinuxraspberrypi) and not systemplatformandroid: path = os.path.join(foldername, '')
+	elif type == "4": path = temp_path
 	elif type != "3": path = os.path.join(library_path, foldername, '')
 	else: printpoint = printpoint + "9"
 	'''---------------------------'''
@@ -1965,17 +1967,29 @@ def removeaddons(addons, custom):
 	'''---------------------------'''
 
 def removefiles(path):
-	name = 'removefiles' ; printpoint = "" ; path1 = path[-1:]
+	name = 'removefiles' ; printpoint = "" ; path1 = path[-1:] ; TypeError = "" ; extra = ""
 	if 1 + 1 == 2:
 		if "*" in path: path = path.replace("*","")
 		if os.path.exists(path):
 			import shutil
 			if os.path.isdir(path) == True or "\*" in path:
-				shutil.rmtree(path)
-				printpoint = printpoint + "7"
+				try:
+					shutil.rmtree(path)
+					printpoint = printpoint + "7"
+				except Exception, TypeError:
+					printpoint = printpoint + "5"
+					if 'The process cannot access the file because it is being used by another process' in TypeError:
+						for file in os.listdir(path):
+							x = os.path.join(path, file)
+							try: removefiles(x)
+							except Exception, TypeError: extra = extra + newline + "TypeError" + space2 + str(TypeError)
+					else: extra = extra + newline + "TypeError" + space2 + str(TypeError)
 			else:
 				os.remove(path)
 				printpoint = printpoint + "7"
+		elif os.path.isfile(path) == True:
+			printpoint = printpoint + "4"
+			os.remove(path)
 		else: printpoint = printpoint + "8"
 	else:
 		if not os.path.exists(path) and not systemplatformwindows and "*" in path: path = path.replace("*","")
@@ -1997,7 +2011,7 @@ def removefiles(path):
 		
 		else: printpoint = printpoint + "8"
 	
-	if "0" in printpoint or admin3: print printfirst + name + "_LV" + printpoint + space + "path" + space2 + str(path)
+	if "0" in printpoint or admin3 or TypeError != "": print printfirst + name + "_LV" + printpoint + space + "path" + space2 + str(path) + extra
 
 		
 def copytree(source, target, symlinks=False, ignore=None):
@@ -2161,6 +2175,46 @@ def write_to_file(path, content, append=False, silent=True , utf8=False): #UNUSE
 			print("Could not write to " + path)
 		return False
 
+def getAddonInfo(addon):
+	name = 'getAddonInfo' ; printpoint = ""
+	thumb = "" ; fanart = "" ; summary = "" ; description = ""
+	
+	thumb = os.path.join(addons_path, addon, 'icon.png')
+	fanart = os.path.join(addons_path, addon, 'fanart.jpg')
+	addoninfo = os.path.join(addons_path, addon, 'addon.xml')
+	addoninfo_ = read_from_file(addoninfo, silent=True, lines=False, retry=False, printpoint="", addlines="")
+	systemlanguage_ = systemlanguage[:2].lower()
+	
+	if addoninfo_ != "":
+		i = 0
+		for i in range(0,2):
+			if i == 0: summary = regex_from_to(addoninfo_, '<summary lang="'+systemlanguage_+'">', '</summary>', excluding=True)
+			elif i == 1: summary = regex_from_to(addoninfo_, '<summary>', '</summary>', excluding=True)
+			#elif i == 1: summary = regex_from_to(addoninfo_, '<summary lang="en">', '</summary>', excluding=True)
+			if summary != "": break
+		
+		i = 0
+		for i in range(0,2):
+			if i == 0: description = regex_from_to(addoninfo_, '<description lang="'+systemlanguage_+'">', '</description>', excluding=True)
+			elif i == 1: description = regex_from_to(addoninfo_, '<description>', '</description>', excluding=True)
+			#elif i == 1: description = regex_from_to(addoninfo_, '<description lang="en">', '</description>', excluding=True)
+			if description != "": break
+	
+	text = 'systemlanguage' + space2 + str(systemlanguage) + space + 'systemlanguage[:2]' + space2 + str(systemlanguage_) + newline + \
+	'thumb' + space2 + str(thumb) + newline + \
+	'fanart' + space2 + str(fanart) + newline + \
+	'summary' + space2 + str(summary) + newline + \
+	'description' + space2 + str(description)
+	
+	try: summary = summary.encode('utf-8')
+	except: pass
+	try: description = description.encode('utf-8')
+	except: pass
+	plot = '[COLOR=Yellow]'+summary+'[/COLOR]'+'[CR][CR]'+description
+	
+	printlog(title=name, printpoint=printpoint, text=text, level=0, option="")
+	return thumb, fanart, summary, description, plot
+	
 def read_from_file(infile, silent=True, lines=False, retry=True, printpoint="", addlines=""):
 	name = 'read_from_file' ; printpoint = "" ; returned = "" ; TypeError = "" ; extra = "" ; l = []
 	try:
@@ -2277,7 +2331,7 @@ def replace_word(infile,old_word,new_word, infile_="", LineR=False , LineClean=F
 		infile__.close()
 		'''---------------------------'''
 		
-	if admin and admin2 and admin3 or '9' in printpoint or 1 + 1 == 2:
+	if admin and admin2 and admin3 or '9' in printpoint:
 		print printfirst + "replace_word_LV" + printpoint + space + "infile" + space2 + str(infile) + space + newline + \
 		"old_word" + space2 + str(old_word) + newline + \
 		"new_word" + space2 + str(new_word) + newline + \

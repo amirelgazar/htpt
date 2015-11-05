@@ -554,8 +554,8 @@ def MultiVideos(mode, name, url, iconimage, desc, num, viewtype):
 					#x = x.replace("&youtube_se=","")
 					if '&youtube_se=' in x: x = x + space + str(name)
 					
-					finalurlL, numOfItems2 = youtube_pl_to_youtube_id(x, playlist)
-					#except Exception, TypeError: extra = extra + newline + "TypeError" + space2 + str(TypeError) ; printpoint = printpoint + "6"
+					try: finalurlL, numOfItems2 = youtube_pl_to_youtube_id(x, playlist)
+					except Exception, TypeError: extra = extra + newline + "TypeError" + space2 + str(TypeError) ; printpoint = printpoint + "6"
 					#finalurl="plugin://plugin.video.youtube/play/?video_id="+x+"&hd=1"
 					'''---------------------------'''
 					
@@ -584,7 +584,7 @@ def MultiVideos(mode, name, url, iconimage, desc, num, viewtype):
 									xbmc.Player(xbmc.PLAYER_CORE_MPLAYER).play(pl) ; xbmc.sleep(2000)
 									'''---------------------------'''
 								#else:
-								print "aaa " + "y" + space2 + str(y) + space + "playist" + space2 + str(playlist)
+								#print "aaa " + "y" + space2 + str(y) + space + "playist" + space2 + str(playlist)
 								
 								
 								if count >= numOfItems2: break
@@ -601,6 +601,16 @@ def MultiVideos(mode, name, url, iconimage, desc, num, viewtype):
 					else: printpoint = printpoint + "9"
 					
 					if admin: print printfirst + "MultiVideos___" + space + "i" + space2 + str(i) + space + "count" + space2 + str(count) + space + "playlist" + space2 + str(playlist)
+				
+				if '3' in printpoint:
+					playerhasvideo = xbmc.getCondVisibility('Player.HasVideo')
+					playlistlength = xbmc.getInfoLabel('Playlist.Length(video)')
+					if not playerhasvideo or int(playlistlength) >= 40:
+						'''Probably Cancel'''
+						printpoint = printpoint + 'q'
+						break
+
+					
 					
 			elif mode == 6:
 				
@@ -691,9 +701,11 @@ def MultiVideos(mode, name, url, iconimage, desc, num, viewtype):
 						addLink(name + space + str(i), x, iconimage, desc, viewtype)
 						'''---------------------------'''
 					else: addLink(name + space + str(i), x, iconimage, desc, viewtype)
-			
-	if mode == 5 and playlist == []:
-		notification(addonString_servicehtpt(1).encode('utf-8'), addonString_servicehtpt(2).encode('utf-8'), "", 2000)
+		
+		
+	if mode == 5:
+		playerhasvideo = xbmc.getCondVisibility('Player.HasVideo')
+		if playlist == []: notification(addonString_servicehtpt(1).encode('utf-8'), addonString_servicehtpt(2).encode('utf-8'), "", 2000)
 		#xbmc.executebuiltin('RunScript('+addonID+'/?mode=6&name='+name+'&url='+url+'&iconimage='+str(iconimage)+'&desc='+desc+'&num='+str(num)+'&viewtype='+str(viewtype)+')')
 		#MultiVideos(6, name, url, iconimage, desc, num, viewtype)
 		
@@ -1713,6 +1725,8 @@ def ManageCustom(mode, name, url, thumb, desc, num, viewtype, fanart):
 	printlog(title="ManageCustom", printpoint=printpoint, text=text, level=2, option="")
 		
 def youtube_pl_to_youtube_id(x, playlist=[]):
+	'''Error may occured at anytime'''
+	'''Make sure to use exception upon running this module'''
 	admin = xbmc.getInfoLabel('Skin.HasSetting(Admin)') ; playlist2 = []
 	printpoint = "" ; TypeError = "" ; extra = "" ; page = 1 ; pagesize = 40
 	valid_ = "" ; invalid_ = 0 ; invalid__ = "" ; duplicates_ = 0 ; duplicates__ = "" ; except_ = 0 ; except__ = ""
@@ -1763,12 +1777,13 @@ def youtube_pl_to_youtube_id(x, playlist=[]):
 
 	i = 0 ; count = 0
 	while i < pagesize and i < totalResults and not "8" in printpoint and count < (pagesize + 20) and not xbmc.abortRequested: #h<totalResults
-		#try:
-		if 1 + 1 == 2:
-			print "i" + space2 + str(i) + space + "duplicates__" + space2 + str(duplicates__) + "totalResults" + space2 + str(totalResults)
+		try:
+			#if 1 + 1 == 2:
+			#print "i" + space2 + str(i) + space + "duplicates__" + space2 + str(duplicates__) + "totalResults" + space2 + str(totalResults)
 			id = "" ; finalurl = ""
 			if "1" in printpoint: id=str(prms['items'][i][u'snippet'][u'resourceId'][u'videoId']) #Video ID (Playlist)
 			elif "2" in printpoint or "3" in printpoint: id=str(prms['items'][i][u'id'][u'videoId']) #Video ID (Search)
+
 			if id != "":
 				finalurl="plugin://plugin.video.youtube/play/?video_id="+id+"&hd=1"
 				title=str(prms['items'][i][u'snippet'][u'title'].encode('utf-8'))
@@ -1784,7 +1799,6 @@ def youtube_pl_to_youtube_id(x, playlist=[]):
 					for filterx in sefilter:
 						if filterx in title:
 							error
-							break
 
 				playlist.append(finalurl)
 				playlist2.append(finalurl)
@@ -1796,7 +1810,7 @@ def youtube_pl_to_youtube_id(x, playlist=[]):
 				elif finalurl in playlist:
 					duplicates_ += 1
 					duplicates__ = "i" + space2 + str(i) + space + "id" + space2 + str(id)
-		try: pass		
+
 		except Exception, TypeError:
 			except_ += 1
 			except__ = "i" + space2 + str(i) + space + "id" + space2 + str(id)
@@ -2472,11 +2486,14 @@ def pluginend(admin):
 			checkAddon_Update(admin, Addon_Update, Addon_Version, Addon_UpdateDate, Addon_UpdateLog, Addon_ShowLog, Addon_ShowLog2)
 			if Addon_UpdateLog == "true":
 				if addonID == 'plugin.video.htpt.kids':
-					if systemlanguage != "Hebrew": notification("This addon does not support Engish yet","...","",2000)
+					if systemlanguage != "Hebrew" and systemlanguage != "English": notification("This addon does not support "+str(systemlanguage)+" yet","...","",2000)
+					else: notification('HTPT',addonString_servicehtpt(63).encode('utf-8'),'',2000)
 					installaddon2(admin, 'repository.xbmc-israel', version="", update=True, silent=False)
 					'''---------------------------'''
 				elif addonID == 'plugin.video.htpt.music':
-					if systemlanguage != "Hebrew": notification("This addon does not support Engish yet","...","",2000)
+					if systemlanguage != "Hebrew" and systemlanguage != "English": notification("This addon does not support "+str(systemlanguage)+" yet","...","",2000)
+					else: notification('HTPT',addonString_servicehtpt(63).encode('utf-8'),'',2000)
+
 					
 		except Exception, TypeError:
 			extra = extra + newline + "TypeError" + space2 + str(TypeError)
@@ -2554,6 +2571,8 @@ def pluginend(admin):
 	elif mode == 109:       
 		CATEGORIES109(admin)
 	
+	elif mode == 110:       
+		CATEGORIES110(admin)
 	elif mode == 111:
 		CATEGORIES111(admin)
 	elif mode == 112: 
@@ -2572,7 +2591,9 @@ def pluginend(admin):
 		CATEGORIES118(admin)
 	elif mode == 119:       
 		CATEGORIES119(admin)
-		
+	
+	elif mode == 120:       
+		CATEGORIES120(admin)	
 	elif mode == 121:
 		CATEGORIES121(admin)
 	elif mode == 122: 
@@ -2592,6 +2613,8 @@ def pluginend(admin):
 	elif mode == 129:       
 		CATEGORIES129(admin)
 	
+	elif mode == 130:
+		CATEGORIES130(admin)
 	elif mode == 131:
 		CATEGORIES131(admin)
 	elif mode == 132: 

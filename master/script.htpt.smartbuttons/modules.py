@@ -124,7 +124,6 @@ def mode0(admin, name, printpoint):
 		notification("backupsize", str(backupsize), "", 4000)
 		
 		
-	#setAutoSettings("1")
 	#CreateZip(config_path, backuppath + backupname, filteron=['samba.conf', 'autostart.sh'], level=0, append=False, ZipFullPath=True, temp=True)
 	#CreateZip(userdata_path.encode('utf-8'), backuppath + backupname, filteron=['advancedsettings.xml', 'sources.xml', 'keymaps'], filteroff=[], level=0, append=True, ZipFullPath=True, temp=False)
 	#printpoint = installaddon2(admin, 'metadata.common.imdb.com', update=False)
@@ -980,8 +979,11 @@ def mode38(admin, name, printpoint):
 	'''------------------------------
 	---TOGGLE-ADULT-BUTTON-----------
 	------------------------------'''
-	off86_ = xbmc.getCondVisibility('Skin.HasSetting(off'+property_buttonid_+')') #Adult
-	if not off86_:
+	from variables2 import *
+	y = idT2.get('89')
+	notification('test',str(y),'',2000)
+	y_ = xbmc.getCondVisibility('Skin.HasSetting(off'+str(y)+')') #Adult
+	if not y_:
 		returned = dialogyesno(localize(75791), localize(75792))
 		if returned == "ok":
 			'''------------------------------
@@ -1873,7 +1875,7 @@ def mode100(admin, name):
 		dialogtextviewerW = xbmc.getCondVisibility('Window.IsVisible(DialogTextViewer.xml)')
 		'''---------------------------'''
 
-	setAutoSettings("01")
+	setAutoSettings("0")
 	xbmc.sleep(500)
 	externalusb("", 100)
 	'''---------------------------'''
@@ -12342,6 +12344,16 @@ def setAutoSettings(custom, addonid2=""):
 	
 	countrystr = xbmc.getInfoLabel('Skin.String(Country)')
 	
+	if "1" in custom:
+		adult2 = xbmc.getInfoLabel('Skin.HasSetting(Adult2)')
+		if not adult2:
+			'''hide adult contents'''
+			from variables2 import idT2
+			y = idT2.get('89')
+			setSkinSetting('1','off'+str(y),"true")
+			print "y" + space2 + str(y) + space + "Turned Off"
+			#setSkinSetting('0','label'+x,str(labelT.get('label'+y)))
+			
 	if "0" in custom:
 		'''------------------------------
 		---INSTALL-ADDONS----------------
@@ -12504,18 +12516,6 @@ def setAutoSettings(custom, addonid2=""):
 		set_accountdate('REALDEBRID','plugin.video.genesis', 'realdedrid_user', 'realdedrid_password', realdedrid_user, realdedrid_password, 'Account1_Active', 'Account1_Period', 'Account1_EndDate', Account1_Active, Account1_Period, Account1_EndDate, "1")
 		set_accountdate('SDAROT TV','plugin.video.sdarot.tv', 'username', 'user_password', sdarottv_user, sdarottv_password, 'Account2_Active', 'Account2_Period', 'Account2_EndDate', Account2_Active, Account2_Period, Account2_EndDate, "1")
 		'''---------------------------'''
-	
-	if "1" in custom:
-		if not adult2:
-			'''hide adult contents'''
-			from variables2 import labelT2
-			x = labelT2.get(localize(75003))
-			if 'label' in str(x):
-				x = x.replace('label',"")
-				setSkinSetting('1','off'+x,"true")
-			
-			#print "x" + space2 + str(x)
-			#setSkinSetting('0','label'+x,str(labelT.get('label'+y)))
 	
 	if "3" in custom:
 		'''------------------------------

@@ -5,8 +5,11 @@
 		<setting type="lsep" label="Please note: AutoView is currently support only HTPT Skin!"/>
 		<setting id="General_AutoView" type="bool" default="true" label="$ADDON[service.htpt 20]" visible="true"/>
 		<setting id="General_PageSize" type="text" default="18" label="General_PageSize" visible="false"/>
+		<setting id="General_OnlyPopular" type="bool" default="false" label="27" visible="true"/>
+		<setting type="lsep" label="28" visible="eq(-1,true)"/>
 		<setting id="General_TVModeDialog" type="bool" default="true" label="$ADDON[service.htpt 16]" visible="true"/>
 		<setting id="General_TVModeShuffle" type="bool" default="true" label="$ADDON[service.htpt 17]" visible="eq(-1,true)"/>
+		<setting type="lsep" label="$ADDON[service.htpt 62]" visible="eq(-1,false)"/>
 		<setting type="lsep" label=""/>
 		
 		<setting id="Addon_ShowLog" type="bool" default="true" label="$ADDON[service.htpt 24]" visible="true"/>
@@ -26,32 +29,53 @@
 		<setting id="Fanart_Custom100" type="image" source="pictures" default="" label="100" subsetting="true" description="My Music" visible="eq(-2,true) + eq(-3,true)"/>
 		<setting id="Fanart_Custom101" type="image" source="pictures" default="" label="101" subsetting="true" description="" visible="eq(-3,true) + eq(-4,true)"/>
 		<setting id="Fanart_Custom102" type="image" source="pictures" default="" label="102" subsetting="true" description="" visible="eq(-4,true) + eq(-5,true)"/>
-		<setting id="Fanart_Custom103" type="image" source="pictures" default="" label="103" subsetting="true" description="" visible="false"/>
+		<setting id="Fanart_Custom103" type="image" source="pictures" default="" label="103" subsetting="true" description="" visible="eq(-5,true) + eq(-6,true) + eq(-1,admin)"/>
 		<setting id="Fanart_Custom104" type="image" source="pictures" default="" label="104" subsetting="true" description="" visible="eq(-6,true) + eq(-7,true)"/>
-		<setting id="Fanart_Custom105" type="image" source="pictures" default="" label="105" subsetting="true" description="" visible="false"/>
-		<setting id="Fanart_Custom106" type="image" source="pictures" default="" label="106" subsetting="true" description="" visible="false"/>
-		<setting id="Fanart_Custom107" type="image" source="pictures" default="" label="107" subsetting="true" description="" visible="false"/>
-		<setting id="Fanart_Custom108" type="image" source="pictures" default="" label="108" subsetting="true" description="" visible="false"/>
-		<setting id="Fanart_Custom109" type="image" source="pictures" default="" label="109" subsetting="true" description="" visible="false"/>
-		<setting id="Fanart_Custom110" type="image" source="pictures" default="" label="110" subsetting="true" description="" visible="false"/>
+		<setting id="Fanart_Custom105" type="image" source="pictures" default="" label="105" subsetting="true" description="" visible="eq(-7,true) + eq(-8,true) + eq(-1,admin)"/>
+		<setting id="Fanart_Custom106" type="image" source="pictures" default="" label="106" subsetting="true" description="" visible="eq(-8,true) + eq(-9,true) + eq(-1,admin)"/>
+		<setting id="Fanart_Custom107" type="image" source="pictures" default="" label="107" subsetting="true" description="" visible="eq(-9,true) + eq(-10,true) + eq(-1,admin)"/>
+		<setting id="Fanart_Custom108" type="image" source="pictures" default="" label="108" subsetting="true" description="" visible="eq(-10,true) + eq(-11,true) + eq(-1,admin)"/>
+		<setting id="Fanart_Custom109" type="image" source="pictures" default="" label="109" subsetting="true" description="" visible="eq(-11,true) + eq(-12,true) + eq(-1,admin)"/>
 		
+		<setting id="Fanart_Custom110" type="image" source="pictures" default="" label="110" subsetting="true" description="" visible="eq(-12,true) + eq(-13,true) + eq(-1,admin)"/>
 		<setting id="Fanart_Custom111" type="image" source="pictures" default="" label="111" subsetting="true" description="Foreign Music" visible="eq(-13,true) + eq(-14,true)"/>
 		<setting id="Fanart_Custom112" type="image" source="pictures" default="" label="112" subsetting="true" description="Foreign Karaoke" visible="eq(-14,true) + eq(-15,true)"/>
-		<setting id="Fanart_Custom113" type="image" source="pictures" default="" label="113" subsetting="true" description="" visible="false"/>
+		<setting id="Fanart_Custom113" type="image" source="pictures" default="" label="113" subsetting="true" description="" visible="eq(-15,true) + eq(-16,true) + eq(-1,admin)"/>
 		<setting id="Fanart_Custom114" type="image" source="pictures" default="" label="114" subsetting="true" description="Foreign Liveshows" visible="eq(-16,true) + eq(-17,true)"/>
 		<setting id="Fanart_Custom115" type="image" source="pictures" default="" label="115" subsetting="true" description="Foreign Djs" visible="eq(-17,true) + eq(-18,true)"/>
-		<!--<setting id="Fanart_Custom116" type="image" source="pictures" default="" label="116" subsetting="true" description="" visible="eq(-12,true)"/>
-		<setting id="Fanart_Custom117" type="image" source="pictures" default="" label="117" subsetting="true" description="" visible="eq(-12,true)"/>
-		<setting id="Fanart_Custom118" type="image" source="pictures" default="" label="118" subsetting="true" description="" visible="eq(-12,true)"/>
-		<setting id="Fanart_Custom119" type="image" source="pictures" default="" label="119" subsetting="true" description="" visible="eq(-12,true)"/>
-		<setting id="Fanart_Custom120" type="image" source="pictures" default="" label="120" subsetting="true" description="" visible="eq(-12,true)"/>
-		<setting id="Fanart_Custom121" type="image" source="pictures" default="" label="121" subsetting="true" description="Classical Music" visible="eq(-12,true)"/>-->
+		<setting id="Fanart_Custom116" type="image" source="pictures" default="" label="116" subsetting="true" description="" visible="eq(-18,true) + eq(-19,true) + eq(-1,admin)"/>
+		<setting id="Fanart_Custom117" type="image" source="pictures" default="" label="117" subsetting="true" description="" visible="eq(-19,true) + eq(-20,true) + eq(-1,admin)"/>
+		<setting id="Fanart_Custom118" type="image" source="pictures" default="" label="118" subsetting="true" description="" visible="eq(-20,true) + eq(-21,true) + eq(-1,admin)"/>
+		<setting id="Fanart_Custom119" type="image" source="pictures" default="" label="119" subsetting="true" description="" visible="eq(-21,true) + eq(-22,true) + eq(-1,admin)"/>
+		
+		<setting id="Fanart_Custom120" type="image" source="pictures" default="" label="120" subsetting="true" description="" visible="eq(-22,true) + eq(-23,true) + eq(-1,admin)"/>
+		<setting id="Fanart_Custom121" type="image" source="pictures" default="" label="121" subsetting="true" description="" visible="eq(-23,true) + eq(-24,true) + eq(-1,admin)"/>
+		<setting id="Fanart_Custom122" type="image" source="pictures" default="" label="122" subsetting="true" description="" visible="eq(-24,true) + eq(-25,true) + eq(-1,admin)"/>
+		<setting id="Fanart_Custom123" type="image" source="pictures" default="" label="123" subsetting="true" description="" visible="eq(-25,true) + eq(-26,true) + eq(-1,admin)"/>
+		<setting id="Fanart_Custom124" type="image" source="pictures" default="" label="124" subsetting="true" description="" visible="eq(-26,true) + eq(-27,true) + eq(-1,admin)"/>
+		<setting id="Fanart_Custom125" type="image" source="pictures" default="" label="125" subsetting="true" description="" visible="eq(-27,true) + eq(-28,true) + eq(-1,admin)"/>
+		<setting id="Fanart_Custom126" type="image" source="pictures" default="" label="126" subsetting="true" description="" visible="eq(-28,true) + eq(-29,true) + eq(-1,admin)"/>
+		<setting id="Fanart_Custom127" type="image" source="pictures" default="" label="127" subsetting="true" description="" visible="eq(-29,true) + eq(-30,true) + eq(-1,admin)"/>
+		<setting id="Fanart_Custom128" type="image" source="pictures" default="" label="128" subsetting="true" description="" visible="eq(-30,true) + eq(-31,true) + eq(-1,admin)"/>
+		<setting id="Fanart_Custom129" type="image" source="pictures" default="" label="129" subsetting="true" description="" visible="eq(-31,true) + eq(-32,true) + eq(-1,admin)"/>
+		
+		<setting id="Fanart_Custom130" type="image" source="pictures" default="" label="130" subsetting="true" description="אמיר אלגזר פלייליסטים" visible="eq(-32,true) + eq(-33,true) + eq(-1,admin)"/>
+		<setting id="Fanart_Custom131" type="image" source="pictures" default="" label="131" subsetting="true" description="" visible="eq(-33,true) + eq(-34,true) + eq(-1,admin)"/>
+		<setting id="Fanart_Custom132" type="image" source="pictures" default="" label="132" subsetting="true" description="" visible="eq(-34,true) + eq(-35,true) + eq(-1,admin)"/>
+		<setting id="Fanart_Custom133" type="image" source="pictures" default="" label="133" subsetting="true" description="" visible="eq(-35,true) + eq(-36,true) + eq(-1,admin)"/>
+		<setting id="Fanart_Custom134" type="image" source="pictures" default="" label="134" subsetting="true" description="" visible="eq(-36,true) + eq(-37,true) + eq(-1,admin)"/>
+		<setting id="Fanart_Custom135" type="image" source="pictures" default="" label="135" subsetting="true" description="" visible="eq(-37,true) + eq(-38,true) + eq(-1,admin)"/>
+		<setting id="Fanart_Custom136" type="image" source="pictures" default="" label="136" subsetting="true" description="" visible="eq(-38,true) + eq(-39,true) + eq(-1,admin)"/>
+		<setting id="Fanart_Custom137" type="image" source="pictures" default="" label="137" subsetting="true" description="" visible="eq(-39,true) + eq(-30,true) + eq(-1,admin)"/>
+		<setting id="Fanart_Custom138" type="image" source="pictures" default="" label="138" subsetting="true" description="" visible="eq(-40,true) + eq(-41,true) + eq(-1,admin)"/>
+		<setting id="Fanart_Custom139" type="image" source="pictures" default="" label="139" subsetting="true" description="" visible="eq(-41,true) + eq(-42,true) + eq(-1,admin)"/>
 		
 	</category>
 	
 	<category label="$LOCALIZE[559] $LOCALIZE[20190]" description="רשימת ניגון מותאם אישית">
 		<setting type="lsep" label="13" visible="true"/>
 		<setting type="action" label="My Music" action="RunScript(plugin.video.htpt.music,,?mode=100&amp;url=11&amp;name=1&amp;fanart=1&amp;&name=1&amp;iconimage=1&amp;num=1&amp;viewtype=50)" visible="false"/>
+		<setting id="Custom_130" type="bool" default="true" label="130" visible="true"/>
 		<setting id="Custom_Playlist1_ID" type="text" default="" label="$LOCALIZE[559] 1 (URL)" description="רשימת ניגון 1 (לינק)" visible="false"/>
 		<setting id="Custom_Playlist1_Name" type="text" default="" label="$LOCALIZE[559] 1 (NAME)" description="רשימת ניגון 1 (שם)" visible="false"/>
 		<setting id="Custom_Playlist1_Thumb" type="text" default="" label="$LOCALIZE[559] 1 (Thumb)" description="רשימת ניגון 1 (תמונה)" visible="false"/>

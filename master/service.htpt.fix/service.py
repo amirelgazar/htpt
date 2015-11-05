@@ -30,6 +30,7 @@ class clean:
 	Clean_Library("1")
 	Clean_Library("2")
 	Clean_Library("3")
+	removefiles(temp_path)
 	removefiles(addons_path + '#')
 	removefiles(userdata_path + '#')
 	removefiles(addondata_path + '#')

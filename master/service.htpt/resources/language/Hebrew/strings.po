@@ -250,8 +250,8 @@ msgid "Note: Random play isn't enabled!"
 msgstr "לתשומת לבך: האפשרות לניגון אקראי אינה מופעלת!"
 
 msgctxt "#63
-msgid ""
-msgstr ""
+msgid "Visit us on Facebook :)"
+msgstr "בקרו אותנו בפייסבוק :)"
 
 msgctxt "#64
 msgid ""
