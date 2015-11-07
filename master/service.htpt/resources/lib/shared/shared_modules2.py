@@ -9,6 +9,95 @@ from variables import *
 
 #https://gdata.youtube.com/feeds/api/videos/dzbN8WG33Sg/related?v=2
 
+def mode311(admin, name, printpoint):
+	'''------------------------------
+	---SPORT-2-LIVE------------------
+	------------------------------'''
+	if connected:
+		installaddon(admin, 'repository.natko1412', 'repository.natko1412', update=True)
+		
+		addon = 'plugin.video.p2psport'
+		if xbmc.getCondVisibility('System.HasAddon('+ addon +')'):
+			'''------------------------------
+			---plugin.video.p2p-streams------
+			------------------------------'''
+			printpoint = printpoint + "1"
+			countrystr = xbmc.getInfoLabel('Skin.String(Country)')
+			if countrystr == "Israel": setsetting_custom1('plugin.video.p2psport','timezone_new','Israel')
+			addonsettings2(addon,'timezone_new',"Israel",'',"",'',"",'',"",'',"")
+			addonsettings2(addon,'',"",'',"",'',"",'',"",'',"")
+			
+			parser_path = os.path.join(addondata_path, 'plugin.video.p2p-streams', 'parser' ,'')
+			folders_count, folders_count2, files_count = bash_count(parser_path)
+			if int(files_count) < 7:
+				printpoint = printpoint + "2"
+				xbmc.executebuiltin('XBMC.RunPlugin(plugin://plugin.video.p2p-streams/?mode=404&name=p2p&url=p2p)')
+				import json
+				dialogkeyboardW = xbmc.getCondVisibility('Window.IsVisible(DialogKeyboard.xml)')
+				count = 0
+				while count < 10 and not dialogkeyboardW and not xbmc.abortRequested:
+					dialogkeyboardW = xbmc.getCondVisibility('Window.IsVisible(DialogKeyboard.xml)')
+					xbmc.sleep(1000)
+					count += 1
+					'''---------------------------'''
+				if count < 10:
+					xbmc.executeJSONRPC('{"jsonrpc":"2.0","method":"Input.SendText","id":976575931,"params":{"text":"http://bit.ly/allparsers","done":false}}')
+					xbmc.sleep(100)
+					xbmc.executebuiltin('Action(Select)')
+					'''---------------------------'''
+				else: xbmc.executebuiltin('Action(Back)')
+			else: printpoint = printpoint + "3"
+			
+			if systemplatformwindows:
+				p2pstreams_path = os.path.join(addondata_path, 'plugin.video.p2p-streams', '')
+				ace_engine = os.path.join(addondata_path, 'plugin.video.p2p-streams', 'acestream', 'ace_engine.exe')
+				ace_player = os.path.join(addondata_path, 'plugin.video.p2p-streams', 'player', 'ace_player.exe')
+				if not os.path.exists(ace_engine) or not os.path.exists(ace_player):
+					notification("downloading AceEngine...", "Please wait", "", 7000)
+					file = "AceEngine.zip"
+					fileID = getfileID(file)
+					DownloadFile("https://www.dropbox.com/s/"+fileID+"/AceEngine.zip?dl=1", file, temp_path, p2pstreams_path, silent=True)
+				else: printpoint = printpoint + "A"
+			
+			url = 'plugin://plugin.video.p2p-streams/?iconimage=C%3a%5cUsers%5cgal%5cAppData%5cRoaming%5cKodi%5caddons%5cplugin.video.p2p-streams%5cresources%5ccore%5cparsers%5carenavision%5cicon.png&mode=401&name=Arenavision.in&parser=arenavision&url=https%3a%2f%2fcode.google.com%2fp%2fp2p-strm%2f'
+			#url = 'plugin://plugin.video.p2p-streams/?iconimage=C%3a%5cUsers%5cgal%5cAppData%5cRoaming%5cKodi%5caddons%5cplugin.video.p2p-streams%5cresources%5ccore%5cparsers%5clivefootballws%5cicon.png&mode=401&name=Livefootball.ws&parser=livefootballws&url=https%3a%2f%2fcode.google.com%2fp%2fp2p-strm%2f'
+			returned = ActivateWindow("1", 'plugin.video.p2p-streams', url, 0, wait=True)
+			
+			if 1 + 1 == 3:
+				if "ok" in returned:
+					printpoint = printpoint + "4"
+					systemcurrentcontrol = xbmc.getInfoLabel('System.CurrentControl')
+					systemcurrentcontrol = findin_systemcurrentcontrol("0","[..]",100,'Action(PageUp)','')
+					systemcurrentcontrol = findin_systemcurrentcontrol("0","[..]",100,'Action(PageUp)','Action(Down)')
+					xbmc.sleep(500)
+					containernumitems = xbmc.getInfoLabel('Container.NumItems')
+					
+					if not "(Online)" in xbmc.getInfoLabel('Container(50).ListItem(0).Label') and not "ONLINE" in xbmc.getInfoLabel('Container(50).ListItem(1).Label'):
+						'''------------------------------
+						---NO-LIVE-MATCHS----------------
+						------------------------------'''
+						dialogok(localize(78918), localize(78916) + space2, localize(78920),"")
+						'''---------------------------'''
+					else:
+						'''------------------------------
+						---LIVE-MATCHS-FOUND!------------
+						------------------------------'''
+						dialogok(addonString(40).encode('utf-8'),localize(78919) + '[CR]' + '[COLOR=Yellow]' + "LIVE FOOTBALL" + '[/COLOR]',"","")
+						'''---------------------------'''
+						
+				else: printpoint = printpoint + "6"
+				'''---------------------------'''
+		else:
+			#if "A" in id10str or "B" in id10str:
+			printpoint = printpoint + "8"
+			installaddon(admin, addon, "")
+			'''---------------------------'''
+		
+	else: notification_common("5")
+	'''---------------------------'''
+	if admin: print printfirst + name + "_LV" + printpoint + space
+
+	
 def getsetting_custom1(addon,set1):
 	'''------------------------------
 	---GET-ADDON-SETTING-1-----------

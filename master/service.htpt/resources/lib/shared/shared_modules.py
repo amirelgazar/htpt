@@ -1633,7 +1633,7 @@ def installaddonP(admin, addon, update=True):
 		else: printpoint = printpoint + "7"
 	
 	elif addon == 'script.module.requests': #FIXED PATH
-		if not xbmc.getCondVisibility('System.HasAddon('+ addon +')') or not os.path.exists(addons_path + addon) and not "9" in printpoint or 1 + 1 == 2:
+		if not xbmc.getCondVisibility('System.HasAddon('+ addon +')') or not os.path.exists(addons_path + addon) and not "9" in printpoint:
 			DownloadFile("https://github.com/beenje/script.module.requests/archive/gotham.zip", addon + ".zip", packages_path, addons_path, silent=True)
 			#os.rename(os.path.join(addons_path, 'script.module.requests-gotham'), 'script.module.requests')
 			movefiles(os.path.join(addons_path, 'script.module.requests-gotham'), os.path.join(addons_path, addon))
@@ -1642,6 +1642,41 @@ def installaddonP(admin, addon, update=True):
 		elif "9" in printpoint: pass
 		else: printpoint = printpoint + "7"
 	
+	elif addon == 'repository.natko1412': #FIXED PATH
+		if not xbmc.getCondVisibility('System.HasAddon(repo.natko1412)') or not os.path.exists(addons_path + addon) and not "9" in printpoint:
+			DownloadFile("https://offshoregit.com/natko1412/zips/repo.natko1412/repo.natko1412-2.0.0.zip", addon + ".zip", packages_path, addons_path, silent=True)
+			#movefiles(os.path.join(addons_path, 'repository.natko1412'), os.path.join(addons_path, addon))
+			if os.path.exists(addons_path + addon): printpoint = printpoint + "5"
+			else: printpoint = printpoint + "9"
+		elif "9" in printpoint: pass
+		else: printpoint = printpoint + "7"
+	
+	elif addon == 'plugin.video.bbts': #FIXED PATH
+		if not xbmc.getCondVisibility('System.HasAddon('+ addon +')') or not os.path.exists(addons_path + addon) and not "9" in printpoint:
+			DownloadFile("https://raw.githubusercontent.com/kodil/kodil/master/repo/plugin.video.bbts/plugin.video.bbts-0.1.4.zip", addon + ".zip", packages_path, addons_path, silent=True)
+			movefiles(os.path.join(addons_path, 'repository.natko1412'), os.path.join(addons_path, addon))
+			if os.path.exists(addons_path + addon): printpoint = printpoint + "5"
+			else: printpoint = printpoint + "9"
+		elif "9" in printpoint: pass
+		else: printpoint = printpoint + "7"
+	
+	elif addon == 'plugin.video.pulsar': #FIXED PATH
+		if not xbmc.getCondVisibility('System.HasAddon('+ addon +')') or not os.path.exists(addons_path + addon) and not "9" in printpoint:
+			DownloadFile("https://github.com/steeve/plugin.video.pulsar/releases/download/v0.6.1/plugin.video.pulsar-0.6.1.zip", addon + ".zip", packages_path, addons_path, silent=True)
+			if os.path.exists(addons_path + addon): printpoint = printpoint + "5"
+			else: printpoint = printpoint + "9"
+		elif "9" in printpoint: pass
+		else: printpoint = printpoint + "7"
+	
+	elif addon == 'program.plexus': #FIXED PATH
+		if not xbmc.getCondVisibility('System.HasAddon('+ addon +')') or not os.path.exists(addons_path + addon) and not "9" in printpoint:
+			DownloadFile("https://github.com/enen92/program.plexus/archive/master.zip", addon + ".zip", packages_path, addons_path, silent=True)
+			movefiles(os.path.join(addons_path, 'program.plexus-master'), os.path.join(addons_path, addon))
+			if os.path.exists(addons_path + addon + "-master") or os.path.exists(addons_path + addon): printpoint = printpoint + "5"
+			else: printpoint = printpoint + "9"
+		elif "9" in printpoint: pass
+		else: printpoint = printpoint + "7"
+		
 	if "5" in printpoint:
 		if update == True:
 			xbmc.executebuiltin("UpdateLocalAddons")
@@ -1657,11 +1692,11 @@ def installaddon2(admin, addon, version="0.0.0", update=True, silent=True):
 	
 	'''---------------------------'''
 	if addon == 'repository.htpt': version = "1.1.0"
-	elif addon == 'service.htpt': version = "0.1.70"
+	elif addon == 'service.htpt': version = "0.1.72"
 	elif addon == 'service.htpt.debug': version = "0.1.41"
 	elif addon == 'service.htpt.fix': version = "0.1.60"
-	elif addon == 'script.htpt.install': version = "0.0.26"
-	elif addon == 'script.htpt.smartbuttons': version = "0.0.31"
+	elif addon == 'script.htpt.install': version = "0.0.27"
+	elif addon == 'script.htpt.smartbuttons': version = "0.0.32"
 	elif addon == 'script.htpt.remote': version = "0.1.12"
 	elif addon == 'script.htpt.refresh': version = "0.1.32"
 	elif addon == 'script.htpt.widgets': version = "0.1.3"

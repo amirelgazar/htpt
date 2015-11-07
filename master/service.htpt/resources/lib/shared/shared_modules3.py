@@ -25,7 +25,6 @@ def addDir(name, url, mode, iconimage, desc, num, viewtype, fanart=""):
 	else:
 		url = str(url)
 	
-	#if url == None or url == "": url = "None" #"None"
 	
 	if name == None or name == "": name = "" #name = "None" #"None"
 	else:
@@ -492,13 +491,21 @@ def MultiVideos(mode, name, url, iconimage, desc, num, viewtype):
 
 	returned = get_types(url)
 	for x in url2:
-		x = str(x) ; finalurl = "" ; finalurlL = [] ; numOfItems2 = 0
+		x = str(x) ; finalurl = "" ; finalurlL = [] ; numOfItems2 = 0 ; name2 = ""
 		
 		#print "aab" + space + "x" + space2 + str(x) + newline + "playlist" + space + str(playlist) + newline + "finalurl" + space2 + str(finalurl) + space + "finalurlL" + space2 + str(finalurlL)
 		x = x.replace("[","")
 		x = x.replace(",","")
 		x = x.replace("'","")
 		x = x.replace("]","")
+		
+		if '&name=' in x:
+			name2 = find_string(x, '&name=', '&')
+			x = x.replace(name2,"",1)
+			name2 = name2.replace('&name=',"",1)
+			name2 = name2.replace('&',"")
+			name2 = space + '(' + name2 + ')'
+			
 		if x not in playlist and x != "":
 			i += 1
 			if mode == 5:
@@ -609,28 +616,30 @@ def MultiVideos(mode, name, url, iconimage, desc, num, viewtype):
 						'''Probably Cancel'''
 						printpoint = printpoint + 'q'
 						break
-
-					
-					
+				
 			elif mode == 6:
+				#try:
+				finalurl, name, iconimage, desc = getAPIdata(x, name, iconimage, desc)
+							
+				#except: pass
 				
 				if "&dailymotion_id=" in x:
 					#x = x.replace("&dailymotion_id=","")
-					addDir(name + space + str(i), x, 4, iconimage, desc, num, viewtype)
+					addDir(str(i) + '.' + space + name + space + name2, x, 4, iconimage, desc, num, viewtype)
 					'''---------------------------'''
 				elif "&youtube_ch=" in x:
 					x = x.replace("&youtube_ch=","")
 					if "/playlists" in x: pass
-					addDir(name + space + str(i), x, 9, iconimage, desc, num, viewtype) #addonString(192).encode('utf-8')
+					addDir(str(i) + '.' + space + name + space + name2, x, 9, iconimage, desc, num, viewtype) #addonString(192).encode('utf-8')
 					'''---------------------------'''
 				elif "&youtube_pl=" in x:
 					i2 += 1
 					x = x.replace("&youtube_pl=","")
-					addDir(name + space + str(i), x, 13, iconimage, desc, num, viewtype) #addonString(192).encode('utf-8')
+					addDir(str(i) + '.' + space + name + space + name2, x, 13, iconimage, desc, num, viewtype) #addonString(192).encode('utf-8')
 					'''---------------------------'''
 				elif "&youtube_id=" in x:
 					#x = x.replace("&youtube_id=","")
-					addDir(name + space + str(i), x, 4, iconimage, desc, num, viewtype)
+					addDir(str(i) + '.' + space + name + space + name2, x, 4, iconimage, desc, num, viewtype)
 					'''---------------------------'''
 				elif "&youtube_se=" in x or "&custom_se=" in x:
 					#try: str(name).encode('utf-8')
@@ -638,7 +647,7 @@ def MultiVideos(mode, name, url, iconimage, desc, num, viewtype):
 					x = x.replace("&youtube_se=","")
 					x = x + space + str(name)
 					x = clean_commonsearch(x)
-					addDir(name + space + str(i), x, 3, iconimage, desc, num, viewtype)
+					addDir(str(i) + '.' + space + name + space + name2, x, 3, iconimage, desc, num, viewtype)
 					'''---------------------------'''	
 				else:
 					if "&wallaNew=" in x:
@@ -648,12 +657,12 @@ def MultiVideos(mode, name, url, iconimage, desc, num, viewtype):
 						elif "seasonId" in x: z = '3'
 						elif "genreId" in x: z = '2'
 						else: z = '10'
-						addDir(name + space + str(i), "plugin://plugin.video.wallaNew.video/?url="+x+"&mode="+z+"&module=wallavod", 8, iconimage, desc, num, viewtype)
+						addDir(str(i) + '.' + space + name + space + name2, "plugin://plugin.video.wallaNew.video/?url="+x+"&mode="+z+"&module=wallavod", 8, iconimage, desc, num, viewtype)
 						'''---------------------------'''
 					elif "&wallaNew2=" in x:
 						x = x.replace("&wallaNew2=","")
 						z = '1'
-						addDir(name + space + str(i), "plugin://plugin.video.wallaNew.video/?url="+x+"&mode="+z+"&module=nickjr", 8, iconimage, desc, num, viewtype)
+						addDir(str(i) + '.' + space + name + space + name2, "plugin://plugin.video.wallaNew.video/?url="+x+"&mode="+z+"&module=nickjr", 8, iconimage, desc, num, viewtype)
 						'''---------------------------'''
 					elif "&sdarot=" in x:
 						x = x.replace("&sdarot=","")
@@ -680,7 +689,7 @@ def MultiVideos(mode, name, url, iconimage, desc, num, viewtype):
 						
 						if not "series_name=" in x: series_name = "&series_name="
 						else: series_name = ''
-						addDir(name + space + str(i), "plugin://plugin.video.sdarot.tv/?mode="+z+summary+series_name+"&image="+iconimage+"&name="+name+"&"+x, 8, iconimage, desc, num, viewtype)
+						addDir(str(i) + '.' + space + name + space + name2, "plugin://plugin.video.sdarot.tv/?mode="+z+summary+series_name+"&image="+iconimage+"&name="+name+"&"+x, 8, iconimage, desc, num, viewtype)
 						'''---------------------------'''
 					elif "&seretil=" in x:
 						x = x.replace("&seretil=","")
@@ -693,14 +702,14 @@ def MultiVideos(mode, name, url, iconimage, desc, num, viewtype):
 						if "TopSeriesPlayer" in x: z = '3&module=%2fCmn%2fApp%2fVideo%2fCmmAppVideoApi_AjaxItems%2f0%2c13776%2c'
 						elif "FCmmAppVideoApi_AjaxItems" in x: z = '4'
 						else: z = '3&module=%2fCmn%2fApp%2fVideo%2fCmmAppVideoApi_AjaxItems%2f0%2c13776%2c'
-						addDir(name + space + str(i), "plugin://plugin.video.hotVOD.video/?mode="+z+"&url="+x, 8, iconimage, desc, num, viewtype)
+						addDir(str(i) + '.' + space + name + space + name2, "plugin://plugin.video.hotVOD.video/?mode="+z+"&url="+x, 8, iconimage, desc, num, viewtype)
 						'''---------------------------'''	
 						
 					elif "&custom=" in x:
 						x = x.replace("&custom=","")
-						addLink(name + space + str(i), x, iconimage, desc, viewtype)
+						addLink(str(i) + '.' + space + name + space + name2, x, iconimage, desc, viewtype)
 						'''---------------------------'''
-					else: addLink(name + space + str(i), x, iconimage, desc, viewtype)
+					else: addLink(str(i) + '.' + space + name + space + name2, x, iconimage, desc, viewtype)
 		
 		
 	if mode == 5:
@@ -720,6 +729,47 @@ def MultiVideos(mode, name, url, iconimage, desc, num, viewtype):
 	printlog(title="MultiVideos", printpoint=printpoint, text=text, level=2, option="")
 	'''---------------------------'''
 		
+def getAPIdata(x, name, iconimage, desc):
+	printpoint = "" ; TypeError = "" ; extra = ""
+	finalurl = "" ; url = "" ; prms = ""
+	try:
+		#if 1 + 1 == 2:
+		if '&youtube_' in x:
+			if '&youtube_pl=' in x:
+				x2 = x.replace('&youtube_pl=',"")
+				url = 'https://www.googleapis.com/youtube/v3/playlistItems?playlistId='+x2+'&key=AIzaSyASEuRNOghvziOY_8fWSbKGKTautNkAYz4&part=snippet&maxResults=40&pageToken='
+			elif '&youtube_se' in x:
+				x2 = x.replace('&youtube_se=',"")
+				url = 'https://www.googleapis.com/youtube/v3/search?q='+x2+'&key=AIzaSyASEuRNOghvziOY_8fWSbKGKTautNkAYz4&safeSearch=moderate&type=video&part=snippet&maxResults=40&pageToken='
+			elif '&custom_se' in x:
+				x2 = x.replace('&custom_se',"")
+				url = 'https://www.googleapis.com/youtube/v3/search?q='+x2+'&key=AIzaSyASEuRNOghvziOY_8fWSbKGKTautNkAYz4&safeSearch=moderate&type=video&part=snippet&maxResults=1&pageToken='
+			
+			if url != "":
+				link = OPEN_URL(url)
+				prms=json.loads(link)
+				
+				i = 0
+				if '&youtube_pl' in x: id=str(prms['items'][i][u'snippet'][u'resourceId'][u'videoId']) #Video ID (Playlist)
+				elif '&youtube_se' in x: id=str(prms['items'][i][u'id'][u'videoId']) #Video ID (Search)
+				
+				if id != "":
+					finalurl="plugin://plugin.video.youtube/play/?video_id="+id+"&hd=1"
+					name=str(prms['items'][i][u'snippet'][u'title'].encode('utf-8'))
+					iconimage=str(prms['items'][i][u'snippet'][u'thumbnails'][u'default'][u'url'])
+					desc = str(prms['items'][i][u'snippet'][u'description'].encode('utf-8')) #.decode('utf-8')
+	
+	except Exception, TypeError: extra = extra + newline + "TypeError" + space2 + str(TypeError)
+	
+	text = 'x' + space2 + str(x) + newline + \
+	'prms' + space2 + str(prms) + newline + \
+	'finalurl' + space2 + str(finalurl) + newline + \
+	'name' + space2 + str(name) + newline + \
+	'iconimage' + space2 + str(iconimage) + newline + \
+	'desc' + space2 + str(desc) + extra
+	
+	printlog(title="getAPIdata", printpoint=printpoint, text=text, level=0, option="")
+	return str(finalurl), str(name), str(iconimage), str(desc)
 	
 def PlayPlayList(playlistid):
 	printpoint = ""

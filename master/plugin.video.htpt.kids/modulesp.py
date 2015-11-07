@@ -38,13 +38,13 @@ def CATEGORIES():
 	'''---------------------------'''
 	#addonBackground(Backgrounds_Enable, Backgrounds_EnableCustom)
 	#notification("test","","",1000)
-	print "Test123" + space + addonPath + "fanart.jpg"
+	#print "Test123" + space + addonPath + "fanart.jpg"
 
 '''1=SONGS, 2=SHOWS, 3=LITTLE, 4=TVSHOWS, 5=MOVIES, 6=?, 7=BABY, 8=?, 9=OTHERS'''
 def CATEGORIES101(admin):
 	background = 101
 	'''אוסף שירים בעברית'''
-	addDir('אוסף שירים בעברית',['&youtube_pl=PLFw7KwIWHNB1_mXvYXwqFOw6S026LL3tj', '&youtube_ch=UCfm5IpcgGCooON4Mm2vq40A/playlists', '&youtube_ch=23music', '&youtube_pl=PLF11AD94724D37E02', '&wallaNew=genre%3dkids%26genreId%3d7450', '&wallaNew=item_id%3D2538763', '&wallaNew=item_id%3D2538765', '&wallaNew=item_id%3D2538766', '&wallaNew=item_id%3D2538767', '&wallaNew=item_id%3D2538768', '&youtube_pl=PL0495C8F5A2024FA4', '&wallaNew=', '&wallaNew=', '&wallaNew=', '&wallaNew=', '&wallaNew=', '&wallaNew='],17,'http://www.diskids.co.il/images/stories/feature/1.png',addonString(110).encode('utf-8'),'1',50, getAddonFanart(background))
+	addDir('אוסף שירים בעברית',['&youtube_pl=PLFw7KwIWHNB1_mXvYXwqFOw6S026LL3tj', '&youtube_ch=UCfm5IpcgGCooON4Mm2vq40A/playlists', '&youtube_ch=23music', '&youtube_pl=PLF11AD94724D37E02', '&wallaNew=genre%3dkids%26genreId%3d7450', '&wallaNew=item_id%3D2538763', '&wallaNew=item_id%3D2538765', '&wallaNew=item_id%3D2538766', '&wallaNew=item_id%3D2538767', '&wallaNew=item_id%3D2538768', '&youtube_pl=PL0495C8F5A2024FA4'],17,'http://www.diskids.co.il/images/stories/feature/1.png',addonString(110).encode('utf-8'),'1',50, getAddonFanart(background))
 	
 	'''השירים הראשונים שלי'''
 	addDir('השירים הראשונים שלי',['&youtube_id=6LNpGsYpWJw', '&youtube_id=YtuVAZyWoG4', '&youtube_pl=PLpnRNlRK18UaUnOabh_ZysDsOY3QLvjkd', '&youtube_pl=PLdhkcuUltKcfTUBHVy02eKfRIEnmg7fnn'],17,'http://ypk.cs4u.co.il/mall_product_images/auction_product/ZF21388.jpg',addonString(110).encode('utf-8'),'1',50, getAddonFanart(background))
