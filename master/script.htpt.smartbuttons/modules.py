@@ -12,8 +12,7 @@ def mode0(admin, name, printpoint):
 	'''------------------------------
 	---TEST--------------------------
 	------------------------------'''
-	
-	print xbmc_path
+	xbmc.executebuiltin('ToggleDebug')
 	
 	#notification(xbmc.getInfoLabel('$VAR[label77_91]'),"1","",1000)
 	
@@ -2973,11 +2972,11 @@ def mode202(value, admin, name, printpoint):
 			setSkinSetting('0', property_temp + '.name', "")
 			notification("...","","",1000)
 			xbmc.executebuiltin('Dialog.Close(1175)')
-			xbmc.executebuiltin('Dialog.Close(1173)')
+			if custom1173W: xbmc.executebuiltin('Dialog.Close(1173)')
 			xbmc.executebuiltin('Dialog.Close(1117)')
 			xbmc.executebuiltin('Action(Close)')
 			xbmc.executebuiltin('ActivateWindow(1117)')
-			xbmc.executebuiltin('ActivateWindow(1173)')
+			if custom1173W: xbmc.executebuiltin('ActivateWindow(1173)')
 			'''---------------------------'''
 		else: printpoint = printpoint + "9"
 		
@@ -4137,7 +4136,17 @@ def mode215(value, admin, name, printpoint):
 				if label == "" or label == "..." or value == 'RESET': setSkinSetting('0','label'+id,localize(31621) + ' 2 ' + '('+localize(19664)+')')
 				setSkinSetting('0','action'+id,'RunScript(script.htpt.smartbuttons,,?mode=311)')
 				if icon == "" or value == 'RESET': setSkinSetting('0','icon'+id,'icons/football.png')
+		
+		if value in '79_93' or value == 'RESET':
+			'''ספורט 3'''
+			x = '79_93' ; id = id_T2.get(x)
 			
+			if id != "" and id != None:
+				id = id.replace('id',"")
+				label = label_T.get('label'+str(id)) ; icon = icon_T.get('icon'+str(id))
+				if label == "" or label == "..." or value == 'RESET': setSkinSetting('0','label'+id,localize(31621) + ' 3 ' + '('+localize(19664)+')')
+				setSkinSetting('0','action'+id,'RunScript(script.htpt.smartbuttons,,?mode=312)')
+				if icon == "" or value == 'RESET': setSkinSetting('0','icon'+id,'icons/football.png')
 			
 		if value in '79_96' or value == 'RESET':
 			'''ערוץ הטיולים'''
@@ -5418,77 +5427,30 @@ def mode311(admin, name, printpoint):
 	---SPORT-2-LIVE------------------
 	------------------------------'''
 	if connected:
-		addon = 'plugin.video.p2p-streams'
+		installaddonP(admin, 'repository.natko1412', update=True)
+		installaddonP(admin, 'program.plexus', update=True)
+		addon = 'plugin.video.p2psport'
 		if xbmc.getCondVisibility('System.HasAddon('+ addon +')'):
 			'''------------------------------
 			---plugin.video.p2p-streams------
 			------------------------------'''
 			printpoint = printpoint + "1"
-			addonsettings2(addon,'ace-debug',"false",'save',"false",'parser_sync',"true",'run_a_python_script',"http://bit.ly/allparsers",'russian_translation',"true")
-			addonsettings2(addon,'addon_history',"true",'items_per_page',"20",'autoconfig',"true",'timezone_new',"496",'hide_porn',"true")
-			addonsettings2(addon,'',"",'',"",'',"",'',"",'',"")
-			addonsettings2(addon,'',"",'',"",'',"",'',"",'',"")
-			
-			parser_path = os.path.join(addondata_path, 'plugin.video.p2p-streams', 'parser' ,'')
-			folders_count, folders_count2, files_count = bash_count(parser_path)
-			if int(files_count) < 7:
-				printpoint = printpoint + "2"
-				xbmc.executebuiltin('XBMC.RunPlugin(plugin://plugin.video.p2p-streams/?mode=404&name=p2p&url=p2p)')
-				import json
-				dialogkeyboardW = xbmc.getCondVisibility('Window.IsVisible(DialogKeyboard.xml)')
-				count = 0
-				while count < 10 and not dialogkeyboardW and not xbmc.abortRequested:
-					dialogkeyboardW = xbmc.getCondVisibility('Window.IsVisible(DialogKeyboard.xml)')
-					xbmc.sleep(1000)
-					count += 1
-					'''---------------------------'''
-				if count < 10:
-					xbmc.executeJSONRPC('{"jsonrpc":"2.0","method":"Input.SendText","id":976575931,"params":{"text":"http://bit.ly/allparsers","done":false}}')
-					xbmc.sleep(100)
-					xbmc.executebuiltin('Action(Select)')
-					'''---------------------------'''
-				else: xbmc.executebuiltin('Action(Back)')
-			else: printpoint = printpoint + "3"
+			countrystr = xbmc.getInfoLabel('Skin.String(Country)')
+			if countrystr == "Israel": setsetting_custom1('plugin.video.p2psport','timezone_new','Israel')
 			
 			if systemplatformwindows:
-				p2pstreams_path = os.path.join(addondata_path, 'plugin.video.p2p-streams', '')
-				ace_engine = os.path.join(addondata_path, 'plugin.video.p2p-streams', 'acestream', 'ace_engine.exe')
-				ace_player = os.path.join(addondata_path, 'plugin.video.p2p-streams', 'player', 'ace_player.exe')
+				programplexus_path = os.path.join(addondata_path, 'program.plexus', '')
+				ace_engine = os.path.join(programplexus_path, 'acestream', 'ace_engine.exe')
+				ace_player = os.path.join(programplexus_path, 'player', 'ace_player.exe')
 				if not os.path.exists(ace_engine) or not os.path.exists(ace_player):
 					notification("downloading AceEngine...", "Please wait", "", 7000)
 					file = "AceEngine.zip"
 					fileID = getfileID(file)
-					DownloadFile("https://www.dropbox.com/s/"+fileID+"/AceEngine.zip?dl=1", file, temp_path, p2pstreams_path, silent=True)
+					DownloadFile("https://www.dropbox.com/s/"+fileID+"/AceEngine.zip?dl=1", file, temp_path, programplexus_path, silent=True)
 				else: printpoint = printpoint + "A"
 			
-			url = 'plugin://plugin.video.p2p-streams/?iconimage=C%3a%5cUsers%5cgal%5cAppData%5cRoaming%5cKodi%5caddons%5cplugin.video.p2p-streams%5cresources%5ccore%5cparsers%5carenavision%5cicon.png&mode=401&name=Arenavision.in&parser=arenavision&url=https%3a%2f%2fcode.google.com%2fp%2fp2p-strm%2f'
-			#url = 'plugin://plugin.video.p2p-streams/?iconimage=C%3a%5cUsers%5cgal%5cAppData%5cRoaming%5cKodi%5caddons%5cplugin.video.p2p-streams%5cresources%5ccore%5cparsers%5clivefootballws%5cicon.png&mode=401&name=Livefootball.ws&parser=livefootballws&url=https%3a%2f%2fcode.google.com%2fp%2fp2p-strm%2f'
-			returned = ActivateWindow("1", 'plugin.video.p2p-streams', url, 0, wait=True)
+			returned = ActivateWindow("0", addon, '', 0, wait=True)
 			
-			if 1 + 1 == 3:
-				if "ok" in returned:
-					printpoint = printpoint + "4"
-					systemcurrentcontrol = xbmc.getInfoLabel('System.CurrentControl')
-					systemcurrentcontrol = findin_systemcurrentcontrol("0","[..]",100,'Action(PageUp)','')
-					systemcurrentcontrol = findin_systemcurrentcontrol("0","[..]",100,'Action(PageUp)','Action(Down)')
-					xbmc.sleep(500)
-					containernumitems = xbmc.getInfoLabel('Container.NumItems')
-					
-					if not "(Online)" in xbmc.getInfoLabel('Container(50).ListItem(0).Label') and not "ONLINE" in xbmc.getInfoLabel('Container(50).ListItem(1).Label'):
-						'''------------------------------
-						---NO-LIVE-MATCHS----------------
-						------------------------------'''
-						dialogok(localize(78918), localize(78916) + space2, localize(78920),"")
-						'''---------------------------'''
-					else:
-						'''------------------------------
-						---LIVE-MATCHS-FOUND!------------
-						------------------------------'''
-						dialogok(addonString(40).encode('utf-8'),localize(78919) + '[CR]' + '[COLOR=Yellow]' + "LIVE FOOTBALL" + '[/COLOR]',"","")
-						'''---------------------------'''
-						
-				else: printpoint = printpoint + "6"
-				'''---------------------------'''
 		else:
 			#if "A" in id10str or "B" in id10str:
 			printpoint = printpoint + "8"
@@ -5501,18 +5463,19 @@ def mode311(admin, name, printpoint):
 
 def mode312(admin, name, printpoint):
 	'''------------------------------
-	---?-----------------------------
+	---SPORT-LIVE-3------------------
 	------------------------------'''
-	name = "?"
-	mode312(admin, name, printpoint)
+	addon = 'plugin.video.bbts'
+	installaddonP(admin, addon, update=True)
+	url = 'plugin://plugin.video.bbts/?folder=%2fSPORTS'
+	returned = ActivateWindow("1", addon, url, 0, wait=True)
 	'''---------------------------'''
 
 def mode313(admin, name, printpoint):
 	'''------------------------------
 	---?-----------------------------
 	------------------------------'''
-	name = "?"
-	mode313(admin, name, printpoint)
+	pass
 	'''---------------------------'''
 
 def mode314(admin, name, printpoint):
@@ -7370,9 +7333,10 @@ def mode505(value, admin, name, printpoint):
 		else: installaddon(admin, addon, "")
 		'''---------------------------'''
 	elif value == '5':
-		addon = 'plugin.video.nhlondemand'
-		if xbmc.getCondVisibility('System.HasAddon('+ addon +')'): xbmc.executebuiltin('RunAddon('+ addon +')')
-		else: installaddon(admin, addon, "")
+		addon = 'plugin.video.nflreplays'
+		installaddonP(admin, 'repository.natko1412', update=True)
+		installaddon(admin, addon, "")
+		xbmc.executebuiltin('RunAddon('+ addon +')')
 		'''---------------------------'''
 	elif value == '6':
 		addon = 'plugin.video.football.today'
@@ -7380,9 +7344,10 @@ def mode505(value, admin, name, printpoint):
 		else: installaddon(admin, addon, "")
 		'''---------------------------'''
 	elif value == '7':
-		addon = 'plugin.video.nbaondemand'
-		if xbmc.getCondVisibility('System.HasAddon('+ addon +')'): xbmc.executebuiltin('RunAddon('+ addon +')')
-		else: installaddon(admin, addon, "")
+		addon = 'plugin.video.nbafullgames'
+		installaddonP(admin, 'repository.natko1412', update=True)
+		installaddon(admin, addon, "")
+		xbmc.executebuiltin('RunAddon('+ addon +')')
 		'''---------------------------'''
 	elif value == '8':
 		addon = 'plugin.video.the666sicco'
@@ -7407,12 +7372,9 @@ def mode506(value, admin, name, printpoint):
 		---PULSAR------------------------
 		------------------------------'''
 		addon = 'plugin.video.pulsar'
-		if xbmc.getCondVisibility('System.HasAddon('+ addon +')'): xbmc.executebuiltin('ActivateWindow(10025,plugin://plugin.video.pulsar/movies/,return)')
-		else:
-			installaddon(admin, addon, "") ; xbmc.sleep(500)
-			if not xbmc.getCondVisibility('System.HasAddon('+ addon +')'):
-				url = 'https://github.com/steeve/plugin.video.pulsar/releases/download/v0.6.1/plugin.video.pulsar-0.6.1.zip'
-				DownloadFile(url, addon+".zip", packages_path, addons_path, silent=False) ; xbmc.executebuiltin("UpdateLocalAddons")
+		installaddon(admin, addon, "")
+		installaddonP(admin, addon, "")
+		xbmc.executebuiltin('ActivateWindow(10025,plugin://plugin.video.pulsar/movies/,return)')
 				
 	elif value == "4":
 		'''------------------------------
@@ -7439,12 +7401,10 @@ def mode507(value, admin, name, printpoint):
 		---PULSAR------------------------
 		------------------------------'''
 		addon = 'plugin.video.pulsar'
-		if xbmc.getCondVisibility('System.HasAddon('+ addon +')'): xbmc.executebuiltin('ActivateWindow(10025,plugin://plugin.video.pulsar/shows/,return)')
-		else:
-			installaddon(admin, addon, "") ; xbmc.sleep(500)
-			if not xbmc.getCondVisibility('System.HasAddon('+ addon +')'):
-				url = 'https://github.com/steeve/plugin.video.pulsar/releases/download/v0.6.1/plugin.video.pulsar-0.6.1.zip'
-				DownloadFile(url, addon+".zip", packages_path, addons_path, silent=False) ; xbmc.executebuiltin("UpdateLocalAddons")
+		installaddon(admin, addon, "")
+		installaddonP(admin, addon, "")
+		xbmc.executebuiltin('ActivateWindow(10025,plugin://plugin.video.pulsar/shows/,return)')
+		
 	else: printpoint = printpoint + "9"
 	'''---------------------------'''
 	return printpoint

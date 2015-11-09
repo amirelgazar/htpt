@@ -233,7 +233,7 @@ def memkeyboard(admin):
 			if admin: xbmc.executebuiltin('Notification(Admin memkeyboard,'+ input +',1000)')
 		#xbmc.executebuiltin('Notification(Admin memkeyboard,'+ input +',1000)')
 		
-def connectioncheck(admin, admin2, count, systemidle3, Ping_Now, Ping_Connected):
+def connectioncheck(admin, admin2, count, systemidle3, Ping_Now, scripthtptsmartbuttons_General_Terminal):
 	'''------------------------------
 	---NETWORK-STATUS----------------
 	------------------------------'''
@@ -248,7 +248,7 @@ def connectioncheck(admin, admin2, count, systemidle3, Ping_Now, Ping_Connected)
 	
 	if count == 0: printpoint = printpoint + "0"
 	
-	if Ping_Connected != "true" and (not count in count10 or count == 0):
+	if scripthtptsmartbuttons_General_Terminal != "true": #and (not count in count10 or count == 0)
 		if Ping_Now == 'None':
 			if networkipaddress == "" or networkipaddress == None:
 				setSkinSetting("1","Connected2","false")
@@ -484,13 +484,11 @@ def connectioncheck(admin, admin2, count, systemidle3, Ping_Now, Ping_Connected)
 	'''------------------------------
 	---PRINT-END---------------------
 	------------------------------'''
-	if not "Q" in printpoint and not "9" in printpoint: setsetting('Ping_Connected',"true")
-	else: setsetting('Ping_Connected',"false")
 	if connected2 != "": connected2S = "true"
 	else: connected2S = "false"
 	if connected3 != "": connected3S = "true"
 	else: connected3S = "false"
-	if (admin and admin2 and admin3 and 1 + 1 == 3) or count == 0 or "_DOWN_" in printpoint or "_UP_" in printpoint:
+	if (admin and admin2 and admin3 and 1 + 1 == 2) or count == 0 or "_DOWN_" in printpoint or "_UP_" in printpoint:
 		print printfirst + space + "connectioncheck_LV" + printpoint + space + "count" + space2 + str(count) + space + "connected2/3" + space2 + connected2S + "/" + connected3S + extra
 		'''---------------------------'''
 
@@ -552,13 +550,13 @@ def setSkin_Name(Skin_Name):
 	'''---------------------------'''
 	return Skin_Name2
 	
-def setTime_Delay(admin, admin2, Time_Delay, count, systemidle3, playerhasvideo, playerhasmedia, playerpaused, performance, Ping_Connected):
+def setTime_Delay(admin, admin2, Time_Delay, count, systemidle3, playerhasvideo, playerhasmedia, playerpaused, performance, scripthtptsmartbuttons_General_Terminal):
 	#from variable import A10
 	
 	if count in A10:
 		name = 'setTime_Delay' ; Time_Delay2 = Time_Delay ; playerfilename = xbmc.getInfoLabel('Player.Filename')
 		
-		if performance or Ping_Connected == 'false': value = 100
+		if performance or scripthtptsmartbuttons_General_Terminal != 'true': value = 100
 		else: value = 20
 		
 		if not systemidle3:
@@ -779,7 +777,7 @@ def startup(admin):
 		xbmc.sleep(1000)
 	
 	if xbmc.getSkinDir() == 'skin.htpt':
-		connectioncheck(admin, admin2, 0, systemidle3, Ping_Now, Ping_Connected) ; xbmc.sleep(1000)
+		connectioncheck(admin, admin2, 0, systemidle3, Ping_Now, scripthtptsmartbuttons_General_Terminal) ; xbmc.sleep(1000)
 		if not startupmusic:
 			if os.path.exists(skin_music_path + "playHTPT2.flac") and not startupmusicstr:
 				xbmc.executebuiltin('PlayMedia('+skin_music_path+'playHTPT2.flac)')

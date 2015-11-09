@@ -17,7 +17,6 @@ class resetsettings:
 	setsetting_custom1('service.htpt','Skin_UpdateCount2',"0")
 	setsetting_custom1('service.htpt','Skin_UpdateTimer',"0")
 	setsetting_custom1('service.htpt','Skin_UpdateLog',"true")
-	setsetting_custom1('service.htpt','Ping_Connected',"true")
 				
 	setSkinSetting("1",'Connected',"true")
 	setSkinSetting("1",'Connected2',"true")
@@ -93,7 +92,9 @@ class main:
 				Skin_UpdateLog = getsetting('Skin_UpdateLog')
 				Skin_Version = getsetting('Skin_Version')
 				
-				Ping_Connected = getsetting('Ping_Connected')
+				try: scripthtptsmartbuttons_General_Terminal = getsetting_scripthtptsmartbuttons('General_Terminal')
+				except: scripthtptsmartbuttons_General_Terminal = ""
+				
 				Ping_Rate = getsetting('Ping_Rate')
 				Ping_Now = getsetting('Ping_Now')
 				'''---------------------------'''
@@ -109,7 +110,7 @@ class main:
 				---count-------------------------
 				------------------------------'''
 				
-				if Ping_Connected == 'false' or performance: xbmc.sleep(10000)
+				if scripthtptsmartbuttons_General_Terminal != 'true' or performance: xbmc.sleep(10000)
 				elif not systemplatformwindows and (not systemidle300 or General_TimerN in A10): xbmc.sleep(100)
 				elif systemplatformwindows and (not systemidle300 or General_TimerN in A10): xbmc.sleep(1600)
 				else: xbmc.sleep(2000)
@@ -124,7 +125,7 @@ class main:
 				'''------------------------------
 				---setTime_Delay-----------------
 				------------------------------'''
-				setTime_Delay(admin, admin2, Time_Delay, count, systemidle3, playerhasvideo, playerhasmedia, playerpaused, performance, Ping_Connected)
+				setTime_Delay(admin, admin2, Time_Delay, count, systemidle3, playerhasvideo, playerhasmedia, playerpaused, performance, scripthtptsmartbuttons_General_Terminal)
 				'''---------------------------'''
 				
 				#if admin and General_TimerN in A10: print printfirst + "VARCHECK2" + space2 + "Skin_UpdateLog" + space2 + Skin_UpdateLog + space + "Time_Pass" + space2 + Time_Pass + space + "General_Timer" + space2 + General_Timer
@@ -210,7 +211,7 @@ class main:
 					if admin: print printfirst + "setSkin_UpdateLog_LV" + printpoint + space + space2 + Skin_UpdateLog + space + "Time_Start" + space2 + Time_Start
 					'''---------------------------'''
 				
-				if General_TimerN in A10 and Ping_Connected == "true":
+				if General_TimerN in A10 and scripthtptsmartbuttons_General_Terminal == "true":
 					'''------------------------------
 					---setPing_Rate-(1-5)------------
 					------------------------------'''
@@ -243,11 +244,11 @@ class main:
 					pass
 					'''---------------------------'''
 					
-				if not systemidle300 or not connected or (not connected2 and not connected3):
+				if not systemidle300: # and (not connected or (not connected2 and not connected3))
 					'''------------------------------
 					---connectioncheck---------------
 					------------------------------'''
-					connectioncheck(admin, admin2, count, systemidle3, Ping_Now, Ping_Connected)
+					connectioncheck(admin, admin2, count, systemidle3, Ping_Now, scripthtptsmartbuttons_General_Terminal)
 					'''---------------------------'''
 					
 					if Time_Shutdown != "":
@@ -264,7 +265,7 @@ class main:
 					#setPing(admin,count,systemidle3)
 					'''---------------------------'''
 				else:
-					if General_TimerN in A10: connectioncheck(admin, admin2, count, systemidle3, Ping_Now, Ping_Connected)
+					if General_TimerN in A10: connectioncheck(admin, admin2, count, systemidle3, Ping_Now, scripthtptsmartbuttons_General_Terminal)
 					
 					if Time_DelayN > 540 and Time_DelayN < 600: #systemidle540 and not systemidle600:
 						pass

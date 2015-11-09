@@ -198,7 +198,7 @@ the users movie library hitting enter or return will play the associated movie.
   </extension>
 </addon>
 
-<addon id="script.htpt.smartbuttons" name="HTPT Smart Buttons" version="0.0.33" provider-name="HTPT Team">
+<addon id="script.htpt.smartbuttons" name="HTPT Smart Buttons" version="0.0.34" provider-name="HTPT Team">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
 	<import addon="xbmc.addon" version="12.0.0"/>
@@ -236,7 +236,7 @@ the users movie library hitting enter or return will play the associated movie.
   </extension>
 </addon>
 
-<addon id="service.htpt" name="HTPT Service" version="0.1.73" provider-name="HTPT Team">
+<addon id="service.htpt" name="HTPT Service" version="0.1.74" provider-name="HTPT Team">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
   </requires>
@@ -272,7 +272,7 @@ the users movie library hitting enter or return will play the associated movie.
   </extension>
 </addon>
 
-<addon id="service.htpt.fix" name="HTPT Fix" version="0.1.63" provider-name="HTPT Team">
+<addon id="service.htpt.fix" name="HTPT Fix" version="0.1.64" provider-name="HTPT Team">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
 	<import addon="xbmc.addon" version="12.0.0"/>
@@ -290,7 +290,7 @@ the users movie library hitting enter or return will play the associated movie.
   </extension>
 </addon>
 
-<addon id="skin.htpt" version="0.1.41" name="HTPT SYSTEM" provider-name="finalmakerr">
+<addon id="skin.htpt" version="0.1.42" name="HTPT SYSTEM" provider-name="finalmakerr">
   <requires>
     <import addon="xbmc.gui" version="5.3.0"/>
 	<!--<import addon="xbmc.gui" version="5.9.0"/>-->

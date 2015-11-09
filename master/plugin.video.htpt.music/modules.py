@@ -615,7 +615,7 @@ def CATEGORIES111(admin):
 	addDir(localize(137),commonsearch,3,htptservicemedia_path + "se.png",addonString_servicehtpt(23) % (commonsearch111),'1',"", getAddonFanart(background, custom=""))
 	
 	'''הכל'''
-	addDir(localize(593),'UC-9-kyTW8ZkZNDHQJ6FgpwQ',9,htptservicemedia_path + "singers.png","",'1',"", getAddonFanart(background, custom=""))
+	addDir(localize(593),'UC-9-kyTW8ZkZNDHQJ6FgpwQ/playlists',9,htptservicemedia_path + "singers.png","",'1',"", getAddonFanart(background, custom=""))
 	
 	'''Ariana Grande'''	
 	if General_OnlyPopular != "true": addDir(addonString(11105).encode('utf-8'),'ArianaGrandeVevo',9,"https://yt3.ggpht.com/-u_W-R7bGk1c/AAAAAAAAAAI/AAAAAAAAAAA/u6lamzb3BPc/s100-c-k-no/photo.jpg",addonString(111050).encode('utf-8'),'1',"", getAddonFanart(background, custom=""))

@@ -498,7 +498,7 @@ def terminal(command,desc):
 			'''---------------------------'''
 	except Exception, TypeError: extra = extra + newline + "TypeError" + space2 + str(TypeError)
 	
-	if 'Permission denied' in TypeError:
+	if 'Permission denied' in TypeError or 'Too many open files' in TypeError:
 		printpoint = printpoint + '9'
 		if scripthtptsmartbuttons_General_Terminal == 'true':
 			setsetting_custom1('script.htpt.smartbuttons','General_Terminal',"false")

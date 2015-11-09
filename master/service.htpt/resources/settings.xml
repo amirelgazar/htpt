@@ -24,7 +24,6 @@
 	
 	<category label="Ping" description="">
 		<setting type="lsep" label="3"/>
-		<setting id="Ping_Connected" type="text" default="true" label="Ping_Connected" visible="true"/>
 		<setting id="Ping_Now" type="text" default="" label="Ping_Now" visible="eq(-1,true)"/>
 		<setting id="Ping_Rate" type="text" default="" label="Ping_Rate" visible="eq(-2,true)"/>
 		<setting id="Ping_1" type="text" default="100" label="Ping_1" visible="eq(-3,true)"/>
