@@ -113,11 +113,11 @@ def sendMail(mode, subject, text, *attachmentFilePaths):
 	
     try:
         if mode == 1 or (admin3): notification(addonString(74481), addonString_servicehtpt(10), "", 1000)
-        
+
         if General_MailService == "1":
             mailServer = smtplib.SMTP('smtp.gmail.com', 587) #, timeout=20
             gmailUser = sendtostr
-            gmailPassword = mystr
+            gmailPassword = mystr3
             #mailServer = smtplib.SMTP_SSL('smtp.mail.yahoo.com', 587, timeout=20)
             #gmailUser = sendtostr14
             #gmailPassword = mystr2
@@ -130,7 +130,7 @@ def sendMail(mode, subject, text, *attachmentFilePaths):
         elif General_MailService == "2":
 			mailServer = smtplib.SMTP('smtp.gmail.com', 587) #, timeout=20
 			gmailUser = sendtostr2
-			gmailPassword = mystr
+			gmailPassword = mystr3
         elif General_MailService == "3":
             mailServer = smtplib.SMTP('smtp.gmail.com', 587) #, timeout=20
             gmailUser = sendtostr3
@@ -170,15 +170,12 @@ def sendMail(mode, subject, text, *attachmentFilePaths):
         mailServer.quit()
         if mode == 1 or admin3: notification(addonString(74483), addonString(31407), "", 2000)
         returned = 'ok'
-        return returned, str(TypeError)
         '''---------------------------'''
     except Exception, TypeError:
 		try: mailServer.quit()
 		except: pass
-		if mode == 1 or admin: notification(addonString(8).encode('utf-8'), str(TypeError), "", 2000)
-		if admin: extra = extra + "gmailUser" + space2 + str(gmailUser)
-		print printfirst + "sendMail" + space + "General_MailService" + space2 + str(General_MailService) + space + extra + newline + \
-		"TypeError" + space2 + str(TypeError)
+		if mode == 1 or admin3: notification(addonString(8).encode('utf-8'), str(TypeError), "", 2000)
+		
 		if "535, '5.7.8 Username and Password not accepted." in TypeError:
 			'''gmail'''
 			returned = 'skip'
@@ -198,8 +195,12 @@ def sendMail(mode, subject, text, *attachmentFilePaths):
 			returned = 'skip'
 		else:
 			returned = 'skip'
-		'''---------------------------'''
-		return returned, str(TypeError)
+			'''---------------------------'''
+	
+    if admin3: extra = extra + "gmailUser" + space2 + str(gmailUser) + newline + 'gmailPassword' + space2 + str(gmailPassword)
+    print printfirst + "sendMail" + space + "General_MailService" + space2 + str(General_MailService) + space + 'returned' + space2 + str(returned) + space + extra + newline + \
+    "TypeError" + space2 + str(TypeError)
+    return returned, str(TypeError)
 		
 def getAttachment(attachmentFilePath):
     from email.MIMEText import MIMEText
@@ -840,8 +841,7 @@ def SendDebug(mode, subject, content, file):
 			'''------------------------------
 			---Fix_Done----------------------
 			------------------------------'''
-			setsetting('Fix_Done',"")
-			#setsetting_custom1('service.htpt.fix','Fix_Done',"")
+			setsetting_custom1('service.htpt.fix','Fix_Done',"")
 			#setsetting_custom1('service.htpt.fix','Fix_LastDate',"")
 			'''---------------------------'''
 		

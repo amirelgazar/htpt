@@ -55,13 +55,17 @@ class main:
 		General_ScriptON = getsetting('General_ScriptON')
 		General_ServiceON = getsetting('General_ServiceON')
 		ModeOn_1 = getsetting('ModeOn_1')
+		ModeOn_6 = getsetting('ModeOn_6')
 		'''---------------------------'''
-		xbmc.sleep(60000)
+		if admin3 and admin and not admin2: xbmc.sleep(10000)
+		else: xbmc.sleep(60000)
 		if count == 0:
 			SetGeneral_Pass(admin)
 			if ModeOn_1 == "true": pass
 			elif General_ScriptON == "true": setGeneral_ScriptON("1", General_ScriptON, "")
-			elif General_AllowDebug == "true" and General_ServiceON == "true": xbmc.executebuiltin('RunScript(service.htpt.debug,,?mode=100)')
+			elif General_ServiceON == "true":
+				if General_AllowDebug == "true": xbmc.executebuiltin('RunScript(service.htpt.debug,,?mode=100)')
+				elif ModeOn_6 == "true": xbmc.executebuiltin('RunScript(service.htpt.debug,,?mode=100)')
 			elif General_ServiceON != "true": sys.exit(0)
 			count = 0
 			'''---------------------------'''
