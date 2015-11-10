@@ -12162,12 +12162,12 @@ msgid "Sarit Hadad"
 msgstr "שרית חדד"
 
 msgctxt "#10146
-msgid ""
-msgstr ""
+msgid "Eden Ben Zaken"
+msgstr "עדן בן זקן"
 
 msgctxt "#10147
-msgid ""
-msgstr ""
+msgid "shani yitshari"
+msgstr "שני יצהרי"
 
 msgctxt "#10148
 msgid ""

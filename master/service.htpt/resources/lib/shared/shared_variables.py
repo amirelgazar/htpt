@@ -814,6 +814,8 @@ if admin and not admin2 and 1 + 1 == 3:
 ---?--------------------------
 ------------------------------'''
 skinlog_file = os.path.join(skin_path,'changelog.txt')
+kodilog_file = os.path.join(temp_path,'kodi.log')
+kodioldlog_file = os.path.join(temp_path,'kodi.old.log')
 skininstalledtxt2 = os.path.join(home_path, 'Skin_Installed.txt')
 guisettings_file = os.path.join(userdata_path, 'guisettings.xml')
 guisettings2_file = os.path.join(skin_userdata_path, 'guisettings.xml')

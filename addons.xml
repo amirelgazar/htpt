@@ -44,7 +44,7 @@
   </extension>
 </addon>
 
-<addon id="plugin.video.htpt.music" name="HTPT Music" version="0.0.17" provider-name="HTPT Team">
+<addon id="plugin.video.htpt.music" name="HTPT Music" version="0.0.18" provider-name="HTPT Team">
   <requires>
 	<import addon="xbmc.python" version="2.1.0"/>
 	<import addon="plugin.video.youtube" version="5.1.0"/>
@@ -236,7 +236,7 @@ the users movie library hitting enter or return will play the associated movie.
   </extension>
 </addon>
 
-<addon id="service.htpt" name="HTPT Service" version="0.1.74" provider-name="HTPT Team">
+<addon id="service.htpt" name="HTPT Service" version="0.1.75" provider-name="HTPT Team">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
   </requires>

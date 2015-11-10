@@ -748,17 +748,19 @@ def getAPIdata(x, name, iconimage, desc):
 			if url != "":
 				link = OPEN_URL(url)
 				prms=json.loads(link)
-				
+				print str(prms)
 				i = 0
 				if '&youtube_pl' in x: id=str(prms['items'][i][u'snippet'][u'resourceId'][u'videoId']) #Video ID (Playlist)
 				elif '&youtube_se' in x: id=str(prms['items'][i][u'id'][u'videoId']) #Video ID (Search)
 				
 				if id != "":
 					finalurl="plugin://plugin.video.youtube/play/?video_id="+id+"&hd=1"
-					name=str(prms['items'][i][u'snippet'][u'title'].encode('utf-8'))
-					iconimage=str(prms['items'][i][u'snippet'][u'thumbnails'][u'default'][u'url'])
+					name_=str(prms['items'][i][u'snippet'][u'title'].encode('utf-8'))
+					iconimage_=str(prms['items'][i][u'snippet'][u'thumbnails'][u'default'][u'url'])
 					desc = str(prms['items'][i][u'snippet'][u'description'].encode('utf-8')) #.decode('utf-8')
-	
+					if not 'Deleted video' in name_: name = name_
+					if iconimage_ != "": iconimage = iconimage_
+				
 	except Exception, TypeError: extra = extra + newline + "TypeError" + space2 + str(TypeError)
 	
 	text = 'x' + space2 + str(x) + newline + \
@@ -832,9 +834,9 @@ def PlayPlayList(playlistid):
 	
 	#xbmc.Player(xbmc.PLAYER_CORE_MPLAYER).play(playlist)
 
-#https://gdata.youtube.com/feeds/api/users/polosoft/playlists (gets playlist fro, user) https://gdata.youtube.com/feeds/api/users/polosoft/playlists?alt=json
-#https://gdata.youtube.com/feeds/api/playlists/PLN0EJVTzRDL_53Jz8bhZl4m3UtkY2btbV?max-results=50?alt=json  (gets items in playlist)
-#https://gdata.youtube.com/feeds/api/playlists/PLN0EJVTzRDL_53Jz8bhZl4m3UtkY2btbV?max-results=50&alt=json
+	#https://gdata.youtube.com/feeds/api/users/polosoft/playlists (gets playlist fro, user) https://gdata.youtube.com/feeds/api/users/polosoft/playlists?alt=json
+	#https://gdata.youtube.com/feeds/api/playlists/PLN0EJVTzRDL_53Jz8bhZl4m3UtkY2btbV?max-results=50?alt=json  (gets items in playlist)
+	#https://gdata.youtube.com/feeds/api/playlists/PLN0EJVTzRDL_53Jz8bhZl4m3UtkY2btbV?max-results=50&alt=json
 	'''------------------------------
 	---PRINT-END---------------------
 	------------------------------'''
@@ -2533,7 +2535,9 @@ def pluginend(admin):
 			getsetting('Addon_ShowLog')
 			getsetting('Addon_ShowLog2')
 			
-			checkAddon_Update(admin, Addon_Update, Addon_Version, Addon_UpdateDate, Addon_UpdateLog, Addon_ShowLog, Addon_ShowLog2)
+			VerReset = ""
+			if addonId == 'plugin.video.htpt.music' and Addon_Version == '0.0.17': VerReset = "true"
+			checkAddon_Update(admin, Addon_Update, Addon_Version, Addon_UpdateDate, Addon_UpdateLog, Addon_ShowLog, Addon_ShowLog2, VerReset)
 			if Addon_UpdateLog == "true":
 				if addonID == 'plugin.video.htpt.kids':
 					if systemlanguage != "Hebrew" and systemlanguage != "English": notification("This addon does not support "+str(systemlanguage)+" yet","...","",2000)
@@ -2781,6 +2785,65 @@ def pluginend(admin):
 		CATEGORIES10429(name, iconimage, desc)
 	elif mode == 10430:
 		CATEGORIES10430(name, iconimage, desc)
+	
+	elif mode == 10901:
+		CATEGORIES10901(name, iconimage, desc)
+	elif mode == 10902:
+		CATEGORIES10902(name, iconimage, desc)
+	elif mode == 10903:
+		CATEGORIES10903(name, iconimage, desc)
+	elif mode == 10904:
+		CATEGORIES10905(name, iconimage, desc)
+	elif mode == 10906:
+		CATEGORIES10906(name, iconimage, desc)
+	elif mode == 10907:
+		CATEGORIES10907(name, iconimage, desc)
+	elif mode == 10908:
+		CATEGORIES10908(name, iconimage, desc)
+	elif mode == 10909:
+		CATEGORIES10909(name, iconimage, desc)
+	elif mode == 10910:
+		CATEGORIES10910(name, iconimage, desc)
+	elif mode == 10911:
+		CATEGORIES10911(name, iconimage, desc)
+	elif mode == 10912:
+		CATEGORIES10912(name, iconimage, desc)
+	elif mode == 10913:
+		CATEGORIES10913(name, iconimage, desc)
+	elif mode == 10914:
+		CATEGORIES10914(name, iconimage, desc)
+	elif mode == 10915:
+		CATEGORIES10915(name, iconimage, desc)
+	elif mode == 10916:
+		CATEGORIES10916(name, iconimage, desc)
+	elif mode == 10917:
+		CATEGORIES10917(name, iconimage, desc)
+	elif mode == 10918:
+		CATEGORIES10918(name, iconimage, desc)
+	elif mode == 10919:
+		CATEGORIES10919(name, iconimage, desc)
+	elif mode == 10920:
+		CATEGORIES10920(name, iconimage, desc)
+	elif mode == 10921:
+		CATEGORIES10921(name, iconimage, desc)
+	elif mode == 10922:
+		CATEGORIES10922(name, iconimage, desc)
+	elif mode == 10923:
+		CATEGORIES10923(name, iconimage, desc)
+	elif mode == 10924:
+		CATEGORIES10924(name, iconimage, desc)
+	elif mode == 10925:
+		CATEGORIES10925(name, iconimage, desc)
+	elif mode == 10926:
+		CATEGORIES10926(name, iconimage, desc)
+	elif mode == 10927:
+		CATEGORIES10927(name, iconimage, desc)
+	elif mode == 10928:
+		CATEGORIES10928(name, iconimage, desc)
+	elif mode == 10929:
+		CATEGORIES10929(name, iconimage, desc)
+	elif mode == 10930:
+		CATEGORIES10930(name, iconimage, desc)
 		
 	else: notification("?","","",1000)
 	

@@ -296,7 +296,7 @@ def addonsettings2(addon,set1,set1v,set2,set2v,set3,set3v,set4,set4v,set5,set5v)
 		if checkChange == "true" and (admin3 or scripthtptinstall_Skin_Installed == "true"): print printfirst + "addonsettings2 " + addon + space + set1 + space2 + set1v + space + set2 + space2 + set2v + space + set3 + space2 + set3v + space + set4 + space2 + set4v + space + set5 + space2 + set5v + space
 		'''---------------------------'''
 
-def checkAddon_Update(admin, Addon_Update, Addon_Version, Addon_UpdateDate, Addon_UpdateLog, Addon_ShowLog, Addon_ShowLog2):
+def checkAddon_Update(admin, Addon_Update, Addon_Version, Addon_UpdateDate, Addon_UpdateLog, Addon_ShowLog, Addon_ShowLog2, VerReset=""):
 	from variables import addonVersion
 	admin2 = xbmc.getInfoLabel('Skin.HasSetting(Admin2)')
 	admin3 = xbmc.getInfoLabel('Skin.HasSetting(Admin3)')
@@ -315,7 +315,7 @@ def checkAddon_Update(admin, Addon_Update, Addon_Version, Addon_UpdateDate, Addo
 		'''------------------------------
 		---setAddon_Version---------------
 		------------------------------'''
-		Addon_Version = setAddon_Version(admin, addonVersion, Addon_Version)
+		Addon_Version = setAddon_Version(admin, addonVersion, Addon_Version, VerReset)
 		'''---------------------------'''
 		
 	if Addon_Update == "true" or Addon_UpdateDate == "":
@@ -345,7 +345,7 @@ def checkAddon_Update(admin, Addon_Update, Addon_Version, Addon_UpdateDate, Addo
 	'''------------------------------
 	---PRINT-END---------------------
 	------------------------------'''
-	if admin and not admin2 and admin3: print printfirst + "checkAddon_Update" + space2 + "Addon_Update" + space2 + Addon_Update + space + "Addon_Version" + space2 + Addon_Version + space + "addonVersion" + space2 + addonVersion + space + "Addon_UpdateDate" + space2 + Addon_UpdateDate + space + "Addon_UpdateLog" + space2 + Addon_UpdateLog
+	if admin and not admin2 and admin3 or Addon_Update == "true": print printfirst + "checkAddon_Update" + space2 + "Addon_Update" + space2 + Addon_Update + space + "Addon_Version" + space2 + Addon_Version + space + "addonVersion" + space2 + addonVersion + space + "Addon_UpdateDate" + space2 + Addon_UpdateDate + space + "Addon_UpdateLog" + space2 + Addon_UpdateLog
 	'''---------------------------'''
 				
 def setAddon_Update(admin, addonVersion, Addon_Version, Addon_Update):
@@ -371,7 +371,7 @@ def setAddon_Update(admin, addonVersion, Addon_Version, Addon_Update):
 	'''---------------------------'''	
 	return Addon_Update2
 
-def setAddon_Version(admin, addonVersion, Addon_Version):
+def setAddon_Version(admin, addonVersion, Addon_Version, VerReset=""):
 	'''------------------------------
 	---CHECK-FOR-ADDON-UPDATE-2------
 	------------------------------'''
@@ -380,12 +380,15 @@ def setAddon_Version(admin, addonVersion, Addon_Version):
 	if Addon_Version != addonVersion:
 		Addon_Version2 = addonVersion
 		setsetting('Addon_Version',Addon_Version2)
-		'''---------------------------'''	
+		if VerReset == "true":
+			x = os.path.join(addondata_path, addonID, 'settings.xml')
+			#removefiles(x)
+			'''---------------------------'''	
 		
 	'''------------------------------
 	---PRINT-END---------------------
 	------------------------------'''
-	if Addon_Version != addonVersion or admin and not admin2 and admin3: print printfirst + "setAddon_Version" + space2 + Addon_Version + " - " + Addon_Version2
+	if Addon_Version != addonVersion or admin and not admin2 and admin3 or VerReset == "true": print printfirst + "setAddon_Version" + space2 + Addon_Version + " - " + Addon_Version2 + space + 'VerReset' + space2 + str(VerReset)
 	'''---------------------------'''
 	return Addon_Version2
 		
@@ -2001,7 +2004,7 @@ def removeaddons(addons, custom):
 	print printfirst + "removeaddons" + space + "addons" + space2 + str(addons) + space + "custom" + space2 + custom + space + "output" + space2 + output + newline + output2
 	'''---------------------------'''
 
-def removefiles(path):
+def removefiles(path, filteroff=[]):
 	name = 'removefiles' ; printpoint = "" ; path1 = path[-1:] ; TypeError = "" ; extra = ""
 	if 1 + 1 == 2:
 		if "*" in path: path = path.replace("*","")
@@ -2009,15 +2012,19 @@ def removefiles(path):
 			import shutil
 			if os.path.isdir(path) == True or "\*" in path:
 				try:
+					if filteroff != []: error
 					shutil.rmtree(path)
 					printpoint = printpoint + "7"
 				except Exception, TypeError:
 					printpoint = printpoint + "5"
-					if 'The process cannot access the file because it is being used by another process' in TypeError:
+					if 'The process cannot access the file because it is being used by another process' in TypeError or "global name 'error' is not defined" in TypeError:
 						for file in os.listdir(path):
 							x = os.path.join(path, file)
-							try: removefiles(x)
-							except Exception, TypeError: extra = extra + newline + "TypeError" + space2 + str(TypeError)
+							#print x
+							if file in filteroff: print printfirst + name + space + 'Skip' + space + str(x)
+							else:
+								try: removefiles(x)
+								except Exception, TypeError: extra = extra + newline + "TypeError" + space2 + str(TypeError)
 					else: extra = extra + newline + "TypeError" + space2 + str(TypeError)
 			else:
 				os.remove(path)
