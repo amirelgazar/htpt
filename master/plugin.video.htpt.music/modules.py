@@ -217,6 +217,7 @@ def CATEGORIES101(admin):
 	'''עדן בן זקן'''
 	list = []
 	list.append('&youtube_pl=PL7xgp7CnQHVV0wx4TumlDId__ao64-Ikp')
+	list.append('&youtube_pl=PLO29z_00bBxWOXyaIaZbrEFizyXr-nxW7')
 	addDir(addonString(10146).encode('utf-8'),list,17,'http://img.mako.co.il/2015/05/28/EDENBENZAKEN_c.jpg',addonString(101460).encode('utf-8'),'1',"", getAddonFanart(background, custom=""))
 	
 	'''עידן רפאל חביב'''
