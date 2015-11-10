@@ -138,8 +138,8 @@ msgid ""
 msgstr "חינוכית"
 
 msgctxt "#50
-msgid ""
-msgstr ""
+msgid "Play varied %s kids contents."
+msgstr "נגן תכנים רבים לילדים בשפה ה%s."
 
 msgctxt "#51
 msgid ""
@@ -723,8 +723,8 @@ msgid "Russian"
 msgstr "רוסית"
 
 msgctxt "#206
-msgid ""
-msgstr ""
+msgid "Georgian"
+msgstr "גרוזינית"
 
 msgctxt "#207
 msgid ""

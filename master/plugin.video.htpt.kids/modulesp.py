@@ -737,9 +737,6 @@ def CATEGORIES109(admin):
 	'''קטנטנים בצרפתית 1'''
 	addDir(addonString(107).encode('utf-8') + space + "(" + addonString(204).encode('utf-8') + ")" + "1",'ssebastienn',9,'https://yt3.ggpht.com/-dhcbXAt2vto/AAAAAAAAAAI/AAAAAAAAAAA/hCIp6-YvL6w/s100-c-k-no/photo.jpg',addonString(188).encode('utf-8'),'1',"", getAddonFanart(background))
 	
-	'''שירים ברוסית 1'''
-	addDir(addonString(57).encode('utf-8') + space + "(" + addonString(205).encode('utf-8') + ")" + "1",['&youtube_pl=PLJgmMSdWwadtTK4JzHhl5N5YR49ZVcGTK'],17,'http://www.mapsofworld.com/images/world-countries-flags/russian-federation-flag.gif',addonString(110).encode('utf-8'),'1',"", getAddonFanart(background))
-	
 	'''ערוץ החיות באנגלית'''
 	addDir(addonString(65).encode('utf-8') + space + "(" + addonString(201).encode('utf-8') + ")",'UCS6hLNMMXi77SajUIvKGx5g',9,'http://yt3.ggpht.com/-9wTC-JCukjc/AAAAAAAAAAI/AAAAAAAAAAA/EqtzN1DW6HA/s88-c-k-no/photo.jpg',addonString(165).encode('utf-8'),'1',"", getAddonFanart(background))
 	
@@ -748,6 +745,27 @@ def CATEGORIES109(admin):
 	
 	'''רחוב סומסום באנגלית'''
 	addDir(addonString(62).encode('utf-8') + space + "(" + addonString(201).encode('utf-8') + ")",'UCoookXUzPciGrEZEXmh4Jjg',9,'http://yt3.ggpht.com/-Udx0C3ZTHUg/AAAAAAAAAAI/AAAAAAAAAAA/3BE1yYHQccs/s88-c-k-no/photo.jpg',addonString(162).encode('utf-8'),'1',"", getAddonFanart(background))
+	
+	'''גאורגית'''
+	list = []
+	list.append('&youtube_pl=PLvkYisBxjtXKQZ_XKVZ8wwb04U02HXUHA')
+	list.append('&youtube_pl=PL2ZqcRYMCUG4N46co3LUHk3V35sBlYqz5')
+	#list.append('&youtube_pl=')
+	addDir(addonString(206).encode('utf-8'),list,17,'http://www.krt.co.il/~belaw/media/georgia.png',addonString(50).encode('utf-8') % (addonString(206)),'1',"", getAddonFanart(background))
+	
+	'''צרפתית'''
+	list = []
+	list.append('&youtube_ch=ssebastienn')
+	#list.append('&youtube_pl=PL2ZqcRYMCUG4N46co3LUHk3V35sBlYqz5')
+	#list.append('&youtube_pl=')
+	addDir(addonString(204).encode('utf-8'),list,17,'http://www.mapsofworld.com/images/world-countries-flags/russian-federation-flag.gif',addonString(50).encode('utf-8') % (addonString(204)),'1',"", getAddonFanart(background))
+	
+	'''רוסית'''
+	list = []
+	list.append('&youtube_pl=PLJgmMSdWwadtTK4JzHhl5N5YR49ZVcGTK')
+	#list.append('&youtube_pl=PL2ZqcRYMCUG4N46co3LUHk3V35sBlYqz5')
+	#list.append('&youtube_pl=')
+	addDir(addonString(205).encode('utf-8'),list,17,'http://www.mapsofworld.com/images/world-countries-flags/russian-federation-flag.gif',addonString(50).encode('utf-8') % (addonString(205)),'1',"", getAddonFanart(background))
 	
 	'''יו-גאבה-גאבה באנגלית'''
 	addDir('יו-גאבה-גאבה באנגלית','UCxezak0GpjlCenFGbJ2mpog',9,'http://yt3.ggpht.com/-DCqlRFygCMs/AAAAAAAAAAI/AAAAAAAAAAA/OmWJ9YLZviE/s88-c-k-no/photo.jpg',addonString(160).encode('utf-8'),'1',"", getAddonFanart(background))
